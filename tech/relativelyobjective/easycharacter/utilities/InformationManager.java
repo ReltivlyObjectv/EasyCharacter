@@ -5,6 +5,15 @@ package tech.relativelyobjective.easycharacter.utilities;
  * @author ReltivlyObjectv
  */
 public class InformationManager {
+	private static Lists.LoreSet loreSet = Lists.LoreSet.DUNGEONS_AND_DRAGONS;
+
+	public static Lists.LoreSet getLoreSet() {
+		return loreSet;
+	}
+	public static void setLoreSet(Lists.LoreSet loreSet) {
+		InformationManager.loreSet = loreSet;
+		WindowManager.getRaceTab().updateRaceList();
+	}
 	public static String calculateStatModifierString(int value) {
 		int intVal = calculateStatModifier(value);
 		if (intVal < 0) {

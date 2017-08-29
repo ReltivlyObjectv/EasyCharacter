@@ -4,10 +4,14 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
+import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -82,6 +86,21 @@ public class MenuBar extends JMenuBar {
 			fileMenu.add(renderToFile);
 	}
 	private void initializeToolsMenu() {
+			JCheckBoxMenuItem dndLore = new JCheckBoxMenuItem("D&D Lore");
+			dndLore.setSelected(true);
+			JCheckBoxMenuItem tesLore = new JCheckBoxMenuItem("The Elder Scrolls Lore");
+			dndLore.addActionListener((ActionEvent e) -> {
+				InformationManager.setLoreSet(Lists.LoreSet.DUNGEONS_AND_DRAGONS);
+				dndLore.setSelected(true);
+				tesLore.setSelected(false);
+			});
+			toolsMenu.add(dndLore);
+			tesLore.addActionListener((ActionEvent e) -> {
+				InformationManager.setLoreSet(Lists.LoreSet.THE_ELDER_SCROLLS);
+				dndLore.setSelected(false);
+				tesLore.setSelected(true);
+			});
+			toolsMenu.add(tesLore);
 	}
 	private void initializeEditMenu() {
 	}
