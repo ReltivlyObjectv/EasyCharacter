@@ -12,6 +12,7 @@ public class WindowManager {
 	private static TabStats statsTab = null;
 	private static TabRace raceTab = null;
 	private static TabClass classTab = null;
+	private static TabBackground backgroundTab = null;
 	private static TabMisc miscTab = null;
 	public static FrameMain getMainFrame() {
 		if (frameMain == null) {
@@ -36,6 +37,12 @@ public class WindowManager {
 			classTab = new TabClass();
 		}
 		return classTab;
+	}
+	public static TabBackground getBackgroundTab() {
+		if (backgroundTab == null) {
+			backgroundTab = new TabBackground();
+		}
+		return backgroundTab;
 	}
 	public static TabMisc getMiscTab() {
 		if (miscTab == null) {

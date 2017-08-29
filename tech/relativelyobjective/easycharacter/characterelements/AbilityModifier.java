@@ -13,6 +13,10 @@ public class AbilityModifier implements CharacterElement {
 	public AbilityModifier() {
 		stats = new HashMap<>();
 	}
+	@Override
+	public void edit() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 	public void setModifier(Lists.Ability key, Integer value) {
 		stats.put(key, value);
 	}

@@ -18,6 +18,10 @@ public class SavingThrowProficiencies implements CharacterElement {
 	public SavingThrowProficiencies() {
 		savingThrowProficiencies = new HashMap<>();
 	}
+	@Override
+	public void edit() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 	public void setProficiencyMagnitude(Lists.Ability ability, Integer magnitude) {
 		savingThrowProficiencies.put(ability, magnitude);
 		if (magnitude <= 0) {

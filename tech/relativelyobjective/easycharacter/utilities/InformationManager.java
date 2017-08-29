@@ -1,12 +1,16 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
+import java.util.LinkedList;
+import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
+
 /**
  *
  * @author ReltivlyObjectv
  */
 public class InformationManager {
 	private static Lists.LoreSet loreSet = Lists.LoreSet.DUNGEONS_AND_DRAGONS;
-
+	public static final LinkedList<CharacterElement> raceElements = new LinkedList<>();
+	
 	public static Lists.LoreSet getLoreSet() {
 		return loreSet;
 	}

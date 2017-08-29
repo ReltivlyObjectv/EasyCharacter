@@ -18,6 +18,10 @@ public class SkillProficiencies implements CharacterElement {
 	public SkillProficiencies() {
 		skillProficiencies = new HashMap<>();
 	}
+	@Override
+	public void edit() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 	public void setProficiencyMagnitude(Lists.Skill skill, Integer magnitude) {
 		skillProficiencies.put(skill, magnitude);
 		if (magnitude <= 0) {
