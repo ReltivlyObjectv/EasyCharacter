@@ -11,7 +11,6 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
-import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
