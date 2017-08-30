@@ -2,6 +2,8 @@ package tech.relativelyobjective.easycharacter.pieces.tabs;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -58,18 +60,25 @@ public class TabRace extends JPanel {
 					return;
 			}
 			for (int i = 0; i < array.length; i++) {
-				JRadioButton button = new JRadioButton(Lists.getUserFriendlyRace(array[i]));
-				button.addItemListener((ItemEvent e) -> {
+				JRadioButton radioButton = new JRadioButton(Lists.getUserFriendlyRace(array[i]));
+				radios.put(radioButton, array[i]);
+				group.add(radioButton);
+				box.add(radioButton);
+				radioButton.addItemListener((ItemEvent e) -> {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
-						Race.setupRaceChoices(radios.get(button));
+						if (e.getSource() instanceof JRadioButton) {
+							if (radios.containsKey((JRadioButton) e.getSource())) {
+								Race.setupRaceChoices(radios.get((JRadioButton) e.getSource()));
+							}
+						}
 					}
 				});
-				radios.put(button, array[i]);
-				group.add(button);
-				box.add(button);
 			}
 			group.clearSelection();
 			InformationManager.raceElements.clear();
+			if (raceElements != null) {
+				raceElements.updateList();
+			}
 			super.add(box);
 			revalidate();
 		}
@@ -115,5 +124,8 @@ public class TabRace extends JPanel {
 	}
 	public void updateRaceList() {
 		raceChoice.updateList();
+	}
+	public void updateRaceElementsList() {
+		raceElements.updateList();
 	}
 }
