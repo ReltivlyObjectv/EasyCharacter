@@ -9,4 +9,8 @@ public class Feat extends TextElement {
 	public void editElement() {
 		openEditWindow("Feat");
 	}
+	@Override
+	public String toString() {
+		return "Feat: "+name;
+	}
 }

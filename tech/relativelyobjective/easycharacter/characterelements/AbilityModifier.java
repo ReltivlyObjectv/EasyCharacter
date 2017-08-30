@@ -6,7 +6,7 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  *
  * @author ReltivlyObjectv
  */
-public class AbilityModifier implements CharacterElement {
+public class AbilityModifier implements CharacterElement, Comparable {
 	public Lists.Ability ability;
 	public Integer modifier;
 	
@@ -14,8 +14,24 @@ public class AbilityModifier implements CharacterElement {
 		ability = null;
 		modifier = null;
 	}
+	public AbilityModifier(Lists.Ability ab, int mod) {
+		ability = ab;
+		modifier = mod;
+	}
 	@Override
 	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	@Override
+	public String toString() {
+		return String.format("Ability Modifier: %s%d %s",
+			modifier < 0 ? "" : "+",
+			modifier,
+			ability
+			);
+	}
+	@Override
+	public int compareTo(Object o) {
+		return toString().compareTo(o.toString());
 	}
 }

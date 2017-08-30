@@ -6,7 +6,7 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  *
  * @author ReltivlyObjectv
  */
-public class SkillProficiency implements CharacterElement {
+public class SkillProficiency implements CharacterElement,Comparable {
 	public Lists.Skill skill;
 	private Integer proficiencyMagnitude;
 	/*
@@ -21,6 +21,10 @@ public class SkillProficiency implements CharacterElement {
 	@Override
 	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	@Override
+	public int compareTo(Object o) {
+		return toString().compareTo(o.toString());
 	}
 	public void setProficiencyMagnitude(Integer magnitude) {
 		proficiencyMagnitude = magnitude;

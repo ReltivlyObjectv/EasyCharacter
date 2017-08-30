@@ -4,7 +4,7 @@ package tech.relativelyobjective.easycharacter.characterelements;
  *
  * @author ReltivlyObjectv
  */
-public class Language implements CharacterElement {
+public class Language implements CharacterElement,Comparable {
 	public String lang;
 
 	public Language() {
@@ -20,5 +20,9 @@ public class Language implements CharacterElement {
 	@Override
 	public String toString() {
 		return "Language: "+lang;
+	}
+	@Override
+	public int compareTo(Object o) {
+		return toString().compareTo(o.toString());
 	}
 }

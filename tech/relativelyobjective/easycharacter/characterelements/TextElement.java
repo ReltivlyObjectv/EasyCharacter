@@ -18,8 +18,8 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
  *
  * @author ReltivlyObjectv
  */
-class TextElement implements CharacterElement {
-	private String name, description;
+class TextElement implements CharacterElement,Comparable {
+	protected String name, description;
 
 	public void editElement() {
 		openEditWindow("Generic Element");
@@ -71,6 +71,10 @@ class TextElement implements CharacterElement {
 	@Override
 	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	@Override
+	public int compareTo(Object o) {
+		return toString().compareTo(o.toString());
 	}
 	@Override
 	public String toString() {

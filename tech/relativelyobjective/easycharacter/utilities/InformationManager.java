@@ -1,6 +1,6 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
-import java.util.LinkedList;
+import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
 
@@ -10,7 +10,7 @@ import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
  */
 public class InformationManager {
 	private static Lists.LoreSet loreSet = Lists.LoreSet.DUNGEONS_AND_DRAGONS;
-	public static final LinkedList<CharacterElement> raceElements = new LinkedList<>();
+	public static final TreeSet<CharacterElement> raceElements = new TreeSet<>();
 	public static Race selectedRace = null;
 	
 	public static Lists.LoreSet getLoreSet() {
