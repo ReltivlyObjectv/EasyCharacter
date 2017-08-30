@@ -6,12 +6,12 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  *
  * @author ReltivlyObjectv
  */
-public class AbilityModifier implements CharacterElement {
-	public Lists.Ability ability;
-	public Integer modifier;
+public class DamageModifier implements CharacterElement {
+	public Lists.DamageType type;
+	public Lists.DamageMod modifier;
 	
-	public AbilityModifier() {
-		ability = null;
+	public DamageModifier() {
+		type = null;
 		modifier = null;
 	}
 	@Override

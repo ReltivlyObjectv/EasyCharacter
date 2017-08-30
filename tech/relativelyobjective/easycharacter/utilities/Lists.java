@@ -220,4 +220,29 @@ public class Lists {
 				return null;
 		}
 	}
+	public enum ModifierType {
+		CONDITION,
+		DAMAGE
+	}
+	public enum DamageMod {
+		IMMUNE,
+		RESISTANT,
+		VULNERABLE,
+		UNMODIFIED
+	}
+	public enum DamageType {
+		ACID,
+		BLUDGEONING,
+		COLD,
+		FIRE,
+		FORCE,
+		LIGHTNING,
+		NECROTIC,
+		PIERCING,
+		POISON,
+		PSYCHIC,
+		RADIANT,
+		SLASHING,
+		THUNDER
+	}
 }
