@@ -245,6 +245,25 @@ public class Lists {
 		"Slashing",
 		"Thunder"
 	};
+	public enum Conditions {
+		BLINDED,
+		CHARMED,
+		DEAFENED,
+		DISEASED,
+		EXHAUSTED,
+		FATIGUED,
+		FRIGHTENED,
+		GRAPPLED,
+		INCAPACITATED,
+		INVISIBLE,
+		PARALYZED,
+		PETRIFIED,
+		POISONED,
+		PRONE,
+		RESTRAINED,
+		STUNNED,
+		UNCONSCIOUS
+	}
 	public static final String[] LANGUAGESTES = {
 		"Altmeris",
 		"Ayleidoon",

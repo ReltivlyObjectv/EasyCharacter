@@ -22,6 +22,8 @@ public class CharacterElementList {
 	public void addCharacterElement(CharacterElement e) {
 		if (e instanceof AbilityModifier) {
 			addCharacterElement((AbilityModifier) e);
+		} else if (e instanceof ConditionModifier) {
+			addCharacterElement((ConditionModifier) e);
 		} else if (e instanceof DamageModifier) {
 			addCharacterElement((DamageModifier) e);
 		} else if (e instanceof Darkvision) {
@@ -34,6 +36,8 @@ public class CharacterElementList {
 			addCharacterElement((Language) e);
 		} else if (e instanceof OtherProficiency) {
 			addCharacterElement((OtherProficiency) e);
+		} else if (e instanceof OtherEffect) {
+			addCharacterElement((OtherEffect) e);
 		} else if (e instanceof SavingThrowProficiency) {
 			addCharacterElement((SavingThrowProficiency) e);
 		} else if (e instanceof SkillProficiency) {
@@ -55,6 +59,44 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(ab);
+	}
+	public void addCharacterElement(ConditionModifier newModifier) {
+		for (CharacterElement c : characterElements) {
+			if (c instanceof ConditionModifier) {
+				ConditionModifier existingModifier = (ConditionModifier) c;
+				if (existingModifier.type.equals(newModifier.type)) {
+					if (existingModifier.modifier == Lists.DamageMod.IMMUNE || 
+						newModifier.modifier == Lists.DamageMod.IMMUNE) {
+						//Immune cannot be overwritten
+						existingModifier.modifier = Lists.DamageMod.IMMUNE;
+					} else if (existingModifier.modifier == Lists.DamageMod.UNMODIFIED &&
+						newModifier.modifier != Lists.DamageMod.UNMODIFIED) {
+						//Overwrite unmodified
+						existingModifier.modifier = newModifier.modifier;
+					} else if (newModifier.modifier == Lists.DamageMod.UNMODIFIED) {
+						//Adding a neutral modifier -- Do nothing
+					} else if (existingModifier.modifier == Lists.DamageMod.RESISTANT &&
+						existingModifier.modifier == Lists.DamageMod.VULNERABLE
+						) {
+						//Cancelled effects
+						characterElements.remove(existingModifier);
+					} else if (existingModifier.modifier == Lists.DamageMod.VULNERABLE &&
+						existingModifier.modifier == Lists.DamageMod.RESISTANT
+						) {
+						//Cancelled effects
+						characterElements.remove(existingModifier);
+					} else if (existingModifier.modifier.equals(newModifier.modifier)) {
+						//No change
+					}
+					return;
+				}
+			}
+		}
+		if (newModifier.modifier == Lists.DamageMod.UNMODIFIED) {
+			//Don't want to add a new modifier that does nothing
+			return;
+		}
+		characterElements.add(newModifier);
 	}
 	public void addCharacterElement(DamageModifier newModifier) {
 		for (CharacterElement c : characterElements) {
@@ -142,6 +184,18 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newLanguage);
+	}
+	public void addCharacterElement(OtherEffect newEffect) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof OtherEffect) {
+				OtherEffect existingLanguage = (OtherEffect) e;
+				if (existingLanguage.effect.equals(newEffect.effect)) {
+					//Character already has effect
+					return;
+				}
+			}
+		}
+		characterElements.add(newEffect);
 	}
 	public void addCharacterElement(OtherProficiency newProficiency) {
 		for (CharacterElement e : characterElements) {
