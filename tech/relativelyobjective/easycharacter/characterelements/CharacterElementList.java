@@ -20,7 +20,25 @@ public class CharacterElementList {
 		return new TreeSet<>(characterElements);
 	}
 	public void addCharacterElement(CharacterElement e) {
-		//TODO sort through to find the right function
+		if (e instanceof AbilityModifier) {
+			addCharacterElement((AbilityModifier) e);
+		} else if (e instanceof DamageModifier) {
+			addCharacterElement((DamageModifier) e);
+		} else if (e instanceof Feat) {
+			addCharacterElement((Feat) e);
+		} else if (e instanceof Feature) {
+			addCharacterElement((Feature) e);
+		} else if (e instanceof Language) {
+			addCharacterElement((Language) e);
+		} else if (e instanceof SavingThrowProficiency) {
+			addCharacterElement((SavingThrowProficiency) e);
+		} else if (e instanceof SkillProficiency) {
+			addCharacterElement((SkillProficiency) e);
+		} else if (e instanceof TextElement) {
+			addCharacterElement((TextElement) e);
+		} else {
+			throw new UnsupportedOperationException("Not a supported type.");
+		}
 	}
 	public void addCharacterElement(AbilityModifier ab) {
 		for (CharacterElement c : characterElements) {
@@ -47,10 +65,8 @@ public class CharacterElementList {
 						newModifier.modifier != Lists.DamageMod.UNMODIFIED) {
 						//Overwrite unmodified
 						existingModifier.modifier = newModifier.modifier;
-					} else if (existingModifier.modifier != Lists.DamageMod.UNMODIFIED &&
-						newModifier.modifier == Lists.DamageMod.UNMODIFIED) {
-						//Remove modifier == set to unmodified
-						characterElements.remove(existingModifier);
+					} else if (newModifier.modifier == Lists.DamageMod.UNMODIFIED) {
+						//Adding a neutral modifier -- Do nothing
 					} else if (existingModifier.modifier == Lists.DamageMod.RESISTANT &&
 						existingModifier.modifier == Lists.DamageMod.VULNERABLE
 						) {
@@ -63,7 +79,6 @@ public class CharacterElementList {
 						characterElements.remove(existingModifier);
 					} else if (existingModifier.modifier.equals(newModifier.modifier)) {
 						//No change
-						return;
 					}
 					return;
 				}
@@ -76,15 +91,35 @@ public class CharacterElementList {
 		characterElements.add(newModifier);
 	}
 	public void addCharacterElement(Feat newFeat) {
-		//TODO
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Feat) {
+				Feat oldFeat = (Feat) e;
+				if (oldFeat.name.equals(newFeat.name)) {
+					//Adjust description of same feat
+					oldFeat.description = newFeat.description;
+					return;
+				}
+			}
+		}
+		characterElements.add(newFeat);
 	}
 	public void addCharacterElement(Feature newFeature) {
-		//TODO
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Feature) {
+				Feature oldFeature = (Feature) e;
+				if (oldFeature.name.equals(newFeature.name)) {
+					//Adjust description of same feature
+					oldFeature.description = newFeature.description;
+					return;
+				}
+			}
+		}
+		characterElements.add(newFeature);
 	}
 	public void addCharacterElement(Language newLanguage) {
-		for (CharacterElement c : characterElements) {
-			if (c instanceof Language) {
-				Language existingLanguage = (Language) c;
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Language) {
+				Language existingLanguage = (Language) e;
 				if (existingLanguage.lang.equals(newLanguage.lang)) {
 					//Character already knows language
 					return;
@@ -94,9 +129,33 @@ public class CharacterElementList {
 		characterElements.add(newLanguage);
 	}
 	public void addCharacterElement(SavingThrowProficiency newProficiency) {
-		//TODO
+		for (CharacterElement e : characterElements) {
+			if (e instanceof SavingThrowProficiency) {
+				SavingThrowProficiency oldProficiency = (SavingThrowProficiency) e;
+				if (newProficiency.ability.equals(oldProficiency.ability)) {
+					//Use the larger magnitude, but do not make them stack
+					if (newProficiency.getProficiencyMagnitude() > oldProficiency.getProficiencyMagnitude()) {
+						oldProficiency.setProficiencyMagnitude(newProficiency.getProficiencyMagnitude());
+					}
+					return;
+				}
+			}
+		}
+		characterElements.add(newProficiency);
 	}
 	public void addCharacterElement(SkillProficiency newProficiency) {
-		//TODO
+		for (CharacterElement e : characterElements) {
+			if (e instanceof SkillProficiency) {
+				SkillProficiency oldProficiency = (SkillProficiency) e;
+				if (newProficiency.skill.equals(oldProficiency.skill)) {
+					//Use the larger magnitude, but do not make them stack
+					if (newProficiency.getProficiencyMagnitude() > oldProficiency.getProficiencyMagnitude()) {
+						oldProficiency.setProficiencyMagnitude(newProficiency.getProficiencyMagnitude());
+					}
+					return;
+				}
+			}
+		}
+		characterElements.add(newProficiency);
 	}
 }

@@ -63,6 +63,7 @@ public class Altmer {
 				InformationManager.addRaceElement(
 					new AbilityModifier((Lists.Ability) choice.getSelectedItem(),1)
 				);
+				WindowManager.getRaceTab().updateRaceElementsList();
 				prompt.dispose();
 			}
 		});

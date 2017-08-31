@@ -38,15 +38,23 @@ public class InformationManager {
 			return (value / 2)-5;
 		}
 	}
+	public static String capitalizeFirstLetter(Object o) {
+		String s = o.toString();
+		if (s == null) {
+			return null;
+		} else if (s.length() < 2) {
+			return s.toUpperCase();
+		} else {
+			return s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase();
+		}
+	}
 	public static TreeSet<CharacterElement> getRaceElements() {
 		return RaceElements.getCharacterElements();
 	}
 	public static void addRaceElement(CharacterElement e) {
 		RaceElements.addCharacterElement(e);
-		WindowManager.getRaceTab().updateRaceElementsList();
 	}
 	public static void resetRaceElements() {
 		RaceElements.resetCharacterElements();
-		WindowManager.getRaceTab().updateRaceElementsList();
 	}
 }

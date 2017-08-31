@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
 /**
@@ -24,7 +25,9 @@ public class DamageModifier implements CharacterElement,Comparable {
 	}
 	@Override
 	public String toString() {
-		return "Damage Modifier: "+modifier+" to "+type;
+		return "Damage Modifier: "+InformationManager.capitalizeFirstLetter(modifier)
+			+" to "
+			+InformationManager.capitalizeFirstLetter(type);
 	}
 	@Override
 	public int compareTo(Object o) {

@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
 /**
@@ -27,7 +28,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 		return String.format("Ability Modifier: %s%d %s",
 			modifier < 0 ? "" : "+",
 			modifier,
-			ability
+			InformationManager.capitalizeFirstLetter(ability)
 			);
 	}
 	@Override

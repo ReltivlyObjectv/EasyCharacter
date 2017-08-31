@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
 /**
@@ -25,6 +26,10 @@ public class SkillProficiency implements CharacterElement,Comparable {
 	@Override
 	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+	@Override
+	public String toString() {
+		return "Skill Proficiency: "+InformationManager.capitalizeFirstLetter(skill);
 	}
 	@Override
 	public int compareTo(Object o) {

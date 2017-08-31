@@ -23,6 +23,10 @@ public class SavingThrowProficiency implements CharacterElement,Comparable {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	@Override
+	public String toString() {
+		return "Saving Throw Proficiency: "+ability;
+	}
+	@Override
 	public int compareTo(Object o) {
 		return toString().compareTo(o.toString());
 	}
