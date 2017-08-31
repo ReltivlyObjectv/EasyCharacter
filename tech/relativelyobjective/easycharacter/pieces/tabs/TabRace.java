@@ -74,7 +74,7 @@ public class TabRace extends JPanel {
 				});
 			}
 			group.clearSelection();
-			InformationManager.resetRaceElements();
+			InformationManager.RaceElements.resetCharacterElements();
 			if (raceElements != null) {
 				raceElements.updateList();
 			}
@@ -109,7 +109,7 @@ public class TabRace extends JPanel {
 			super.add(scroller, BorderLayout.CENTER);
 		}
 		public void updateList() {
-			list.setListData(InformationManager.getRaceElements().toArray());
+			list.setListData(InformationManager.RaceElements.getCharacterElements().toArray());
 		}
 	}
 	public TabRace() {
