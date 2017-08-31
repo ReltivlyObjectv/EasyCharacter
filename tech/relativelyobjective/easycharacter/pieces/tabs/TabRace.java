@@ -2,6 +2,7 @@ package tech.relativelyobjective.easycharacter.pieces.tabs;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -120,6 +122,13 @@ public class TabRace extends JPanel {
 		raceElements.updateList();
 		super.add(raceChoice, BorderLayout.WEST);
 		super.add(raceElements, BorderLayout.CENTER);
+		JButton resetButton = new JButton("Deselect Race");
+		resetButton.addActionListener((ActionEvent e)->{
+			raceChoice.group.clearSelection();
+			InformationManager.resetRaceElements();
+			raceElements.updateList();
+		});
+		super.add(resetButton, BorderLayout.PAGE_END);
 	}
 	public void updateRaceList() {
 		raceChoice.updateList();
