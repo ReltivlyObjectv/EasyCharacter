@@ -33,7 +33,7 @@ public class Altmer {
 		openPrompt();
 	}
 	private static void openPrompt() {
-		//Add choice to add one additional ability point
+		//Choice to add one additional ability point
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), "Altmer Ability Bonus", true);
 		prompt.setPreferredSize(new Dimension(500,100));
 		prompt.setSize(prompt.getPreferredSize());
