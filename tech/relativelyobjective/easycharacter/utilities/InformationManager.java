@@ -38,7 +38,7 @@ public class InformationManager {
 			return (value / 2)-5;
 		}
 	}
-	public static String capitalizeFirstLetter(Object o) {
+	public static String capitalizeFirstLetterOnly(Object o) {
 		String s = o.toString();
 		if (s == null) {
 			return null;
