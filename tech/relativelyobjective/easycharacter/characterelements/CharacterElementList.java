@@ -19,6 +19,9 @@ public class CharacterElementList {
 	public TreeSet<CharacterElement> getCharacterElements() {
 		return new TreeSet<>(characterElements);
 	}
+	public void addCharacterElement(CharacterElement e) {
+		//TODO sort through to find the right function
+	}
 	public void addCharacterElement(AbilityModifier ab) {
 		for (CharacterElement c : characterElements) {
 			if (c instanceof AbilityModifier) {

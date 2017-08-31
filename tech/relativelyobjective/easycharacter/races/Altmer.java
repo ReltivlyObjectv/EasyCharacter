@@ -20,13 +20,13 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
  */
 public class Altmer {
 	public static void setup() {
-		InformationManager.RaceElements.resetCharacterElements();
-		InformationManager.RaceElements.addCharacterElement(new Language("Common"));
-		InformationManager.RaceElements.addCharacterElement(new Language("High Elvish"));
-		InformationManager.RaceElements.addCharacterElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,1));
-		InformationManager.RaceElements.addCharacterElement(new AbilityModifier(Lists.Ability.WISDOM,1));
-		InformationManager.RaceElements.addCharacterElement(new SkillProficiency(Lists.Skill.ARCANA, 1));
-		InformationManager.RaceElements.addCharacterElement(new DamageModifier(
+		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new Language("Common"));
+		InformationManager.addRaceElement(new Language("High Elvish"));
+		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,1));
+		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.WISDOM,1));
+		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.ARCANA, 1));
+		InformationManager.addRaceElement(new DamageModifier(
 			Lists.DamageType.LIGHTNING, Lists.DamageMod.VULNERABLE)
 		);
 		WindowManager.getRaceTab().updateRaceElementsList();
@@ -60,7 +60,7 @@ public class Altmer {
 		JButton saveButton = new JButton("Add Modifier");
 		saveButton.addActionListener((ActionEvent e)->{
 			if (choice.getSelectedItem() != null) {
-				InformationManager.RaceElements.addCharacterElement(
+				InformationManager.addRaceElement(
 					new AbilityModifier((Lists.Ability) choice.getSelectedItem(),1)
 				);
 				prompt.dispose();
