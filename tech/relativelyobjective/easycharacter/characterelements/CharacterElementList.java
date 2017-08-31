@@ -111,8 +111,7 @@ public class CharacterElementList {
 			if (e instanceof Feat) {
 				Feat oldFeat = (Feat) e;
 				if (oldFeat.name.equals(newFeat.name)) {
-					//Adjust description of same feat
-					oldFeat.description = newFeat.description;
+					//Do not add the same feat twice
 					return;
 				}
 			}

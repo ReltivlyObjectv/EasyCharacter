@@ -21,25 +21,7 @@ public class Orsimer {
 		InformationManager.addRaceElement(new Language("Orcish"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.STRENGTH,1));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,2));
-		Feat fellHanded = new Feat();
-		fellHanded.setName("Fell Handed");
-		fellHanded.setDescription(
-			"You master the handaxe, battleaxe, greataxe, warhammer, and maul. "+
-			"You gain the following benefits when using any of them:\n"+
-			"* You gain a +1 bonus to attack rolls you make with the weapon.\n"+
-			"* Whenever you have advantage on a melee attack roll you make "+
-			"with the weapon and hit, you can knock the target prone if the "+
-			"lower of the two d20 rolls would also hit the target.\n"+
-			"* Whenever you have disadvantage on a melee attack roll you make "+
-			"with the weapon, the target takes bludgeoning damage equal to your "+
-			"Strength modifier (minimum of 0) if the attack misses but the higher "+
-			"of the two d20 rolls would have hit.\n"+
-			"* If you use the Help action to aid an ally’s melee attack while "+
-			"you’re wielding the weapon, you knock the target’s shield aside "+
-			"momentarily. In addition to the ally gaining advantage on the "+
-			"attack roll, the ally gains a +2 bonus to the roll if the target "+
-			"is using a shield."
-		);
+		Feat fellHanded = new Feat("Fell Handed");
 		InformationManager.addRaceElement(fellHanded);
 		Feature berserk = new Feature();
 		berserk.setName("Berserk");
