@@ -118,15 +118,11 @@ public class Lists {
 	}
 	public enum Race {
 		DRAGONBORN,
-		DWARF_HILL,
-		DWARF_MOUNTAIN,
-		ELF_DARK,
-		ELF_HIGH,
-		ELF_WOOD,
+		DWARF,
+		ELF,
 		HALFLING,
 		HUMAN,
-		GNOME_FOREST,
-		GNOME_ROCK,
+		GNOME,
 		HALF_ELF,
 		HALF_ORC,
 		TIEFLING,
@@ -143,15 +139,11 @@ public class Lists {
 	}
 	public static final Race[] RacesDND = {
 		Race.DRAGONBORN,
-		Race.DWARF_HILL,
-		Race.DWARF_MOUNTAIN,
-		Race.ELF_DARK,
-		Race.ELF_HIGH,
-		Race.ELF_WOOD,
+		Race.DWARF,
+		Race.ELF,
 		Race.HALFLING,
 		Race.HUMAN,
-		Race.GNOME_FOREST,
-		Race.GNOME_ROCK,
+		Race.GNOME,
 		Race.HALF_ELF,
 		Race.HALF_ORC,
 		Race.TIEFLING
@@ -172,24 +164,16 @@ public class Lists {
 		switch (r) {
 			case DRAGONBORN:
 				return "Dragonborn";
-			case DWARF_HILL:
-				return "Dwarf, Hill";
-			case DWARF_MOUNTAIN:
-				return "Dwarf, Mountain";
-			case ELF_DARK:
-				return "Elf, Dark (Drow)";
-			case ELF_HIGH:
-				return "Elf, High";
-			case ELF_WOOD:
-				return "Elf, Wood";
+			case DWARF:
+				return "Dwarf";
+			case ELF:
+				return "Elf";
 			case HALFLING:
 				return "Halfling";
 			case HUMAN:
 				return "Human";
-			case GNOME_FOREST:
-				return "Gnome, Forest";
-			case GNOME_ROCK:
-				return "Gnome, Rock";
+			case GNOME:
+				return "Gnome";
 			case HALF_ELF:
 				return "Half-Elf";
 			case HALF_ORC:

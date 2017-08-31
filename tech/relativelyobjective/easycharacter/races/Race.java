@@ -29,26 +29,14 @@ public class Race {
 			case DUNMER:
 				Dunmer.setup();
 				break;
-			case DWARF_HILL:
-				DwarfHill.setup();
+			case DWARF:
+				Dwarf.setup();
 				break;
-			case DWARF_MOUNTAIN:
-				DwarfMountain.setup();
+			case ELF:
+				Elf.setup();
 				break;
-			case ELF_DARK:
-				ElfDark.setup();
-				break;
-			case ELF_HIGH:
-				ElfHigh.setup();
-				break;
-			case ELF_WOOD:
-				ElfWood.setup();
-				break;
-			case GNOME_FOREST:
-				GnomeForest.setup();
-				break;
-			case GNOME_ROCK:
-				GnomeRock.setup();
+			case GNOME:
+				Gnome.setup();
 				break;
 			case HALF_ELF:
 				HalfElf.setup();
