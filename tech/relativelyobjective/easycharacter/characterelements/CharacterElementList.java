@@ -56,7 +56,7 @@ public class CharacterElementList {
 		for (CharacterElement c : characterElements) {
 			if (c instanceof DamageModifier) {
 				DamageModifier existingModifier = (DamageModifier) c;
-				if (existingModifier.type.equals(existingModifier.type)) {
+				if (existingModifier.type.equals(newModifier.type)) {
 					if (existingModifier.modifier == Lists.DamageMod.IMMUNE || 
 						newModifier.modifier == Lists.DamageMod.IMMUNE) {
 						//Immune cannot be overwritten
