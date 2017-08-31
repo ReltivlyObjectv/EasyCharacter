@@ -6,12 +6,14 @@ package tech.relativelyobjective.easycharacter.characterelements;
  */
 public class OtherProficiency implements CharacterElement,Comparable {
 	public String prof;
+	private Integer proficiencyMagnitude;
 
 	public OtherProficiency() {
 		prof = "New Language";
 	}
-	public OtherProficiency(String p) {
+	public OtherProficiency(String p, int mag) {
 		prof = p;
+		proficiencyMagnitude = mag;
 	}
 	@Override
 	public void edit() {
@@ -24,5 +26,14 @@ public class OtherProficiency implements CharacterElement,Comparable {
 	@Override
 	public int compareTo(Object o) {
 		return toString().compareTo(o.toString());
+	}
+	public void setProficiencyMagnitude(Integer magnitude) {
+		proficiencyMagnitude = magnitude;
+		if (magnitude <= 0) {
+			proficiencyMagnitude = 0;
+		}
+	}
+	public int getProficiencyMagnitude() {
+		return proficiencyMagnitude;
 	}
 }

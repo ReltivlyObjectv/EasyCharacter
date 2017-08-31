@@ -36,6 +36,8 @@ public class CharacterElementList {
 			addCharacterElement((SkillProficiency) e);
 		} else if (e instanceof TextElement) {
 			addCharacterElement((TextElement) e);
+		} else if (e instanceof OtherProficiency) {
+			addCharacterElement((OtherProficiency) e);
 		} else {
 			throw new UnsupportedOperationException("Not a supported type.");
 		}
@@ -131,9 +133,12 @@ public class CharacterElementList {
 	public void addCharacterElement(OtherProficiency newProficiency) {
 		for (CharacterElement e : characterElements) {
 			if (e instanceof OtherProficiency) {
-				OtherProficiency existingProficiency = (OtherProficiency) e;
-				if (existingProficiency.prof.equals(newProficiency.prof)) {
-					//Character already has proficiency
+				OtherProficiency oldProficiency = (OtherProficiency) e;
+				if (newProficiency.prof.equals(oldProficiency.prof)) {
+					//Use the larger magnitude, but do not make them stack
+					if (newProficiency.getProficiencyMagnitude() > oldProficiency.getProficiencyMagnitude()) {
+						oldProficiency.setProficiencyMagnitude(newProficiency.getProficiencyMagnitude());
+					}
 					return;
 				}
 			}
