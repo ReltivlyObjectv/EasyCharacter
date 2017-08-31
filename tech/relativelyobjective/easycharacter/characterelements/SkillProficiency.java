@@ -18,6 +18,10 @@ public class SkillProficiency implements CharacterElement,Comparable {
 		skill = null;
 		proficiencyMagnitude = null;
 	}
+	public SkillProficiency(Lists.Skill s, int profMag) {
+		skill = s;
+		proficiencyMagnitude = profMag;
+	}
 	@Override
 	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

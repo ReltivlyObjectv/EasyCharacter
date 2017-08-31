@@ -14,12 +14,21 @@ public class DamageModifier implements CharacterElement,Comparable {
 		type = null;
 		modifier = null;
 	}
+	public DamageModifier(Lists.DamageType t, Lists.DamageMod mod) {
+		type = t;
+		modifier = mod;
+	}
 	@Override
 	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	@Override
+	public String toString() {
+		return "Damage Modifier: "+modifier+" to "+type;
+	}
+	@Override
 	public int compareTo(Object o) {
 		return toString().compareTo(o.toString());
 	}
+	
 }

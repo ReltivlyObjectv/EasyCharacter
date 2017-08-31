@@ -2,8 +2,6 @@ package tech.relativelyobjective.easycharacter.pieces.tabs;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -30,6 +28,7 @@ public class TabRace extends JPanel {
 	private final RaceElements raceElements;
 	
 	public class RaceChoice extends JPanel {
+		//TODO add setup button instead of change listener?
 		private final Map<JRadioButton, Lists.Race> radios;
 		private ButtonGroup group;
 		private Box box;
@@ -75,7 +74,7 @@ public class TabRace extends JPanel {
 				});
 			}
 			group.clearSelection();
-			InformationManager.raceElements.clear();
+			InformationManager.resetRaceElements();
 			if (raceElements != null) {
 				raceElements.updateList();
 			}
@@ -110,7 +109,7 @@ public class TabRace extends JPanel {
 			super.add(scroller, BorderLayout.CENTER);
 		}
 		public void updateList() {
-			list.setListData(InformationManager.raceElements.toArray());
+			list.setListData(InformationManager.getRaceElements().toArray());
 		}
 	}
 	public TabRace() {
