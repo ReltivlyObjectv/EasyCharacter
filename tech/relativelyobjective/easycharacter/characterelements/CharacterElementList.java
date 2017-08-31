@@ -24,20 +24,22 @@ public class CharacterElementList {
 			addCharacterElement((AbilityModifier) e);
 		} else if (e instanceof DamageModifier) {
 			addCharacterElement((DamageModifier) e);
+		} else if (e instanceof Darkvision) {
+			addCharacterElement((Darkvision) e);
 		} else if (e instanceof Feat) {
 			addCharacterElement((Feat) e);
 		} else if (e instanceof Feature) {
 			addCharacterElement((Feature) e);
 		} else if (e instanceof Language) {
 			addCharacterElement((Language) e);
+		} else if (e instanceof OtherProficiency) {
+			addCharacterElement((OtherProficiency) e);
 		} else if (e instanceof SavingThrowProficiency) {
 			addCharacterElement((SavingThrowProficiency) e);
 		} else if (e instanceof SkillProficiency) {
 			addCharacterElement((SkillProficiency) e);
 		} else if (e instanceof TextElement) {
 			addCharacterElement((TextElement) e);
-		} else if (e instanceof OtherProficiency) {
-			addCharacterElement((OtherProficiency) e);
 		} else {
 			throw new UnsupportedOperationException("Not a supported type.");
 		}
@@ -91,6 +93,18 @@ public class CharacterElementList {
 			return;
 		}
 		characterElements.add(newModifier);
+	}
+	public void addCharacterElement(Darkvision newDV) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Darkvision) {
+				Darkvision oldDV = (Darkvision) e;
+				oldDV.distance = newDV.distance > oldDV.distance 
+					? newDV.distance 
+					: oldDV.distance;
+				return;
+			}
+		}
+		characterElements.add(newDV);
 	}
 	public void addCharacterElement(Feat newFeat) {
 		for (CharacterElement e : characterElements) {
