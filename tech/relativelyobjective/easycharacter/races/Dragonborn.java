@@ -160,14 +160,14 @@ public class Dragonborn {
 					"destructive energy. Your draconic ancestry determines the "+
 					"size, shape, and damage type of the exhalation. "+
 					"When you use your breath weapon, each creature in the area "+
-					"of the exhalation must make a saving throw. the type of "+
+					"of the exhalation must make a saving throw. The type of "+
 					"which is determined by your draconic ancestry. The DC for "+
 					"this saving throw equals 8 + your Constitution modifier + "+
 					"your proficiency bonus. A creature takes 2d6 damage on a "+
 					"failed save, and half as much damage on a successful one. "+
 					"The damage increases to 3d6 at 6th level. 4d6 at 11th level, "+
 					"and 5d6 at 16th level. You have %s ancestry, which makes your "+
-					"a %s that deals %s damage",
+					"breath weapon a %s that deals %s damage.",
 					InformationManager.capitalizeFirstLetterOfWords(
 						choice.getSelectedItem().toString()),
 					BREATH_WEAPONS[arrayPos],
