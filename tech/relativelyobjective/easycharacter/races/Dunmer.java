@@ -20,7 +20,7 @@ public class Dunmer {
 		InformationManager.addRaceElement(new Language("Cyrodilic"));
 		InformationManager.addRaceElement(new Language("Dunmeris"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
-		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,2));
+		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,1));
 		InformationManager.addRaceElement(new DamageModifier("Fire", Lists.DamageMod.RESISTANT));
 		Feature ancestorGuardian = new Feature();
 		ancestorGuardian.setName("Ancestor Guardian");
