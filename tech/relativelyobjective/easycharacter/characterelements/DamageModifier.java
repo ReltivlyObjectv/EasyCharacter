@@ -8,14 +8,14 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  * @author ReltivlyObjectv
  */
 public class DamageModifier implements CharacterElement,Comparable {
-	public Lists.DamageType type;
+	public String type;
 	public Lists.DamageMod modifier;
 	
 	public DamageModifier() {
 		type = null;
 		modifier = null;
 	}
-	public DamageModifier(Lists.DamageType t, Lists.DamageMod mod) {
+	public DamageModifier(String t, Lists.DamageMod mod) {
 		type = t;
 		modifier = mod;
 	}

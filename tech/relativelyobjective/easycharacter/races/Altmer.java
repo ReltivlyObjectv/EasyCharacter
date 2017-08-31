@@ -27,7 +27,7 @@ public class Altmer {
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.WISDOM,1));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.ARCANA, 1));
 		InformationManager.addRaceElement(new DamageModifier(
-			Lists.DamageType.LIGHTNING, Lists.DamageMod.VULNERABLE)
+			"Lightning", Lists.DamageMod.VULNERABLE)
 		);
 		WindowManager.getRaceTab().updateRaceElementsList();
 		openPrompt();

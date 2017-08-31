@@ -230,19 +230,19 @@ public class Lists {
 		VULNERABLE,
 		UNMODIFIED
 	}
-	public enum DamageType {
-		ACID,
-		BLUDGEONING,
-		COLD,
-		FIRE,
-		FORCE,
-		LIGHTNING,
-		NECROTIC,
-		PIERCING,
-		POISON,
-		PSYCHIC,
-		RADIANT,
-		SLASHING,
-		THUNDER
-	}
+	public static final String[] DamageType = {
+		"Acid",
+		"Bludgeoning",
+		"Cold",
+		"Fire",
+		"Force",
+		"Lightning",
+		"Necrotic",
+		"Piercing",
+		"Poison",
+		"Psychic",
+		"Radiant",
+		"Slashing",
+		"Thunder"
+	};
 }
