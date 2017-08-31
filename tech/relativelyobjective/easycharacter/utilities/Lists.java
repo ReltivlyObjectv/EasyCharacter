@@ -249,7 +249,6 @@ public class Lists {
 		"Altmeris",
 		"Ayleidoon",
 		"Bosmeris",
-		"Common",
 		"Cyrodilic",
 		"Daedric",
 		"Dovahzul",
