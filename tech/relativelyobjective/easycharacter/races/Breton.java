@@ -14,7 +14,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Breton {
 	public static void setup() {
 		InformationManager.resetRaceElements();
-		InformationManager.addRaceElement(new Language("Common"));
+		InformationManager.addRaceElement(new Language("Cyrodilic"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,2));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.WISDOM,2));
 		InformationManager.addRaceElement(

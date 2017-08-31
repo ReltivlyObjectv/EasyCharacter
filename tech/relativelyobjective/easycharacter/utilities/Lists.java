@@ -245,4 +245,49 @@ public class Lists {
 		"Slashing",
 		"Thunder"
 	};
+	public static final String[] LANGUAGESTES = {
+		"Altmeris",
+		"Ayleidoon",
+		"Bosmeris",
+		"Common",
+		"Cyrodilic",
+		"Daedric",
+		"Dovahzul",
+		"Dunmeris",
+		"Dwenmeris",
+		"Ehlnofex",
+		"Falmer",
+		"Jel",
+		"Nedic",
+		"Nordic",
+		"Old Bretic",
+		"Orcish",
+		"Sload",
+		"Ta'agra",
+		"Yoku"
+	};
+	public static final String[] LANGUAGESDND = {
+		"Abyssal",
+		"Aquan",
+		"Auran",
+		"Celestial",
+		"Common",
+		"Deep Speech",
+		"Draconic",
+		"Druidic",
+		"Dwarvish",
+		"Elvish",
+		"Giant",
+		"Gnomish",
+		"Goblin",
+		"Gnoll",
+		"Halfling",
+		"Ignan",
+		"Infernal",
+		"Orc",
+		"Primordial",
+		"Sylvan",
+		"Terran",
+		"Undercommon"
+	};
 }

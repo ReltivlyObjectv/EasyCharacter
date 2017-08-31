@@ -16,8 +16,8 @@ public class Bosmer {
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.ANIMAL_HANDLING, 1));
-		InformationManager.addRaceElement(new Language("Common"));
-		InformationManager.addRaceElement(new Language("Bosmeri"));
+		InformationManager.addRaceElement(new Language("Cyrodilic"));
+		InformationManager.addRaceElement(new Language("Bosmeris"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
 		Feature commandCreature = new Feature();
 		commandCreature.setName("Command Creature");
