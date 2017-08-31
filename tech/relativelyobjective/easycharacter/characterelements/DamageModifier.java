@@ -25,9 +25,9 @@ public class DamageModifier implements CharacterElement,Comparable {
 	}
 	@Override
 	public String toString() {
-		return "Damage Modifier: "+InformationManager.capitalizeFirstLetterOnly(modifier)
+		return "Damage Modifier: "+InformationManager.capitalizeFirstLetterOfWords(modifier)
 			+" to "
-			+InformationManager.capitalizeFirstLetterOnly(type);
+			+InformationManager.capitalizeFirstLetterOfWords(type);
 	}
 	@Override
 	public int compareTo(Object o) {

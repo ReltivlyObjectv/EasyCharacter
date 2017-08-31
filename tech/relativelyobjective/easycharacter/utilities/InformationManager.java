@@ -38,15 +38,22 @@ public class InformationManager {
 			return (value / 2)-5;
 		}
 	}
-	public static String capitalizeFirstLetterOnly(Object o) {
-		String s = o.toString();
-		if (s == null) {
-			return null;
-		} else if (s.length() < 2) {
-			return s.toUpperCase();
-		} else {
-			return s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase();
+	public static String capitalizeFirstLetterOfWords(Object o) {
+		String s = o.toString().replace("_", " ");
+		String[] split = s.split(" ");
+		String finalString = "";
+		for (int i = 0; i < split.length; i++) {
+			if (s.length() < 2) {
+				finalString += split[i].toUpperCase();
+			} else {
+				finalString += split[i].substring(0,1).toUpperCase() + 
+					split[i].substring(1).toLowerCase();
+			}
+			if (i != split.length - 1) {
+				finalString += " ";
+			}
 		}
+		return finalString;
 	}
 	public static TreeSet<CharacterElement> getRaceElements() {
 		return RaceElements.getCharacterElements();

@@ -28,7 +28,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 		return String.format("Ability Modifier: %s%d %s",
 			modifier < 0 ? "" : "+",
 			modifier,
-			InformationManager.capitalizeFirstLetterOnly(ability)
+			InformationManager.capitalizeFirstLetterOfWords(ability)
 			);
 	}
 	@Override

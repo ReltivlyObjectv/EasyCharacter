@@ -29,7 +29,7 @@ public class SkillProficiency implements CharacterElement,Comparable {
 	}
 	@Override
 	public String toString() {
-		return "Skill Proficiency: "+InformationManager.capitalizeFirstLetterOnly(skill);
+		return "Skill Proficiency: "+InformationManager.capitalizeFirstLetterOfWords(skill);
 	}
 	@Override
 	public int compareTo(Object o) {
