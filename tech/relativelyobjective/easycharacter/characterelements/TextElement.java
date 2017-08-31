@@ -21,6 +21,14 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 class TextElement implements CharacterElement,Comparable {
 	protected String name, description;
 
+	public TextElement() {
+		name = "";
+		description = "";
+	}
+	public TextElement(String n, String d){
+		name = n;
+		description = d;
+	}
 	public void editElement() {
 		openEditWindow("Generic Element");
 	}
