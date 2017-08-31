@@ -128,6 +128,18 @@ public class CharacterElementList {
 		}
 		characterElements.add(newLanguage);
 	}
+	public void addCharacterElement(OtherProficiency newProficiency) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof OtherProficiency) {
+				OtherProficiency existingProficiency = (OtherProficiency) e;
+				if (existingProficiency.prof.equals(newProficiency.prof)) {
+					//Character already has proficiency
+					return;
+				}
+			}
+		}
+		characterElements.add(newProficiency);
+	}
 	public void addCharacterElement(SavingThrowProficiency newProficiency) {
 		for (CharacterElement e : characterElements) {
 			if (e instanceof SavingThrowProficiency) {
