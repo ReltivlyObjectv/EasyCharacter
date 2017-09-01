@@ -17,6 +17,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Darkvision;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.Race;
 import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
@@ -33,6 +34,8 @@ public class Gnome {
 		ROCK
 	}
 	public static void setup() {
+		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new Race("Gnome"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,2));
 		InformationManager.addRaceElement(new WalkSpeed(25));
 		InformationManager.addRaceElement(new Darkvision(60));
@@ -50,7 +53,7 @@ public class Gnome {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
 			"Gnome Subrace", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.Y_AXIS));
-		prompt.setPreferredSize(new Dimension(600,300));
+		prompt.setPreferredSize(new Dimension(550,250));
 		prompt.setSize(prompt.getPreferredSize());
 		prompt.setMaximumSize(prompt.getPreferredSize());
 		prompt.setMinimumSize(prompt.getPreferredSize());
@@ -122,6 +125,10 @@ public class Gnome {
 		JButton saveButton = new JButton("Save Subrace");
 		saveButton.addActionListener((ActionEvent e)->{
 			if (choice.getSelectedItem() != null) {
+				InformationManager.addRaceElement(
+					new Race(InformationManager.capitalizeFirstLetterOfWords(
+					choice.getSelectedItem())+" Gnome")
+				);
 				WindowManager.getRaceTab().updateRaceElementsList();
 				prompt.dispose();
 				applySubraceEffects((Gnome.GnomeSubrace) choice.getSelectedItem());

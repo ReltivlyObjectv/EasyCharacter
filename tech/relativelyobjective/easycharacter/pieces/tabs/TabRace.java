@@ -17,7 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
-import tech.relativelyobjective.easycharacter.races.Race;
+import tech.relativelyobjective.easycharacter.races.RaceChoices;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
@@ -69,7 +69,7 @@ public class TabRace extends JPanel {
 					if (e.getStateChange() == ItemEvent.SELECTED) {
 						if (e.getSource() instanceof JRadioButton) {
 							if (radios.containsKey((JRadioButton) e.getSource())) {
-								Race.setupRaceChoices(radios.get((JRadioButton) e.getSource()));
+								RaceChoices.setupRaceChoices(radios.get((JRadioButton) e.getSource()));
 							}
 						}
 					}

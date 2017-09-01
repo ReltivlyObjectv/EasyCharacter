@@ -38,6 +38,8 @@ public class CharacterElementList {
 			addCharacterElement((OtherProficiency) e);
 		} else if (e instanceof OtherEffect) {
 			addCharacterElement((OtherEffect) e);
+		} else if (e instanceof Race) {
+			addCharacterElement((Race) e);
 		} else if (e instanceof SavingThrowProficiency) {
 			addCharacterElement((SavingThrowProficiency) e);
 		} else if (e instanceof SkillProficiency) {
@@ -215,6 +217,16 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newProficiency);
+	}
+	public void addCharacterElement(Race newRace) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Race) {
+				//Can only have one race; overwrite
+				((Race)e).race = newRace.race;
+				return;
+			}
+		}
+		characterElements.add(newRace);
 	}
 	public void addCharacterElement(SavingThrowProficiency newProficiency) {
 		for (CharacterElement e : characterElements) {

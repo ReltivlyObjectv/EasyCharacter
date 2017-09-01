@@ -19,6 +19,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Darkvision;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.Race;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
@@ -54,6 +55,7 @@ public class Elf {
 	};
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new Race("Elf"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.PERCEPTION, 1));
 		InformationManager.addRaceElement(new Feature(
@@ -212,6 +214,9 @@ public class Elf {
 		return returnMe;
 	}
 	private static void applySubraceEffects(ElfSubrace s) {
+		if (s == null) {
+			return;
+		}
 		switch(s) {
 			case DARK:
 				InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CHARISMA,1));
@@ -234,6 +239,7 @@ public class Elf {
 				InformationManager.addRaceElement(new OtherProficiency("Rapier",1));
 				InformationManager.addRaceElement(new OtherProficiency("Hand Crossbow",1));
 				InformationManager.addRaceElement(new OtherProficiency("Shortsword",1));
+				InformationManager.addRaceElement(new Race("Dark Elf"));
 				WindowManager.getRaceTab().updateRaceElementsList();
 				break;
 			case HIGH:
@@ -244,6 +250,7 @@ public class Elf {
 				InformationManager.addRaceElement(new OtherProficiency("Shortsword",1));
 				InformationManager.addRaceElement(new OtherProficiency("Shortbow",1));
 				InformationManager.addRaceElement(new WalkSpeed(30));
+				InformationManager.addRaceElement(new Race("High Elf"));
 				WindowManager.getRaceTab().updateRaceElementsList();
 				showCantripPrompt();
 				break;
@@ -261,6 +268,7 @@ public class Elf {
 					"obscured by foliage, heavy rain, falling snow, mist, and "+
 					"other natural phenomena."
 				));
+				InformationManager.addRaceElement(new Race("Wood Elf"));
 				WindowManager.getRaceTab().updateRaceElementsList();
 				break;
 		}

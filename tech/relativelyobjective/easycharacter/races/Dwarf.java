@@ -19,6 +19,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Darkvision;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.Race;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -35,6 +36,7 @@ public class Dwarf {
 	}
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new Race("Dwarf"));
 		InformationManager.addRaceElement(new WalkSpeed(25));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,2));
 		InformationManager.addRaceElement(new Darkvision(60));
@@ -200,6 +202,10 @@ public class Dwarf {
 						new OtherProficiency("Medium Armor",1));
 				}
 				WindowManager.getRaceTab().updateRaceElementsList();
+				InformationManager.addRaceElement(
+					new Race(InformationManager.capitalizeFirstLetterOfWords(
+					choice.getSelectedItem())+" Dwarf")
+				);
 				prompt.dispose();
 			}
 		});

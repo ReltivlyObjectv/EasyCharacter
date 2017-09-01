@@ -7,7 +7,7 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  *
  * @author ReltivlyObjectv
  */
-public class Race {
+public class RaceChoices {
 	public static void edit() {
 		throw new UnsupportedOperationException("Race is a base class and not meant to be instantiated");
 	}
