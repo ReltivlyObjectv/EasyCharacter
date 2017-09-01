@@ -42,8 +42,12 @@ public class CharacterElementList {
 			addCharacterElement((SavingThrowProficiency) e);
 		} else if (e instanceof SkillProficiency) {
 			addCharacterElement((SkillProficiency) e);
+		} else if (e instanceof Spell) {
+			addCharacterElement((Spell) e);
 		} else if (e instanceof TextElement) {
 			addCharacterElement((TextElement) e);
+		} else if (e instanceof WalkSpeed) {
+			addCharacterElement((WalkSpeed) e);
 		} else {
 			throw new UnsupportedOperationException("Not a supported type.");
 		}
@@ -241,5 +245,26 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newProficiency);
+	}
+	public void addCharacterElement(Spell newSpell) {
+		for (CharacterElement e : characterElements) {
+			if (e.equals(newSpell)) {
+				//Already present
+				return;
+			}
+		}
+		characterElements.add(newSpell);
+	}
+	public void addCharacterElement(WalkSpeed newSpeed) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof WalkSpeed) {
+				WalkSpeed oldSpeed = (WalkSpeed) e;
+				oldSpeed.distance = newSpeed.distance > oldSpeed.distance 
+					? newSpeed.distance 
+					: oldSpeed.distance;
+				return;
+			}
+		}
+		characterElements.add(newSpeed);
 	}
 }
