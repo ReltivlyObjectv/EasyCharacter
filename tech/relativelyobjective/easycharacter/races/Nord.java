@@ -5,6 +5,7 @@ import tech.relativelyobjective.easycharacter.characterelements.DamageModifier;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
@@ -16,6 +17,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Nord {
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.ATHLETICS, 1));
 		InformationManager.addRaceElement(new Language("Cyrodilic"));
 		InformationManager.addRaceElement(new Language("Nordic"));

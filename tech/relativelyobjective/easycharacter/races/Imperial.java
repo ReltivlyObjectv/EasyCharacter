@@ -23,6 +23,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Imperial {
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.PERSUASION, 1));
 		InformationManager.addRaceElement(new OtherProficiency("Heavy Armor", 1));
 		InformationManager.addRaceElement(new Language("Cyrodilic"));

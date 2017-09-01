@@ -21,6 +21,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Altmer {
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new Language("Cyrodilic"));
 		InformationManager.addRaceElement(new Language("Altmeris"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,1));

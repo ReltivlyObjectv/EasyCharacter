@@ -4,6 +4,7 @@ import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.Darkvision;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
@@ -15,6 +16,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Khajiit {
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.STEALTH, 1));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.SLEIGHT_OF_HAND, 1));
 		InformationManager.addRaceElement(new Language("Cyrodilic"));
