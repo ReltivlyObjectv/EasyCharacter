@@ -79,13 +79,13 @@ public class Elf {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
 			"Elven Subrace", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.Y_AXIS));
-		prompt.setPreferredSize(new Dimension(400,300));
+		prompt.setPreferredSize(new Dimension(700,400));
 		prompt.setSize(prompt.getPreferredSize());
 		//prompt.setMaximumSize(prompt.getPreferredSize());
 		prompt.setMinimumSize(prompt.getPreferredSize());
 		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		prompt.add(getSubraceHeaderPanel());
-		//prompt.add(getSubraceDetailsPanel());
+		prompt.add(getSubraceDetailsPanel());
 		prompt.add(getSubraceInputPanel(prompt));
 		prompt.setVisible(true);
 	}
@@ -98,7 +98,96 @@ public class Elf {
 			BorderLayout.CENTER);
 		return returnMe;
 	}
-	
+	private static JPanel getSubraceDetailsPanel() {
+		JPanel returnMe = new JPanel();
+		returnMe.setLayout(new GridBagLayout());
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridx = 1;
+		constraints.gridy = 0;
+		constraints.ipadx = 5;
+		constraints.ipady = 5;
+		returnMe.add(new JLabel("<html><strong>Speed</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("<html><strong>Ability Score</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("<html><strong>Weapon Proficiencies</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("<html><strong>Features</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("<html><strong>Darkvision</strong></html>"), constraints);
+		//Dark Elf
+		constraints.gridx = 0;
+		constraints.gridy = 1;
+		returnMe.add(new JLabel("<html><strong>Dark Elf</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("30 ft."), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("+1 Charisma"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel(String.format(
+			"<html><ul><li>%s</li><li>%s</li><li>%s</li></ul></html>",
+			"Rapiers",
+			"Shortswords",
+			"Hand Crossbows"
+		)), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel(String.format(
+			"<html><ul><li>%s</li><li>%s</li></ul></html>",
+			"Drow Magic (PHB p24)",
+			"Sunlight Sensetivity"
+		)), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("120 ft."), constraints);
+		
+		//High Elf
+		constraints.gridx = 0;
+		constraints.gridy++;
+		returnMe.add(new JLabel("<html><strong>High Elf</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("30 ft."), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("+1 Intelligence"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel(String.format(
+			"<html><ul><li>%s</li><li>%s</li><li>%s</li><li>%s</li></ul></html>",
+			"Longsword",
+			"Longbow",
+			"Shortsword",
+			"Shortbow"
+		)), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel(String.format(
+			"<html><ul><li>%s</li><li>%s</li></ul></html>",
+			"Extra Wizard Cantrip",
+			"Extra Language"
+		)), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("60 ft."), constraints);
+		//Wood Elf
+		constraints.gridx = 0;
+		constraints.gridy++;
+		returnMe.add(new JLabel("<html><strong>Wood Elf</strong></html>"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("35 ft."), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("+1 Wisdom"), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel(String.format(
+			"<html><ul><li>%s</li><li>%s</li><li>%s</li><li>%s</li></ul></html>",
+			"Longsword",
+			"Longbow",
+			"Shortsword",
+			"Shortbow"
+		)), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel(String.format(
+			"<html><ul><li>%s</li></ul></html>",
+			"Mask of the Wild (PHB p24)"
+		)), constraints);
+		constraints.gridx++;
+		returnMe.add(new JLabel("60 ft."), constraints);
+		return returnMe;
+	}
 	private static JPanel getSubraceInputPanel(JDialog prompt) {
 		JPanel returnMe = new JPanel();
 		GridBagConstraints constraints = new GridBagConstraints();
