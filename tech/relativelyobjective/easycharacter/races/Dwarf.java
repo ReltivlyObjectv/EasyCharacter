@@ -86,7 +86,7 @@ public class Dwarf {
 				);
 				WindowManager.getRaceTab().updateRaceElementsList();
 				prompt.dispose();
-				showSubraceMenu();
+				showSubracePrompt();
 			}
 		});
 		constraints.gridx = 0;
@@ -95,7 +95,7 @@ public class Dwarf {
 		prompt.add(saveButton, constraints);
 		prompt.setVisible(true);
 	}
-	private static void showSubraceMenu() {
+	private static void showSubracePrompt() {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
 			"Dwarven Subrace", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.Y_AXIS));
