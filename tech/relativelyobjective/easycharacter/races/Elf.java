@@ -81,7 +81,7 @@ public class Elf {
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.Y_AXIS));
 		prompt.setPreferredSize(new Dimension(700,400));
 		prompt.setSize(prompt.getPreferredSize());
-		//prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
 		prompt.setMinimumSize(prompt.getPreferredSize());
 		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		prompt.add(getSubraceHeaderPanel());
