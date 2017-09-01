@@ -19,7 +19,7 @@ public class SavingThrowProficiency implements CharacterElement,Comparable {
 		proficiencyMagnitude = null;
 	}
 	@Override
-	public void edit() {
+	public void edit(boolean viewOnly) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	@Override

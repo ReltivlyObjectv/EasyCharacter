@@ -10,7 +10,7 @@ public class Feat implements CharacterElement,Comparable {
 		name = newName;
 	}
 	@Override
-	public void edit() {
+	public void edit(boolean viewOnly) {
 	}
 	@Override
 	public String toString() {

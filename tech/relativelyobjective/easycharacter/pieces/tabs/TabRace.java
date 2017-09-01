@@ -102,7 +102,7 @@ public class TabRace extends JPanel {
 						CharacterElement selectedItem = 
 							((CharacterElement) list.getSelectedValue());
 						if (selectedItem != null) {
-							selectedItem.edit();
+							selectedItem.edit(false);
 						}
 					}
 				}
