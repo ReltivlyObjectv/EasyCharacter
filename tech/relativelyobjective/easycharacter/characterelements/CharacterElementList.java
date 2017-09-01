@@ -267,4 +267,24 @@ public class CharacterElementList {
 		}
 		characterElements.add(newSpeed);
 	}
+	public static boolean hasLanguage(TreeSet<CharacterElement> list, Language l) {
+		for (CharacterElement e : list) {
+			if (e instanceof Language) {
+				Language oldLang = (Language) e;
+				if (oldLang.lang.equals(l.lang)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public static boolean hasLanguage(TreeSet<CharacterElement> list, String l) {
+		return hasLanguage(list, new Language(l));
+	}
+	public static boolean hasLanguage(CharacterElementList list, String l) {
+		return hasLanguage(list.getCharacterElements(), new Language(l));
+	}
+	public static boolean hasLanguage(CharacterElementList list, Language l) {
+		return hasLanguage(list.getCharacterElements(), l);
+	}
 }
