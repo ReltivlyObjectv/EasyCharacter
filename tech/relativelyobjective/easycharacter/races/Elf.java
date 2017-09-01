@@ -314,7 +314,6 @@ public class Elf {
 	
 	}
 	private static void showLanguagePrompt() {
-		//Choice to learn a free cantrip
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), "High Elf Language", true);
 		prompt.setPreferredSize(new Dimension(500,100));
 		prompt.setSize(prompt.getPreferredSize());
