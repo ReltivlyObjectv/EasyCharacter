@@ -10,6 +10,7 @@ import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import static tech.relativelyobjective.easycharacter.utilities.Lists.Skill.*;
 import static tech.relativelyobjective.easycharacter.utilities.Lists.Ability.*;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -18,7 +19,7 @@ import static tech.relativelyobjective.easycharacter.utilities.Lists.Ability.*;
 public class HalfOrc {
 	public static void setup() {
 		InformationManager.resetRaceElements();
-		InformationManager.addRaceElement(new Race("Half-Elf"));
+		InformationManager.addRaceElement(new Race("Half-Orc"));
 		InformationManager.addRaceElement(new AbilityModifier(STRENGTH,2));
 		InformationManager.addRaceElement(new AbilityModifier(CONSTITUTION,1));
 		InformationManager.addRaceElement(new WalkSpeed(30));
@@ -38,5 +39,6 @@ public class HalfOrc {
 		));
 		InformationManager.addRaceElement(new Language("Common"));
 		InformationManager.addRaceElement(new Language("Orc"));
+		WindowManager.getRaceTab().updateRaceElementsList();
 	}
 }
