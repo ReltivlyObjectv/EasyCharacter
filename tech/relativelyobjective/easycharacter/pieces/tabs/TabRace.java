@@ -30,7 +30,6 @@ public class TabRace extends JPanel {
 	private final RaceElements raceElements;
 	
 	public class RaceChoice extends JPanel {
-		//TODO add setup button instead of change listener?
 		private final Map<JRadioButton, Lists.Race> radios;
 		private ButtonGroup group;
 		private Box box;

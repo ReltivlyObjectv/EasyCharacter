@@ -120,11 +120,11 @@ public class Lists {
 		DRAGONBORN,
 		DWARF,
 		ELF,
-		HALFLING,
-		HUMAN,
 		GNOME,
+		HALFLING,
 		HALF_ELF,
 		HALF_ORC,
+		HUMAN,
 		TIEFLING,
 		ALTMER,
 		BOSMER,
@@ -141,11 +141,11 @@ public class Lists {
 		Race.DRAGONBORN,
 		Race.DWARF,
 		Race.ELF,
-		Race.HALFLING,
-		Race.HUMAN,
 		Race.GNOME,
+		Race.HALFLING,
 		Race.HALF_ELF,
 		Race.HALF_ORC,
+		Race.HUMAN,
 		Race.TIEFLING
 	};
 	public static final Race[] RacesTES = {
