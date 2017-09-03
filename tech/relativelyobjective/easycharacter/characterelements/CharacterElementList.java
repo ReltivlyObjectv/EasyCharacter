@@ -24,6 +24,8 @@ public class CharacterElementList {
 			addCharacterElement((AbilityModifier) e);
 		} else if (e instanceof ConditionModifier) {
 			addCharacterElement((ConditionModifier) e);
+		} else if (e instanceof Class) {
+			addCharacterElement((Class) e);
 		} else if (e instanceof DamageModifier) {
 			addCharacterElement((DamageModifier) e);
 		} else if (e instanceof Darkvision) {
@@ -67,6 +69,19 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(ab);
+	}
+	public void addCharacterElement(Class newClass) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Class) {
+				Class oldClass = (Class) e;
+				if (oldClass.className.equals(newClass.className)) {
+					//Adjust level of existing class
+					oldClass.setClassLevel(newClass.getClassLevel());
+					return;
+				}
+			}
+		}
+		characterElements.add(newClass);
 	}
 	public void addCharacterElement(ConditionModifier newModifier) {
 		for (CharacterElement c : characterElements) {
