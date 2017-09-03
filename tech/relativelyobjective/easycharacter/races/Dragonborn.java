@@ -17,6 +17,7 @@ import tech.relativelyobjective.easycharacter.characterelements.DamageModifier;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
+import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -68,6 +69,7 @@ public class Dragonborn {
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Dragonborn"));
+		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new Language("Common"));
 		InformationManager.addRaceElement(new Language("Draconic"));

@@ -5,9 +5,11 @@ import tech.relativelyobjective.easycharacter.characterelements.Darkvision;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
+import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
+import tech.relativelyobjective.easycharacter.utilities.Lists;
 import static tech.relativelyobjective.easycharacter.utilities.Lists.Skill.*;
 import static tech.relativelyobjective.easycharacter.utilities.Lists.Ability.*;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
@@ -20,6 +22,7 @@ public class HalfOrc {
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Half-Orc"));
+		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new AbilityModifier(STRENGTH,2));
 		InformationManager.addRaceElement(new AbilityModifier(CONSTITUTION,1));
 		InformationManager.addRaceElement(new WalkSpeed(30));

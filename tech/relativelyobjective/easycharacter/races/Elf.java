@@ -20,6 +20,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
+import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
@@ -56,6 +57,7 @@ public class Elf {
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Elf"));
+		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.PERCEPTION, 1));
 		InformationManager.addRaceElement(new Feature(

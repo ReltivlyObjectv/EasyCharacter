@@ -20,6 +20,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
+import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -37,6 +38,7 @@ public class Dwarf {
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Dwarf"));
+		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new WalkSpeed(25));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,2));
 		InformationManager.addRaceElement(new Darkvision(60));

@@ -22,6 +22,7 @@ public class Altmer {
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Altmer (High Elf)"));
+		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new Language("Cyrodilic"));
 		InformationManager.addRaceElement(new Language("Altmeris"));
