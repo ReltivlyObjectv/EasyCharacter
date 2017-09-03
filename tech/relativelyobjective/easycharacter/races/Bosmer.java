@@ -18,7 +18,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Bosmer {
 	public static void setup() {
 		InformationManager.resetRaceElements();
-		InformationManager.addRaceElement(new Race("Bosmer"));
+		InformationManager.addRaceElement(new Race("Bosmer (Wood Elf)"));
 		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new WalkSpeed(35));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.ANIMAL_HANDLING, 1));

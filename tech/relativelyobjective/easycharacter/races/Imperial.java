@@ -23,6 +23,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class Imperial {
 	public static void setup() {
 		InformationManager.resetRaceElements();
+		InformationManager.addRaceElement(new Race("Imperial"));
 		InformationManager.addRaceElement(new WalkSpeed(30));
 		InformationManager.addRaceElement(new Size(Lists.Size.MEDIUM));
 		InformationManager.addRaceElement(new SkillProficiency(Lists.Skill.PERSUASION, 1));
