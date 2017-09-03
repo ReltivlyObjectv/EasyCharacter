@@ -46,6 +46,8 @@ public class CharacterElementList {
 			addCharacterElement((SkillProficiency) e);
 		} else if (e instanceof Spell) {
 			addCharacterElement((Spell) e);
+		} else if (e instanceof Size) {
+			addCharacterElement((Size) e);
 		} else if (e instanceof TextElement) {
 			addCharacterElement((TextElement) e);
 		} else if (e instanceof WalkSpeed) {
@@ -242,6 +244,16 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newProficiency);
+	}
+	public void addCharacterElement(Size newSize) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Size) {
+				//Can only have one size; overwrite
+				((Size)e).size = newSize.size;
+				return;
+			}
+		}
+		characterElements.add(newSize);
 	}
 	public void addCharacterElement(SkillProficiency newProficiency) {
 		for (CharacterElement e : characterElements) {
