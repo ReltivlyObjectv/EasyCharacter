@@ -29,7 +29,7 @@ public class TabRace extends JPanel {
 	private final RaceChoice raceChoice;
 	private final RaceElements raceElements;
 	
-	public class RaceChoice extends JPanel {
+	private class RaceChoice extends JPanel {
 		private final Map<JRadioButton, Lists.Race> radios;
 		private ButtonGroup group;
 		private Box box;
@@ -60,7 +60,9 @@ public class TabRace extends JPanel {
 					return;
 			}
 			for (int i = 0; i < array.length; i++) {
-				JRadioButton radioButton = new JRadioButton(Lists.getUserFriendlyRace(array[i]));
+				JRadioButton radioButton = new JRadioButton(
+					Lists.getUserFriendlyRace(array[i])
+				);
 				radios.put(radioButton, array[i]);
 				group.add(radioButton);
 				box.add(radioButton);
@@ -83,7 +85,7 @@ public class TabRace extends JPanel {
 			revalidate();
 		}
 	}
-	public class RaceElements extends JPanel {
+	private class RaceElements extends JPanel {
 		private JList list;
 		
 		public RaceElements() {
@@ -101,7 +103,7 @@ public class TabRace extends JPanel {
 						CharacterElement selectedItem = 
 							((CharacterElement) list.getSelectedValue());
 						if (selectedItem != null) {
-							selectedItem.edit(false);
+							selectedItem.edit(true);
 						}
 					}
 				}

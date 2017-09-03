@@ -12,7 +12,8 @@ import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
 public class InformationManager {
 	private static Lists.LoreSet loreSet = Lists.LoreSet.DUNGEONS_AND_DRAGONS;
 	public static Race selectedRace = null;
-	private static final CharacterElementList RaceElements = new CharacterElementList();
+	private static final CharacterElementList RACEELEMENTS = new CharacterElementList();
+	private static final CharacterElementList CLASSELEMENTS = new CharacterElementList();
 	
 	public static Lists.LoreSet getLoreSet() {
 		return loreSet;
@@ -56,12 +57,21 @@ public class InformationManager {
 		return finalString;
 	}
 	public static TreeSet<CharacterElement> getRaceElements() {
-		return RaceElements.getCharacterElements();
+		return RACEELEMENTS.getCharacterElements();
 	}
 	public static void addRaceElement(CharacterElement e) {
-		RaceElements.addCharacterElement(e);
+		RACEELEMENTS.addCharacterElement(e);
 	}
 	public static void resetRaceElements() {
-		RaceElements.resetCharacterElements();
+		RACEELEMENTS.resetCharacterElements();
+	}
+	public static TreeSet<CharacterElement> getClassElements() {
+		return CLASSELEMENTS.getCharacterElements();
+	}
+	public static void addClassElement(CharacterElement e) {
+		CLASSELEMENTS.addCharacterElement(e);
+	}
+	public static void resetClassElements() {
+		CLASSELEMENTS.resetCharacterElements();
 	}
 }
