@@ -8,9 +8,6 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  * @author ReltivlyObjectv
  */
 public class RaceChoices {
-	public static void edit() {
-		throw new UnsupportedOperationException("Race is a base class and not meant to be instantiated");
-	}
 	public static void setupRaceChoices(Lists.Race race) {
 		InformationManager.selectedRace = race;
 		switch (race) {

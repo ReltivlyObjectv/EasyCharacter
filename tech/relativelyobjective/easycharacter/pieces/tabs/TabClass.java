@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -20,6 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
+import tech.relativelyobjective.easycharacter.characterclasses.ClassChoices;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -40,7 +40,6 @@ public class TabClass extends JPanel {
 		public ClassChoice() {
 			Box box = Box.createVerticalBox();
 			radios = new HashMap<>();
-			radios.clear();
 			group = new ButtonGroup();
 			super.setLayout(new GridBagLayout());
 			GridBagConstraints constraints = new GridBagConstraints();
@@ -73,13 +72,22 @@ public class TabClass extends JPanel {
 				levelConstraints.gridy++;
 				JButton addClassButton = new JButton("Add Class");
 				addClassButton.addActionListener((ActionEvent e)->{
-					System.out.printf("Setting up Level %d %s\n",
-						(int) classLevel.getValue(),
-						getSelectedClass().toString()
-					);
+					Lists.Class selectedClass = getSelectedClass();
+					if (selectedClass != null) {
+						ClassChoices.setupClassChoices(
+							selectedClass,
+							getLevel()
+						);
+						resetSelection();
+						resetSpinner();
+						
+					}
 				});
 				levelPanel.add(addClassButton, levelConstraints);
 			super.add(levelPanel, constraints);
+		}
+		public void resetSelection() {
+			group.clearSelection();
 		}
 		public void resetSpinner() {
 			classLevel.setValue(1);
@@ -87,10 +95,18 @@ public class TabClass extends JPanel {
 		public Lists.Class getSelectedClass() {
 			for (JRadioButton b : radios.keySet()) {
 				if (b.isSelected()) {
+					//System.out.println(b.getText()+" is selected");
+					//System.out.println("");
 					return radios.get(b);
+				} else {
+					//System.out.println(b.getText()+" is not selected");
 				}
 			}
+			//System.out.println("");
 			return null;
+		}
+		public int getLevel() {
+			return (int) classLevel.getValue();
 		}
 	}
 	private class ClassElements extends JPanel {
