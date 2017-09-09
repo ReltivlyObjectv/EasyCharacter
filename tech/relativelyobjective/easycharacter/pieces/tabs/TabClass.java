@@ -70,7 +70,7 @@ public class TabClass extends JPanel {
 				classLevel = new JSpinner(new SpinnerNumberModel(1,1,20,1));
 				levelPanel.add(classLevel, levelConstraints);
 				levelConstraints.gridy++;
-				JButton addClassButton = new JButton("Add Class");
+				JButton addClassButton = new JButton("Set Class");
 				addClassButton.addActionListener((ActionEvent e)->{
 					Lists.Class selectedClass = getSelectedClass();
 					if (selectedClass != null) {
@@ -145,7 +145,7 @@ public class TabClass extends JPanel {
 		classElements.updateList();
 		super.add(classChoice, BorderLayout.WEST);
 		super.add(classElements, BorderLayout.CENTER);
-		JButton resetButton = new JButton("Clear Class Selections");
+		JButton resetButton = new JButton("Clear Class Selection");
 		resetButton.addActionListener((ActionEvent e)->{
 			classChoice.group.clearSelection();
 			classChoice.resetSpinner();

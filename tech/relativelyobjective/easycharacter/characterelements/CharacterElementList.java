@@ -34,12 +34,16 @@ public class CharacterElementList {
 			addCharacterElement((Feat) e);
 		} else if (e instanceof Feature) {
 			addCharacterElement((Feature) e);
+		} else if (e instanceof InventoryItem) {
+			addCharacterElement((InventoryItem) e);
 		} else if (e instanceof Language) {
 			addCharacterElement((Language) e);
 		} else if (e instanceof OtherProficiency) {
 			addCharacterElement((OtherProficiency) e);
 		} else if (e instanceof OtherEffect) {
 			addCharacterElement((OtherEffect) e);
+		} else if (e instanceof ProficiencyBonus) {
+			addCharacterElement((ProficiencyBonus) e);
 		} else if (e instanceof Race) {
 			addCharacterElement((Race) e);
 		} else if (e instanceof SavingThrowProficiency) {
@@ -55,7 +59,7 @@ public class CharacterElementList {
 		} else if (e instanceof WalkSpeed) {
 			addCharacterElement((WalkSpeed) e);
 		} else {
-			throw new UnsupportedOperationException("Not a supported type.");
+			throw new UnsupportedOperationException("Not a supported type: "+e.getClass());
 		}
 	}
 	public void addCharacterElement(AbilityModifier ab) {
@@ -196,6 +200,18 @@ public class CharacterElementList {
 		}
 		characterElements.add(newFeature);
 	}
+	public void addCharacterElement(InventoryItem newItem) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof InventoryItem) {
+				InventoryItem oldItem = (InventoryItem) e;
+				if (oldItem.item.equals(newItem.item)) {
+					oldItem.count += newItem.count;
+					return;
+				}
+			}
+		}
+		characterElements.add(newItem);
+	}
 	public void addCharacterElement(Language newLanguage) {
 		for (CharacterElement e : characterElements) {
 			if (e instanceof Language) {
@@ -231,6 +247,19 @@ public class CharacterElementList {
 					}
 					return;
 				}
+			}
+		}
+		characterElements.add(newProficiency);
+	}
+	public void addCharacterElement(ProficiencyBonus newProficiency) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof ProficiencyBonus) {
+				ProficiencyBonus oldProficiency = (ProficiencyBonus) e;
+				//Use the larger magnitude, but do not make them stack
+				if (newProficiency.getBonus() > oldProficiency.getBonus()) {
+					oldProficiency.setBonus(newProficiency.getBonus());
+				}
+				return;
 			}
 		}
 		characterElements.add(newProficiency);

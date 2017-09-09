@@ -15,6 +15,10 @@ public class Class implements CharacterElement,Comparable {
 		className = null;
 		classLevel = null;
 	}
+	public Class(Lists.Class c, int l) {
+		className = c;
+		classLevel = l;
+	}
 	@Override
 	public void edit(boolean viewOnly) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

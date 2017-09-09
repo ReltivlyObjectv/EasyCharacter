@@ -18,6 +18,14 @@ public class SavingThrowProficiency implements CharacterElement,Comparable {
 		ability = null;
 		proficiencyMagnitude = null;
 	}
+	public SavingThrowProficiency(Lists.Ability a) {
+		ability = a;
+		proficiencyMagnitude = 1;
+	}
+	public SavingThrowProficiency(Lists.Ability a, int mag) {
+		ability = a;
+		proficiencyMagnitude = mag;
+	}
 	@Override
 	public void edit(boolean viewOnly) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
