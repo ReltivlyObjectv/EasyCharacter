@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
 /**
@@ -32,7 +33,7 @@ public class SavingThrowProficiency implements CharacterElement,Comparable {
 	}
 	@Override
 	public String toString() {
-		return "Saving Throw Proficiency: "+ability;
+		return "Saving Throw Proficiency: "+InformationManager.capitalizeFirstLetterOfWords(ability);
 	}
 	@Override
 	public int compareTo(Object o) {
