@@ -36,4 +36,7 @@ public class Rages implements CharacterElement,Comparable {
 			rageCount = c;
 		}
 	}
+	public int getRageCount() {
+		return rageCount;
+	}
 }

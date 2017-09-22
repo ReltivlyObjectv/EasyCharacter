@@ -46,6 +46,8 @@ public class CharacterElementList {
 			addCharacterElement((ProficiencyBonus) e);
 		} else if (e instanceof Race) {
 			addCharacterElement((Race) e);
+		} else if (e instanceof Rages) {
+			addCharacterElement((Rages) e);
 		} else if (e instanceof SavingThrowProficiency) {
 			addCharacterElement((SavingThrowProficiency) e);
 		} else if (e instanceof SkillProficiency) {
@@ -269,6 +271,16 @@ public class CharacterElementList {
 			if (e instanceof Race) {
 				//Can only have one race; overwrite
 				((Race)e).race = newRace.race;
+				return;
+			}
+		}
+		characterElements.add(newRace);
+	}
+	public void addCharacterElement(Rages newRace) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Rages) {
+				//Overwrite rage count
+				((Rages) e).setRageCount(newRace.getRageCount());
 				return;
 			}
 		}
