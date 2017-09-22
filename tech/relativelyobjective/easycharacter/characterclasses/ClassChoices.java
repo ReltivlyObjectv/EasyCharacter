@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.characterclasses;
 
+import tech.relativelyobjective.easycharacter.characterelements.ProficiencyBonus;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
@@ -18,6 +19,9 @@ public class ClassChoices {
 		InformationManager.resetClassElements();
 		InformationManager.addClassElement(
 			new tech.relativelyobjective.easycharacter.characterelements.Class(characterClass, level)
+		);
+		InformationManager.addClassElement(
+			new ProficiencyBonus(ClassChoices.getProficiencyBonus(level))
 		);
 		switch (characterClass) {
 			case BARBARIAN:

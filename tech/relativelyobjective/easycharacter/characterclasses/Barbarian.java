@@ -11,9 +11,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
-import tech.relativelyobjective.easycharacter.characterelements.ProficiencyBonus;
+import tech.relativelyobjective.easycharacter.characterelements.Rages;
 import tech.relativelyobjective.easycharacter.characterelements.SavingThrowProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
@@ -34,10 +35,10 @@ public class Barbarian {
 		Lists.Skill.PERCEPTION,
 		Lists.Skill.SURVIVAL
 	};
+	public static enum BarbarianPath {
+	
+	}
 	public static void setup(int level) {
-		InformationManager.addClassElement(
-			new ProficiencyBonus(ClassChoices.getProficiencyBonus(level))
-		);
 		if (level >= 1) {
 			InformationManager.addClassElement(new OtherProficiency("Light Armor",1));
 			InformationManager.addClassElement(new OtherProficiency("Medium Armor",1));
@@ -50,18 +51,39 @@ public class Barbarian {
 			InformationManager.addClassElement(
 				new SavingThrowProficiency(Lists.Ability.CONSTITUTION)
 			);
-			WindowManager.getClassTab().updateClassElementsList();
-			showLevelOneSkillProficiencyPrompt();
-			showStartingEquipmentPrompt();
 			for (InventoryItem i : ItemLists.getExplorersPack()) {
 				InformationManager.addClassElement(i);
 			}
+			InformationManager.addClassElement(new InventoryItem("Greataxe", 1));
+			InformationManager.addClassElement(new InventoryItem("Handaxe", 2));
+			InformationManager.addClassElement(new InventoryItem("Javelin", 4));
+			InformationManager.addClassElement(new Feature(
+				"Rage",
+				"In battle, you fight with primal ferocity. On your turn, you "+
+				"can enter a rage as a bonus action. While raging, you gain the "+
+				"following benefits if you aren't wearing heavy armor:\n"+
+				"- You have advantage on Strength checks and Strength saving "+
+				"throws.\n"+
+				"- When you make a melee weapon attack using Strength, you gain "+
+				"a bonus to the damage roll that increases as you gain levels as "+
+				"a barbarian, as shown in the Rage Damage column of the Barbarian table.\n"
+			));
+			InformationManager.addClassElement(new Rages(2));
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Defense",
+				"While you are not wearing any armor, your Armor Class equals "+
+				"10 + your Dexterity modifier + your Constitution modifier. "+
+				"You can use a shield and gain this benefit."
+			));
 			
+			WindowManager.getClassTab().updateClassElementsList();
+			showLevelOneSkillProficiencyPrompt();
 		}
 		if (level >= 2) {
 			
 		}
 		if (level >= 3) {
+			InformationManager.addClassElement(new Rages(3));
 			
 		}
 		if (level >= 4) {
@@ -71,6 +93,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 6) {
+			InformationManager.addClassElement(new Rages(4));
 			
 		}
 		if (level >= 7) {
@@ -89,6 +112,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 12) {
+			InformationManager.addClassElement(new Rages(5));
 			
 		}
 		if (level >= 13) {
@@ -104,6 +128,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 17) {
+			InformationManager.addClassElement(new Rages(6));
 			
 		}
 		if (level >= 18) {
@@ -113,6 +138,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 20) {
+			InformationManager.addClassElement(new Rages(Integer.MAX_VALUE));
 			
 		}
 		
@@ -133,7 +159,8 @@ public class Barbarian {
 		constraints.gridy = 0;
 		JLabel header = new JLabel(
 			"<html><strong>Choose two different skills to gain proficiency in</strong></html>", 
-			JLabel.CENTER);
+			JLabel.CENTER
+		);
 		prompt.add(header, constraints);
 		constraints.gridy++;
 		HashMap<Lists.Skill, JCheckBox> checkBoxes = new HashMap<>();
@@ -167,11 +194,5 @@ public class Barbarian {
 		});
 		prompt.add(saveButton, constraints);
 		prompt.setVisible(true);
-	}
-	private static void showStartingEquipmentPrompt() {
-		//phb p48
-		//(a) a greataxe or (b) any martial melee weapon
-		//AND
-		//(a) two handaxes or (b) any simple weapon
 	}
 }
