@@ -5,6 +5,7 @@ import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
+import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
 
 /**
@@ -76,6 +77,16 @@ public class InformationManager {
 	public static void resetClassElements() {
 		CLASSELEMENTS.resetCharacterElements();
 	}
+	public static TreeSet<CharacterElement> getAllElements() {
+		TreeSet<CharacterElement> returnMe = new TreeSet<>();
+		for (CharacterElement e : RACEELEMENTS.getCharacterElements()) {
+			returnMe.add(e);
+		}
+		for (CharacterElement e : CLASSELEMENTS.getCharacterElements()) {
+			returnMe.add(e);
+		}
+		return returnMe;
+	}
 	public static HashMap<Lists.Ability, Integer> getCurrentSkills() {
 		int str = WindowManager.getStatsTab().getStrength();
 		int dex = WindowManager.getStatsTab().getDexterity();
@@ -143,5 +154,14 @@ public class InformationManager {
 		returnMe.put(Lists.Ability.WISDOM, wis);
 		returnMe.put(Lists.Ability.CHARISMA, cha);
 		return returnMe;
+	}
+	public static int getSpeed() {
+		for (CharacterElement e : getAllElements()) {
+			if (e instanceof WalkSpeed) {
+				WalkSpeed s = (WalkSpeed) e;
+				return s.distance;
+			}
+		}
+		return 30;
 	}
 }

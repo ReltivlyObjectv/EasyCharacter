@@ -14,7 +14,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
@@ -25,6 +24,7 @@ import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency
 import tech.relativelyobjective.easycharacter.characterelements.Rages;
 import tech.relativelyobjective.easycharacter.characterelements.SavingThrowProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.ItemLists;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -134,13 +134,22 @@ public class Barbarian {
 					));
 					break;
 			}
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 4) {
 			ClassChoices.openSkillImprovement();
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 5) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Extra Attack",
+				"You can attack twice, instead of once, whenever you take the "+
+				"Attack action on your turn."
+			));
+			InformationManager.addClassElement(
+				new WalkSpeed(InformationManager.getSpeed() + 10)
+			);
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 6) {
 			InformationManager.addClassElement(new Rages(4));
