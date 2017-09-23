@@ -1,16 +1,24 @@
 package tech.relativelyobjective.easycharacter.characterclasses;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import javax.swing.border.EmptyBorder;
+import tech.relativelyobjective.easycharacter.characterelements.BarbarianPath;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
@@ -35,9 +43,12 @@ public class Barbarian {
 		Lists.Skill.PERCEPTION,
 		Lists.Skill.SURVIVAL
 	};
-	public static enum BarbarianPath {
-	
+	public static enum PrimalPath {
+		BERSERKER,
+		TOTEM_WARRIOR
 	}
+	private static PrimalPath path = PrimalPath.BERSERKER;
+	
 	public static void setup(int level) {
 		if (level >= 1) {
 			InformationManager.addClassElement(new OtherProficiency("Light Armor",1));
@@ -96,14 +107,37 @@ public class Barbarian {
 				"that you can see, such as traps and spells. To gain this benefit, "+
 				"you can't be blinded, deafened, or incapacitated."
 			));
-			
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 3) {
 			InformationManager.addClassElement(new Rages(3));
-			
+			WindowManager.getClassTab().updateClassElementsList();
+			openPathPrompt();
+			InformationManager.addClassElement(new BarbarianPath(path));
+			switch (path) {
+				case BERSERKER:
+					InformationManager.addClassElement(new Feature(
+						"Frenzy",
+						"You can go into a frenzy when you rage. If you do so, "+
+						"for the duration of you rage you can make a single "+
+						"melee weapon attack as a bonus action on each of your "+
+						"turns after this one. When your rage ends, you suffer "+
+						"one level of exhaustion."
+					));
+					break;
+				case TOTEM_WARRIOR:
+					InformationManager.addClassElement(new Feature(
+						"Spirit Seeker",
+						"You gain the ability to cast the beast sense and speak "+
+						"with animals spells, but only as rituals, as described "+
+						"in chapter 10 of the PHB."
+					));
+					break;
+			}
 		}
 		if (level >= 4) {
-			
+			ClassChoices.openSkillImprovement();
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 5) {
 			
@@ -116,6 +150,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 8) {
+			ClassChoices.openSkillImprovement();
 			
 		}
 		if (level >= 9) {
@@ -129,6 +164,7 @@ public class Barbarian {
 		}
 		if (level >= 12) {
 			InformationManager.addClassElement(new Rages(5));
+			ClassChoices.openSkillImprovement();
 			
 		}
 		if (level >= 13) {
@@ -141,6 +177,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 16) {
+			ClassChoices.openSkillImprovement();
 			
 		}
 		if (level >= 17) {
@@ -151,6 +188,7 @@ public class Barbarian {
 			
 		}
 		if (level >= 19) {
+			ClassChoices.openSkillImprovement();
 			
 		}
 		if (level >= 20) {
@@ -210,5 +248,52 @@ public class Barbarian {
 		});
 		prompt.add(saveButton, constraints);
 		prompt.setVisible(true);
+	}
+	private static void openPathPrompt() {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
+			"Primal Path", true);
+		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
+		prompt.setPreferredSize(new Dimension(500,400));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		((JPanel)prompt.getContentPane()).setBorder(new EmptyBorder(10, 10, 10, 10));
+		JLabel title = new JLabel(
+			"<html><strong>Choose your Barbarian's Primal Path.<strong><br><br></html>",
+			SwingConstants.CENTER
+		);
+		title.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(title);
+		JLabel pathB = new JLabel(
+			"<html><strong>Path of the Berserker</strong><i> For some barbarians. "+
+			"rage is a means to an end - that end being violence. "+
+			"The Path of the Berserker is a path of untrammeled fury, slick "+
+			"with blood. As you enter the berserker's rage, you thrill in the "+
+			"chaos of battle, heedless of your own health or well-being.</i><br><br></html>",
+			SwingConstants.CENTER
+		);
+		pathB.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(pathB);
+		JLabel pathT = new JLabel(
+			"<html><strong>Path of the Totem Warrior</strong><i> The Path of the "+
+			"Totem Warrior is a spiritual journey, as the barbarian accepts a "+
+			"spirit animal as guide, protector, and inspiration. In battle, "+
+			"your totem spirit fills you with supernatural might, adding magical "+
+			"fuel to your barbarian rage.</i><br><br></html>",
+			SwingConstants.CENTER
+		);
+		pathT.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(pathT);
+		JComboBox selection = new JComboBox(PrimalPath.values());
+		prompt.add(selection);
+		JButton saveButton = new JButton("Save Path");
+		saveButton.addActionListener((ActionEvent e)->{
+			path = (PrimalPath) selection.getSelectedItem();
+			prompt.dispose();
+		});
+		prompt.add(saveButton);
+		prompt.setVisible(true);
+		WindowManager.getClassTab().updateClassElementsList();
 	}
 }

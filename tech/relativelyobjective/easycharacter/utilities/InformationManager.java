@@ -1,6 +1,8 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
+import java.util.HashMap;
 import java.util.TreeSet;
+import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
@@ -73,5 +75,73 @@ public class InformationManager {
 	}
 	public static void resetClassElements() {
 		CLASSELEMENTS.resetCharacterElements();
+	}
+	public static HashMap<Lists.Ability, Integer> getCurrentSkills() {
+		int str = WindowManager.getStatsTab().getStrength();
+		int dex = WindowManager.getStatsTab().getDexterity();
+		int con = WindowManager.getStatsTab().getConstitution();
+		int intel=WindowManager.getStatsTab().getIntelligence();
+		int wis = WindowManager.getStatsTab().getWisdom();
+		int cha = WindowManager.getStatsTab().getCharisma();
+		//Race Elements
+		for (CharacterElement e : RACEELEMENTS.getCharacterElements()) {
+			if (e instanceof AbilityModifier) {
+				AbilityModifier mod = (AbilityModifier) e;
+				switch (mod.ability) {
+					case STRENGTH:
+						str += mod.modifier;
+						break;
+					case DEXTERITY:
+						dex += mod.modifier;
+						break;
+					case CONSTITUTION:
+						con += mod.modifier;
+						break;
+					case INTELLIGENCE:
+						intel += mod.modifier;
+						break;
+					case WISDOM:
+						wis += mod.modifier;
+						break;
+					case CHARISMA:
+						cha += mod.modifier;
+						break;
+				}
+			}
+		}
+		//Class Elements
+		for (CharacterElement e : CLASSELEMENTS.getCharacterElements()) {
+			if (e instanceof AbilityModifier) {
+				AbilityModifier mod = (AbilityModifier) e;
+				switch (mod.ability) {
+					case STRENGTH:
+						str += mod.modifier;
+						break;
+					case DEXTERITY:
+						dex += mod.modifier;
+						break;
+					case CONSTITUTION:
+						con += mod.modifier;
+						break;
+					case INTELLIGENCE:
+						intel += mod.modifier;
+						break;
+					case WISDOM:
+						wis += mod.modifier;
+						break;
+					case CHARISMA:
+						cha += mod.modifier;
+						break;
+				}
+			}
+		}
+		HashMap<Lists.Ability, Integer> returnMe = new HashMap<>();
+		returnMe.put(Lists.Ability.STRENGTH, str);
+		returnMe.put(Lists.Ability.DEXTERITY, dex);
+		returnMe.put(Lists.Ability.CONSTITUTION, con);
+		returnMe.put(Lists.Ability.INTELLIGENCE, intel);
+		returnMe.put(Lists.Ability.WISDOM, wis);
+		returnMe.put(Lists.Ability.CHARISMA, cha);
+		return returnMe;
 	}
 }

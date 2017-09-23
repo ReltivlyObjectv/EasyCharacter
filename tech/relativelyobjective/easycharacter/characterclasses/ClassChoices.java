@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterclasses;
 
+import java.util.TreeSet;
+import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.ProficiencyBonus;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -100,7 +102,11 @@ public class ClassChoices {
 				return 0;
 		}
 	}
-	public static void applyAbilityScoreImprovement() {
-	
+	public static void openSkillImprovement() {
+		TreeSet<AbilityModifier> mods = 
+			AbilityModifier.openAbilityScoreImprovementPrompt();
+		for (AbilityModifier m : mods) {
+			InformationManager.addClassElement(m);
+		}
 	}
 }

@@ -22,6 +22,8 @@ public class CharacterElementList {
 	public void addCharacterElement(CharacterElement e) {
 		if (e instanceof AbilityModifier) {
 			addCharacterElement((AbilityModifier) e);
+		} else if (e instanceof BarbarianPath) {
+			addCharacterElement((BarbarianPath) e);
 		} else if (e instanceof ConditionModifier) {
 			addCharacterElement((ConditionModifier) e);
 		} else if (e instanceof Class) {
@@ -75,6 +77,16 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(ab);
+	}
+	public void addCharacterElement(BarbarianPath newPath) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof BarbarianPath) {
+				BarbarianPath oldPath = (BarbarianPath) e;
+				oldPath.path = newPath.path;
+				return;
+			}
+		}
+		characterElements.add(newPath);
 	}
 	public void addCharacterElement(Class newClass) {
 		for (CharacterElement e : characterElements) {

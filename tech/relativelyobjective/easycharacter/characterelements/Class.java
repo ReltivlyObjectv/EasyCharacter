@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 
