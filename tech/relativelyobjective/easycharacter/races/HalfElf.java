@@ -170,7 +170,7 @@ public class HalfElf {
 		prompt.add(new JLabel("Language"), constraints);
 		LinkedList unknownLanguages = new LinkedList();
 		for (String l : Lists.LANGUAGESDND) {
-			if (!CharacterElementList.hasLanguage(InformationManager.getRaceElements(), l)) {
+			if (!CharacterElementList.hasLanguage(InformationManager.getAllElements(), l)) {
 				unknownLanguages.add(l);
 			}
 		}

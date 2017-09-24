@@ -5,6 +5,7 @@ import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
+import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
 
@@ -78,16 +79,16 @@ public class InformationManager {
 		CLASSELEMENTS.resetCharacterElements();
 	}
 	public static TreeSet<CharacterElement> getAllElements() {
-		TreeSet<CharacterElement> returnMe = new TreeSet<>();
+		CharacterElementList returnMe = new CharacterElementList();
 		for (CharacterElement e : RACEELEMENTS.getCharacterElements()) {
-			returnMe.add(e);
+			returnMe.addCharacterElement(e);
 		}
 		for (CharacterElement e : CLASSELEMENTS.getCharacterElements()) {
-			returnMe.add(e);
+			returnMe.addCharacterElement(e);
 		}
-		return returnMe;
+		return returnMe.getCharacterElements();
 	}
-	public static HashMap<Lists.Ability, Integer> getCurrentSkills() {
+	public static HashMap<Lists.Ability, Integer> getAbilityScores() {
 		int str = WindowManager.getStatsTab().getStrength();
 		int dex = WindowManager.getStatsTab().getDexterity();
 		int con = WindowManager.getStatsTab().getConstitution();
@@ -153,6 +154,20 @@ public class InformationManager {
 		returnMe.put(Lists.Ability.INTELLIGENCE, intel);
 		returnMe.put(Lists.Ability.WISDOM, wis);
 		returnMe.put(Lists.Ability.CHARISMA, cha);
+		return returnMe;
+	}
+	public static HashMap<Lists.Skill, Integer> getSkillProficiencies() {
+		HashMap<Lists.Skill, Integer> returnMe = new HashMap<>();
+		for (CharacterElement e : getAllElements()) {
+			if (e instanceof SkillProficiency) {
+				SkillProficiency p = (SkillProficiency) e;
+				if (returnMe.containsKey(p.skill)) {
+					//This should theoretically never happen
+				} else {
+					returnMe.put(p.skill, p.getProficiencyMagnitude());
+				}
+			}
+		}
 		return returnMe;
 	}
 	public static int getSpeed() {

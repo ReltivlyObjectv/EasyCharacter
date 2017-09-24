@@ -64,7 +64,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.gridx = 0;
 		constraints.gridy = 0;
-		HashMap<Ability, Integer> skills = InformationManager.getCurrentSkills();
+		HashMap<Ability, Integer> skills = InformationManager.getAbilityScores();
 		HashMap<Ability, JSpinner> spinners = new HashMap<>();
 		HashMap<Ability, JLabel> labels = new HashMap<>();
 		for (Lists.Ability a : Lists.Ability.values()) {
