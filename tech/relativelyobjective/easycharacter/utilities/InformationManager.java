@@ -95,34 +95,7 @@ public class InformationManager {
 		int intel=WindowManager.getStatsTab().getIntelligence();
 		int wis = WindowManager.getStatsTab().getWisdom();
 		int cha = WindowManager.getStatsTab().getCharisma();
-		//Race Elements
-		for (CharacterElement e : RACEELEMENTS.getCharacterElements()) {
-			if (e instanceof AbilityModifier) {
-				AbilityModifier mod = (AbilityModifier) e;
-				switch (mod.ability) {
-					case STRENGTH:
-						str += mod.modifier;
-						break;
-					case DEXTERITY:
-						dex += mod.modifier;
-						break;
-					case CONSTITUTION:
-						con += mod.modifier;
-						break;
-					case INTELLIGENCE:
-						intel += mod.modifier;
-						break;
-					case WISDOM:
-						wis += mod.modifier;
-						break;
-					case CHARISMA:
-						cha += mod.modifier;
-						break;
-				}
-			}
-		}
-		//Class Elements
-		for (CharacterElement e : CLASSELEMENTS.getCharacterElements()) {
+		for (CharacterElement e : getAllElements()) {
 			if (e instanceof AbilityModifier) {
 				AbilityModifier mod = (AbilityModifier) e;
 				switch (mod.ability) {
@@ -162,13 +135,24 @@ public class InformationManager {
 			if (e instanceof SkillProficiency) {
 				SkillProficiency p = (SkillProficiency) e;
 				if (returnMe.containsKey(p.skill)) {
-					//This should theoretically never happen
+					//This should never happen
 				} else {
 					returnMe.put(p.skill, p.getProficiencyMagnitude());
 				}
 			}
 		}
 		return returnMe;
+	}
+	public static boolean isProficient(Lists.Skill skill) {
+		HashMap<Lists.Skill, Integer> profs = getSkillProficiencies();
+		if (profs.containsKey(skill)) {
+			if (profs.get(skill) > 0) {
+				return true;
+			} else {
+				//This should never happen
+			}
+		}
+		return false;
 	}
 	public static int getSpeed() {
 		for (CharacterElement e : getAllElements()) {
