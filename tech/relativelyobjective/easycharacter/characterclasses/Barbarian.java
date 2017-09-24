@@ -47,7 +47,13 @@ public class Barbarian {
 		BERSERKER,
 		TOTEM_WARRIOR
 	}
+	public static enum TotemSpirit {
+		BEAR,
+		EAGLE,
+		WOLF
+	}
 	private static PrimalPath path = PrimalPath.BERSERKER;
+	private static TotemSpirit spirit = TotemSpirit.BEAR;
 	
 	public static void setup(int level) {
 		if (level >= 1) {
@@ -132,6 +138,19 @@ public class Barbarian {
 						"with animals spells, but only as rituals, as described "+
 						"in chapter 10 of the PHB."
 					));
+					WindowManager.getClassTab().updateClassElementsList();
+					openTotemSpiritPrompt();
+					switch (spirit) {
+						case BEAR:
+							//TODO
+							break;
+						case EAGLE:
+							//TODO
+							break;
+						case WOLF:
+							//TODO
+							break;
+					}
 					break;
 			}
 			WindowManager.getClassTab().updateClassElementsList();
@@ -153,7 +172,27 @@ public class Barbarian {
 		}
 		if (level >= 6) {
 			InformationManager.addClassElement(new Rages(4));
-			
+			switch (path) {
+				case BERSERKER:
+					InformationManager.addClassElement(new Feature(
+						"Mindless Rage",
+						""
+					));
+					break;
+				case TOTEM_WARRIOR:
+					switch (spirit) {
+						case BEAR:
+							//TODO
+							break;
+						case EAGLE:
+							//TODO
+							break;
+						case WOLF:
+							//TODO
+							break;
+					}
+					break;
+			}
 		}
 		if (level >= 7) {
 			
@@ -262,7 +301,7 @@ public class Barbarian {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
 			"Primal Path", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
-		prompt.setPreferredSize(new Dimension(500,400));
+		prompt.setPreferredSize(new Dimension(500,300));
 		prompt.setSize(prompt.getPreferredSize());
 		prompt.setMaximumSize(prompt.getPreferredSize());
 		prompt.setMinimumSize(prompt.getPreferredSize());
@@ -299,6 +338,43 @@ public class Barbarian {
 		JButton saveButton = new JButton("Save Path");
 		saveButton.addActionListener((ActionEvent e)->{
 			path = (PrimalPath) selection.getSelectedItem();
+			prompt.dispose();
+		});
+		prompt.add(saveButton);
+		prompt.setVisible(true);
+		WindowManager.getClassTab().updateClassElementsList();
+	}
+	private static void openTotemSpiritPrompt() {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
+			"Totem Spirit", true);
+		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
+		prompt.setPreferredSize(new Dimension(500,225));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		((JPanel)prompt.getContentPane()).setBorder(new EmptyBorder(10, 10, 10, 10));
+		JLabel title = new JLabel(
+			"<html><strong>Choose your Totem Spirit.<strong><br><br></html>",
+			SwingConstants.CENTER
+		);
+		title.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(title);
+		JLabel totemDescription = new JLabel(
+			"<html><strong>Spirit Animal Effects</strong><i> You gain verious "+
+			"effects from your spirit animal (detailed in the PHB p50). The Bear "+
+			"gives you advantages having to do with might, the Eagle gives you "+
+			"more mobility and flight, and the Wolf gives you advantages having "+
+			"to do with perception.</i><br><br></html>",
+			SwingConstants.CENTER
+		);
+		totemDescription.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(totemDescription);
+		JComboBox selection = new JComboBox(TotemSpirit.values());
+		prompt.add(selection);
+		JButton saveButton = new JButton("Save Path");
+		saveButton.addActionListener((ActionEvent e)->{
+			spirit = (TotemSpirit) selection.getSelectedItem();
 			prompt.dispose();
 		});
 		prompt.add(saveButton);
