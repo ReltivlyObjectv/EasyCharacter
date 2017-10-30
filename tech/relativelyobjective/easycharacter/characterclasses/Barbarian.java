@@ -2,17 +2,12 @@ package tech.relativelyobjective.easycharacter.characterclasses;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.util.HashMap;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
@@ -35,7 +30,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
  * @author ReltivlyObjectv
  */
 public class Barbarian {
-	public static Lists.Skill[] barbarianSkills = {
+	public static final Lists.Skill[] BARBARIAN_SKILLS = {
 		Lists.Skill.ANIMAL_HANDLING,
 		Lists.Skill.ATHLETICS,
 		Lists.Skill.INTIMIDATION,
@@ -93,7 +88,10 @@ public class Barbarian {
 				"You can use a shield and gain this benefit."
 			));
 			WindowManager.getClassTab().updateClassElementsList();
-			showLevelOneSkillProficiencyPrompt();
+			for (Lists.Skill s : ClassChoices.openProficiencyPrompt(BARBARIAN_SKILLS, 2)) {
+				InformationManager.addClassElement(new SkillProficiency(s, 1));
+			}
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 2) {
 			InformationManager.addClassElement(new Feature(
@@ -246,56 +244,6 @@ public class Barbarian {
 		
 		System.out.println("//TODO Setup Class: "+Barbarian.class);
 		WindowManager.getClassTab().updateClassElementsList();
-	}
-	private static void showLevelOneSkillProficiencyPrompt() {
-		//Gain proficiency in two skills
-		JDialog prompt = new JDialog(WindowManager.getMainFrame(), "Barbarian Skills", true);
-		prompt.setPreferredSize(new Dimension(450,500));
-		prompt.setSize(prompt.getPreferredSize());
-		prompt.setMaximumSize(prompt.getPreferredSize());
-		prompt.setMinimumSize(prompt.getPreferredSize());
-		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		prompt.setLayout(new GridBagLayout());
-		GridBagConstraints constraints = new GridBagConstraints();
-		constraints.gridx = 0;
-		constraints.gridy = 0;
-		JLabel header = new JLabel(
-			"<html><strong>Choose two different skills to gain proficiency in</strong></html>", 
-			JLabel.CENTER
-		);
-		prompt.add(header, constraints);
-		constraints.gridy++;
-		HashMap<Lists.Skill, JCheckBox> checkBoxes = new HashMap<>();
-		for (int i = 0; i < barbarianSkills.length; i++) {
-			JCheckBox box = new JCheckBox(Lists.SKILLS[Lists.getSkillIndex(barbarianSkills[i])]);
-			checkBoxes.put(barbarianSkills[i], box);
-			prompt.add(box, constraints);
-			constraints.gridy++;
-		}
-		JButton saveButton = new JButton("Add Proficiencies");
-		saveButton.addActionListener((ActionEvent e)->{
-			int checkedBoxes = 0;
-			for (Lists.Skill s : barbarianSkills) {
-				if (checkBoxes.get(s).isSelected()) {
-					checkedBoxes++;
-				}
-			}
-			if (checkedBoxes == 2) {
-				//Correct
-				for (Lists.Skill s : barbarianSkills) {
-					if (checkBoxes.get(s).isSelected()) {
-						InformationManager.addClassElement(new SkillProficiency(s,1));
-					}
-				}
-				WindowManager.getClassTab().updateClassElementsList();
-				prompt.dispose();
-			} else {
-				//Incorrect
-				JOptionPane.showMessageDialog(prompt, "Select exactly two skills.");
-			}
-		});
-		prompt.add(saveButton, constraints);
-		prompt.setVisible(true);
 	}
 	private static void openPathPrompt() {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
