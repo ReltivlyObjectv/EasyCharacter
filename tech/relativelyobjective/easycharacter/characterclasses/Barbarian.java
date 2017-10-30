@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
+import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.BarbarianPath;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
@@ -49,7 +50,7 @@ public class Barbarian {
 	}
 	private static PrimalPath path = PrimalPath.BERSERKER;
 	private static TotemSpirit spirit = TotemSpirit.BEAR;
-	
+
 	public static void setup(int level) {
 		if (level >= 1) {
 			InformationManager.addClassElement(new OtherProficiency("Light Armor",1));
@@ -174,7 +175,9 @@ public class Barbarian {
 				case BERSERKER:
 					InformationManager.addClassElement(new Feature(
 						"Mindless Rage",
-						""
+						"You can't be charmed or frightened while raging. "+
+						"If you are charmed or frightened when you enter your rage, "+
+						"the effect is suspended for the duration of the rage."
 					));
 					break;
 				case TOTEM_WARRIOR:
@@ -193,60 +196,151 @@ public class Barbarian {
 			}
 		}
 		if (level >= 7) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Feral Instinct",
+				"Your instincts are so honed that you have advantage on initiative rolls. "+
+				"Additionally, ifyou are surprised at the beginning of combat and "+
+				"aren't incapacitated. you can act normally on your first turn, but "+
+				"only ifyou enler your rage before doing anything else on that turn."
+			));
 		}
 		if (level >= 8) {
 			ClassChoices.openSkillImprovement();
-			
 		}
 		if (level >= 9) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Brutal Critical",
+				"You can roll one additional weapon damage die when determining "+
+				"the extra damage for a criticai hit with a melee attack."
+			));
 		}
 		if (level >= 10) {
-			
+			switch (path) {
+				case BERSERKER:
+					InformationManager.addClassElement(new Feature(
+						"Intimidating Presence",
+						"You can use your action to frighten someone with your "+
+						"menacing presence. When you do so, choose one creature "+
+						"that you can see within 30 feet of you. If the creature "+
+						"can see or hear you, it must succeed on a Wisdom saving "+
+						"throw (DC equals 8 + your proficiency bonus + your "+
+						"Charisma modifier) or be frightened of you until the "+
+						"end of your next turn. On subsequent turns, you can use "+
+						"your action to extend the duration of this effect on the "+
+						"frightened creature until the end of your next turn. "+
+						"This effect ends if the creature ends its turn out of "+
+						"line of sight or more than 60 feet away from you. "+
+						"If the creature succeeds on its saving throw, you can't "+
+						"use this feature on that creature again for 24 hours."
+					));
+					break;
+				case TOTEM_WARRIOR:
+					switch (spirit) {
+						case BEAR:
+							//TODO
+							break;
+						case EAGLE:
+							//TODO
+							break;
+						case WOLF:
+							//TODO
+							break;
+					}
+					break;
+			}
 		}
 		if (level >= 11) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Relentless Rage",
+				"Your rage can keep you fighting despite grievous wounds. "+
+				"If you drop to O hit points while you're raging and don't die outright, "+
+				"you can make a DC 10 Constitution saving throw. If you succeed, "+
+				"you drop to 1 hit point instead. Each time you use this feature "+
+				"after the first, the DC increases by 5. When you finish a short "+
+				"or long rest, the DC resets to 10."
+			));
 		}
 		if (level >= 12) {
 			InformationManager.addClassElement(new Rages(5));
 			ClassChoices.openSkillImprovement();
-			
+
 		}
 		if (level >= 13) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Brutal Critical",
+				"You can roll two additional weapon damage dice when determining "+
+				"the extra damage for a criticai hit with a melee attack."
+			));
+
 		}
 		if (level >= 14) {
-			
+			switch (path) {
+				case BERSERKER:
+					InformationManager.addClassElement(new Feature(
+						"Retaliation",
+						"When you take damage from a creature that is within 5 "+
+						"feet of you, you can use your reaction to make a melee "+
+						"weapon attack against that creature."
+					));
+					break;
+				case TOTEM_WARRIOR:
+					switch (spirit) {
+						case BEAR:
+							//TODO
+							break;
+						case EAGLE:
+							//TODO
+							break;
+						case WOLF:
+							//TODO
+							break;
+					}
+					break;
+			}
 		}
 		if (level >= 15) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Persistent Rage",
+				"Your rage is so fierce that it ends early only if you fall "+
+				"unconscious or if you choose to end it."
+			));	
 		}
 		if (level >= 16) {
 			ClassChoices.openSkillImprovement();
-			
 		}
 		if (level >= 17) {
 			InformationManager.addClassElement(new Rages(6));
-			
+			InformationManager.addClassElement(new Feature(
+				"Brutal Critical",
+				"You can roll three additional weapon damage dice when determining "+
+				"the extra damage for a criticai hit with a melee attack."
+			));
 		}
 		if (level >= 18) {
-			
+			InformationManager.addClassElement(new Feature(
+				"Indomitable Might",
+				"If your total Strength check is less than your Strength score, "+
+				"you can use that score in place of the total."
+			));
 		}
 		if (level >= 19) {
 			ClassChoices.openSkillImprovement();
-			
 		}
 		if (level >= 20) {
 			InformationManager.addClassElement(new Rages(Integer.MAX_VALUE));
-			
+			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.STRENGTH,4));
+			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.CONSTITUTION,4));
+			InformationManager.addClassElement(new Feature(
+				"Primal Champion",
+				"You embody the power of the wilds. "+
+				"Your maximum for Strength and Constitution scores is now 24."
+			));
 		}
-		
 		System.out.println("//TODO Setup Class: "+Barbarian.class);
 		WindowManager.getClassTab().updateClassElementsList();
 	}
 	private static void openPathPrompt() {
-		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			"Primal Path", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
 		prompt.setPreferredSize(new Dimension(500,300));
@@ -293,7 +387,7 @@ public class Barbarian {
 		WindowManager.getClassTab().updateClassElementsList();
 	}
 	private static void openTotemSpiritPrompt() {
-		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			"Totem Spirit", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
 		prompt.setPreferredSize(new Dimension(500,225));
