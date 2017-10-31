@@ -387,6 +387,7 @@ public class Barbarian {
 			InformationManager.addClassElement(new Rages(Integer.MAX_VALUE));
 			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.STRENGTH,4));
 			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.CONSTITUTION,4));
+			//TODO implement increasing max stat in AbilityModifier class
 			InformationManager.addClassElement(new Feature(
 				"Primal Champion",
 				"You embody the power of the wilds. "+
