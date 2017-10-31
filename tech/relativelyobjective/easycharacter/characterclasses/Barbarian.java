@@ -141,13 +141,33 @@ public class Barbarian {
 					openTotemSpiritPrompt();
 					switch (spirit) {
 						case BEAR:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Totem Spirit (Bear)",
+								"While raging, you have resistance to all damage "+
+								"except psychic damage. The spirit of the bear "+
+								"makes you tough enough to stand up to any punishment."
+							));
 							break;
 						case EAGLE:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Totem Spirit (Eagle)",
+								"While you're raging and aren't wearing heavy "+
+								"armor, other creatures have disadvantage on "+
+								"opportunity attack rolls against you, and you "+
+								"can use the Dash action as a bonus action on "+
+								"your turn. The spirit of the eagle makes you "+
+								"into a predator who can weave through the fray "+
+								"with ease."
+							));
 							break;
 						case WOLF:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Totem Spirit (Wolf)",
+								"While you're raging, your friends have advantage "+
+								"on melee attack rolls against any creature within "+
+								"5 feet of you that is hostile to you. The spirit "+
+								"of the wolf makes you a leader of hunters."
+							));
 							break;
 					}
 					break;
@@ -181,15 +201,37 @@ public class Barbarian {
 					));
 					break;
 				case TOTEM_WARRIOR:
+					openTotemSpiritPrompt();
 					switch (spirit) {
 						case BEAR:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Aspect of the Beast (Bear)",
+								"You gain the might of a bear. Your carring "+
+								"capacity (including maximum load and maximum lift) "+
+								"is doubled, and you have advantage on Strength "+
+								"checks made to push, pull, lift, or break objects."
+							));
 							break;
 						case EAGLE:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Aspect of the Beast (Eagle)",
+								"You gain the eyesight of an eagle. You can see "+
+								"up to 1 mile away with no difficulty, able to "+
+								"discern even fine details as though looking at "+
+								"something no more than 100 feet away from you. "+
+								"Additionally, dim light doesn't impose "+
+								"disadvantage on your Wisdom (perception) checks."
+							));
 							break;
 						case WOLF:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Aspect of the Beast (Wolf)",
+								"You gain the hunting sensibilities of a wolf. "+
+								"You can track other creatures while traveling "+
+								"at a fast pace, and you can move stealthily "+
+								"while traveling at a normal pace "+
+								"(see chapter 8 of the PHB on travel pace)."
+							));
 							break;
 					}
 					break;
@@ -235,17 +277,14 @@ public class Barbarian {
 					));
 					break;
 				case TOTEM_WARRIOR:
-					switch (spirit) {
-						case BEAR:
-							//TODO
-							break;
-						case EAGLE:
-							//TODO
-							break;
-						case WOLF:
-							//TODO
-							break;
-					}
+					InformationManager.addClassElement(new Feature(
+						"Spirit Walker",
+						"You can cast the commune with nature spell, but only "+
+						"as a ritual. When you do so, a spiritual version of "+
+						"one of the animals you chose for Totem Spriit or "+
+						"Aspect of the Beast appears to you to convey the "+
+						"information you speak."
+					));
 					break;
 			}
 		}
@@ -263,7 +302,6 @@ public class Barbarian {
 		if (level >= 12) {
 			InformationManager.addClassElement(new Rages(5));
 			ClassChoices.openSkillImprovement();
-
 		}
 		if (level >= 13) {
 			InformationManager.addClassElement(new Feature(
@@ -271,7 +309,6 @@ public class Barbarian {
 				"You can roll two additional weapon damage dice when determining "+
 				"the extra damage for a criticai hit with a melee attack."
 			));
-
 		}
 		if (level >= 14) {
 			switch (path) {
@@ -284,15 +321,35 @@ public class Barbarian {
 					));
 					break;
 				case TOTEM_WARRIOR:
+					openTotemSpiritPrompt();
 					switch (spirit) {
 						case BEAR:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Totemic Attunement (Bear)",
+								"While you're raging, any creature within 5 feet "+
+								"of you that's hostile to you has disadvantage "+
+								"on attack rolls against targets other than you "+
+								"or another character with this feature. An enemy "+
+								"is immune to this effect if it can't see or hear "+
+								"you or if it can't be frightened."
+							));
 							break;
 						case EAGLE:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Totemic Attunement (Eagle)",
+								"While raging, you have a flying speed equal to "+
+								"your current walking speed. This benefit works "+
+								"only in short bursts; you fall if you end your "+
+								"turn in the air and nothing else is holding you aloft."
+							));
 							break;
 						case WOLF:
-							//TODO
+							InformationManager.addClassElement(new Feature(
+								"Totemic Attunement (Wolf)",
+								"While you're raging, you can use a bonus action "+
+								"on your turn to knock a Large or smaller creature "+
+								"prone when you hit it with a melee weapon attack."
+							));
 							break;
 					}
 					break;
@@ -336,7 +393,6 @@ public class Barbarian {
 				"Your maximum for Strength and Constitution scores is now 24."
 			));
 		}
-		System.out.println("//TODO Setup Class: "+Barbarian.class);
 		WindowManager.getClassTab().updateClassElementsList();
 	}
 	private static void openPathPrompt() {
