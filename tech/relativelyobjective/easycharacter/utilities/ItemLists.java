@@ -9,6 +9,38 @@ import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
  * Reference: PHB p151
  */
 public class ItemLists {
+	public static enum ItemPack {
+		BURGLAR,
+		DIPLOMAT,
+		DUNGEONEER,
+		ENTERTAINER,
+		EXPLORER,
+		PRIEST,
+		SCHOLAR
+	}
+	public static LinkedList<InventoryItem> openItemPackPrompt(ItemPack[] options) {
+		//TODO
+		return getItemPack(options[0]);
+	}
+	private static LinkedList<InventoryItem> getItemPack(ItemPack p) {
+		switch (p) {
+			case BURGLAR:
+				return getBurglarsPack();
+			case DIPLOMAT:
+				return getDiplomatsPack();
+			case DUNGEONEER:
+				return getDungeoneersPack();
+			case ENTERTAINER:
+				return getEntertainersPack();
+			case EXPLORER:
+				return getExplorersPack();
+			case PRIEST:
+				return getPriestsPack();
+			case SCHOLAR:
+				return getScholarsPack();
+		}
+		return null;
+	}
 	public static LinkedList<InventoryItem> getBurglarsPack() {
 		LinkedList<InventoryItem> returnMe = new LinkedList<>();
 		returnMe.add(new InventoryItem("Backpack"));
@@ -103,4 +135,35 @@ public class ItemLists {
 		returnMe.add(new InventoryItem("Small Knife"));
 		return returnMe;
 	}
+	public static String[] INSTRUMENTS = {
+		"Bagpipes",
+		"Drum",
+		"Dulcimer",
+		"Flute",
+		"Lute",
+		"Lyre",
+		"Horn",
+		"Pan Flute",
+		"Shawm",
+		"Viol"
+	};
+	public static String[] ARTISANS_TOOLS = {
+		"Alchemist’s supplies",
+		"Brewer’s Supplies",
+		"Calligrapher's Supplies",
+		"Carpenter’s Tools",
+		"Cartographer’s Tools",
+		"Cobbler’s Tools",
+		"Cook’s Utensils",
+		"Glassblower’s Tools",
+		"Jeweler’s Tools",
+		"Leatherworker’s Tools",
+		"Mason’s Tools",
+		"Painter’s Supplies",
+		"Potter’s Tools",
+		"Smith’s Tools",
+		"Tinker’s Tools",
+		"Weaver’s Tools",
+		"Woodcarver’s Tools"
+	};
 }
