@@ -56,8 +56,9 @@ public class Monk {
 			InformationManager.addClassElement(
 				new OtherProficiency(
 					MiscPrompts.openSingleStringChooserPrompt(
-						allMiscProfsOptions,"Monk Tool or Instrument Proficiency"
-					),1
+						allMiscProfsOptions, "Tool or Instrument Proficiency", true
+					),
+					1
 				)
 			);
 			WindowManager.getClassTab().updateClassElementsList();
