@@ -1,7 +1,19 @@
 package tech.relativelyobjective.easycharacter.characterclasses;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.stream.Stream;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import javax.swing.border.EmptyBorder;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.Ki;
@@ -472,6 +484,40 @@ public class Monk {
 		System.out.println("//TODO Setup Class: "+Monk.class);
 	}
 	public static void openTraditionPrompt() {
-		//TODO
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
+			"Monastic Tradition", true);
+		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
+		prompt.setPreferredSize(new Dimension(500,225));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		((JPanel)prompt.getContentPane()).setBorder(new EmptyBorder(10, 10, 10, 10));
+		JLabel title = new JLabel(
+			"<html><strong>Choose your Monastic Tradition.<strong><br><br></html>",
+			SwingConstants.CENTER
+		);
+		title.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(title);
+		JLabel traditionDescription = new JLabel(
+			"<html><strong></strong><i>"+
+			"You commit yourself to a monastic tradition: "+
+			"the Way of the Open Hand, the Way of Shadow, or the Way of the Four Elements, "+
+			"all detailed in the PHB on pages 79-81. Your tradition grants you "+
+			"features at 3rd level and again at 6th, 11th, and 17th level.</i><br><br></html>",
+			SwingConstants.CENTER
+		);
+		traditionDescription.setAlignmentX(Component.CENTER_ALIGNMENT);
+		prompt.add(traditionDescription);
+		JComboBox selection = new JComboBox(MonasticTradition.values());
+		prompt.add(selection);
+		JButton saveButton = new JButton("Save Tradition");
+		saveButton.addActionListener((ActionEvent e)->{
+			tradition = (MonasticTradition) selection.getSelectedItem();
+			prompt.dispose();
+		});
+		prompt.add(saveButton);
+		prompt.setVisible(true);
+		WindowManager.getClassTab().updateClassElementsList();
 	}
 }
