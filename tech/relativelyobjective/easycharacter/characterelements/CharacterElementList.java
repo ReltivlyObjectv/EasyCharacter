@@ -38,6 +38,10 @@ public class CharacterElementList {
 			addCharacterElement((Feature) e);
 		} else if (e instanceof InventoryItem) {
 			addCharacterElement((InventoryItem) e);
+		} else if (e instanceof Ki) {
+			addCharacterElement((Ki) e);
+		} else if (e instanceof KiAction) {
+			addCharacterElement((KiAction) e);
 		} else if (e instanceof Language) {
 			addCharacterElement((Language) e);
 		} else if (e instanceof OtherProficiency) {
@@ -225,6 +229,30 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newItem);
+	}
+	public void addCharacterElement(Ki newKi) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Ki) {
+				//Overwrite ki count
+				((Ki) e).setKiCount(newKi.getKiCount());
+				return;
+			}
+		}
+		characterElements.add(newKi);
+	}
+	public void addCharacterElement(KiAction newKiAction) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof KiAction) {
+				KiAction oldAction = (KiAction) e;
+				if (oldAction.t.equals(newKiAction.t)) {
+					//Replace same action
+					oldAction.d = newKiAction.d;
+					oldAction.setKiCount(newKiAction.getKiCount());
+					return;
+				}
+			}
+		}
+		characterElements.add(newKiAction);
 	}
 	public void addCharacterElement(Language newLanguage) {
 		for (CharacterElement e : characterElements) {

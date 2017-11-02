@@ -4,9 +4,12 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
+import tech.relativelyobjective.easycharacter.characterelements.Ki;
+import tech.relativelyobjective.easycharacter.characterelements.KiAction;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SavingThrowProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.ItemLists;
 import tech.relativelyobjective.easycharacter.utilities.ItemLists.ItemPack;
@@ -27,6 +30,13 @@ public class Monk {
 		Lists.Skill.RELIGION,
 		Lists.Skill.STEALTH
 	};
+	public static enum MonasticTradition {
+		OPEN_HAND,
+		SHADOW,
+		FOUR_ELEMENTS
+	}
+	private static MonasticTradition tradition = MonasticTradition.SHADOW;
+	
 	public static void setup(int level) {
 		if (level >= 1) {
 			InformationManager.addClassElement(new OtherProficiency("Simple Weapons",1));
@@ -46,7 +56,7 @@ public class Monk {
 			InformationManager.addClassElement(
 				new OtherProficiency(
 					MiscPrompts.openSingleStringChooserPrompt(
-						allMiscProfsOptions,"Monk Tool or Instrument"
+						allMiscProfsOptions,"Monk Tool or Instrument Proficiency"
 					),1
 				)
 			);
@@ -69,48 +79,398 @@ public class Monk {
 			));
 			InformationManager.addClassElement(new Feature(
 				"Martial Arts",
-				""
+				"Your practice of martial arts gives you mastery of combat "+
+				"styles that use unarmed strikes and monk weapons, which are "+
+				"shortswords and any simple melee weapons that don't have the "+
+				"two-handed or heavy property.\n" +
+				"You gain the following benefits while you are unarmed or "+
+				"wielding only monk weapons and you aren't wearing armor or "+
+				"wielding a shield:\n"+
+				"- You can use Dexterity instead of Strength for the attack and "+
+				"damage rolls of your unarmed strikes and monk weapons.\n"+
+				"- You can roll a d4 in place of the normal damage of your "+
+				"unarmed strike or monk weapon. This die changes as you gain "+
+				"monk leveis, as shown in the Martial Arts column of the Monk table "+
+				"(PHB p78).\n"+
+				"- When you use the Attack action with an unarmed strike or a "+
+				"monk weapon on your turn, you can make one unarmed strike as "+
+				"a bonus action. For example, if you take the Attack action and "+
+				"attack with a quarter-staff, you can also make an unarmed strike "+
+				"as a bonus action, assuming you haven't already taken a bonus "+
+				"action this turn."
 			));
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 2) {
+			InformationManager.addClassElement(new Feature(
+				"Ki",
+				"Your training allows you to harness the mystic energy of ki. "+
+				"Your access to this energy is represented by a number of ki points. "+
+				"Your monk level determines the number of points you have, as "+
+				"shown in the Ki Points column of the Monk table (PHB p77). "+
+				"You can spend these points to fuel various ki features. "+
+				"You learn more ki features as you gain levels in this class, "+
+				"When you spend a ki point, it is unavailable until "+
+				"you finish a short or long rest, at the end of which you draw all "+
+				"of your expended ki back into yourself. You must spend at least "+
+				"30 minutes of the rest meditating to regain your ki points, "+
+				"Some of your ki features require your target to make a saving "+
+				"throw to resist the feature's effects. The saving throw DC is "+
+				"calculated as follows: "+
+				"8 + your proficiency bonus + your Wisom modifier."
+			));
+			InformationManager.addClassElement(new Ki(level));
+			InformationManager.addClassElement(new KiAction(
+				1,
+				"Flurry of Blows",
+				"Immediately after you take the Attack action on your turn, "+
+				"you can spend 1 ki point to make two unarmed strikes as a "+
+				"bonus action."
+			));
+			InformationManager.addClassElement(new KiAction(
+				1,
+				"Patient Defense",
+				"You can spend 1 ki point to take the Dodge action as a "+
+				"bonus action on your turn."
+			));
+			InformationManager.addClassElement(new KiAction(
+				1,
+				"Step of the Wind",
+				"You can spend 1 ki point to take the Disengage or Dash action "+
+				"as a bonus action on your turn, and your jump distance is "+
+				"doubled for the turn."
+			));
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Movement",
+				"Your speed increases by 10 feet while you are not wearing armor "+
+				"or wielding a shield."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 3) {
+			InformationManager.addClassElement(new Feature(
+				"Deflect Missiles",
+				"You can use your reaction to deflect or catch the missile when "+
+				"you are hit by a ranged weapon attack. When you do so, the "+
+				"damage you take from the attack is reduced by "+
+				"1d1O + your Dexterity modifier + your monk level. "+
+				"If you reduce the damage to O,you can catch the missile if it "+
+				"is small enough for you to hold in one hand and you have at "+
+				"least one hand free. If you catch a missile in this way, you "+
+				"can spend 1 ki point to make a ranged attack with the weapon "+
+				"or piece of ammunition you just caught, as part of the same reaction. "+
+				"You make this attack with proficiency, regardless of your weapon "+
+				"proficiencies, and the missile counts as a monk weapon for the attack."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
+			openTraditionPrompt();
+			switch (tradition) {
+				case OPEN_HAND:
+					InformationManager.addClassElement(new Feature(
+						"Open Hand Technique",
+						"You can manipulate your enemy's ki when you harness your own. "+
+						"Whenever you hit a creature with one of the altacks granted "+
+						"by your Flurry of Blows, you can impose one of the following "+
+						"effects on that target:\n" +
+						"- It must succeed on a Dexterity saving throw or be knocked prone.\n" +
+						"- It must make a Strength saving throw. Or it fails, you can push "+
+						"it up to 15 feet away from you.\n" +
+						"- It can't take reactions until the end of your next turn."
+					));
+					break;
+				case SHADOW:
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Darkness",
+						"You can spend 2 ki points to cast the Darkness spell "+
+						"(PHB p230) without providing material components."
+					));
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Darkvision",
+						"You can spend 2 ki points to cast the Darkvision spell "+
+						"(PHB p230) without providing material components."
+					));
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Pass Without Trace",
+						"You can spend 2 ki points to cast the Pass Without Trace spell "+
+						"(PHB 264) without providing material components."
+					));
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Silence",
+						"You can spend 2 ki points to cast the Silence spell (PHB p275)."
+					));
+					InformationManager.addClassElement(new Spell("Minor Illusion",0));
+					break;
+				case FOUR_ELEMENTS:
+					//TODO
+					break;
+			}
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 4) {
+			InformationManager.addClassElement(new Feature(
+				"Slow Fall",
+				"You can use your reaction when you fall to reduce any falling "+
+				"damage you take by an amount equal to five times your monk level."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
+			ClassChoices.openSkillImprovement();
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 5) {
+			InformationManager.addClassElement(new Feature(
+				"Extra Attack",
+				"You can attack twice, instead of once, whenver you take the "+
+				"Attack action on your turn."
+			));
+			InformationManager.addClassElement(new KiAction(
+				1,
+				"Stunning Strike",
+				"You can interfere with the flow of ki in an opponent's body. "+
+				"When you hit another creature with a melee weapon attack, "+
+				"you can spend 1 ki point to attempt a stunning strike. "+
+				"The target must succeed on a Constitution saving throw or be "+
+				"stunned until the end of your next turn."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 6) {
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Movement",
+				"Your speed increases by 15 feet while you are not wearing armor "+
+				"or wielding a shield."
+			));
+			InformationManager.addClassElement(new Feature(
+				"Ki-Empowered Strikes",
+				"Your unarmed strikes count as magical for the purpose of overcoming "+
+				"resistance and immunity to nonmagical attacks and damage."
+			));
+			switch (tradition) {
+				case OPEN_HAND:
+					InformationManager.addClassElement(new Feature(
+						"Wholeness of Body",
+						"You gain the ability to heal yourself. As an action, "+
+						"you can regain hit points equal to three times your "+
+						"monk level. You must finish a long rest before you can "+
+						"use this feature again."
+					));
+					break;
+				case SHADOW:
+					InformationManager.addClassElement(new Feature(
+						"Shadow Step",
+						"You gain the ability to step from one shadow into another. "+
+						"When you are in dim light or darkness, as a bonus action "+
+						"you can teleport up to 60 feet to an unoccupied space you "+
+						"can see that is also in dim light or darkness. "+
+						"You then have advantage on the first melee attack you "+
+						"make before the end of the turn."
+					));
+					break;
+				case FOUR_ELEMENTS:
+					//TODO
+					break;
+			}
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 7) {
+			InformationManager.addClassElement(new Feature(
+				"Evasion",
+				"Your instinctive agility lets you dodge out of the way of "+
+				"certain area effects, such as a blue dragon's lightning breath "+
+				"or a fireball spell. When you are subjected to an effect that "+
+				"allows you to make a Dexterity saving throw to take only "+
+				"half damage, you instead take no damage if you succeed on the "+
+				"saving throw, and only half damage if you fail."
+			));
+			InformationManager.addClassElement(new Feature(
+				"Stillness of Mind",
+				"You can use your action to end one effect on yourself that is "+
+				"causing you to be charmed or frightened."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 8) {
+			ClassChoices.openSkillImprovement();
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 9) {
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Movement",
+				"Your speed increases by 15 feet while you are not wearing armor "+
+				"or wielding a shield. You can also move along vertical surfaces "+
+				"and across liquids on your turn without fallind during the same move."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 10) {
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Movement",
+				"Your speed increases by 20 feet while you are not wearing armor "+
+				"or wielding a shield. You can also move along vertical surfaces "+
+				"and across liquids on your turn without fallind during the same move."
+			));
+			InformationManager.addClassElement(new Feature(
+				"Purity of Body",
+				"Your mastery of the ki flowing through you makes you immune "+
+				"to disease and poison."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 11) {
+			switch (tradition) {
+				case OPEN_HAND:
+					InformationManager.addClassElement(new Feature(
+						"Tranquility",
+						"You can enter a special meditation that surrounds you "+
+						"with an aura of peace. At the end of a long rest, you "+
+						"gain the effect of a sanctuary spell that lasts until the "+
+						"start of your next long rest (the spell can end early as normal). "+
+						"The saving throw DC for lhe spell equals "+
+						"8 + your Wisdom modifier + your proficiency bonus."
+					));
+					break;
+				case SHADOW:
+					InformationManager.addClassElement(new Feature(
+						"Cloak of Shadows",
+						"You have learned to become one with the shadows. "+
+						"When you are in an area of dim light or darkness, "+
+						"you can use your action to become invisible. "+
+						"You remain invisible until you make an attack, "+
+						"cast a spell, or are in an area of bright light."
+					));
+					break;
+				case FOUR_ELEMENTS:
+					//TODO
+					break;
+			}
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 12) {
+			ClassChoices.openSkillImprovement();
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 13) {
+			InformationManager.addClassElement(new Feature(
+				"Tongue of the Sun and Moon",
+				"You learn to touch the ki of other minds so that you "+
+				"understand all spoken languages. Moreover, any creature that "+
+				"can understand a language can understand what you say."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 14) {
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Movement",
+				"Your speed increases by 25 feet while you are not wearing armor "+
+				"or wielding a shield. You can also move along vertical surfaces "+
+				"and across liquids on your turn without fallind during the same move."
+			));
+			InformationManager.addClassElement(new SavingThrowProficiency(Lists.Ability.CHARISMA, 1));
+			InformationManager.addClassElement(new SavingThrowProficiency(Lists.Ability.CONSTITUTION, 1));
+			InformationManager.addClassElement(new SavingThrowProficiency(Lists.Ability.DEXTERITY, 1));
+			InformationManager.addClassElement(new SavingThrowProficiency(Lists.Ability.INTELLIGENCE, 1));
+			InformationManager.addClassElement(new SavingThrowProficiency(Lists.Ability.STRENGTH, 1));
+			InformationManager.addClassElement(new SavingThrowProficiency(Lists.Ability.WISDOM, 1));
+			InformationManager.addClassElement(new KiAction(
+				1,
+				"Diamond Soul",
+				"Whenever you make a saving throw and fail, you can "+
+				"spend 1 ki point to reroll it and take the second result."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 15) {
+			InformationManager.addClassElement(new Feature(
+				"Timeless Body",
+				"Your ki sustains you so that you suffer none of the frailty of "+
+				"old age, and you can't be aged magically. You can still die of "+
+				"old age, however. In addition, you no longer need food or water."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 16) {
+			ClassChoices.openSkillImprovement();
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 17) {
+			switch (tradition) {
+				case OPEN_HAND:
+					InformationManager.addClassElement(new KiAction(
+						3,
+						"Quivering Palm",
+						"You gain lhe ability lo set up lethal vibrations in "+
+						"someone's body. When you hit a creature with an "+
+						"unarmed strike, you can spend 3 ki points to start "+
+						"these imperceptible vibrations, which last for a "+
+						"number of days equal to your monk level. "+
+						"The vibrations are harmless unless you use your action "+
+						"to end them. To do so, you and the target must be on "+
+						"the same plane of existence. When you use this action, "+
+						"the crealure must make a Constitution saving throw. "+
+						"If it fails, it is reduced to O hit points. If it succeeds, "+
+						"it takes 10d10 necrotic damage. You can have only one "+
+						"creature under the effect of this feature at a time. "+
+						"You can choose to end the vibrations harmlessly without "+
+						"using an action."
+					));
+					break;
+				case SHADOW:
+					InformationManager.addClassElement(new Feature(
+						"Opportunistic",
+						"You can exploit a creature's momentary distraction "+
+						"when it is hit by an altack. Whenever a creature within "+
+						"5 feet of you is hit by an attack made by a creature "+
+						"other than you, you can use your reaction to make a "+
+						"melee attack against that creature."
+					));
+					break;
+				case FOUR_ELEMENTS:
+					//TODO
+					break;
+			}
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 18) {
+			InformationManager.addClassElement(new Feature(
+				"Unarmored Movement",
+				"Your speed increases by 30 feet while you are not wearing armor "+
+				"or wielding a shield. You can also move along vertical surfaces "+
+				"and across liquids on your turn without fallind during the same move."
+			));
+			InformationManager.addClassElement(new KiAction(
+				4,
+				"Empty Body (Invisibility)",
+				"You can use your action to spend 4 ki points to "+
+				"become invisible for 1 minute. During that time, "+
+				"you also have resistance to all damage but force damage."
+			));
+			InformationManager.addClassElement(new KiAction(
+				8,
+				"Empty Body (Astral Projection)",
+				"You can spend 8 ki points to cast the astral projection spell, "+
+				"without needing material components. When you do so, you can't "+
+				"take any other creatures with you."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 19) {
+			ClassChoices.openSkillImprovement();
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 20) {
+			InformationManager.addClassElement(new Feature(
+				"Perfect Self",
+				"When you roll for initiative and have no ki points "+
+				"remaining, you regain 4 ki points."
+			));
+			WindowManager.getClassTab().updateClassElementsList();
 		}
 		System.out.println("//TODO Setup Class: "+Monk.class);
+	}
+	public static void openTraditionPrompt() {
+		//TODO
 	}
 }
