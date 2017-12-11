@@ -32,74 +32,100 @@ public class MenuBar extends JMenuBar {
 		super.add(toolsMenu);
 	}
 	private void initializeFileMenu() {
-			JMenuItem newFile = new JMenuItem("New Character");
-			newFile.setAccelerator(KeyStroke.getKeyStroke(
-				KeyEvent.VK_N, 
-				Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-			newFile.addActionListener((ActionEvent e) -> {
-				newFile();
-			});
-			fileMenu.add(newFile);
-			JMenuItem save = new JMenuItem("Save");
-			save.setAccelerator(KeyStroke.getKeyStroke(
-				KeyEvent.VK_S, 
-				Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-			save.addActionListener((ActionEvent e) -> {
-				saveFile();
-			});
-			fileMenu.add(save);
-			JMenuItem saveAs = new JMenuItem("Save As...");
-			saveAs.setAccelerator(KeyStroke.getKeyStroke(
-				KeyEvent.VK_S, 
-				Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()
-				| InputEvent.SHIFT_DOWN_MASK));
-			saveAs.addActionListener((ActionEvent e) -> {
-				saveFileAs();
-			});
-			fileMenu.add(saveAs);
-			JMenuItem load = new JMenuItem("Load...");
-			load.setAccelerator(KeyStroke.getKeyStroke(
-				KeyEvent.VK_O, 
-				Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-			load.addActionListener((ActionEvent e) -> {
-				loadFile();
-			});
-			fileMenu.add(load);
-			fileMenu.addSeparator();
-			JMenuItem render = new JMenuItem("Render");
-			render.setAccelerator(KeyStroke.getKeyStroke(
-				KeyEvent.VK_R, 
-				Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-			render.addActionListener((ActionEvent e) -> {
-				renderPage();
-			});
-			fileMenu.add(render);
-			JMenuItem renderToFile = new JMenuItem("Render to File");
-			renderToFile.setAccelerator(KeyStroke.getKeyStroke(
-				KeyEvent.VK_R, 
-				Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()
-				| InputEvent.SHIFT_DOWN_MASK));
-			renderToFile.addActionListener((ActionEvent e) -> {
-				renderPageToFile();
-			});
-			fileMenu.add(renderToFile);
+		JMenuItem newFile = new JMenuItem("New Character");
+		newFile.setAccelerator(KeyStroke.getKeyStroke(
+			KeyEvent.VK_N, 
+			Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		newFile.addActionListener((ActionEvent e) -> {
+			newFile();
+		});
+		fileMenu.add(newFile);
+		JMenuItem save = new JMenuItem("Save");
+		save.setAccelerator(KeyStroke.getKeyStroke(
+			KeyEvent.VK_S, 
+			Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		save.addActionListener((ActionEvent e) -> {
+			saveFile();
+		});
+		fileMenu.add(save);
+		JMenuItem saveAs = new JMenuItem("Save As...");
+		saveAs.setAccelerator(KeyStroke.getKeyStroke(
+			KeyEvent.VK_S, 
+			Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()
+			| InputEvent.SHIFT_DOWN_MASK));
+		saveAs.addActionListener((ActionEvent e) -> {
+			saveFileAs();
+		});
+		fileMenu.add(saveAs);
+		JMenuItem load = new JMenuItem("Load...");
+		load.setAccelerator(KeyStroke.getKeyStroke(
+			KeyEvent.VK_O, 
+			Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		load.addActionListener((ActionEvent e) -> {
+			loadFile();
+		});
+		fileMenu.add(load);
+		fileMenu.addSeparator();
+		JMenuItem render = new JMenuItem("Render");
+		render.setAccelerator(KeyStroke.getKeyStroke(
+			KeyEvent.VK_R, 
+			Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		render.addActionListener((ActionEvent e) -> {
+			renderPage();
+		});
+		fileMenu.add(render);
+		JMenuItem renderToFile = new JMenuItem("Render to File");
+		renderToFile.setAccelerator(KeyStroke.getKeyStroke(
+			KeyEvent.VK_R, 
+			Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()
+			| InputEvent.SHIFT_DOWN_MASK));
+		renderToFile.addActionListener((ActionEvent e) -> {
+			renderPageToFile();
+		});
+		fileMenu.add(renderToFile);
 	}
 	private void initializeToolsMenu() {
-			JCheckBoxMenuItem dndLore = new JCheckBoxMenuItem("D&D Lore");
+		JMenuItem loreHeader = new JMenuItem("Lore Set");
+		loreHeader.setEnabled(false);
+		toolsMenu.add(loreHeader);
+		JCheckBoxMenuItem dndLore = new JCheckBoxMenuItem("D&D");
+		dndLore.setSelected(true);
+		JCheckBoxMenuItem tesLore = new JCheckBoxMenuItem("The Elder Scrolls");
+		dndLore.addActionListener((ActionEvent e) -> {
+			InformationManager.setLoreSet(Lists.LoreSet.DUNGEONS_AND_DRAGONS);
 			dndLore.setSelected(true);
-			JCheckBoxMenuItem tesLore = new JCheckBoxMenuItem("The Elder Scrolls Lore");
-			dndLore.addActionListener((ActionEvent e) -> {
-				InformationManager.setLoreSet(Lists.LoreSet.DUNGEONS_AND_DRAGONS);
-				dndLore.setSelected(true);
-				tesLore.setSelected(false);
-			});
-			toolsMenu.add(dndLore);
-			tesLore.addActionListener((ActionEvent e) -> {
-				InformationManager.setLoreSet(Lists.LoreSet.THE_ELDER_SCROLLS);
-				dndLore.setSelected(false);
-				tesLore.setSelected(true);
-			});
-			toolsMenu.add(tesLore);
+			tesLore.setSelected(false);
+		});
+		toolsMenu.add(dndLore);
+		tesLore.addActionListener((ActionEvent e) -> {
+			InformationManager.setLoreSet(Lists.LoreSet.THE_ELDER_SCROLLS);
+			dndLore.setSelected(false);
+			tesLore.setSelected(true);
+		});
+		toolsMenu.add(tesLore);
+		toolsMenu.addSeparator();
+		//Homebrew
+		JMenuItem homebrewHeader = new JMenuItem("Class Set");
+		homebrewHeader.setEnabled(false);
+		toolsMenu.add(homebrewHeader);
+		
+		JCheckBoxMenuItem homebrewOff = new JCheckBoxMenuItem("RAW Classes");
+		JCheckBoxMenuItem homebrewOn = new JCheckBoxMenuItem("Homebrew Classes");
+		homebrewOff.setSelected(true);
+		homebrewOff.addActionListener((ActionEvent e) -> {
+			setHomebrew(false);
+			homebrewOn.setSelected(false);
+			homebrewOff.setSelected(true);
+		});
+		toolsMenu.add(homebrewOff);
+		
+		homebrewOn.setSelected(false);
+		homebrewOn.addActionListener((ActionEvent e) -> {
+			setHomebrew(true);
+			homebrewOff.setSelected(false);
+			homebrewOn.setSelected(true);
+		});
+		toolsMenu.add(homebrewOn);
 	}
 	private void initializeEditMenu() {
 	}
@@ -114,5 +140,8 @@ public class MenuBar extends JMenuBar {
 	private void renderPage() {
 	}
 	private void renderPageToFile() {
+	}
+	private void setHomebrew(boolean enabled) {
+		System.out.printf("Homebrew enabled: %b\n", enabled);
 	}
 }
