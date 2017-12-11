@@ -4,6 +4,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.stream.Stream;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -46,6 +48,25 @@ public class Monk {
 		OPEN_HAND,
 		SHADOW,
 		FOUR_ELEMENTS
+	}
+	public static enum ElementalDiscipline {
+		BREATH_OF_WINTER,
+		CLENCH_OF_THE_NORTH_WIND,
+		ELEMENTAL_ATTUNEMENT,
+		ETERNAL_MOUNTAIN_DEFENSE,
+		FANGS_OF_THE_FIRE_SNAKE,
+		FIST_OF_FOUR_THUNDERS,
+		FIST_OF_UNBROKEN_AIR,
+		FLAMES_OF_THE_PHOENIX,
+		GONG_OF_THE_SUMMIT,
+		MIST_STANCE,
+		RIDE_THE_WIND,
+		RIVER_OF_HUNGRY_FLAME,
+		RUSH_OF_THE_GALE_SPIRITS,
+		SHAPE_THE_FLOWING_RIVER,
+		SWEEPING_CINDER_STRIKE,
+		WATER_WHIP,
+		WAVE_OF_ROLLING_EARTH
 	}
 	private static MonasticTradition tradition = MonasticTradition.SHADOW;
 	
@@ -218,7 +239,19 @@ public class Monk {
 					InformationManager.addClassElement(new Spell("Minor Illusion",0));
 					break;
 				case FOUR_ELEMENTS:
-					//TODO
+					InformationManager.addClassElement(new Feature(
+						"Disciple of the Elements",
+						"You learn magical disciplines that harness the power "+
+						"of the four elements. A discipline requires you to "+
+						"spend ki points each time you use it. "+
+						"Some elemenlal disciplines allow you to cast spells. "+
+						"See chapter 10 of the PHB for lhe general rules of "+
+						"spellcasling. To cast one of lhese spells, you use its "+
+						"casting time and other rules, but you don't need to "+
+						"provide material components for it."
+					));
+					WindowManager.getClassTab().updateClassElementsList();
+					showDisciplinesPrompt(level);
 					break;
 			}
 			WindowManager.getClassTab().updateClassElementsList();
@@ -248,6 +281,28 @@ public class Monk {
 				"The target must succeed on a Constitution saving throw or be "+
 				"stunned until the end of your next turn."
 			));
+			if (tradition.equals(MonasticTradition.FOUR_ELEMENTS)) {
+				InformationManager.addClassElement(new Feature(
+					"Disciple of the Elements",
+					"You learn magical disciplines that harness the power "+
+					"of the four elements. A discipline requires you to "+
+					"spend ki points each time you use it. "+
+					"Some elemenlal disciplines allow you to cast spells. "+
+					"See chapter 10 of the PHB for lhe general rules of "+
+					"spellcasling. To cast one of lhese spells, you use its "+
+					"casting time and other rules, but you don't need to "+
+					"provide material components for it. You can spend additional ki "+
+					"points to increase the level of an elemental discipline "+
+					"spell that you cast, provided that the spell has an enhanced "+
+					"effect at a higher level, as burning hands does. "+
+					"The spell's level increases by 1 for each additional "+
+					"ki point you spend. "+
+					"The maximum number of ki points you can spend to cast a "+
+					"spell in this way (including its base ki point cost and "+
+					"any additional ki points you spend to increase its level) "+
+					"is 3."
+				));
+			}
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 6) {
@@ -316,6 +371,28 @@ public class Monk {
 				"or wielding a shield. You can also move along vertical surfaces "+
 				"and across liquids on your turn without fallind during the same move."
 			));
+			if (tradition.equals(MonasticTradition.FOUR_ELEMENTS)) {
+				InformationManager.addClassElement(new Feature(
+					"Disciple of the Elements",
+					"You learn magical disciplines that harness the power "+
+					"of the four elements. A discipline requires you to "+
+					"spend ki points each time you use it. "+
+					"Some elemenlal disciplines allow you to cast spells. "+
+					"See chapter 10 of the PHB for lhe general rules of "+
+					"spellcasling. To cast one of lhese spells, you use its "+
+					"casting time and other rules, but you don't need to "+
+					"provide material components for it. You can spend additional ki "+
+					"points to increase the level of an elemental discipline "+
+					"spell that you cast, provided that the spell has an enhanced "+
+					"effect at a higher level, as burning hands does. "+
+					"The spell's level increases by 1 for each additional "+
+					"ki point you spend. "+
+					"The maximum number of ki points you can spend to cast a "+
+					"spell in this way (including its base ki point cost and "+
+					"any additional ki points you spend to increase its level) "+
+					"is 4."
+				));
+			}
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 10) {
@@ -372,6 +449,28 @@ public class Monk {
 				"understand all spoken languages. Moreover, any creature that "+
 				"can understand a language can understand what you say."
 			));
+			if (tradition.equals(MonasticTradition.FOUR_ELEMENTS)) {
+				InformationManager.addClassElement(new Feature(
+					"Disciple of the Elements",
+					"You learn magical disciplines that harness the power "+
+					"of the four elements. A discipline requires you to "+
+					"spend ki points each time you use it. "+
+					"Some elemenlal disciplines allow you to cast spells. "+
+					"See chapter 10 of the PHB for lhe general rules of "+
+					"spellcasling. To cast one of lhese spells, you use its "+
+					"casting time and other rules, but you don't need to "+
+					"provide material components for it. You can spend additional ki "+
+					"points to increase the level of an elemental discipline "+
+					"spell that you cast, provided that the spell has an enhanced "+
+					"effect at a higher level, as burning hands does. "+
+					"The spell's level increases by 1 for each additional "+
+					"ki point you spend. "+
+					"The maximum number of ki points you can spend to cast a "+
+					"spell in this way (including its base ki point cost and "+
+					"any additional ki points you spend to increase its level) "+
+					"is 5."
+				));
+			}
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 14) {
@@ -441,7 +540,26 @@ public class Monk {
 					));
 					break;
 				case FOUR_ELEMENTS:
-					//TODO
+					InformationManager.addClassElement(new Feature(
+						"Disciple of the Elements",
+						"You learn magical disciplines that harness the power "+
+						"of the four elements. A discipline requires you to "+
+						"spend ki points each time you use it. "+
+						"Some elemenlal disciplines allow you to cast spells. "+
+						"See chapter 10 of the PHB for lhe general rules of "+
+						"spellcasling. To cast one of lhese spells, you use its "+
+						"casting time and other rules, but you don't need to "+
+						"provide material components for it. You can spend additional ki "+
+						"points to increase the level of an elemental discipline "+
+						"spell that you cast, provided that the spell has an enhanced "+
+						"effect at a higher level, as burning hands does. "+
+						"The spell's level increases by 1 for each additional "+
+						"ki point you spend. "+
+						"The maximum number of ki points you can spend to cast a "+
+						"spell in this way (including its base ki point cost and "+
+						"any additional ki points you spend to increase its level) "+
+						"is 6."
+					));
 					break;
 			}
 			WindowManager.getClassTab().updateClassElementsList();
@@ -483,7 +601,7 @@ public class Monk {
 		}
 		System.out.println("//TODO Setup Class: "+Monk.class);
 	}
-	public static void openTraditionPrompt() {
+	private static void openTraditionPrompt() {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			"Monastic Tradition", true);
 		prompt.setLayout(new BoxLayout(prompt.getContentPane(), BoxLayout.PAGE_AXIS));
@@ -519,5 +637,123 @@ public class Monk {
 		prompt.add(saveButton);
 		prompt.setVisible(true);
 		WindowManager.getClassTab().updateClassElementsList();
+	}
+	private static void showDisciplinesPrompt(int level) {
+		if (level < 3) {
+			//Have not unlocked disciplines yet
+			return;
+		}
+		HashMap<ElementalDiscipline, Integer> discLevels = new HashMap<>();
+		discLevels.put(ElementalDiscipline.BREATH_OF_WINTER, 17);
+		discLevels.put(ElementalDiscipline.CLENCH_OF_THE_NORTH_WIND, 6);
+		discLevels.put(ElementalDiscipline.ELEMENTAL_ATTUNEMENT, 3);
+		discLevels.put(ElementalDiscipline.ETERNAL_MOUNTAIN_DEFENSE, 11);
+		discLevels.put(ElementalDiscipline.FANGS_OF_THE_FIRE_SNAKE, 3);
+		discLevels.put(ElementalDiscipline.FIST_OF_FOUR_THUNDERS, 3);
+		discLevels.put(ElementalDiscipline.FIST_OF_UNBROKEN_AIR, 3);
+		discLevels.put(ElementalDiscipline.FLAMES_OF_THE_PHOENIX, 11);
+		discLevels.put(ElementalDiscipline.GONG_OF_THE_SUMMIT, 6);
+		discLevels.put(ElementalDiscipline.MIST_STANCE, 11);
+		discLevels.put(ElementalDiscipline.RIDE_THE_WIND, 11);
+		discLevels.put(ElementalDiscipline.RIVER_OF_HUNGRY_FLAME, 17);
+		discLevels.put(ElementalDiscipline.RUSH_OF_THE_GALE_SPIRITS, 3);
+		discLevels.put(ElementalDiscipline.SHAPE_THE_FLOWING_RIVER, 3);
+		discLevels.put(ElementalDiscipline.SWEEPING_CINDER_STRIKE, 3);
+		discLevels.put(ElementalDiscipline.WATER_WHIP, 3);
+		discLevels.put(ElementalDiscipline.WAVE_OF_ROLLING_EARTH, 17);
+		LinkedList<ElementalDiscipline> availableDisciplines = new LinkedList<>();
+		LinkedList<ElementalDiscipline> chosenDisciplines = new LinkedList<>();
+		for (ElementalDiscipline d : discLevels.keySet()) {
+			if (discLevels.get(d) <= level) {
+				if (level < 6 && d.equals(ElementalDiscipline.ELEMENTAL_ATTUNEMENT)) {
+					//By default, Elemental Attunement is known, but can be changed at level 6
+					chosenDisciplines.add(ElementalDiscipline.ELEMENTAL_ATTUNEMENT);
+					continue;
+				}
+				availableDisciplines.add(d);
+			}
+		}
+		Object[] promptResults =  MiscPrompts.openMultipleObjectChooserPrompt(
+			availableDisciplines.toArray(), 
+			"Elemental Disciplines", 
+			level < 6 ? 1 : level < 11 ? 3 : 4);
+		for (Object o : promptResults) {
+			chosenDisciplines.add((ElementalDiscipline) o);
+		}
+		for (ElementalDiscipline d : chosenDisciplines) {
+			switch (d) {
+				case BREATH_OF_WINTER:
+					InformationManager.addClassElement(new KiAction(
+						6,
+						"Breath of Winter",
+						"You can spend 6 ki points to cast cone of cold."
+					));
+					break;
+				case CLENCH_OF_THE_NORTH_WIND:
+					InformationManager.addClassElement(new KiAction(
+						3,
+						"Clench of the North Wind",
+						"You can spend 3 ki points to cast hold person."
+					));
+					break;
+				case ELEMENTAL_ATTUNEMENT:
+					InformationManager.addClassElement(new Feature(
+						"Elemental Attunement",
+						"You can use your action to briefly control elemental "+
+						"forces nearby, causing one of the following effects of "+
+						"your choice:\n"+
+						"- Create a harmless, instantaneous sensory "+
+						"effect related to air, earth, fire, or water, such as "+
+						"a shower of sparks, a puff of wind, a spray of light mist, "+
+						"or a gentle rumbling of stone.\n"+
+						"- Instantaneously light or snuff out a candle, a torch, "+
+						"or a small campfire.\n"+
+						"- Chill or warm up to 1 pound of nonliving material for "+
+						"up to 1 hour.\n"+
+						"- Cause earth, fire, water, or mist that "+
+						"can fit within a 1-foot cube to shape itself into a "+
+						"crude form you designate for 1 minute."
+					));
+					break;
+				case ETERNAL_MOUNTAIN_DEFENSE:
+					InformationManager.addClassElement(new KiAction(
+						5,
+						"Eternal Mountain Defense",
+						"You can spend 5 ki points to cast stoneskin, targeting yourself."
+					));
+					break;
+				case FANGS_OF_THE_FIRE_SNAKE:
+					InformationManager.addClassElement(new KiAction(
+						1,
+						"Fangs of the Fire Snake",
+						"//TODO"
+					));
+					break;
+				case FIST_OF_FOUR_THUNDERS:
+					break;
+				case FIST_OF_UNBROKEN_AIR:
+					break;
+				case FLAMES_OF_THE_PHOENIX:
+					break;
+				case GONG_OF_THE_SUMMIT:
+					break;
+				case MIST_STANCE:
+					break;
+				case RIDE_THE_WIND:
+					break;
+				case RIVER_OF_HUNGRY_FLAME:
+					break;
+				case RUSH_OF_THE_GALE_SPIRITS:
+					break;
+				case SHAPE_THE_FLOWING_RIVER:
+					break;
+				case SWEEPING_CINDER_STRIKE:
+					break;
+				case WATER_WHIP:
+					break;
+				case WAVE_OF_ROLLING_EARTH:
+					break;
+			}
+		}
 	}
 }

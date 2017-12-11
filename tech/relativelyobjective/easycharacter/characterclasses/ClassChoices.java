@@ -173,7 +173,7 @@ public class ClassChoices {
 					checkedBoxes++;
 				}
 			}
-			if (checkedBoxes == 2) {
+			if (checkedBoxes == count) {
 				//Correct
 				for (Lists.Skill s : options) {
 					if (checkBoxes.get(s).isSelected()) {
