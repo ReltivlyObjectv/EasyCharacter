@@ -78,6 +78,7 @@ public class ClassChoices {
 			default:
 				throw new UnsupportedOperationException();
 		}
+		WindowManager.getMainFrame().setCompletedClassTab(true);
 	}
 	public static int getProficiencyBonus(int level) {
 		if (level < 1) {

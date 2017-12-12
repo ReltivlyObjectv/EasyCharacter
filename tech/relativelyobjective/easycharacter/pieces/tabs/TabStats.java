@@ -10,6 +10,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -44,6 +45,7 @@ public class TabStats extends JPanel {
 	private void createStatLabelListener(JSpinner spinner, JLabel label) {
 		spinner.addChangeListener((ChangeEvent e) -> {
 			label.setText(InformationManager.calculateStatModifierString((int) spinner.getValue()));
+			WindowManager.getMainFrame().setCompletedBaseStatsTab(true);
 		});
 	}
 	public int getStrength() {

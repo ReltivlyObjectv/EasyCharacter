@@ -2,6 +2,7 @@ package tech.relativelyobjective.easycharacter.races;
 
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -70,7 +71,8 @@ public class RaceChoices {
 				break;
 			default:
 				System.out.println("ERROR: "+race);
-				break;
+				return;
 		}
+		WindowManager.getMainFrame().setCompletedRaceTab(true);
 	}
 }
