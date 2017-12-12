@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.TreeSet;
 import java.util.stream.Stream;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -338,7 +339,8 @@ public class Monk {
 					));
 					break;
 				case FOUR_ELEMENTS:
-					//TODO
+					//There is nothing to do here, because the disciplines
+					//are handled at level three
 					break;
 			}
 			WindowManager.getClassTab().updateClassElementsList();
@@ -433,7 +435,8 @@ public class Monk {
 					));
 					break;
 				case FOUR_ELEMENTS:
-					//TODO
+					//There is nothing to do here, because the disciplines
+					//are handled at level three
 					break;
 			}
 			WindowManager.getClassTab().updateClassElementsList();
@@ -599,7 +602,6 @@ public class Monk {
 			));
 			WindowManager.getClassTab().updateClassElementsList();
 		}
-		System.out.println("//TODO Setup Class: "+Monk.class);
 	}
 	private static void openTraditionPrompt() {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
@@ -661,7 +663,7 @@ public class Monk {
 		discLevels.put(ElementalDiscipline.SWEEPING_CINDER_STRIKE, 3);
 		discLevels.put(ElementalDiscipline.WATER_WHIP, 3);
 		discLevels.put(ElementalDiscipline.WAVE_OF_ROLLING_EARTH, 17);
-		LinkedList<ElementalDiscipline> availableDisciplines = new LinkedList<>();
+		TreeSet<ElementalDiscipline> availableDisciplines = new TreeSet<>();
 		LinkedList<ElementalDiscipline> chosenDisciplines = new LinkedList<>();
 		for (ElementalDiscipline d : discLevels.keySet()) {
 			if (discLevels.get(d) <= level) {
