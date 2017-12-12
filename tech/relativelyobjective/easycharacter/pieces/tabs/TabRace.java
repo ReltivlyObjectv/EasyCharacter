@@ -20,6 +20,7 @@ import tech.relativelyobjective.easycharacter.characterelements.CharacterElement
 import tech.relativelyobjective.easycharacter.races.RaceChoices;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -128,6 +129,7 @@ public class TabRace extends JPanel {
 			raceChoice.group.clearSelection();
 			InformationManager.resetRaceElements();
 			raceElements.updateList();
+			WindowManager.getMainFrame().setCompletedRaceTab(false);
 		});
 		super.add(resetButton, BorderLayout.PAGE_END);
 	}

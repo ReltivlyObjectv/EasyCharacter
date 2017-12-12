@@ -318,7 +318,18 @@ public class Lists {
 		WIZARD
 	}
 	public enum Background {
-		PLACEHOLDER1,
-		PLACEHOLDER2
+		ACOLYTE,
+		CHARLATAN,
+		CRIMINAL,
+		ENTERTAINER,
+		FOLK_HERO,
+		GUILD_ARTISAN,
+		HERMIT,
+		NOBLE,
+		OUTLANDER,
+		SAGE,
+		SAILOR,
+		SOLDIER,
+		URCHIN
 	}
 }

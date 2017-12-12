@@ -20,6 +20,7 @@ import tech.relativelyobjective.easycharacter.backgrounds.BackgroundChooser;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -98,6 +99,7 @@ public class TabBackground extends JPanel {
 			backgroundChoice.group.clearSelection();
 			InformationManager.resetBackgroundElements();
 			backgroundElements.updateList();
+			WindowManager.getMainFrame().setCompletedBackgroundTab(false);
 		});
 		super.add(resetButton, BorderLayout.PAGE_END);
 	}

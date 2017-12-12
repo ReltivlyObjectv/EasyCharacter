@@ -13,6 +13,48 @@ public class BackgroundChooser {
 		InformationManager.resetBackgroundElements();
 		WindowManager.getBackgroundTab().updateBackgroundElementsList();
 		System.out.printf("Some Background: %s\n", bg.toString());
-		//TODO
+		switch (bg) {
+			case ACOLYTE:
+				//TODO
+				break;
+			case CHARLATAN:
+				//TODO
+				break;
+			case CRIMINAL:
+				//TODO
+				break;
+			case ENTERTAINER:
+				//TODO
+				break;
+			case FOLK_HERO:
+				//TODO
+				break;
+			case GUILD_ARTISAN:
+				//TODO
+				break;
+			case HERMIT:
+				//TODO
+				break;
+			case NOBLE:
+				//TODO
+				break;
+			case OUTLANDER:
+				//TODO
+				break;
+			case SAGE:
+				//TODO
+				break;
+			case SAILOR:
+				//TODO
+				break;
+			case SOLDIER:
+				//TODO
+				break;
+			case URCHIN:
+				//TODO
+				break;
+		}
+		WindowManager.getBackgroundTab().updateBackgroundElementsList();
+		WindowManager.getMainFrame().setCompletedBackgroundTab(true);
 	}
 }

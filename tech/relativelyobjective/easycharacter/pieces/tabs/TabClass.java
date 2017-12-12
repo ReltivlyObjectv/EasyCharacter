@@ -23,6 +23,7 @@ import tech.relativelyobjective.easycharacter.characterclasses.ClassChoices;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -151,6 +152,7 @@ public class TabClass extends JPanel {
 			classChoice.resetSpinner();
 			InformationManager.resetClassElements();
 			classElements.updateList();
+			WindowManager.getMainFrame().setCompletedClassTab(false);
 		});
 		super.add(resetButton, BorderLayout.PAGE_END);
 	}
