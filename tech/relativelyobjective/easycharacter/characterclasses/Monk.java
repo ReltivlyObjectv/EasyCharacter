@@ -726,32 +726,129 @@ public class Monk {
 					InformationManager.addClassElement(new KiAction(
 						1,
 						"Fangs of the Fire Snake",
-						"//TODO"
+						"When you use the Attack action on your turn, you can "+
+						"spend 1 ki point to cause tendrils of flame to stretch "+
+						"out from your fists and feet. Your reach with your "+
+						"unarmed strikes increases by 10 feet for that action, "+
+						"as well as the rest of the turn. A hit with such an "+
+						"attack deals fire damage instead of bludgeoning damage, "+
+						"and if you spend 1 ki point when the attack hits, it "+
+						"also deals an extra 1d1O fire damage."
 					));
 					break;
 				case FIST_OF_FOUR_THUNDERS:
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Fist of Four Thunders",
+						"You can spend 2 ki points to cast thunderwave."
+					));
 					break;
 				case FIST_OF_UNBROKEN_AIR:
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Fist of Unbroken Air",
+						"You can create a blast of compressed air that strikes "+
+						"like a mighty fist. As an action, you can spend 2 ki "+
+						"points and choose a creature within 30 feet of you. "+
+						"That creature must make a Strength saving throw. "+
+						"On a failed save, the creature takes 3d10 bludgeoning "+
+						"damage, plus an extra 1d1O bludgeoning damage for each "+
+						"additional ki point you spend, and you can push the "+
+						"creature up to 20 feet away from you and knock it prone. "+
+						"On a successful save, the creature takes half as much "+
+						"damage, and you don't push it or knock it prone."
+					));
 					break;
 				case FLAMES_OF_THE_PHOENIX:
+					InformationManager.addClassElement(new KiAction(
+						4,
+						"Flames of the Phoenix",
+						"You can spend 4 ki points to cast fireball."
+					));
 					break;
 				case GONG_OF_THE_SUMMIT:
+					InformationManager.addClassElement(new KiAction(
+						3,
+						"Gong of the Summit",
+						"You can spend 3 ki points to cast shatter."
+					));
 					break;
 				case MIST_STANCE:
+					InformationManager.addClassElement(new KiAction(
+						4,
+						"Mist Stance",
+						"You can spend 4 ki points to cast gaseous form, targeting yourself."
+					));
 					break;
 				case RIDE_THE_WIND:
+					InformationManager.addClassElement(new KiAction(
+						4,
+						"Ride the Wind",
+						"You can spend 4 ki points to cast fly, targeting yourself."
+					));
 					break;
 				case RIVER_OF_HUNGRY_FLAME:
+					InformationManager.addClassElement(new KiAction(
+						5,
+						"River of Hungry Flame",
+						"You can spend 5 ki points to cast wall of fire."
+					));
 					break;
 				case RUSH_OF_THE_GALE_SPIRITS:
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Rush of the Gale Spirits",
+						"You can spend 2 ki points to cast gust of wind."
+					));
 					break;
 				case SHAPE_THE_FLOWING_RIVER:
+					InformationManager.addClassElement(new KiAction(
+						1,
+						"Shape of the Flowing River",
+						"As an action, you can spend 1 ki point to choose an "+
+						"area of ice or water no larger than 30 feet on a side "+
+						"within 120 feet of you. You can change water to ice "+
+						"within the area and vice versa, and you can reshape "+
+						"ice in the area in any manner you choose. You can raise "+
+						"or lower the ice's elevation, create or fill in a trench, "+
+						"erect or flatten a wall, or form a pillar. The extent "+
+						"of any such changes can't exceed half the area's largest "+
+						"dimension. For example, if you affect a 30-foot square, "+
+						"you can create a pillar up to 15 feet high, raise or "+
+						"lower the square's elevation by up to 15 feet, dig a "+
+						"trench up to 15 feet deep, and so on. You can't shape "+
+						"the ice to trap or injure a creature in the area."
+					));
 					break;
 				case SWEEPING_CINDER_STRIKE:
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Sweeping Cinder Strike",
+						"You can spend 2 ki points to cast burning hands."
+					));
 					break;
 				case WATER_WHIP:
+					InformationManager.addClassElement(new KiAction(
+						2,
+						"Water Whip",
+						"You can spend 2 ki points as a bonus action to create "+
+						"a whip of water that shoves and pulls a creature to "+
+						"unbalance it. A creature that you can see that is "+
+						"within 30 feet of you must make a Dexterity saving throw. "+
+						"On a failed save, the creature takes 3d10 bludgeoning "+
+						"damage, plus an extra 1d1O bludgeoning damage for each "+
+						"additional ki point you spend, and you can either knock "+
+						"it prone or pull it up to 25 feet closer to you. "+
+						"On a successful save, the creature takes half as much "+
+						"damage, and you don't pull it or knock it prone."
+					));
 					break;
 				case WAVE_OF_ROLLING_EARTH:
+					InformationManager.addClassElement(new KiAction(
+						6,
+						"Wave of Rolling Earth",
+						"You can spend 6 ki points to cast wall of stone."
+					));
 					break;
 			}
 		}
