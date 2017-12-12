@@ -18,6 +18,7 @@ public class InformationManager {
 	public static Race selectedRace = null;
 	private static final CharacterElementList RACEELEMENTS = new CharacterElementList();
 	private static final CharacterElementList CLASSELEMENTS = new CharacterElementList();
+	private static final CharacterElementList BACKGROUNDELEMENTS = new CharacterElementList();
 	
 	public static Lists.LoreSet getLoreSet() {
 		return loreSet;
@@ -78,12 +79,24 @@ public class InformationManager {
 	public static void resetClassElements() {
 		CLASSELEMENTS.resetCharacterElements();
 	}
+	public static TreeSet<CharacterElement> getBackgroundElements() {
+		return BACKGROUNDELEMENTS.getCharacterElements();
+	}
+	public static void addBackgroundElement(CharacterElement e) {
+		BACKGROUNDELEMENTS.addCharacterElement(e);
+	}
+	public static void resetBackgroundElements() {
+		BACKGROUNDELEMENTS.resetCharacterElements();
+	}
 	public static TreeSet<CharacterElement> getAllElements() {
 		CharacterElementList returnMe = new CharacterElementList();
 		for (CharacterElement e : RACEELEMENTS.getCharacterElements()) {
 			returnMe.addCharacterElement(e);
 		}
 		for (CharacterElement e : CLASSELEMENTS.getCharacterElements()) {
+			returnMe.addCharacterElement(e);
+		}
+		for (CharacterElement e : BACKGROUNDELEMENTS.getCharacterElements()) {
 			returnMe.addCharacterElement(e);
 		}
 		return returnMe.getCharacterElements();

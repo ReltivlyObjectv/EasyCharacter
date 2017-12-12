@@ -47,11 +47,9 @@ public class FrameMain extends JFrame {
 		setCompletedTab(4,completed,"Miscellaneous");
 	}
 	private void setCompletedTab(int tabIndex, boolean completed, String title) {
-		//mainTabbedPane.setEnabledAt(tabIndex, !completed);
 		if (completed) {
 			mainTabbedPane.setTitleAt(
 				tabIndex, 
-				//"<html><body><span style='text-decoration: line-through;'>"+title+"</span></body></html>"
 				"☑ "+title
 			);
 		} else {

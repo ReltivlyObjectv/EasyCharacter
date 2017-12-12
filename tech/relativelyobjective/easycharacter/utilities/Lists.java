@@ -317,4 +317,8 @@ public class Lists {
 		WARLOCK,
 		WIZARD
 	}
+	public enum Background {
+		PLACEHOLDER1,
+		PLACEHOLDER2
+	}
 }
