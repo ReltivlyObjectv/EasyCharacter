@@ -348,4 +348,18 @@ public class Lists {
 		new InventoryItem("Deck of Marked Cards"),
 		new InventoryItem("Signet Ring of an Imaginary Duke")
 	};
+	public static final String[] GAMING_SETS = {
+		"Dice Set",
+		"Playing Card Set"
+	};
+	public enum CriminalSpecialty {
+		BLACKMAILER,
+		BURGLAR,
+		ENFORCER,
+		FENCE,
+		HIGHWAY_ROBBER,
+		HIRED_KILLER,
+		PICKPOCKET,
+		SMUGGLER
+	}
 }

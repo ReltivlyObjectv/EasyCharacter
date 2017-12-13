@@ -1,6 +1,7 @@
 package tech.relativelyobjective.easycharacter.backgrounds;
 
 import tech.relativelyobjective.easycharacter.characterelements.Background;
+import tech.relativelyobjective.easycharacter.characterelements.CriminalSpecialty;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
@@ -107,7 +108,33 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case CRIMINAL:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.DECEPTION));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.STEALTH));
+				InformationManager.addBackgroundElement(new OtherProficiency("Thieves' Tools"));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new OtherProficiency(
+					MiscPrompts.openSingleStringChooserPrompt(Lists.GAMING_SETS, "Gaming Set", true)
+				));
+				InformationManager.addBackgroundElement(new InventoryItem("Crowbar",1));
+				InformationManager.addBackgroundElement(new InventoryItem("Hooded Dark Common Clothes",1));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new CriminalSpecialty(
+					(Lists.CriminalSpecialty) MiscPrompts.openSingleObjectChooserPrompt(
+						Lists.CriminalSpecialty.values(),
+						"Criminal Specialty"
+					)
+				));
+				InformationManager.addBackgroundElement(new Feature(
+					"Criminal Contact",
+					"You have a reliable and trustworthy contact who acts as "+
+					"your liaison to a network of other criminals. You know how "+
+					"to get messages to and from your contact, even over great "+
+					"distances; specifically, you know lhe local messengers, "+
+					"corrupt caravan masters, and seedy sailors who can deliver "+
+					"messages for you."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case ENTERTAINER:
 				//TODO

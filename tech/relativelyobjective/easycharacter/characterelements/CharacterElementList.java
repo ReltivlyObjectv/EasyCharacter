@@ -30,6 +30,8 @@ public class CharacterElementList {
 			addCharacterElement((ConditionModifier) e);
 		} else if (e instanceof Class) {
 			addCharacterElement((Class) e);
+		} else if (e instanceof CriminalSpecialty) {
+			addCharacterElement((CriminalSpecialty) e);
 		} else if (e instanceof DamageModifier) {
 			addCharacterElement((DamageModifier) e);
 		} else if (e instanceof Darkvision) {
@@ -116,6 +118,18 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newClass);
+	}
+	public void addCharacterElement(CriminalSpecialty newSpecialty) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof CriminalSpecialty) {
+				CriminalSpecialty oldSpecialty = (CriminalSpecialty) e;
+				if (oldSpecialty.specialty.equals(newSpecialty.specialty)) {
+					oldSpecialty.specialty = newSpecialty.specialty;
+					return;
+				}
+			}
+		}
+		characterElements.add(newSpecialty);
 	}
 	public void addCharacterElement(ConditionModifier newModifier) {
 		for (CharacterElement c : characterElements) {
