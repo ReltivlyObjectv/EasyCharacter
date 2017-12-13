@@ -11,6 +11,10 @@ public class OtherProficiency implements CharacterElement,Comparable {
 	public OtherProficiency() {
 		prof = "New Language";
 	}
+	public OtherProficiency(String p) {
+		prof = p;
+		proficiencyMagnitude = 1;
+	}
 	public OtherProficiency(String p, int mag) {
 		prof = p;
 		proficiencyMagnitude = mag;

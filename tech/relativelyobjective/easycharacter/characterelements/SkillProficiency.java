@@ -19,13 +19,13 @@ public class SkillProficiency implements CharacterElement,Comparable {
 		skill = null;
 		proficiencyMagnitude = null;
 	}
-	public SkillProficiency(Lists.Skill s, int profMag) {
-		skill = s;
-		((SkillProficiency) this).setProficiencyMagnitude(profMag);
-	}
 	public SkillProficiency(Lists.Skill s) {
 		skill = s;
 		proficiencyMagnitude = 1;
+	}
+	public SkillProficiency(Lists.Skill s, int profMag) {
+		skill = s;
+		((SkillProficiency) this).setProficiencyMagnitude(profMag);
 	}
 	@Override
 	public void edit(boolean viewOnly) {
