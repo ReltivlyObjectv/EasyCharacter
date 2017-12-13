@@ -4,6 +4,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Background;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
+import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -39,13 +40,12 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				String[] holySymbols = { "Amulet", "Emblem"};
 				InformationManager.addBackgroundElement(
 					new InventoryItem(
 						String.format(
 							"%s (Holy Symbol)",
 							MiscPrompts.openSingleStringChooserPrompt(
-								holySymbols, 
+								Lists.HOLY_SYMBOLS, 
 								"Holy Symbol",
 								true
 							)
@@ -54,11 +54,10 @@ public class BackgroundChooser {
 					)
 				);
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				String[] prayerObjects = {"Prayer Book", "Prayer Wheel"};
 				InformationManager.addBackgroundElement(
 					new InventoryItem(
 						MiscPrompts.openSingleStringChooserPrompt(
-							prayerObjects, 
+							Lists.PRAYER_OBJECTS, 
 							"Prayer Object",
 							true
 						),
@@ -86,7 +85,26 @@ public class BackgroundChooser {
 				));
 				break;
 			case CHARLATAN:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.DECEPTION));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.SLEIGHT_OF_HAND));
+				InformationManager.addBackgroundElement(new OtherProficiency("Disguise Kit"));
+				InformationManager.addBackgroundElement(new OtherProficiency("Forgery Kit"));
+				InformationManager.addBackgroundElement(new InventoryItem("Fine Clothes",1));
+				InformationManager.addBackgroundElement(new InventoryItem("Disguise Kit",1));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				Object conTool = MiscPrompts.openSingleObjectChooserPrompt(Lists.CON_TOOLS, "Con Tool");
+				InformationManager.addBackgroundElement((InventoryItem) conTool);
+				InformationManager.addBackgroundElement(new Feature(
+					"False Identity",
+					"You have created a second identity that includes documentation, "+
+					"established acquaintances, and disguises that allow you to "+
+					"assume that persona. Additionally, you can forge documents "+
+					"including official papers and personal letters, as long as "+
+					"you have seen an example of the kind of document or the "+
+					"handwriting you are trying to copy."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case CRIMINAL:
 				//TODO

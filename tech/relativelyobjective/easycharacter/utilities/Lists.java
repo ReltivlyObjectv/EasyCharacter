@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
+import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -332,4 +334,18 @@ public class Lists {
 		SOLDIER,
 		URCHIN
 	}
+	public static final String[] HOLY_SYMBOLS = {
+		"Amulet",
+		"Emblem"
+	};
+	public static final String[] PRAYER_OBJECTS = {
+		"Prayer Book",
+		"Prayer Wheel"
+	};
+	public static final InventoryItem[] CON_TOOLS = {
+		new InventoryItem("Stoppered Bottle Filled with Colored Liquid",10),
+		new InventoryItem("Set of Weighted Dice"),
+		new InventoryItem("Deck of Marked Cards"),
+		new InventoryItem("Signet Ring of an Imaginary Duke")
+	};
 }

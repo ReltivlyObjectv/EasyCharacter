@@ -30,7 +30,7 @@ public class MiscPrompts {
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.gridy = 0;
 		constraints.gridx = 0;
-		prompt.setPreferredSize(new Dimension(300,150));
+		prompt.setPreferredSize(new Dimension(400,100));
 		prompt.setSize(prompt.getPreferredSize());
 		prompt.setMaximumSize(prompt.getPreferredSize());
 		prompt.setMinimumSize(prompt.getPreferredSize());
@@ -101,5 +101,29 @@ public class MiscPrompts {
 		prompt.add(scroller);
 		prompt.setVisible(true);
 		return returnMe;
+	}
+	public static Object openSingleObjectChooserPrompt(Object[] options, String windowTitle) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
+			windowTitle, true);
+		prompt.setLayout(new GridBagLayout());
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridy = 0;
+		constraints.gridx = 0;
+		prompt.setPreferredSize(new Dimension(400,100));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		((JPanel)prompt.getContentPane()).setBorder(new EmptyBorder(10, 10, 10, 10));
+		JComboBox selection = new JComboBox(options);
+		prompt.add(selection, constraints);
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		constraints.gridy++;
+		prompt.add(saveButton, constraints);
+		prompt.setVisible(true);
+		return selection.getSelectedItem();
 	}
 }
