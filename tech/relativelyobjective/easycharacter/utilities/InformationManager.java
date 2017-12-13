@@ -5,6 +5,7 @@ import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
+import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
@@ -175,5 +176,34 @@ public class InformationManager {
 			}
 		}
 		return 30;
+	}
+	public static String[] getKnownLanguages() {
+		TreeSet<String> knownLangs = new TreeSet<>();
+		for (CharacterElement e : getAllElements()) {
+			if (e instanceof Language) {
+				Language l = (Language) e;
+				knownLangs.add(l.lang);
+			}
+		}
+		return knownLangs.toArray(new String[knownLangs.size()]);
+	}
+	public static String[] getUnknownLanguages() {
+		String [] allLanguages = InformationManager.getLoreSet() == Lists.LoreSet.DUNGEONS_AND_DRAGONS 
+			? Lists.LANGUAGESDND 
+			: Lists.LANGUAGESTES;
+		TreeSet<String> unknownLangs = new TreeSet<>();
+		for (String s : allLanguages) {
+			boolean known = false;
+			for (String l : getKnownLanguages()) {
+				if (l.equals(s)){
+					known = true;
+					break;
+				}
+			}
+			if (!known) {
+				unknownLangs.add(s);
+			}
+		}
+		return unknownLangs.toArray(new String[unknownLangs.size()]);
 	}
 }

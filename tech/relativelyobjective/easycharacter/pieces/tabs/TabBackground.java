@@ -85,7 +85,7 @@ public class TabBackground extends JPanel {
 			super.add(scroller, BorderLayout.CENTER);
 		}
 		public void updateList() {
-			list.setListData(InformationManager.getRaceElements().toArray());
+			list.setListData(InformationManager.getBackgroundElements().toArray());
 		}
 	}
 	public TabBackground() {

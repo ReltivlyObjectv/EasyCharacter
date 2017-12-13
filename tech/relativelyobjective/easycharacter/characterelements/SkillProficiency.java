@@ -23,6 +23,10 @@ public class SkillProficiency implements CharacterElement,Comparable {
 		skill = s;
 		((SkillProficiency) this).setProficiencyMagnitude(profMag);
 	}
+	public SkillProficiency(Lists.Skill s) {
+		skill = s;
+		proficiencyMagnitude = 1;
+	}
 	@Override
 	public void edit(boolean viewOnly) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
