@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -48,7 +49,7 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return (String) selection.getSelectedItem();
 	}
-	public static Object[] openMultipleObjectChooserPrompt(Object[] options, String windowTitle, int count) {
+	public static <T> T[] openMultipleObjectChooserPrompt(T[] options, String windowTitle, int count, Class<T> classType) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			windowTitle, true);
 		JPanel content = new JPanel();
@@ -58,18 +59,18 @@ public class MiscPrompts {
 		constraints.gridx = 0;
 		prompt.setMinimumSize(new Dimension(300,300));
 		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		HashMap<Object, JCheckBox> checkBoxes = new HashMap<>();
-		for (Object o : options) {
+		HashMap<T, JCheckBox> checkBoxes = new HashMap<>();
+		for (T o : options) {
 			JCheckBox box = new JCheckBox(InformationManager.capitalizeFirstLetterOfWords(o.toString()));
 			checkBoxes.put(o, box);
 			content.add(box, constraints);
 			constraints.gridy++;
 		}
-		Object[] returnMe = new Object[count];
+		T[] returnMe = (T[]) Array.newInstance(classType, count);
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener((ActionEvent e)->{
 			int selectedCount = 0;
-			for (Object o : options) {
+			for (T o : options) {
 				if (checkBoxes.get(o).isSelected()) {
 					selectedCount++;
 				}
@@ -77,7 +78,7 @@ public class MiscPrompts {
 			if (selectedCount == count) {
 				//Correct
 				int pos = 0;
-				for (Object o : options) {
+				for (T o : options) {
 					if (checkBoxes.get(o).isSelected()) {
 						returnMe[pos] = o;
 						pos++;
@@ -100,9 +101,9 @@ public class MiscPrompts {
 		JScrollPane scroller = new JScrollPane(content);
 		prompt.add(scroller);
 		prompt.setVisible(true);
-		return returnMe;
+		return (T[]) returnMe;
 	}
-	public static Object openSingleObjectChooserPrompt(Object[] options, String windowTitle) {
+	public static <T> T openSingleObjectChooserPrompt(T[] options, String windowTitle) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			windowTitle, true);
 		prompt.setLayout(new GridBagLayout());
@@ -124,6 +125,6 @@ public class MiscPrompts {
 		constraints.gridy++;
 		prompt.add(saveButton, constraints);
 		prompt.setVisible(true);
-		return selection.getSelectedItem();
+		return (T) selection.getSelectedItem();
 	}
 }

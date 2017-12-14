@@ -29,11 +29,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.RELIGION));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				String[] langOptions = InformationManager.getUnknownLanguages();
-				Object[] pickedLanguages = MiscPrompts.openMultipleObjectChooserPrompt(langOptions, "Acolyte Languages", 2);
-				String[] languages = new String[pickedLanguages.length];
-				for (int i = 0; i < pickedLanguages.length; i++) {
-					languages[i] = pickedLanguages[i].toString();
-				}
+				String[] languages = MiscPrompts.openMultipleObjectChooserPrompt(langOptions, "Acolyte Languages", 2, String.class);
 				for (String lang : languages) {
 					InformationManager.addBackgroundElement(new Language(lang));
 				}
@@ -96,7 +92,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Disguise Kit",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				Object conTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.CON_TOOLS, "Con Tool");
+				InventoryItem conTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.CON_TOOLS, "Con Tool");
 				InformationManager.addBackgroundElement((InventoryItem) conTool);
 				InformationManager.addBackgroundElement(new Feature(
 					"False Identity",
@@ -122,7 +118,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new CriminalSpecialty(
-					(Lists.CriminalSpecialty) MiscPrompts.openSingleObjectChooserPrompt(
+					MiscPrompts.openSingleObjectChooserPrompt(
 						Lists.CriminalSpecialty.values(),
 						"Criminal Specialty"
 					)
@@ -159,7 +155,7 @@ public class BackgroundChooser {
 				)));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new EntertainerRoutine(
-					(Lists.EntertainerRountine) MiscPrompts.openSingleObjectChooserPrompt(
+					MiscPrompts.openSingleObjectChooserPrompt(
 						Lists.EntertainerRountine.values(),
 					"Entertainer Routine"
 					)

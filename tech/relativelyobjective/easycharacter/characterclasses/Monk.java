@@ -675,13 +675,18 @@ public class Monk {
 				availableDisciplines.add(d);
 			}
 		}
-		Object[] promptResults =  MiscPrompts.openMultipleObjectChooserPrompt(
-			availableDisciplines.toArray(), 
-			"Elemental Disciplines", 
-			level < 6 ? 1 : level < 11 ? 3 : 4);
-		for (Object o : promptResults) {
-			chosenDisciplines.add((ElementalDiscipline) o);
+		ElementalDiscipline[] availDisc = new ElementalDiscipline[availableDisciplines.size()];
+		int i = 0;
+		for (ElementalDiscipline d : availableDisciplines) {
+			availDisc[i++] = d;
 		}
+		ElementalDiscipline[] promptResults =  MiscPrompts.openMultipleObjectChooserPrompt(
+			availDisc, 
+			"Elemental Disciplines", 
+			level < 6 ? 1 : level < 11 ? 3 : 4,
+			ElementalDiscipline.class
+		);
+		chosenDisciplines.addAll(Arrays.asList(promptResults));
 		for (ElementalDiscipline d : chosenDisciplines) {
 			switch (d) {
 				case BREATH_OF_WINTER:
