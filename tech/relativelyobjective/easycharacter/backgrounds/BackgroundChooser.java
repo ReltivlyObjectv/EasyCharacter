@@ -150,6 +150,8 @@ public class BackgroundChooser {
 				);
 				InformationManager.addBackgroundElement(new OtherProficiency(instrument));
 				InformationManager.addBackgroundElement(new InventoryItem(instrument));
+				InformationManager.addBackgroundElement(new InventoryItem("Costume"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new InventoryItem(String.format(
 					"%s from an Admirer",
@@ -177,7 +179,22 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case FOLK_HERO:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.ANIMAL_HANDLING));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.SURVIVAL));
+				InformationManager.addBackgroundElement(new OtherProficiency("Vehicles (Land)"));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				String artisansTool = MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.ARTISANS_TOOLS,
+						"Artisan's Tools Proficiency",
+						true
+				);
+				InformationManager.addBackgroundElement(new OtherProficiency(artisansTool));
+				InformationManager.addBackgroundElement(new InventoryItem(artisansTool));
+				InformationManager.addBackgroundElement(new InventoryItem("Shovel"));
+				InformationManager.addBackgroundElement(new InventoryItem("Iron Pot"));
+				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",10));
+				//TODO Defining event?
 				break;
 			case GUILD_ARTISAN:
 				//TODO
