@@ -235,7 +235,34 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case HERMIT:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.MEDICINE));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.RELIGION));
+				InformationManager.addBackgroundElement(new OtherProficiency("Herbalism Kit"));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new Language(
+					MiscPrompts.openSingleStringChooserPrompt(InformationManager.getUnknownLanguages(), "Additional Language")
+				));
+				InformationManager.addBackgroundElement(new InventoryItem("A scroll case stuffed full of notes from your studies or prayers"));
+				InformationManager.addBackgroundElement(new InventoryItem("Winter Blanket"));
+				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Herbalism Kit"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",5));
+				InformationManager.addBackgroundElement(new Feature(
+					"Discovery",
+					"The quiet seclusion of your extended hermitage gave you "+
+					"access to a unique and powerful discovery. The exact nature "+
+					"of this revelation depends on the nature of your seclusion. "+
+					"It might be a great truth about the cosmos, the deities, the "+
+					"powerful beings of the outer planes, or the forces of nature. "+
+					"It could be a site that no one else has ever seen. "+
+					"You might have uncovered a fact that has long been forgotten, "+
+					"or unearthed some relic of the past that could rewrite history. "+
+					"It might be information that would be damaging to the people "+
+					"who or consigned you to exile, and hence the reason for your "+
+					"return to society. Work with your DM to determine the details "+
+					"of your discovery and its impact on the campaign."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case NOBLE:
 				//TODO
