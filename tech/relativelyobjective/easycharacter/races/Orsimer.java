@@ -30,13 +30,14 @@ public class Orsimer {
 		Feat fellHanded = new Feat("Fell Handed");
 		InformationManager.addRaceElement(fellHanded);
 		Feature berserk = new Feature();
-		berserk.setName("Berserk");
-		berserk.setDescription("Once per long rest, you can use the Rage "+
-		"ability from the Barbarian class (PHB p48). If you are a barbarian, "+
-		"this does not count toward the number of times you can rage per long "+
-		"rest. If you are not a barbarian, then it is always the level 1 "+
-		"version of Rage.");
-		InformationManager.addRaceElement(berserk);
+		InformationManager.addRaceElement(new Feature(
+			"Berserk",
+			"Once per long rest, you can use the Rage "+
+			"ability from the Barbarian class (PHB p48). If you are a barbarian, "+
+			"this does not count toward the number of times you can rage per long "+
+			"rest. If you are not a barbarian, then it is always the level 1 "+
+			"version of Rage."
+		));
 		WindowManager.getRaceTab().updateRaceElementsList();
 	}
 }

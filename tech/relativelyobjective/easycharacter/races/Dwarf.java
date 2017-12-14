@@ -24,6 +24,7 @@ import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
@@ -35,6 +36,11 @@ public class Dwarf {
 		HILL,
 		MOUNTAIN
 	}
+	public static final String[] dwarfArtisansTools = {
+		"Smith's Tools",
+		"Brewer's Suppliies",
+		"Mason's Tools"
+	};
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Dwarf"));
@@ -54,52 +60,10 @@ public class Dwarf {
 		InformationManager.addRaceElement(new OtherProficiency("Throwing Hammer",1));
 		InformationManager.addRaceElement(new OtherProficiency("Warhammer",1));
 		WindowManager.getRaceTab().updateRaceElementsList();
-		showToolProficiencyPrompt();
-	}
-	private static void showToolProficiencyPrompt() {
-		//Choice to add one additional ability point
-		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
-			"Dwarf Tool Proficiency", true);
-		prompt.setPreferredSize(new Dimension(500,100));
-		prompt.setSize(prompt.getPreferredSize());
-		prompt.setMaximumSize(prompt.getPreferredSize());
-		prompt.setMinimumSize(prompt.getPreferredSize());
-		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		prompt.setLayout(new GridBagLayout());
-		GridBagConstraints constraints = new GridBagConstraints();
-		constraints.gridx = 0;
-		constraints.gridy = 0;
-		constraints.gridwidth = 2;
-		prompt.add(new JLabel("<html><center><strong>Select an Artisan's Tool to be "+
-			"proficient in</strong><html><center>"), constraints);
-		constraints.gridx = 0;
-		constraints.gridy++;
-		constraints.gridwidth = 1;
-		prompt.add(new JLabel("Ability"), constraints);
-		String[] options = {
-			"Smith's Tools",
-			"Brewer's Suppliies",
-			"Mason's Tools"
-		};
-		JComboBox choice = new JComboBox(options);
-		constraints.gridx++;
-		prompt.add(choice, constraints);
-		JButton saveButton = new JButton("Add Tool Proficiency");
-		saveButton.addActionListener((ActionEvent e)->{
-			if (choice.getSelectedItem() != null) {
-				InformationManager.addRaceElement(
-					new OtherProficiency((String) choice.getSelectedItem(),1)
-				);
-				WindowManager.getRaceTab().updateRaceElementsList();
-				prompt.dispose();
-				showSubracePrompt();
-			}
-		});
-		constraints.gridx = 0;
-		constraints.gridy++;
-		constraints.gridwidth = 2;
-		prompt.add(saveButton, constraints);
-		prompt.setVisible(true);
+		InformationManager.addRaceElement(new OtherProficiency(
+			MiscPrompts.openSingleStringChooserPrompt(dwarfArtisansTools, "Dwarven Tool Proficiency", true)
+		));
+		showSubracePrompt();
 	}
 	private static void showSubracePrompt() {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
