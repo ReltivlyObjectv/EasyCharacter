@@ -97,7 +97,10 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Disguise Kit",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				InventoryItem conTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.CON_TOOLS, "Con Tool");
+				InventoryItem conTool = MiscPrompts.openSingleObjectChooserPrompt(
+					ItemLists.CON_TOOLS,
+					"Con Tool"
+				);
 				InformationManager.addBackgroundElement((InventoryItem) conTool);
 				InformationManager.addBackgroundElement(new Feature(
 					"False Identity",
@@ -116,7 +119,11 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new OtherProficiency("Thieves' Tools"));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new OtherProficiency(
-					MiscPrompts.openSingleStringChooserPrompt(ItemLists.GAMING_SETS, "Gaming Set", true)
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.GAMING_SETS,
+						"Gaming Set",
+						true
+					)
 				));
 				InformationManager.addBackgroundElement(new InventoryItem("Crowbar",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Hooded Dark Common Clothes",1));
@@ -221,7 +228,10 @@ public class BackgroundChooser {
 					)
 				));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				String guildTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.ARTISANS_TOOLS, "Artisan's Tools Proficiency/Item");
+				String guildTool = MiscPrompts.openSingleObjectChooserPrompt(
+					ItemLists.ARTISANS_TOOLS,
+					"Artisan's Tools Proficiency/Item"
+				);
 				InformationManager.addBackgroundElement(new OtherProficiency(guildTool));
 				InformationManager.addBackgroundElement(new InventoryItem(guildTool));
 				InformationManager.addBackgroundElement(new InventoryItem("A Letter of Introduction from Your Guild"));
@@ -297,7 +307,11 @@ public class BackgroundChooser {
 				));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new OtherProficiency(
-					MiscPrompts.openSingleStringChooserPrompt(ItemLists.GAMING_SETS, "Gaming Set Proficiency", true)
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.GAMING_SETS,
+						"Gaming Set Proficiency",
+						true
+					)
 				));
 				InformationManager.addBackgroundElement(new InventoryItem("Fine Clothes"));
 				InformationManager.addBackgroundElement(new InventoryItem("Signet Ring"));
@@ -316,7 +330,39 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case OUTLANDER:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.ATHLETICS));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.SURVIVAL));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new Language(
+					MiscPrompts.openSingleStringChooserPrompt(
+						InformationManager.getUnknownLanguages(),
+						"Additional Language",
+						true
+					)
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new OtherProficiency(
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.INSTRUMENTS,
+						"Instrument Proficiency",
+						true
+					)
+				));
+				InformationManager.addBackgroundElement(new InventoryItem("Staff"));
+				InformationManager.addBackgroundElement(new InventoryItem("Hunting Trap"));
+				InformationManager.addBackgroundElement(new InventoryItem("Trophy From an Animal You've Killed"));
+				InformationManager.addBackgroundElement(new InventoryItem("Traveler's Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold", 10));
+				InformationManager.addBackgroundElement(new Feature(
+					"Wanderer",
+					"You have an excellent memory for maps and geography, and "+
+					"you can always recall the general layout of terrain, "+
+					"settlements, and other features around you. In addition, "+
+					"you can find food and fresh water for yourself and up to "+
+					"five other people each day, provided that the land offers "+
+					"berries, small game, water, and so forth."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case SAGE:
 				//TODO
