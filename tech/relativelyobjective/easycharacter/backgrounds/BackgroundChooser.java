@@ -29,7 +29,12 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.RELIGION));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				String[] langOptions = InformationManager.getUnknownLanguages();
-				String[] languages = MiscPrompts.openMultipleObjectChooserPrompt(langOptions, "Additional Languages", 2, String.class);
+				String[] languages = MiscPrompts.openMultipleObjectChooserPrompt(
+					langOptions,
+					"Additional Languages",
+					2,
+					String.class
+				);
 				for (String lang : languages) {
 					InformationManager.addBackgroundElement(new Language(lang));
 				}
@@ -151,7 +156,11 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new InventoryItem(String.format(
 					"%s from an Admirer",
-					MiscPrompts.openSingleStringChooserPrompt(ItemLists.FAVOR_OF_ADMIRER, "Favor from an Admirer (Item)", true)
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.FAVOR_OF_ADMIRER,
+						"Favor from an Admirer (Item)",
+						true
+					)
 				)));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new EntertainerRoutine(
@@ -205,8 +214,13 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.PERSUASION));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new Language(
-					MiscPrompts.openSingleStringChooserPrompt(InformationManager.getUnknownLanguages(), "Additional Language")
+					MiscPrompts.openSingleStringChooserPrompt(
+						InformationManager.getUnknownLanguages(),
+						"Additional Language",
+						true
+					)
 				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				String guildTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.ARTISANS_TOOLS, "Artisan's Tools Proficiency/Item");
 				InformationManager.addBackgroundElement(new OtherProficiency(guildTool));
 				InformationManager.addBackgroundElement(new InventoryItem(guildTool));
@@ -240,9 +254,15 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new OtherProficiency("Herbalism Kit"));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new Language(
-					MiscPrompts.openSingleStringChooserPrompt(InformationManager.getUnknownLanguages(), "Additional Language")
+					MiscPrompts.openSingleStringChooserPrompt(
+						InformationManager.getUnknownLanguages(),
+						"Additional Language",
+						true
+					)
 				));
-				InformationManager.addBackgroundElement(new InventoryItem("A scroll case stuffed full of notes from your studies or prayers"));
+				InformationManager.addBackgroundElement(new InventoryItem(
+					"A scroll case stuffed full of notes from your studies or prayers"
+				));
 				InformationManager.addBackgroundElement(new InventoryItem("Winter Blanket"));
 				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
 				InformationManager.addBackgroundElement(new InventoryItem("Herbalism Kit"));
@@ -265,7 +285,35 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case NOBLE:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.HISTORY));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.PERSUASION));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new Language(
+					MiscPrompts.openSingleStringChooserPrompt(
+						InformationManager.getUnknownLanguages(),
+						"Additional Language",
+						true
+					)
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new OtherProficiency(
+					MiscPrompts.openSingleStringChooserPrompt(ItemLists.GAMING_SETS, "Gaming Set Proficiency", true)
+				));
+				InformationManager.addBackgroundElement(new InventoryItem("Fine Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Signet Ring"));
+				InformationManager.addBackgroundElement(new InventoryItem("Scroll of Pedigree"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",25));
+				InformationManager.addBackgroundElement(new Feature(
+					"Position of Privilege",
+					"Thanks to your noble birth, people are inclined to think "+
+					"the best of you. You are welcome in high society, and "+
+					"people assume you have the right to be wherever you are. "+
+					"The common folk make every effort to accommodate you and "+
+					"avoid your displeasure, and other people of high birth treat "+
+					"you as a member of the same social sphere. You can secure "+
+					"an audience with a local noble if you need to."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case OUTLANDER:
 				//TODO
