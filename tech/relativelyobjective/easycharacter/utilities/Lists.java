@@ -334,24 +334,6 @@ public class Lists {
 		SOLDIER,
 		URCHIN
 	}
-	public static final String[] HOLY_SYMBOLS = {
-		"Amulet",
-		"Emblem"
-	};
-	public static final String[] PRAYER_OBJECTS = {
-		"Prayer Book",
-		"Prayer Wheel"
-	};
-	public static final InventoryItem[] CON_TOOLS = {
-		new InventoryItem("Stoppered Bottle Filled with Colored Liquid",10),
-		new InventoryItem("Set of Weighted Dice"),
-		new InventoryItem("Deck of Marked Cards"),
-		new InventoryItem("Signet Ring of an Imaginary Duke")
-	};
-	public static final String[] GAMING_SETS = {
-		"Dice Set",
-		"Playing Card Set"
-	};
 	public enum CriminalSpecialty {
 		BLACKMAILER,
 		BURGLAR,
@@ -361,5 +343,17 @@ public class Lists {
 		HIRED_KILLER,
 		PICKPOCKET,
 		SMUGGLER
+	}
+	public enum EntertainerRountine {
+		ACTOR,
+		DANCER,
+		FIRE_EATER,
+		JESTER,
+		JUGGLER,
+		INSTRUMENTALIST,
+		POET,
+		SINGER,
+		STORYTELLER,
+		TUMBLER
 	}
 }

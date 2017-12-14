@@ -9,6 +9,7 @@ import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
  * Reference: PHB p151
  */
 public class ItemLists {
+
 	public static enum ItemPack {
 		BURGLAR,
 		DIPLOMAT,
@@ -165,5 +166,28 @@ public class ItemLists {
 		"Tinker’s Tools",
 		"Weaver’s Tools",
 		"Woodcarver’s Tools"
+	};
+	public static final String[] GAMING_SETS = {
+		"Dice Set", 
+		"Playing Card Set"
+	};
+	public static final String[] PRAYER_OBJECTS = {
+		"Prayer Book", 
+		"Prayer Wheel"
+	};
+	public static final String[] HOLY_SYMBOLS = {
+		"Amulet", 
+		"Emblem"
+	};
+	public static final InventoryItem[] CON_TOOLS = {
+		new InventoryItem("Stoppered Bottle Filled with Colored Liquid", 10), 
+		new InventoryItem("Set of Weighted Dice"), 
+		new InventoryItem("Deck of Marked Cards"), 
+		new InventoryItem("Signet Ring of an Imaginary Duke")
+	};
+	public static final String[] FAVOR_OF_ADMIRER = {
+		"Love Letter",
+		"Lock of Hair",
+		"Trinket"
 	};
 }

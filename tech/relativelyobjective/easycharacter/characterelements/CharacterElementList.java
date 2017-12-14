@@ -36,6 +36,8 @@ public class CharacterElementList {
 			addCharacterElement((DamageModifier) e);
 		} else if (e instanceof Darkvision) {
 			addCharacterElement((Darkvision) e);
+		} else if (e instanceof EntertainerRoutine) {
+			addCharacterElement((EntertainerRoutine) e);
 		} else if (e instanceof Feat) {
 			addCharacterElement((Feat) e);
 		} else if (e instanceof Feature) {
@@ -218,6 +220,18 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newDV);
+	}
+	public void addCharacterElement(EntertainerRoutine newRoutine) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof EntertainerRoutine) {
+				EntertainerRoutine oldRoutine = (EntertainerRoutine) e;
+				if (oldRoutine.routine.equals(newRoutine.routine)) {
+					oldRoutine.routine = newRoutine.routine;
+					return;
+				}
+			}
+		}
+		characterElements.add(newRoutine);
 	}
 	public void addCharacterElement(Feat newFeat) {
 		for (CharacterElement e : characterElements) {

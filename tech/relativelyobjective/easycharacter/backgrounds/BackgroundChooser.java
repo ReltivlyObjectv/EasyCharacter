@@ -2,12 +2,14 @@ package tech.relativelyobjective.easycharacter.backgrounds;
 
 import tech.relativelyobjective.easycharacter.characterelements.Background;
 import tech.relativelyobjective.easycharacter.characterelements.CriminalSpecialty;
+import tech.relativelyobjective.easycharacter.characterelements.EntertainerRoutine;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
+import tech.relativelyobjective.easycharacter.utilities.ItemLists;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
@@ -46,7 +48,7 @@ public class BackgroundChooser {
 						String.format(
 							"%s (Holy Symbol)",
 							MiscPrompts.openSingleStringChooserPrompt(
-								Lists.HOLY_SYMBOLS, 
+								ItemLists.HOLY_SYMBOLS, 
 								"Holy Symbol",
 								true
 							)
@@ -58,7 +60,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(
 					new InventoryItem(
 						MiscPrompts.openSingleStringChooserPrompt(
-							Lists.PRAYER_OBJECTS, 
+							ItemLists.PRAYER_OBJECTS, 
 							"Prayer Object",
 							true
 						),
@@ -94,7 +96,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Disguise Kit",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				Object conTool = MiscPrompts.openSingleObjectChooserPrompt(Lists.CON_TOOLS, "Con Tool");
+				Object conTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.CON_TOOLS, "Con Tool");
 				InformationManager.addBackgroundElement((InventoryItem) conTool);
 				InformationManager.addBackgroundElement(new Feature(
 					"False Identity",
@@ -113,7 +115,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new OtherProficiency("Thieves' Tools"));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new OtherProficiency(
-					MiscPrompts.openSingleStringChooserPrompt(Lists.GAMING_SETS, "Gaming Set", true)
+					MiscPrompts.openSingleStringChooserPrompt(ItemLists.GAMING_SETS, "Gaming Set", true)
 				));
 				InformationManager.addBackgroundElement(new InventoryItem("Crowbar",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Hooded Dark Common Clothes",1));
@@ -137,7 +139,42 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case ENTERTAINER:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.ACROBATICS));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.PERFORMANCE));
+				InformationManager.addBackgroundElement(new OtherProficiency("Disguise Kit"));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				String instrument = MiscPrompts.openSingleStringChooserPrompt(
+					ItemLists.INSTRUMENTS,
+					"Instrument Proficiency/Item",
+					true
+				);
+				InformationManager.addBackgroundElement(new OtherProficiency(instrument));
+				InformationManager.addBackgroundElement(new InventoryItem(instrument));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new InventoryItem(String.format(
+					"%s from an Admirer",
+					MiscPrompts.openSingleStringChooserPrompt(ItemLists.FAVOR_OF_ADMIRER, "Favor from an Admirer (Item)", true)
+				)));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new EntertainerRoutine(
+					(Lists.EntertainerRountine) MiscPrompts.openSingleObjectChooserPrompt(
+						Lists.EntertainerRountine.values(),
+					"Entertainer Routine"
+					)
+				));
+				InformationManager.addBackgroundElement(new Feature(
+					"Popular by Demand",
+					"You can always find a place to perform, usually in an inn "+
+					"or tavern but possibly with a circus, at a theater, or even "+
+					"in a noble's court. At such a place, you receive free "+
+					"lodging and food of a modest or comfortable standard "+
+					"(depending on the quality of the establishment), "+
+					"as long as you perform each night. In addition, your "+
+					"performance makes you something of a local figure. When "+
+					"strangers recognize you in a town where you have performed, "+
+					"they typically take a liking to you."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case FOLK_HERO:
 				//TODO
