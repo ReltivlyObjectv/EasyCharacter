@@ -29,7 +29,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.RELIGION));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				String[] langOptions = InformationManager.getUnknownLanguages();
-				String[] languages = MiscPrompts.openMultipleObjectChooserPrompt(langOptions, "Acolyte Languages", 2, String.class);
+				String[] languages = MiscPrompts.openMultipleObjectChooserPrompt(langOptions, "Additional Languages", 2, String.class);
 				for (String lang : languages) {
 					InformationManager.addBackgroundElement(new Language(lang));
 				}
@@ -179,21 +179,60 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.SURVIVAL));
 				InformationManager.addBackgroundElement(new OtherProficiency("Vehicles (Land)"));
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				String artisansTool = MiscPrompts.openSingleStringChooserPrompt(
-						ItemLists.ARTISANS_TOOLS,
-						"Artisan's Tools Proficiency",
-						true
+				String folkTool = MiscPrompts.openSingleStringChooserPrompt(
+					ItemLists.ARTISANS_TOOLS,
+					"Artisan's Tools Proficiency",
+					true
 				);
-				InformationManager.addBackgroundElement(new OtherProficiency(artisansTool));
-				InformationManager.addBackgroundElement(new InventoryItem(artisansTool));
+				InformationManager.addBackgroundElement(new OtherProficiency(folkTool));
+				InformationManager.addBackgroundElement(new InventoryItem(folkTool));
 				InformationManager.addBackgroundElement(new InventoryItem("Shovel"));
 				InformationManager.addBackgroundElement(new InventoryItem("Iron Pot"));
 				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",10));
-				//TODO Defining event?
+				InformationManager.addBackgroundElement(new Feature(
+					"Folk Hero",
+					"You come from a humble social rank, but you are destined "+
+					"for so much more. Already the people of your home village "+
+					"regard you as their champion, and your destiny calls you "+
+					"to stand against the tyrants and monsters that threaten the "+
+					"common folk everywhere."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case GUILD_ARTISAN:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.INSIGHT));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.PERSUASION));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new Language(
+					MiscPrompts.openSingleStringChooserPrompt(InformationManager.getUnknownLanguages(), "Additional Language")
+				));
+				String guildTool = MiscPrompts.openSingleObjectChooserPrompt(ItemLists.ARTISANS_TOOLS, "Artisan's Tools Proficiency/Item");
+				InformationManager.addBackgroundElement(new OtherProficiency(guildTool));
+				InformationManager.addBackgroundElement(new InventoryItem(guildTool));
+				InformationManager.addBackgroundElement(new InventoryItem("A Letter of Introduction from Your Guild"));
+				InformationManager.addBackgroundElement(new InventoryItem("Traveler's Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
+				InformationManager.addBackgroundElement(new Feature(
+					"Guild Membership",
+					"As an established and respected member of a guild, you can "+
+					"rely on certain benefits that membership provides. Your "+
+					"fellow guild members will provide you with lodging and food "+
+					"if necessary, and pay for your funeral if needed. In some "+
+					"cities and towns, a guildhall offers a central place to meet "+
+					"other members of your profession, which can be a good place "+
+					"to meet potential patrons, allies, or hirelings. Guilds "+
+					"often wield tremendous political power. If you are accused "+
+					"of a crime, your guild will support you if a good case can "+
+					"be made for your innocence or the crime is justifiable. "+
+					"You can also gain access to powerful political figures "+
+					"through the guild, if you are a member in good standing. "+
+					"Such connections might require the donation of money or "+
+					"magic items to the guild's coffers. You must pay dues of "+
+					"5 gp per month to the guild. If you miss payments, you must "+
+					"make up back dues to remain in the guild's good graces."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case HERMIT:
 				//TODO
