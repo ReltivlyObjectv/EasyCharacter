@@ -171,6 +171,10 @@ public class ItemLists {
 		"Dice Set", 
 		"Playing Card Set"
 	};
+	public static final String[] SOLDIER_GAMING_SETS = {
+		"Bone Dice",
+		"Deck of Cards"
+	};
 	public static final String[] PRAYER_OBJECTS = {
 		"Prayer Book", 
 		"Prayer Wheel"
@@ -194,5 +198,10 @@ public class ItemLists {
 		"Rabbit Foot",
 		"Small Stone with a Hole in the Center",
 		"Roll for Trinket (PHB Chapter 5)"
+	};
+	public static final String[] SOLDIER_TROPHIES = {
+		"Dagger",
+		"Broken Blade",
+		"Piece of a Banner"
 	};
 }

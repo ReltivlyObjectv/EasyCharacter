@@ -432,7 +432,41 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case SOLDIER:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.ATHLETICS));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.INTIMIDATION));
+				InformationManager.addBackgroundElement(new OtherProficiency("Vehicles (Land)"));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new OtherProficiency(
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.GAMING_SETS,
+						"Gaming Set Proficiency",
+						true
+					)
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new InventoryItem(
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.SOLDIER_GAMING_SETS,
+						"Soldier's Gaming Set (Item)",
+						true
+					)
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new InventoryItem("Insignia of Rank"));
+				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold", 10));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new InventoryItem(
+					String.format(
+						"%s (Trophy)",
+						MiscPrompts.openSingleStringChooserPrompt(
+							ItemLists.SOLDIER_TROPHIES,
+							"Soldier Trophy",
+							true
+						)
+					)
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case URCHIN:
 				//TODO
