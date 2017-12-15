@@ -381,7 +381,7 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Quill"));
 				InformationManager.addBackgroundElement(new InventoryItem("Small Knife"));
 				InformationManager.addBackgroundElement(new InventoryItem(
-					"A Letter from a Dead Colleague Posing a Question You Have Not Yet Been Able to Answer,"
+					"A Letter from a Dead Colleague Posing a Question You Have Not Yet Been Able to Answer"
 				));
 				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold", 10));
@@ -400,7 +400,36 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case SAILOR:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.ATHLETICS));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.PERCEPTION));
+				InformationManager.addBackgroundElement(new OtherProficiency("Navigator's Tools"));
+				InformationManager.addBackgroundElement(new OtherProficiency("Vehicles (Water)"));
+				InformationManager.addBackgroundElement(new InventoryItem("Belaying Pin (Club)"));
+				InformationManager.addBackgroundElement(new InventoryItem("50 ft. of Silk Rope"));
+				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold", 10));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				InformationManager.addBackgroundElement(new InventoryItem(
+					MiscPrompts.openSingleStringChooserPrompt(
+						ItemLists.LUCKY_CHARMS, 
+						"Lucky Charm",
+						true
+					)
+				));
+				InformationManager.addBackgroundElement(new Feature(
+					"Ship's Passage",
+					"When you need to, you can secure free passage on a sailing "+
+					"ship for yourself and your adventuring companions. "+
+					"You might sail on the ship you served on, or another ship "+
+					"you have good relations with (perhaps one captained by a "+
+					"former crewmate). Because you're calling in a favor, "+
+					"you can't be certain of a schedule or route that will "+
+					"meet your every need. Your Dungeon Master will determine "+
+					"how long it takes to get where you need to go. In return "+
+					"for your free passage, you and your companions are expected "+
+					"to assist the crew during the voyage."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case SOLDIER:
 				//TODO

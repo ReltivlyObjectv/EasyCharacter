@@ -190,4 +190,9 @@ public class ItemLists {
 		"Lock of Hair",
 		"Trinket"
 	};
+	public static final String[] LUCKY_CHARMS = {
+		"Rabbit Foot",
+		"Small Stone with a Hole in the Center",
+		"Roll for Trinket (PHB Chapter 5)"
+	};
 }
