@@ -29,7 +29,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 			modifier < 0 ? "" : "+",
 			modifier,
 			InformationManager.capitalizeFirstLetterOfWords(ability)
-			);
+		);
 	}
 	@Override
 	public int compareTo(Object o) {
