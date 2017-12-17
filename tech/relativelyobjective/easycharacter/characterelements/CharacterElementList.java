@@ -230,6 +230,16 @@ public class CharacterElementList {
 		}
 		characterElements.add(newFeature);
 	}
+	public void addCharacterElement(InitiativeModifier mod) {
+		for (CharacterElement c : characterElements) {
+			if (c instanceof AbilityModifier) {
+				AbilityModifier cMod = (AbilityModifier) c;
+				cMod.modifier += mod.modifier;
+				return;
+			}
+		}
+		characterElements.add(mod);
+	}
 	public void addCharacterElement(InventoryItem newItem) {
 		for (CharacterElement e : characterElements) {
 			if (e instanceof InventoryItem) {
