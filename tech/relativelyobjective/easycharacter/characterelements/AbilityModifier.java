@@ -52,6 +52,12 @@ public class AbilityModifier implements CharacterElement, Comparable {
 		return toString().compareTo(o.toString());
 	}
 	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt() {
+		return openAbilityScoreImprovementPrompt(2, Lists.Ability.values());
+	}
+	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt(int maxPoints) {
+		return openAbilityScoreImprovementPrompt(maxPoints, Lists.Ability.values());
+	}
+	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt(int maxPoints, Lists.Ability[] options) {
 		TreeSet<AbilityModifier> returnMe = new TreeSet<>();
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), 
 			"Ability Score Improvement", true);
@@ -67,10 +73,20 @@ public class AbilityModifier implements CharacterElement, Comparable {
 		HashMap<Ability, Integer> skills = InformationManager.getAbilityScores();
 		HashMap<Ability, JSpinner> spinners = new HashMap<>();
 		HashMap<Ability, JLabel> labels = new HashMap<>();
-		for (Lists.Ability a : Lists.Ability.values()) {
+		for (Lists.Ability a : options) {
 			labels.put(a, new JLabel(skills.get(a).toString()));
 		}
-		for (Lists.Ability a : Lists.Ability.values()) {
+		//TODO take into account if skills dont have enough room for improvement (e.g. all at 20)
+		for (Lists.Ability a : options) {
+			//TODO implement increasing max stat
+			int skillMax = maxPoints;
+			if (skills.get(a) + maxPoints > 20) {
+				if (skills.get(a) >= 20) {
+					skillMax = 0;
+				} else {
+					skillMax = (skills.get(a) + maxPoints) - 20;
+				}
+			}
 			JSpinner s = new JSpinner(
 				new SpinnerNumberModel(
 					//Starting Value
@@ -78,10 +94,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 					//Min
 					0,
 					//Max
-					//TODO implement increasing max stat
-					(int) skills.get(a) <= 18 ? 2 
-						: skills.get(a) == 19 ? 1 
-						: 0,
+					skillMax,
 					//Step
 					1
 				)
@@ -92,7 +105,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 			});
 			spinners.put(a, s);
 		}
-		for (Lists.Ability a : Lists.Ability.values()) {
+		for (Lists.Ability a : options) {
 			constraints.gridx = 0;
 			prompt.add(
 				new JLabel(InformationManager.capitalizeFirstLetterOfWords(a)), 
@@ -115,12 +128,12 @@ public class AbilityModifier implements CharacterElement, Comparable {
 		JButton saveButton = new JButton("Save Skill Improvement");
 		saveButton.addActionListener((ActionEvent e)->{
 			int totalPoints = 0;
-			for (Lists.Ability a : Lists.Ability.values()) {
+			for (Lists.Ability a : options) {
 				totalPoints += (int) (spinners.get(a).getValue());
 			}
-			if (totalPoints == 2) {
+			if (totalPoints == maxPoints) {
 				//Correct
-				for (Lists.Ability a : Lists.Ability.values()) {
+				for (Lists.Ability a : options) {
 					if ((int) spinners.get(a).getValue() > 0) {
 						returnMe.add(new AbilityModifier(a, (int) spinners.get(a).getValue()));
 					}
@@ -129,8 +142,12 @@ public class AbilityModifier implements CharacterElement, Comparable {
 			} else {
 				//Incorrect
 				JOptionPane.showMessageDialog(prompt, 
-					"Allocate exactly two skill points. "+
-					"You have allocated "+totalPoints+"."
+					String.format(
+						"Allocate exactly %d skill points. "+
+						"You have allocated %d.",
+						maxPoints,
+						totalPoints
+					)
 				);
 			}
 		});

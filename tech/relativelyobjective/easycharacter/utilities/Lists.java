@@ -1,7 +1,5 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
-import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
-
 /**
  *
  * @author ReltivlyObjectv
