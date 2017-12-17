@@ -17,6 +17,7 @@ import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.ProficiencyBonus;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
@@ -118,7 +119,7 @@ public class ClassChoices {
 	}
 	public static void openSkillImprovement() {
 		TreeSet<AbilityModifier> mods = 
-			AbilityModifier.openAbilityScoreImprovementPrompt();
+			MiscPrompts.openAbilityScoreImprovementPrompt();
 		for (AbilityModifier m : mods) {
 			InformationManager.addClassElement(m);
 		}
