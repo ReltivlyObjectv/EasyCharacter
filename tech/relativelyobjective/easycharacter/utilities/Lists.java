@@ -334,26 +334,4 @@ public class Lists {
 		SOLDIER,
 		URCHIN
 	}
-	public enum CriminalSpecialty {
-		BLACKMAILER,
-		BURGLAR,
-		ENFORCER,
-		FENCE,
-		HIGHWAY_ROBBER,
-		HIRED_KILLER,
-		PICKPOCKET,
-		SMUGGLER
-	}
-	public enum EntertainerRountine {
-		ACTOR,
-		DANCER,
-		FIRE_EATER,
-		JESTER,
-		JUGGLER,
-		INSTRUMENTALIST,
-		POET,
-		SINGER,
-		STORYTELLER,
-		TUMBLER
-	}
 }

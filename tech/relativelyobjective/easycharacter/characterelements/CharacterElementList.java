@@ -30,14 +30,10 @@ public class CharacterElementList {
 			addCharacterElement((ConditionModifier) e);
 		} else if (e instanceof Class) {
 			addCharacterElement((Class) e);
-		} else if (e instanceof CriminalSpecialty) {
-			addCharacterElement((CriminalSpecialty) e);
 		} else if (e instanceof DamageModifier) {
 			addCharacterElement((DamageModifier) e);
 		} else if (e instanceof Darkvision) {
 			addCharacterElement((Darkvision) e);
-		} else if (e instanceof EntertainerRoutine) {
-			addCharacterElement((EntertainerRoutine) e);
 		} else if (e instanceof Feat) {
 			addCharacterElement((Feat) e);
 		} else if (e instanceof Feature) {
@@ -120,18 +116,6 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newClass);
-	}
-	public void addCharacterElement(CriminalSpecialty newSpecialty) {
-		for (CharacterElement e : characterElements) {
-			if (e instanceof CriminalSpecialty) {
-				CriminalSpecialty oldSpecialty = (CriminalSpecialty) e;
-				if (oldSpecialty.specialty.equals(newSpecialty.specialty)) {
-					oldSpecialty.specialty = newSpecialty.specialty;
-					return;
-				}
-			}
-		}
-		characterElements.add(newSpecialty);
 	}
 	public void addCharacterElement(ConditionModifier newModifier) {
 		for (CharacterElement c : characterElements) {
@@ -220,18 +204,6 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newDV);
-	}
-	public void addCharacterElement(EntertainerRoutine newRoutine) {
-		for (CharacterElement e : characterElements) {
-			if (e instanceof EntertainerRoutine) {
-				EntertainerRoutine oldRoutine = (EntertainerRoutine) e;
-				if (oldRoutine.routine.equals(newRoutine.routine)) {
-					oldRoutine.routine = newRoutine.routine;
-					return;
-				}
-			}
-		}
-		characterElements.add(newRoutine);
 	}
 	public void addCharacterElement(Feat newFeat) {
 		for (CharacterElement e : characterElements) {

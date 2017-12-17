@@ -1,8 +1,6 @@
 package tech.relativelyobjective.easycharacter.backgrounds;
 
 import tech.relativelyobjective.easycharacter.characterelements.Background;
-import tech.relativelyobjective.easycharacter.characterelements.CriminalSpecialty;
-import tech.relativelyobjective.easycharacter.characterelements.EntertainerRoutine;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
@@ -133,13 +131,6 @@ public class BackgroundChooser {
 				InformationManager.addBackgroundElement(new InventoryItem("Crowbar",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Hooded Dark Common Clothes",1));
 				InformationManager.addBackgroundElement(new InventoryItem("Gold",15));
-				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				InformationManager.addBackgroundElement(new CriminalSpecialty(
-					MiscPrompts.openSingleObjectChooserPrompt(
-						Lists.CriminalSpecialty.values(),
-						"Criminal Specialty"
-					)
-				));
 				InformationManager.addBackgroundElement(new Feature(
 					"Criminal Contact",
 					"You have a reliable and trustworthy contact who acts as "+
@@ -174,13 +165,6 @@ public class BackgroundChooser {
 						true
 					)
 				)));
-				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				InformationManager.addBackgroundElement(new EntertainerRoutine(
-					MiscPrompts.openSingleObjectChooserPrompt(
-						Lists.EntertainerRountine.values(),
-					"Entertainer Routine"
-					)
-				));
 				InformationManager.addBackgroundElement(new Feature(
 					"Popular by Demand",
 					"You can always find a place to perform, usually in an inn "+
