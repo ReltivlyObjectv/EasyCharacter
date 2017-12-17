@@ -143,9 +143,10 @@ public class AbilityModifier implements CharacterElement, Comparable {
 				//Incorrect
 				JOptionPane.showMessageDialog(prompt, 
 					String.format(
-						"Allocate exactly %d skill points. "+
+						"Allocate exactly %d skill point%s. "+
 						"You have allocated %d.",
 						maxPoints,
+						maxPoints != 1 ? "s" : "",
 						totalPoints
 					)
 				);
