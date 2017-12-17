@@ -27,16 +27,21 @@ public class BackgroundChooser {
 			case ACOLYTE:
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.INSIGHT));
 				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.RELIGION));
-				WindowManager.getBackgroundTab().updateBackgroundElementsList();
-				String[] langOptions = InformationManager.getUnknownLanguages();
-				String[] languages = MiscPrompts.openMultipleObjectChooserPrompt(
-					langOptions,
-					"Additional Languages",
-					2,
-					String.class
-				);
-				for (String lang : languages) {
-					InformationManager.addBackgroundElement(new Language(lang));
+				int languagesToGive = 2;
+				for (int i = 0; i < languagesToGive; i++) {
+					WindowManager.getBackgroundTab().updateBackgroundElementsList();
+					InformationManager.addBackgroundElement(new Language(
+						MiscPrompts.openSingleStringChooserPrompt(
+							InformationManager.getUnknownLanguages(),
+							String.format(
+								"%d Additional Languages (%d/%d)",
+								languagesToGive,
+								i+1,
+								languagesToGive
+							),
+							true
+						)
+					));
 				}
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InformationManager.addBackgroundElement(new InventoryItem("Incense Stick",5));
