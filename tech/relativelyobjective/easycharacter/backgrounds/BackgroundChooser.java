@@ -480,10 +480,27 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 			case URCHIN:
-				//TODO
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.SLEIGHT_OF_HAND));
+				InformationManager.addBackgroundElement(new SkillProficiency(Lists.Skill.STEALTH));
+				InformationManager.addBackgroundElement(new OtherProficiency("Disguise Kit"));
+				InformationManager.addBackgroundElement(new OtherProficiency("Thieves' Tools"));
+				InformationManager.addBackgroundElement(new InventoryItem("Small Knife"));
+				InformationManager.addBackgroundElement(new InventoryItem("Map of the city you grew up in"));
+				InformationManager.addBackgroundElement(new InventoryItem("Pet Mouse"));
+				InformationManager.addBackgroundElement(new InventoryItem("Token to remember your parents by"));
+				InformationManager.addBackgroundElement(new InventoryItem("Common Clothes"));
+				InformationManager.addBackgroundElement(new InventoryItem("Gold", 10));
+				InformationManager.addBackgroundElement(new Feature(
+					"City Secrets",
+					"You know the secret patterns and flow to cities and can "+
+					"find passages through the urban sprawl that others would "+
+					"miss. When you are not in combat, you (and companions you "+
+					"lead) can travel between any two locations in the city "+
+					"twice as fast as your speed would normally allow."
+				));
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				break;
 		}
-		WindowManager.getBackgroundTab().updateBackgroundElementsList();
 		WindowManager.getMainFrame().setCompletedBackgroundTab(true);
 	}
 }
