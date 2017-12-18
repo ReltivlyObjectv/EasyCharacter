@@ -8,7 +8,7 @@ import tech.relativelyobjective.easycharacter.utilities.Lists;
  * @author ReltivlyObjectv
  */
 public class CharacterElementList {
-	private final TreeSet<CharacterElement> characterElements;
+	private TreeSet<CharacterElement> characterElements;
 	
 	public CharacterElementList() {
 		characterElements = new TreeSet<>();
@@ -408,6 +408,13 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newSpeed);
+	}
+	public void revalidate() {
+		TreeSet<CharacterElement> oldElements = characterElements;
+		characterElements = new TreeSet<>();
+		for (CharacterElement e : oldElements) {
+			addCharacterElement(e);
+		}
 	}
 	public static boolean hasLanguage(TreeSet<CharacterElement> list, Language l) {
 		for (CharacterElement e : list) {

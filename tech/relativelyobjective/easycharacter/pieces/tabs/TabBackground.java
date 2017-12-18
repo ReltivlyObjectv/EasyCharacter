@@ -77,6 +77,7 @@ public class TabBackground extends JPanel {
 							((CharacterElement) list.getSelectedValue());
 						if (selectedItem != null) {
 							selectedItem.edit();
+							InformationManager.revalidateBackgroundElements();
 							updateBackgroundElementsList();
 						}
 					}

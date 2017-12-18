@@ -105,6 +105,7 @@ public class TabRace extends JPanel {
 							((CharacterElement) list.getSelectedValue());
 						if (selectedItem != null) {
 							selectedItem.edit();
+							InformationManager.revalidateRaceElements();
 							updateRaceElementsList();
 						}
 					}

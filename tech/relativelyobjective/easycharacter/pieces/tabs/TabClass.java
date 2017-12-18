@@ -128,6 +128,7 @@ public class TabClass extends JPanel {
 							((CharacterElement) list.getSelectedValue());
 						if (selectedItem != null) {
 							selectedItem.edit();
+							InformationManager.revalidateClassElements();
 							updateClassElementsList();
 						}
 					}

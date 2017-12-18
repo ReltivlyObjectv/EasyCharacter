@@ -71,6 +71,9 @@ public class InformationManager {
 	public static void resetRaceElements() {
 		RACEELEMENTS.resetCharacterElements();
 	}
+	public static void revalidateRaceElements() {
+		RACEELEMENTS.revalidate();
+	}
 	public static TreeSet<CharacterElement> getClassElements() {
 		return CLASSELEMENTS.getCharacterElements();
 	}
@@ -80,6 +83,9 @@ public class InformationManager {
 	public static void resetClassElements() {
 		CLASSELEMENTS.resetCharacterElements();
 	}
+	public static void revalidateClassElements() {
+		CLASSELEMENTS.revalidate();
+	}
 	public static TreeSet<CharacterElement> getBackgroundElements() {
 		return BACKGROUNDELEMENTS.getCharacterElements();
 	}
@@ -88,6 +94,9 @@ public class InformationManager {
 	}
 	public static void resetBackgroundElements() {
 		BACKGROUNDELEMENTS.resetCharacterElements();
+	}
+	public static void revalidateBackgroundElements() {
+		BACKGROUNDELEMENTS.revalidate();
 	}
 	public static TreeSet<CharacterElement> getAllElements() {
 		CharacterElementList returnMe = new CharacterElementList();

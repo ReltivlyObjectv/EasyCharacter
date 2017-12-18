@@ -2,6 +2,8 @@ package tech.relativelyobjective.easycharacter.characterelements;
 
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectIntegerPair;
 
 /**
  *
@@ -21,7 +23,17 @@ public class AbilityModifier implements CharacterElement, Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectIntegerPair newValues = MiscPrompts.openObjectChooserWithInteger(
+			Lists.Ability.values(),
+			ability,
+			modifier,
+			-50,
+			50,
+			"Ability Modifier",
+			1
+		);
+		ability = (Lists.Ability) newValues.object;
+		modifier = newValues.value;
 	}
 	@Override
 	public String toString() {
