@@ -64,12 +64,18 @@ public class MiscPrompts {
 	public static String openStringPrompt(String existingText, String windowTitle) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), windowTitle, true);
 		prompt.setLayout(new BorderLayout());
+		prompt.setPreferredSize(new Dimension(400,100));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		JTextField textBox = new JTextField(existingText);
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener((ActionEvent e)->{
 			prompt.dispose();
 		});
-		//TODO
+		prompt.add(textBox, BorderLayout.NORTH);
+		prompt.add(saveButton, BorderLayout.SOUTH);
 		prompt.setVisible(true);
 		return textBox.getText();
 	}
