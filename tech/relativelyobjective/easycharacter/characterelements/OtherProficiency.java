@@ -1,5 +1,8 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectIntegerPair;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -21,7 +24,16 @@ public class OtherProficiency implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectIntegerPair<String> newValues = MiscPrompts.openStringSpinnerPrompt(
+			prof,
+			proficiencyMagnitude,
+			0,
+			5,
+			"Misc. Proficiency",
+			1
+		);
+		prof = newValues.object;
+		proficiencyMagnitude = newValues.value;
 	}
 	@Override
 	public String toString() {

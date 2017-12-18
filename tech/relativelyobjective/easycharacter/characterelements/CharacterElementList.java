@@ -48,8 +48,6 @@ public class CharacterElementList {
 			addCharacterElement((Language) e);
 		} else if (e instanceof OtherProficiency) {
 			addCharacterElement((OtherProficiency) e);
-		} else if (e instanceof OtherEffect) {
-			addCharacterElement((OtherEffect) e);
 		} else if (e instanceof ProficiencyBonus) {
 			addCharacterElement((ProficiencyBonus) e);
 		} else if (e instanceof Race) {
@@ -292,19 +290,10 @@ public class CharacterElementList {
 		}
 		characterElements.add(newLanguage);
 	}
-	public void addCharacterElement(OtherEffect newEffect) {
-		for (CharacterElement e : characterElements) {
-			if (e instanceof OtherEffect) {
-				OtherEffect existingLanguage = (OtherEffect) e;
-				if (existingLanguage.effect.equals(newEffect.effect)) {
-					//Character already has effect
-					return;
-				}
-			}
-		}
-		characterElements.add(newEffect);
-	}
 	public void addCharacterElement(OtherProficiency newProficiency) {
+		if (newProficiency.getProficiencyMagnitude() <= 0) {
+			return;
+		}
 		for (CharacterElement e : characterElements) {
 			if (e instanceof OtherProficiency) {
 				OtherProficiency oldProficiency = (OtherProficiency) e;
