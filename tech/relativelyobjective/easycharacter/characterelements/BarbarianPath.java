@@ -1,7 +1,9 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import javax.swing.JOptionPane;
 import tech.relativelyobjective.easycharacter.characterclasses.Barbarian;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -18,7 +20,10 @@ public class BarbarianPath implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		JOptionPane.showMessageDialog(
+			WindowManager.getMainFrame(),
+			"To change your Barbarian Path, reset your class on the background tab"
+		);
 	}
 	@Override
 	public String toString() {
