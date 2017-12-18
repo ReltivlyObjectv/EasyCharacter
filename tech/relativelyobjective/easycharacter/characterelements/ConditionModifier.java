@@ -2,6 +2,8 @@ package tech.relativelyobjective.easycharacter.characterelements;
 
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectPair;
 
 /**
  *
@@ -21,13 +23,23 @@ public class ConditionModifier implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectPair<Lists.DamageMod, Lists.Conditions> newValues = MiscPrompts.openTwoMultipleObjectChooserPrompt(
+			Lists.DamageMod.values(),
+			modifier,
+			Lists.Conditions.values(),
+			type,
+			"Condition Modifier"
+		);
+		modifier = newValues.objectA;
+		type = newValues.objectB;
 	}
 	@Override
 	public String toString() {
-		return "Condition Modifier: "+InformationManager.capitalizeFirstLetterOfWords(modifier)
-			+" to being "
-			+InformationManager.capitalizeFirstLetterOfWords(type);
+		return String.format(
+			"Condition Modifier: %s to being %s",
+			InformationManager.capitalizeFirstLetterOfWords(modifier),
+			InformationManager.capitalizeFirstLetterOfWords(type)
+		);
 	}
 	@Override
 	public int compareTo(Object o) {

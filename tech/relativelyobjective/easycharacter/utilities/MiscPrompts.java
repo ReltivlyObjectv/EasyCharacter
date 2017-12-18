@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
@@ -55,6 +56,20 @@ public class MiscPrompts {
 		prompt.add(saveButton, constraints);
 		prompt.setVisible(true);
 		return (String) selection.getSelectedItem();
+	}
+	public static String openStringPrompt(String windowTitle) {
+		return openStringPrompt("", windowTitle);
+	}
+	public static String openStringPrompt(String existingText, String windowTitle) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), windowTitle, true);
+		prompt.setLayout(new BorderLayout());
+		JTextField textBox = new JTextField(existingText);
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		prompt.setVisible(true);
+		return textBox.getText();
 	}
 	public static <T> T[] openMultipleObjectChooserPrompt(T[] options, String windowTitle, int count, Class<T> classType) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
@@ -134,7 +149,41 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return (T) selection.getSelectedItem();
 	}
-	
+	public static <T, U> ObjectPair<T, U> openTwoMultipleObjectChooserPrompt(T[] optionsA, T selectedA, U[] optionsB, U selectedB, String windowTitle) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
+			windowTitle, true);
+		prompt.setLayout(new GridBagLayout());
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		prompt.setPreferredSize(new Dimension(400,100));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		JComboBox selectionA = new JComboBox(optionsA);
+		selectionA.setSelectedItem(selectedA);
+		prompt.add(selectionA, constraints);
+		JComboBox selectionB = new JComboBox(optionsB);
+		selectionB.setSelectedItem(selectedB);
+		constraints.gridx++;
+		prompt.add(selectionB, constraints);
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		constraints.gridx = 0;
+		constraints.gridy = 1;
+		constraints.gridwidth = 2;
+		prompt.add(saveButton, constraints);
+		prompt.setVisible(true);
+		ObjectPair<T, U> returnMe = new ObjectPair<>(
+			(T) selectionA.getSelectedItem(),
+			(U) selectionB.getSelectedItem()
+		);
+		return returnMe;
+	}
 	public static int openSpinnerPrompt(int startValue, int minValue, int maxValue, String title) {
 		return openSpinnerPrompt(startValue, minValue, maxValue, title, 1);
 	}
