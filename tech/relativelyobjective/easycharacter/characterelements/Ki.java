@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -15,7 +17,12 @@ public class Ki implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		setKiCount(MiscPrompts.openSpinnerPrompt(
+			kiCount,
+			0,
+			50,
+			"Number of Ki Points"
+		));
 	}
 	@Override
 	public String toString() {
