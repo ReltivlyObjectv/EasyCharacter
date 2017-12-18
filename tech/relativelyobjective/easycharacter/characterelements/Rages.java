@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -15,11 +17,11 @@ public class Rages implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		rageCount = MiscPrompts.openSpinnerPrompt(rageCount, 0, 20, "Rages (20 means Unlimited)");
 	}
 	@Override
 	public String toString() {
-		if (rageCount == Integer.MAX_VALUE) {
+		if (rageCount >= 20) {
 			return String.format("Rages: %s", "Unlimited");
 		} else {
 			return String.format("Rages: %d", rageCount);
@@ -32,6 +34,8 @@ public class Rages implements CharacterElement,Comparable {
 	public void setRageCount(int c) {
 		if (c < 1) {
 			rageCount = 0;
+		} else if (c > 20) {
+			rageCount = 20;
 		} else {
 			rageCount = c;
 		}
