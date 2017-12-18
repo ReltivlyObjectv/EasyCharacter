@@ -23,7 +23,7 @@ public class AbilityModifier implements CharacterElement, Comparable {
 	}
 	@Override
 	public void edit() {
-		ObjectIntegerPair newValues = MiscPrompts.openObjectChooserWithInteger(
+		ObjectIntegerPair newValues = MiscPrompts.openObjectChooserSpinner(
 			Lists.Ability.values(),
 			ability,
 			modifier,

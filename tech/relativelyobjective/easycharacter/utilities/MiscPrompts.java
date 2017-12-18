@@ -322,7 +322,7 @@ public class MiscPrompts {
 		returnValue = (int) spinner.getValue();
 		return returnValue;
 	}
-	public static <T> ObjectIntegerPair openObjectChooserWithInteger(T[] options, T selected, int startValue, int minValue, int maxValue, String title, int step) {
+	public static <T> ObjectIntegerPair openObjectChooserSpinner(T[] options, T selected, int startValue, int minValue, int maxValue, String title, int step) {
 		ObjectIntegerPair returnMe = new ObjectIntegerPair();
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), title, true);
 		prompt.setPreferredSize(new Dimension(350, 100));
