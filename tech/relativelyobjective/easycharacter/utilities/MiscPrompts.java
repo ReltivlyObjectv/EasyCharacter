@@ -59,12 +59,12 @@ public class MiscPrompts {
 		return (String) selection.getSelectedItem();
 	}
 	public static String openStringPrompt(String windowTitle) {
-		return openStringPrompt("", windowTitle);
+		return openStringPrompt(windowTitle, "");
 	}
-	public static String openStringPrompt(String existingText, String windowTitle) {
+	public static String openStringPrompt(String windowTitle, String existingText) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), windowTitle, true);
 		prompt.setLayout(new BorderLayout());
-		prompt.setPreferredSize(new Dimension(400,100));
+		prompt.setPreferredSize(new Dimension(400,75));
 		prompt.setSize(prompt.getPreferredSize());
 		prompt.setMaximumSize(prompt.getPreferredSize());
 		prompt.setMinimumSize(prompt.getPreferredSize());

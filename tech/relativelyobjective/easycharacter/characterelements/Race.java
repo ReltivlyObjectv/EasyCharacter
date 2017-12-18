@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -15,7 +17,7 @@ public class Race implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		race = MiscPrompts.openStringPrompt("Race", race);
 	}
 	@Override
 	public String toString() {
