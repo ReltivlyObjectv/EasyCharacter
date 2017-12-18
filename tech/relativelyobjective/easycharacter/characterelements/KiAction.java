@@ -1,5 +1,8 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectSet;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -18,7 +21,18 @@ public class KiAction implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectSet<String, String, Integer> newValues = MiscPrompts.openShortAndLongStringSpinnerPrompt(
+			t,
+			d,
+			kiCost,
+			0,
+			50,
+			"Ki Action",
+			1
+		);
+		t = newValues.objectA;
+		d = newValues.objectB;
+		kiCost = newValues.objectC;
 	}
 	@Override
 	public String toString() {

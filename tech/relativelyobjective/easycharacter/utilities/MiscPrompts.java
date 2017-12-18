@@ -272,6 +272,33 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return new ObjectIntegerPair<>(textBox.getText(), (int) spinner.getValue());
 	}
+	public static ObjectSet<String, String, Integer> openShortAndLongStringSpinnerPrompt(String shortText, String longText, int startValue, int minValue, int maxValue, String title, int step) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), title, true);
+		prompt.setPreferredSize(new Dimension(350, 400));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		prompt.setLayout(new BorderLayout());
+		JTextField shortField = new JTextField(shortText);
+		JTextArea longField = new JTextArea(longText);
+		longField.setLineWrap(true);
+		longField.setWrapStyleWord(true);
+		JSpinner spinner = new JSpinner(new SpinnerNumberModel(startValue, minValue, maxValue, step));
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		prompt.add(shortField, BorderLayout.NORTH);
+		prompt.add(longField, BorderLayout.CENTER);
+		JPanel southPanel = new JPanel();
+		southPanel.setLayout(new BorderLayout());
+		southPanel.add(spinner, BorderLayout.NORTH);
+		southPanel.add(saveButton, BorderLayout.SOUTH);
+		prompt.add(southPanel, BorderLayout.SOUTH);
+		prompt.setVisible(true);
+		return new ObjectSet<>(shortField.getText(), longField.getText(), (int) spinner.getValue());
+	}
 	public static int openSpinnerPrompt(int startValue, int minValue, int maxValue, String title) {
 		return openSpinnerPrompt(startValue, minValue, maxValue, title, 1);
 	}
