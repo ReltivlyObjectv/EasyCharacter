@@ -1,5 +1,8 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectIntegerPair;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -22,7 +25,16 @@ public class InventoryItem implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectIntegerPair<String> newValues = MiscPrompts.openStringSpinnerPrompt(
+			item,
+			count,
+			0,
+			1000,
+			"Inventory Item",
+			1
+		);
+		item = newValues.object;
+		count = newValues.value;
 	}
 	@Override
 	public String toString() {

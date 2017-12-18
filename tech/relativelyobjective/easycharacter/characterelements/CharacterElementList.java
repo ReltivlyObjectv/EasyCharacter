@@ -239,6 +239,9 @@ public class CharacterElementList {
 		characterElements.add(mod);
 	}
 	public void addCharacterElement(InventoryItem newItem) {
+		if (newItem.count <= 0) {
+			return;
+		}
 		for (CharacterElement e : characterElements) {
 			if (e instanceof InventoryItem) {
 				InventoryItem oldItem = (InventoryItem) e;

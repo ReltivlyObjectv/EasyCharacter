@@ -252,6 +252,26 @@ public class MiscPrompts {
 		);
 		return returnMe;
 	}
+	public static ObjectIntegerPair<String> openStringSpinnerPrompt(String text, int startValue, int minValue, int maxValue, String title, int step) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), title, true);
+		prompt.setPreferredSize(new Dimension(350, 50));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		prompt.setLayout(new BorderLayout());
+		JTextField textBox = new JTextField(text);
+		JSpinner spinner = new JSpinner(new SpinnerNumberModel(startValue, minValue, maxValue, step));
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		prompt.add(spinner, BorderLayout.WEST);
+		prompt.add(textBox, BorderLayout.CENTER);
+		prompt.add(saveButton, BorderLayout.LINE_END);
+		prompt.setVisible(true);
+		return new ObjectIntegerPair<>(textBox.getText(), (int) spinner.getValue());
+	}
 	public static int openSpinnerPrompt(int startValue, int minValue, int maxValue, String title) {
 		return openSpinnerPrompt(startValue, minValue, maxValue, title, 1);
 	}
@@ -302,11 +322,9 @@ public class MiscPrompts {
 	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt() {
 		return openAbilityScoreImprovementPrompt(2, Lists.Ability.values());
 	}
-
 	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt(int maxPoints) {
 		return openAbilityScoreImprovementPrompt(maxPoints, Lists.Ability.values());
 	}
-
 	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt(int maxPoints, Lists.Ability[] options) {
 		TreeSet<AbilityModifier> returnMe = new TreeSet<>();
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), "Ability Score Improvement", true);
