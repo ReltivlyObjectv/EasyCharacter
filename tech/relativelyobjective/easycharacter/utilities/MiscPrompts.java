@@ -149,6 +149,42 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return (T) selection.getSelectedItem();
 	}
+	public static <T, U> ObjectPair<T, U> openStringAndObjectChooserPrompt(T[] optionsA, T selectedA, String[] optionsB, String selectedB, String windowTitle) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
+			windowTitle, true);
+		prompt.setLayout(new GridBagLayout());
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		constraints.gridwidth = 1;
+		prompt.setPreferredSize(new Dimension(400,100));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		JComboBox selectionA = new JComboBox(optionsA);
+		selectionA.setSelectedItem(selectedA);
+		prompt.add(selectionA, constraints);
+		JComboBox selectionB = new JComboBox(optionsB);
+		selectionB.setEditable(true);
+		selectionB.setSelectedItem(selectedB);
+		constraints.gridx++;
+		prompt.add(selectionB, constraints);
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		constraints.gridx = 0;
+		constraints.gridy = 1;
+		constraints.gridwidth = 2;
+		prompt.add(saveButton, constraints);
+		prompt.setVisible(true);
+		ObjectPair<T, U> returnMe = new ObjectPair<>(
+			(T) selectionA.getSelectedItem(),
+			(U) selectionB.getSelectedItem()
+		);
+		return returnMe;
+	}
 	public static <T, U> ObjectPair<T, U> openTwoMultipleObjectChooserPrompt(T[] optionsA, T selectedA, U[] optionsB, U selectedB, String windowTitle) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			windowTitle, true);

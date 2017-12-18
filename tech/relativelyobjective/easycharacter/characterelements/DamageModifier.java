@@ -2,6 +2,8 @@ package tech.relativelyobjective.easycharacter.characterelements;
 
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectPair;
 
 /**
  *
@@ -21,13 +23,23 @@ public class DamageModifier implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectPair<Lists.DamageMod, String> newValues = MiscPrompts.openStringAndObjectChooserPrompt(
+			Lists.DamageMod.values(),
+			modifier,
+			Lists.DamageType,
+			type,
+			"Damage Modifier"
+		);
+		modifier = newValues.objectA;
+		type = newValues.objectB;
 	}
 	@Override
 	public String toString() {
-		return "Damage Modifier: "+InformationManager.capitalizeFirstLetterOfWords(modifier)
-			+" to "
-			+InformationManager.capitalizeFirstLetterOfWords(type);
+		return String.format(
+			"Damage Modifier: %s to %s",
+			InformationManager.capitalizeFirstLetterOfWords(modifier),
+			InformationManager.capitalizeFirstLetterOfWords(type)
+		);
 	}
 	@Override
 	public int compareTo(Object o) {
