@@ -29,8 +29,9 @@ public class Redguard {
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,1));
 		Feat dualWielder = new Feat("Dual Wielder");
 		InformationManager.addRaceElement(dualWielder);
-		Feature adrenalineRush = new Feature(
-			"Adrenaline Rush",
+		Feature adrenalineRush = new Feature();
+		adrenalineRush.setName("Adrenaline Rush");
+		adrenalineRush.setDescription(
 			"Once per long rest, you have advantage on a Strength, "+
 			"Dexterity, or Constitution check or save."
 		);

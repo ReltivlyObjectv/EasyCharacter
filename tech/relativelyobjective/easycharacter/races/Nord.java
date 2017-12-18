@@ -28,8 +28,9 @@ public class Nord {
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.STRENGTH,2));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,1));
 		InformationManager.addRaceElement(new DamageModifier("Cold", Lists.DamageMod.RESISTANT));
-		Feature commandCreature = new Feature(
-			"Nordic Frost",
+		Feature commandCreature = new Feature();
+		commandCreature.setName("Nordic Frost");
+		commandCreature.setDescription(
 			"Once per long rest, you can touch a creature and inflict "+
 			"3d6 of Cold Damage."
 		);

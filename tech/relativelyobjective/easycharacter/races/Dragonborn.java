@@ -144,12 +144,12 @@ public class Dragonborn {
 		saveButton.addActionListener((ActionEvent e)->{
 			if (choice.getSelectedItem() != null) {
 				Feature newFeature = new Feature();
-				newFeature.name = String.format(
+				newFeature.setName(String.format(
 					"Breath Weapon (%s)",
 					InformationManager.capitalizeFirstLetterOfWords(
 						choice.getSelectedItem().toString()
 					)
-				);
+				));
 				int arrayPos = -1;
 				for (int i = 0; i < DragonColor.values().length; i++) {
 					if (choice.getSelectedItem().equals(DragonColor.values()[i])) {
@@ -161,7 +161,7 @@ public class Dragonborn {
 					//Invalid selection
 					return;
 				}
-				newFeature.description = String.format(
+				newFeature.setDescription(String.format(
 					"You can use your action to exhale "+
 					"destructive energy. Your draconic ancestry determines the "+
 					"size, shape, and damage type of the exhalation. "+
@@ -178,7 +178,7 @@ public class Dragonborn {
 						choice.getSelectedItem().toString()),
 					BREATH_WEAPONS[arrayPos],
 					DAMAGE_TYPE[arrayPos]
-				);
+				));
 				InformationManager.addRaceElement(newFeature);
 				InformationManager.addRaceElement(new DamageModifier(DAMAGE_TYPE[arrayPos], 
 					Lists.DamageMod.RESISTANT));

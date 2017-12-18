@@ -25,15 +25,15 @@ public class Bosmer {
 		InformationManager.addRaceElement(new Language("Cyrodilic"));
 		InformationManager.addRaceElement(new Language("Bosmeris"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
-		Feature commandCreature = new Feature(
-			"Command Creature",
+		Feature commandCreature = new Feature();
+		commandCreature.setName("Command Creature");
+		commandCreature.setDescription(
 			"Once per short rest, you can cast the “Command” spell at "+
 			"1st-level as an action (save DC 10 + character level). "+
 			"This spell can be cast with a verbal or a somatic component. "+
 			"If cast with a verbal component, the creature must be able to "+
 			"understand the language that you speak to it. If cast with a "+
-			"somatic component, the creature must be able to see you."
-		);
+			"somatic component, the creature must be able to see you.");
 		InformationManager.addRaceElement(commandCreature);
 		WindowManager.getRaceTab().updateRaceElementsList();
 	}

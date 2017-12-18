@@ -29,8 +29,9 @@ public class Saxhleel {
 			"You can breathe underwater indefinitely."));
 		InformationManager.addRaceElement(new ConditionModifier(Lists.Conditions.DISEASED, 
 			Lists.DamageMod.IMMUNE));
-		Feature Histskin = new Feature(
-			"Histskin",
+		Feature Histskin = new Feature();
+		Histskin.setName("Histskin");
+		Histskin.setDescription(
 			"Once per long rest, you can spend up to two hit "+
 			"dice as a bonus action."
 		);

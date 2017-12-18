@@ -64,6 +64,8 @@ public class CharacterElementList {
 			addCharacterElement((Spell) e);
 		} else if (e instanceof Size) {
 			addCharacterElement((Size) e);
+		} else if (e instanceof TextElement) {
+			addCharacterElement((TextElement) e);
 		} else if (e instanceof WalkSpeed) {
 			addCharacterElement((WalkSpeed) e);
 		} else {
