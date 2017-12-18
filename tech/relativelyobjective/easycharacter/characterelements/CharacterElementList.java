@@ -278,6 +278,9 @@ public class CharacterElementList {
 		characterElements.add(newKiAction);
 	}
 	public void addCharacterElement(Language newLanguage) {
+		if (newLanguage.lang.equals("") || newLanguage.lang.equals("New Language")) {
+			return;
+		}
 		for (CharacterElement e : characterElements) {
 			if (e instanceof Language) {
 				Language existingLanguage = (Language) e;

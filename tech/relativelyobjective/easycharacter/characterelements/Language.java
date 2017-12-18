@@ -1,5 +1,10 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -15,7 +20,17 @@ public class Language implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		String[] languageOptions;
+		if (lang.equals("") || lang.equals("New Language")) {
+			languageOptions = InformationManager.getUnknownLanguages();
+		} else {
+			String[] currentLanguage = {lang};
+			languageOptions = Stream.concat(
+				Arrays.stream(currentLanguage), 
+				Arrays.stream(InformationManager.getUnknownLanguages())
+			).toArray(String[]::new);
+		}
+		lang = MiscPrompts.openSingleStringChooserPrompt(languageOptions, "Language", true);
 	}
 	@Override
 	public String toString() {
