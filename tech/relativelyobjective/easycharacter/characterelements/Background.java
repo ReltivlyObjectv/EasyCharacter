@@ -17,7 +17,7 @@ public class Background implements CharacterElement,Comparable {
 		bg = b;
 	}
 	@Override
-	public void edit(boolean viewOnly) {
+	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	@Override

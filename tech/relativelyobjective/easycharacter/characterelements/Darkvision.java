@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -14,8 +16,8 @@ public class Darkvision implements CharacterElement,Comparable {
 		distance = mag;
 	}
 	@Override
-	public void edit(boolean viewOnly) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	public void edit() {
+		distance = MiscPrompts.openSpinnerPrompt(distance, 0, 1000, "Darkvision", 5);
 	}
 	@Override
 	public String toString() {

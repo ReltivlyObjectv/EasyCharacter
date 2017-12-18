@@ -14,7 +14,7 @@ public class Language implements CharacterElement,Comparable {
 		lang = l;
 	}
 	@Override
-	public void edit(boolean viewOnly) {
+	public void edit() {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	@Override

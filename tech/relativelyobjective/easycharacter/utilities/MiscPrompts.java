@@ -1,5 +1,6 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -20,6 +21,7 @@ import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
+import tech.relativelyobjective.easycharacter.characterclasses.ClassChoices;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 
 /**
@@ -133,7 +135,30 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return (T) selection.getSelectedItem();
 	}
-
+	
+	public static int openSpinnerPrompt(int startValue, int minValue, int maxValue, String title) {
+		return openSpinnerPrompt(startValue, minValue, maxValue, title, 1);
+	}
+	public static int openSpinnerPrompt(int startValue, int minValue, int maxValue, String title, int step) {
+		int returnValue;
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), title, true);
+		prompt.setPreferredSize(new Dimension(350, 75));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		prompt.setLayout(new BorderLayout());
+		JSpinner spinner = new JSpinner(new SpinnerNumberModel(startValue, minValue, maxValue, step));
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});		
+		prompt.add(spinner, BorderLayout.PAGE_START);
+		prompt.add(saveButton, BorderLayout.PAGE_END);
+		prompt.setVisible(true);
+		returnValue = (int) spinner.getValue();
+		return returnValue;
+	}
 	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt() {
 		return openAbilityScoreImprovementPrompt(2, Lists.Ability.values());
 	}
