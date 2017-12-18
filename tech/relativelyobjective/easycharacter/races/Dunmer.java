@@ -28,13 +28,13 @@ public class Dunmer {
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.INTELLIGENCE,1));
 		InformationManager.addRaceElement(new DamageModifier("Fire", Lists.DamageMod.RESISTANT));
-		Feature ancestorGuardian = new Feature();
-		ancestorGuardian.setName("Ancestor Guardian");
-		ancestorGuardian.setDescription(
+		Feature ancestorGuardian = new Feature(
+			"Ancestor Guardian",
 			"Once per long rest you can use a bonus action to summon the ghost "+
 			"of an ancestor (MM p147). This ghost will return to rest after 2 "+
 			"minutes or once its hit points return to zero. The ghost cannot be "+
-			"given commands, but it will try to protect you from any threats.");
+			"given commands, but it will try to protect you from any threats."
+		);
 		InformationManager.addRaceElement(ancestorGuardian);
 		WindowManager.getRaceTab().updateRaceElementsList();
 	}

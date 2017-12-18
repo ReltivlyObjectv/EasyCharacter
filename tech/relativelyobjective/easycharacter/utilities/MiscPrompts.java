@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
@@ -68,12 +69,37 @@ public class MiscPrompts {
 		saveButton.addActionListener((ActionEvent e)->{
 			prompt.dispose();
 		});
+		//TODO
 		prompt.setVisible(true);
 		return textBox.getText();
 	}
+	public static ObjectPair<String, String> getShortAndLongString(String shortText, String longText, String windowTitle) {
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), windowTitle, true);
+		prompt.setLayout(new BorderLayout());
+		prompt.setPreferredSize(new Dimension(300,300));
+		prompt.setMinimumSize(new Dimension(300,300));
+		prompt.setMaximumSize(new Dimension(300,300));
+		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		JTextField shortField = new JTextField(shortText);
+		JTextArea longField = new JTextArea(longText);
+		longField.setLineWrap(true);
+		longField.setWrapStyleWord(true);
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		prompt.add(shortField, BorderLayout.NORTH);
+		JScrollPane longScroller = new JScrollPane(longField);
+		prompt.add(longScroller, BorderLayout.CENTER);
+		prompt.add(saveButton, BorderLayout.SOUTH);
+		prompt.setVisible(true);
+		return new ObjectPair<>(
+			shortField.getText(),
+			longField.getText()
+		);
+	}
 	public static <T> T[] openMultipleObjectChooserPrompt(T[] options, String windowTitle, int count, Class<T> classType) {
-		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
-			windowTitle, true);
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), windowTitle, true);
 		JPanel content = new JPanel();
 		content.setLayout(new GridBagLayout());
 		GridBagConstraints constraints = new GridBagConstraints();
