@@ -1,8 +1,9 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
-import java.util.TreeSet;
+import javax.swing.JOptionPane;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -22,7 +23,10 @@ public class Class implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		JOptionPane.showMessageDialog(
+			WindowManager.getMainFrame(),
+			"To change your class, change it in the radio buttons on the class tab"
+		);
 	}
 	@Override
 	public String toString() {
