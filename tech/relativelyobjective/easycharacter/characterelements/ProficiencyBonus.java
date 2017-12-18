@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -21,7 +23,7 @@ public class ProficiencyBonus implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		bonus = MiscPrompts.openSpinnerPrompt(bonus, 0, 10, "Proficiency Bonus");
 	}
 	@Override
 	public String toString() {
