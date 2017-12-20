@@ -1,6 +1,7 @@
 package tech.relativelyobjective.easycharacter.utilities.spells;
 
 import tech.relativelyobjective.easycharacter.characterelements.Spell;
+import tech.relativelyobjective.easycharacter.utilities.Lists;
 
 /**
  *
@@ -211,8 +212,24 @@ public class CantripLists {
 				throw new UnsupportedOperationException(c+" is not a known cantrip");
 		}
 	}
+	public static Spell getAcidSplash() {
+		Spell returnMe = new Spell("Acid Splash", 0);
+		returnMe.castingTime = "1 action";
+		returnMe.school = Lists.MagicSchool.CONJURATION;
+		returnMe.rangeArea = "60 feet";
+		returnMe.verbal = returnMe.somatic = true;
+		returnMe.ritual = returnMe.concentration = false;
+		returnMe.duration = "Instantaneous";
+		returnMe.description = 
+			"You hurl a bubble of acid. Choose one creature within range, "+
+			"or choose two creatures within range that are within 5 feet "+
+			"of each other. A target must succeed on a Dexterity saving "+
+			"throw or lake 1d6 acid damage.\n" +
+			"This spell's damage increases by 1d6 when you reach "+
+			"5th level (2d6), 11th level (3d6), and 17lh level (4d6).";
+		return returnMe;
+	}
 	//TODO replace these with actual spells
-	public static Spell getAcidSplash() { return new Spell(); }
 	public static Spell getBladeWard() { return new Spell(); }
 	public static Spell getChillTouch() { return new Spell(); }
 	public static Spell getControlFlames() { return new Spell(); }

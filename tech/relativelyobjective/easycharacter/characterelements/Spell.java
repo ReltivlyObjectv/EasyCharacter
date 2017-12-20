@@ -25,7 +25,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
  * @author ReltivlyObjectv
  */
 public class Spell implements CharacterElement,Comparable {
-	public String name, description, materialsRequired, castingTime, rangeArea;
+	public String name, description, materialsRequired, castingTime, rangeArea, duration;
 	public boolean verbal, somatic, ritual, concentration;
 	public Lists.MagicSchool school;
 	private int level;
@@ -36,10 +36,35 @@ public class Spell implements CharacterElement,Comparable {
 		materialsRequired = "";
 		castingTime = Lists.CASTING_TIMES_EXAMPLES[0];
 		rangeArea = "Self";
+		duration = "Instantaneous";
 		verbal = somatic = true;
 		ritual = concentration = false;
 		school = Lists.MagicSchool.ABJURATION;
 		level = 0;
+	}
+	public Spell(String n) {
+		name = n;
+		description = "New Spell's Description";
+		materialsRequired = "";
+		castingTime = Lists.CASTING_TIMES_EXAMPLES[0];
+		rangeArea = "Self";
+		duration = "Instantaneous";
+		verbal = somatic = true;
+		ritual = concentration = false;
+		school = Lists.MagicSchool.ABJURATION;
+		level = 0;
+	}
+	public Spell(String n, int l) {
+		name = n;
+		description = "New Spell's Description";
+		materialsRequired = "";
+		castingTime = Lists.CASTING_TIMES_EXAMPLES[0];
+		rangeArea = "Self";
+		duration = "Instantaneous";
+		verbal = somatic = true;
+		ritual = concentration = false;
+		school = Lists.MagicSchool.ABJURATION;
+		level = l;
 	}
 	@Override
 	public void edit() {
@@ -92,6 +117,12 @@ public class Spell implements CharacterElement,Comparable {
 			rangeAreaBox.setEditable(true);
 			rangeAreaBox.setSelectedItem(rangeArea);
 			mainContent.add(rangeAreaBox, constraints);
+			constraints.gridx = 0;
+			constraints.gridy++;
+			mainContent.add(new JLabel("Duration"), constraints);
+			constraints.gridx++;
+			JTextField durationBox = new JTextField(duration);
+			mainContent.add(durationBox, constraints);
 			constraints.gridx = 0;
 			constraints.gridy++;
 			mainContent.add(new JLabel("Material Components"), constraints);
