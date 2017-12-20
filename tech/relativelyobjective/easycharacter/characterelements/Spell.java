@@ -1,29 +1,44 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectSet;
+
 /**
  *
  * @author ReltivlyObjectv
  */
 public class Spell implements CharacterElement,Comparable {
-	public String name;
+	public String name, description;
 	private int level;
+	
 	public Spell() {
 		name = "";
+		description = "";
 		level = 0;
 	}
-	public Spell(String n, int l) {
+	public Spell(String n, String d, int l) {
 		name = n;
+		description = d;
 		level = l;
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectSet<String, String, Integer> newValues = MiscPrompts.openShortAndLongStringSpinnerPrompt(
+			name,
+			description,
+			level,
+			0,
+			9,
+			"Spell",
+			1
+		);
 	}
 	@Override
 	public String toString() {
 		return String.format("Spell: %s (%s)",
 			name,
-			level < 1 ? "Cantrip" : "Level "+level);
+			level < 1 ? "Cantrip" : "Level "+level
+		);
 	}
 	@Override
 	public int compareTo(Object o) {

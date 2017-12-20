@@ -26,6 +26,7 @@ import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
+import tech.relativelyobjective.easycharacter.utilities.spells.CantripLists;
 
 /**
  *
@@ -37,22 +38,6 @@ public class Elf {
 		HIGH,
 		WOOD
 	}
-	private static String[] wizardCantrips = {
-		"Acid Splash",
-		"Chill Touch",
-		"Dancing Lights",
-		"Fire Bolt",
-		"Light",
-		"Mage Hand",
-		"Mending",
-		"Message",
-		"Minor Illusion",
-		"Poison Spray",
-		"Prestidigitation",
-		"Ray of Frost",
-		"Shocking Grasp",
-		"True Strike"
-	};
 	public static void setup() {
 		InformationManager.resetRaceElements();
 		InformationManager.addRaceElement(new Race("Elf"));
@@ -229,7 +214,7 @@ public class Elf {
 					"of your attack, or whatever you are trying to perceive is "+
 					"in direct sunlight."
 				));
-				InformationManager.addRaceElement(new Spell("Dancing Lights",0));
+				InformationManager.addRaceElement(CantripLists.getDancingLights());
 				InformationManager.addRaceElement(new Feature(
 					"Drow Magic",
 					"When you reach 3rd level, you can cast the faerie fire "+
@@ -254,7 +239,24 @@ public class Elf {
 				InformationManager.addRaceElement(new WalkSpeed(30));
 				InformationManager.addRaceElement(new Race("High Elf"));
 				WindowManager.getRaceTab().updateRaceElementsList();
-				showCantripPrompt();
+				InformationManager.addRaceElement(
+					CantripLists.getCantrip(
+						MiscPrompts.openSingleObjectChooserPrompt(
+							CantripLists.WIZARD_CANTRIPS,
+							null,
+							"High Elf Wizard Cantrip"
+						)
+					)
+				);
+				WindowManager.getRaceTab().updateRaceElementsList();
+				InformationManager.addRaceElement(new Language(
+					MiscPrompts.openSingleStringChooserPrompt(
+						InformationManager.getUnknownLanguages(),
+						"Additional High Elf Language",
+						true
+					)
+				));
+				WindowManager.getRaceTab().updateRaceElementsList();
 				break;
 			case WOOD:
 				InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.WISDOM,1));
@@ -274,50 +276,5 @@ public class Elf {
 				WindowManager.getRaceTab().updateRaceElementsList();
 				break;
 		}
-	}
-	private static void showCantripPrompt() {
-		//Choice to learn a free cantrip
-		JDialog prompt = new JDialog(WindowManager.getMainFrame(), "High Elf Cantrip", true);
-		prompt.setPreferredSize(new Dimension(500,100));
-		prompt.setSize(prompt.getPreferredSize());
-		prompt.setMaximumSize(prompt.getPreferredSize());
-		prompt.setMinimumSize(prompt.getPreferredSize());
-		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		prompt.setLayout(new GridBagLayout());
-		GridBagConstraints constraints = new GridBagConstraints();
-		constraints.gridx = 0;
-		constraints.gridy = 0;
-		constraints.gridwidth = 2;
-		prompt.add(new JLabel("<html><strong>Select a wizard cantrip to learn</strong><html>"), constraints);
-		constraints.gridx = 0;
-		constraints.gridy++;
-		constraints.gridwidth = 1;
-		prompt.add(new JLabel("Cantrip"), constraints);
-		JComboBox choice = new JComboBox(wizardCantrips);
-		choice.setEditable(true);
-		constraints.gridx++;
-		prompt.add(choice, constraints);
-		JButton saveButton = new JButton("Add Cantrip");
-		saveButton.addActionListener((ActionEvent e)->{
-			if (choice.getSelectedItem() != null) {
-				InformationManager.addRaceElement(
-					new Spell((String) choice.getSelectedItem(),0)
-				);
-				WindowManager.getRaceTab().updateRaceElementsList();
-				prompt.dispose();
-				InformationManager.addRaceElement(new Language(
-					MiscPrompts.openSingleStringChooserPrompt(
-						InformationManager.getUnknownLanguages(),
-						"Additional High Elf Language",
-						true
-					)
-				));
-			}
-		});
-		constraints.gridx = 0;
-		constraints.gridy++;
-		constraints.gridwidth = 2;
-		prompt.add(saveButton, constraints);
-		prompt.setVisible(true);
 	}
 }

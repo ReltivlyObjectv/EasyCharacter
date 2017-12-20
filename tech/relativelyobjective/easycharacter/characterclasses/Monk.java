@@ -31,6 +31,7 @@ import tech.relativelyobjective.easycharacter.utilities.ItemLists.ItemPack;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
+import tech.relativelyobjective.easycharacter.utilities.spells.CantripLists;
 
 /**
  *
@@ -237,7 +238,7 @@ public class Monk {
 						"Silence",
 						"You can spend 2 ki points to cast the Silence spell (PHB p275)."
 					));
-					InformationManager.addClassElement(new Spell("Minor Illusion",0));
+					InformationManager.addClassElement(CantripLists.getMinorIllusion());
 					break;
 				case FOUR_ELEMENTS:
 					InformationManager.addClassElement(new Feature(
