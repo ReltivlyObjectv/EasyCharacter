@@ -128,8 +128,88 @@ public class CantripLists {
 		Cantrip.True_Strike
 	};
 	public static Spell getCantrip(Cantrip c) {
-		//TODO use switch statement to use appropriate getter
-		return new Spell();
+		switch (c) {
+			case Acid_Splash:
+				return getAcidSplash();
+			case Blade_Ward:
+				return getBladeWard();
+			case Chill_Touch:
+				return getChillTouch();
+			case Control_Flames:
+				return getControlFlames();
+			case Create_Bonfire:
+				return getCreateBonfire();
+			case Dancing_Lights:
+				return getDancingLights();
+			case Druidcraft:
+				return getDruidcraft();
+			case Eldritch_Blast:
+				return getEldritchBlast();
+			case Fire_Bolt:
+				return getFireBolt();
+			case Friends:
+				return getFriends();
+			case Frostbite:
+				return getFrostbite();
+			case Guidance:
+				return getGuidance();
+			case Gust:
+				return getGust();
+			case Infestation:
+				return getInfestation();
+			case Light:
+				return getLight();
+			case Mage_Hand:
+				return getMageHand();
+			case Magic_Stone:
+				return getMagicStone();
+			case Mending:
+				return getMending();
+			case Message:
+				return getMessage();
+			case Minor_Illusion:
+				return getMinorIllusion();
+			case Mold_Earth:
+				return getMoldEarth();
+			case Poison_Spray:
+				return getPoisonSpray();
+			case Prestidigitation:
+				return getPrestidigitation();
+			case Primal_Savagery:
+				return getPrimalSavagery();
+			case Produce_Flame:
+				return getProduceFlame();
+			case Ray_of_Frost:
+				return getRayOfFrost();
+			case Resistance:
+				return getResistance();
+			case Sacred_Flame:
+				return getSacredFlame();
+			case Shape_Water:
+				return getShapeWater();
+			case Shillelagh:
+				return getShillelagh();
+			case Shocking_Grasp:
+				return getShockingGrasp();
+			case Spare_the_Dying:
+				return getSpareTheDying();
+			case Thaumaturgy:
+				return getThaumaturgy();
+			case Thorn_Whip:
+				return getThornWhip();
+			case Thunderclap:
+				return getThunderclap();
+			case Toll_the_Dead:
+				return getTollTheDead();
+			case True_Strike:
+				return getTrueStrike();
+			case Vicious_Mockery:
+				return getViciousMockery();
+			case Word_of_Radiance:
+				return getWordOfRadiance();
+			default:
+				throw new UnsupportedOperationException(c+" is not a known cantrip");
+		}
 	}
 	//TODO replace these with actual spells
 	public static Spell getAcidSplash() { return new Spell(); }
@@ -157,18 +237,18 @@ public class CantripLists {
 	public static Spell getPrestidigitation() { return new Spell(); }
 	public static Spell getPrimalSavagery() { return new Spell(); }
 	public static Spell getProduceFlame() { return new Spell(); }
-	public static Spell getRayofFrost() { return new Spell(); }
+	public static Spell getRayOfFrost() { return new Spell(); }
 	public static Spell getResistance() { return new Spell(); }
 	public static Spell getSacredFlame() { return new Spell(); }
 	public static Spell getShapeWater() { return new Spell(); }
 	public static Spell getShillelagh() { return new Spell(); }
 	public static Spell getShockingGrasp() { return new Spell(); }
-	public static Spell getSparetheDying() { return new Spell(); }
+	public static Spell getSpareTheDying() { return new Spell(); }
 	public static Spell getThaumaturgy() { return new Spell(); }
 	public static Spell getThornWhip() { return new Spell(); }
 	public static Spell getThunderclap() { return new Spell(); }
-	public static Spell getTolltheDead() { return new Spell(); }
+	public static Spell getTollTheDead() { return new Spell(); }
 	public static Spell getTrueStrike() { return new Spell(); }
 	public static Spell getViciousMockery() { return new Spell(); }
-	public static Spell getWordofRadiance() { return new Spell(); }
+	public static Spell getWordOfRadiance() { return new Spell(); }
 }
