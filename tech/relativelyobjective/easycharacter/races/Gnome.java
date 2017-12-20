@@ -19,12 +19,12 @@ import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
 import tech.relativelyobjective.easycharacter.characterelements.Size;
-import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
+import tech.relativelyobjective.easycharacter.utilities.AllSpells;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
-import tech.relativelyobjective.easycharacter.utilities.spells.CantripLists;
+import tech.relativelyobjective.easycharacter.utilities.SpellLists;
 
 /**
  *
@@ -150,7 +150,7 @@ public class Gnome {
 		switch (s) {
 			case FOREST:
 				InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,1));
-				InformationManager.addRaceElement(CantripLists.getMinorIllusion());
+				InformationManager.addRaceElement(AllSpells.getMinorIllusion());
 				InformationManager.addRaceElement(new Feature(
 					"Speak with Small Beasts",
 					"Through sounds and gestures, you can communicate simple "+

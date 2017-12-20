@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.util.TreeSet;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,11 +23,13 @@ import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
+import tech.relativelyobjective.easycharacter.utilities.AllSpells;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
-import tech.relativelyobjective.easycharacter.utilities.spells.CantripLists;
+import tech.relativelyobjective.easycharacter.utilities.SpellLists;
+import tech.relativelyobjective.easycharacter.utilities.SpellLists.SpellKey;
 
 /**
  *
@@ -214,7 +217,7 @@ public class Elf {
 					"of your attack, or whatever you are trying to perceive is "+
 					"in direct sunlight."
 				));
-				InformationManager.addRaceElement(CantripLists.getDancingLights());
+				InformationManager.addRaceElement(AllSpells.getDancingLights());
 				InformationManager.addRaceElement(new Feature(
 					"Drow Magic",
 					"When you reach 3rd level, you can cast the faerie fire "+
@@ -239,13 +242,23 @@ public class Elf {
 				InformationManager.addRaceElement(new WalkSpeed(30));
 				InformationManager.addRaceElement(new Race("High Elf"));
 				WindowManager.getRaceTab().updateRaceElementsList();
+				TreeSet<Spell> wizardCantrips = new TreeSet<>();
+				for (SpellKey spell : SpellLists.WIZARD_SPELLS) {
+					if (AllSpells.getSpell(spell).getLevel() == 0) {
+						wizardCantrips.add(AllSpells.getSpell(spell));
+					}
+				}
+				Spell[] cantripList = new Spell[wizardCantrips.size()];
+				int i = 0;
+				for(Spell sp : wizardCantrips) {
+					cantripList[i] = sp;
+					i++;
+				}
 				InformationManager.addRaceElement(
-					CantripLists.getCantrip(
-						MiscPrompts.openSingleObjectChooserPrompt(
-							CantripLists.WIZARD_CANTRIPS,
-							null,
-							"High Elf Wizard Cantrip"
-						)
+					MiscPrompts.openSingleObjectChooserPrompt(
+						cantripList,
+						null,
+						"High Elf Wizard Cantrip"
 					)
 				);
 				WindowManager.getRaceTab().updateRaceElementsList();

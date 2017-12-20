@@ -8,10 +8,10 @@ import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
 import tech.relativelyobjective.easycharacter.characterelements.Size;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
+import tech.relativelyobjective.easycharacter.utilities.AllSpells;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
 import tech.relativelyobjective.easycharacter.utilities.WindowManager;
-import tech.relativelyobjective.easycharacter.utilities.spells.CantripLists;
 
 /**
  *
@@ -29,7 +29,7 @@ public class Tiefling {
 		InformationManager.addRaceElement(new DamageModifier(
 			"Fire", Lists.DamageMod.RESISTANT)
 		);
-		InformationManager.addRaceElement(CantripLists.getThaumaturgy());
+		InformationManager.addRaceElement(AllSpells.getThaumaturgy());
 		InformationManager.addRaceElement(new Feature(
 			"Infernal Legacy",
 			"When you reach 3rd level, you can cast the hellish rebuke "+
