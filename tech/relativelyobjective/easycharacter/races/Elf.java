@@ -240,6 +240,7 @@ public class Elf {
 				InformationManager.addRaceElement(new OtherProficiency("Rapier",1));
 				InformationManager.addRaceElement(new OtherProficiency("Hand Crossbow",1));
 				InformationManager.addRaceElement(new OtherProficiency("Shortsword",1));
+				InformationManager.addRaceElement(new WalkSpeed(30));
 				InformationManager.addRaceElement(new Race("Dark Elf"));
 				WindowManager.getRaceTab().updateRaceElementsList();
 				break;
