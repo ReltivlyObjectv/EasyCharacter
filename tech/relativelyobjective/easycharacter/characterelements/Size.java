@@ -2,6 +2,7 @@ package tech.relativelyobjective.easycharacter.characterelements;
 
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
 
 /**
  *
@@ -18,7 +19,11 @@ public class Size implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		size = MiscPrompts.openSingleObjectChooserPrompt(
+			Lists.Size.values(),
+			size,
+			"Character Size"
+		);
 	}
 	@Override
 	public String toString() {

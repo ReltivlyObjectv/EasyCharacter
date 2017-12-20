@@ -157,7 +157,7 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return (T[]) returnMe;
 	}
-	public static <T> T openSingleObjectChooserPrompt(T[] options, String windowTitle) {
+	public static <T> T openSingleObjectChooserPrompt(T[] options, T selected, String windowTitle) {
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(),
 			windowTitle, true);
 		prompt.setLayout(new GridBagLayout());
@@ -171,6 +171,9 @@ public class MiscPrompts {
 		prompt.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		((JPanel)prompt.getContentPane()).setBorder(new EmptyBorder(10, 10, 10, 10));
 		JComboBox selection = new JComboBox(options);
+		if (selected != null) {
+			selection.setSelectedItem(selected);
+		}
 		prompt.add(selection, constraints);
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener((ActionEvent e)->{

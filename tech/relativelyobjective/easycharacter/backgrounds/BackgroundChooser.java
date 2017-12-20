@@ -102,6 +102,7 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				InventoryItem conTool = MiscPrompts.openSingleObjectChooserPrompt(
 					ItemLists.CON_TOOLS,
+					null,
 					"Con Tool"
 				);
 				InformationManager.addBackgroundElement((InventoryItem) conTool);
@@ -219,6 +220,7 @@ public class BackgroundChooser {
 				WindowManager.getBackgroundTab().updateBackgroundElementsList();
 				String guildTool = MiscPrompts.openSingleObjectChooserPrompt(
 					ItemLists.ARTISANS_TOOLS,
+					null,
 					"Artisan's Tools Proficiency/Item"
 				);
 				InformationManager.addBackgroundElement(new OtherProficiency(guildTool));
