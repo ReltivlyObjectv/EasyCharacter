@@ -2,6 +2,8 @@ package tech.relativelyobjective.easycharacter.characterelements;
 
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.ObjectIntegerPair;
 
 /**
  *
@@ -29,7 +31,17 @@ public class SkillProficiency implements CharacterElement,Comparable {
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		ObjectIntegerPair<Lists.Skill> newValues = MiscPrompts.openObjectChooserSpinner(
+			Lists.Skill.values(),
+			skill,
+			proficiencyMagnitude,
+			0,
+			5,
+			"Skill Proficiency",
+			1
+		);
+		skill = newValues.object;
+		proficiencyMagnitude = newValues.value;
 	}
 	@Override
 	public String toString() {
