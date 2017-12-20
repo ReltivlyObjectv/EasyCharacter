@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -8,14 +10,14 @@ public class WalkSpeed implements CharacterElement,Comparable {
 	public Integer distance;
 
 	public WalkSpeed() {
-		distance = 0;
+		distance = 30;
 	}
 	public WalkSpeed(int mag) {
 		distance = mag;
 	}
 	@Override
 	public void edit() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		distance = MiscPrompts.openSpinnerPrompt(distance, 0, 120, "Walk Speed", 5);
 	}
 	@Override
 	public String toString() {
