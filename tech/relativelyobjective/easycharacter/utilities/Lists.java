@@ -332,4 +332,28 @@ public class Lists {
 		SOLDIER,
 		URCHIN
 	}
+	public enum MagicSchool {
+		ABJURATION,
+		CONJURATION,
+		DIVINATION,
+		ENCHANTMENT,
+		EVOCATION,
+		ILLUSION,
+		NECROMANCY,
+		TRANSMUTATION
+	}
+	public static final String[] CASTING_TIMES_EXAMPLES = {
+		"1 action",
+		"1 bonus action",
+		"1 reaction",
+		"10 minutes"
+	};
+	public static final String[] SPELL_RANGE_EXAMPLES = {
+		"Self",
+		"Self (30-foot cone)",
+		"Self (30-foot radius)",
+		"Self (30-foot-radius sphere)",
+		"Touch",
+		"60 feet",
+	};
 }
