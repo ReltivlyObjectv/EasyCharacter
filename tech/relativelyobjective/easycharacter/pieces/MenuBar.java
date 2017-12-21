@@ -9,14 +9,22 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import tech.relativelyobjective.easycharacter.characterelements.*;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
  * @author ReltivlyObjectv
  */
 public class MenuBar extends JMenuBar {
+	public enum ElementLists {
+		Race,
+		Class,
+		Background
+	}
 	private final JMenu fileMenu;
 	private final JMenu editMenu;
 	private final JMenu toolsMenu;
@@ -84,6 +92,82 @@ public class MenuBar extends JMenuBar {
 		});
 		fileMenu.add(renderToFile);
 	}
+	private void initializeEditMenu() {
+		JMenuItem abMod = new JMenuItem("Add Ability Modifier");
+		abMod.addActionListener((ActionEvent e)->{
+			addAndEditElement(new AbilityModifier());
+		});
+		editMenu.add(abMod);
+		JMenuItem conMod = new JMenuItem("Add Condition Modifier");
+		conMod.addActionListener((ActionEvent e)->{
+			addAndEditElement(new ConditionModifier());
+		});
+		editMenu.add(conMod);
+		JMenuItem damMod = new JMenuItem("Add Damage Modifier");
+		damMod.addActionListener((ActionEvent e)->{
+			addAndEditElement(new DamageModifier());
+		});
+		editMenu.add(damMod);
+		JMenuItem dv = new JMenuItem("Add Darkvision");
+		dv.addActionListener((ActionEvent e)->{
+			addAndEditElement(new Darkvision());
+		});
+		editMenu.add(dv);
+		JMenuItem ft = new JMenuItem("Add Feat");
+		ft.addActionListener((ActionEvent e)->{
+			addAndEditElement(new Feat(MiscPrompts.openSingleObjectChooserPrompt(
+				InformationManager.getNonPossessedFeats(), 
+				null, 
+				"Add Feat"
+			)));
+		});
+		editMenu.add(ft);
+		JMenuItem ftr = new JMenuItem("Add Feature");
+		ftr.addActionListener((ActionEvent e)->{
+			addAndEditElement(new Feature());
+		});
+		editMenu.add(ftr);
+		JMenuItem inMod = new JMenuItem("Add Initiative Modifier");
+		inMod.addActionListener((ActionEvent e)->{
+			addAndEditElement(new InitiativeModifier());
+		});
+		editMenu.add(inMod);
+		JMenuItem invItem = new JMenuItem("Add Inventory Item");
+		invItem.addActionListener((ActionEvent e)->{
+			addAndEditElement(new InventoryItem());
+		});
+		editMenu.add(invItem);
+		JMenuItem lang = new JMenuItem("Add Language");
+		lang.addActionListener((ActionEvent e)->{
+			addAndEditElement(new Language());
+		});
+		editMenu.add(lang);
+		JMenuItem otherProf = new JMenuItem("Add Other Proficiency");
+		otherProf.addActionListener((ActionEvent e)->{
+			addAndEditElement(new OtherProficiency());
+		});
+		editMenu.add(otherProf);
+		JMenuItem svProf = new JMenuItem("Add Saving Throw Proficiency");
+		svProf.addActionListener((ActionEvent e)->{
+			addAndEditElement(new SavingThrowProficiency());
+		});
+		editMenu.add(svProf);
+		JMenuItem skProf = new JMenuItem("Add Skill Proficiency");
+		skProf.addActionListener((ActionEvent e)->{
+			addAndEditElement(new SkillProficiency());
+		});
+		editMenu.add(skProf);
+		JMenuItem sp = new JMenuItem("Add Spell");
+		sp.addActionListener((ActionEvent e)->{
+			Spell newSpell = MiscPrompts.openSingleObjectChooserPrompt(
+				InformationManager.getUnknownSpells(), 
+				null, 
+				"Additional Spell"
+			);
+			addAndEditElement(newSpell);
+		});
+		editMenu.add(sp);
+	}
 	private void initializeToolsMenu() {
 		JMenuItem loreHeader = new JMenuItem("Lore Set");
 		loreHeader.setEnabled(false);
@@ -113,7 +197,6 @@ public class MenuBar extends JMenuBar {
 		JCheckBoxMenuItem homebrewOn = new JCheckBoxMenuItem("Homebrew Classes");
 		homebrewOff.setSelected(true);
 		homebrewOff.addActionListener((ActionEvent e) -> {
-			setHomebrew(false);
 			homebrewOn.setSelected(false);
 			homebrewOff.setSelected(true);
 		});
@@ -121,13 +204,10 @@ public class MenuBar extends JMenuBar {
 		
 		homebrewOn.setSelected(false);
 		homebrewOn.addActionListener((ActionEvent e) -> {
-			setHomebrew(true);
 			homebrewOff.setSelected(false);
 			homebrewOn.setSelected(true);
 		});
 		toolsMenu.add(homebrewOn);
-	}
-	private void initializeEditMenu() {
 	}
 	private void newFile() {
 	}
@@ -137,11 +217,30 @@ public class MenuBar extends JMenuBar {
 	}
 	private void loadFile() {
 	}
+	private void addAndEditElement(CharacterElement e) {
+		if (!(e instanceof Feat) && !(e instanceof Spell)) {
+			e.edit();
+		}
+		switch((ElementLists) MiscPrompts.openSingleObjectChooserPrompt(ElementLists.values(), null, "Where to add?")) {
+			case Race:
+				InformationManager.addRaceElement(e);
+				WindowManager.getRaceTab().updateRaceElementsList();
+				WindowManager.getMainFrame().setActiveTab(WindowManager.getMainFrame().raceTab);
+				break;
+			case Class:
+				InformationManager.addClassElement(e);
+				WindowManager.getClassTab().updateClassElementsList();
+				WindowManager.getMainFrame().setActiveTab(WindowManager.getMainFrame().classTab);
+				break;
+			case Background:
+				InformationManager.addBackgroundElement(e);
+				WindowManager.getBackgroundTab().updateBackgroundElementsList();
+				WindowManager.getMainFrame().setActiveTab(WindowManager.getMainFrame().backgroundTab);
+				break;
+		}
+	}
 	private void renderPage() {
 	}
 	private void renderPageToFile() {
-	}
-	private void setHomebrew(boolean enabled) {
-		System.out.printf("Homebrew enabled: %b\n", enabled);
 	}
 }

@@ -40,6 +40,8 @@ public class CharacterElementList {
 			addCharacterElement((Feature) e);
 		} else if (e instanceof InventoryItem) {
 			addCharacterElement((InventoryItem) e);
+		} else if (e instanceof InitiativeModifier) {
+			addCharacterElement((InitiativeModifier) e);
 		} else if (e instanceof Ki) {
 			addCharacterElement((Ki) e);
 		} else if (e instanceof KiAction) {
@@ -211,6 +213,9 @@ public class CharacterElementList {
 				}
 			}
 		}
+		for (CharacterElement e : newFeat.getElements()) {
+			this.addCharacterElement(e);
+		}
 		characterElements.add(newFeat);
 	}
 	public void addCharacterElement(Feature newFeature) {
@@ -228,8 +233,8 @@ public class CharacterElementList {
 	}
 	public void addCharacterElement(InitiativeModifier mod) {
 		for (CharacterElement c : characterElements) {
-			if (c instanceof AbilityModifier) {
-				AbilityModifier cMod = (AbilityModifier) c;
+			if (c instanceof InitiativeModifier) {
+				InitiativeModifier cMod = (InitiativeModifier) c;
 				cMod.modifier += mod.modifier;
 				return;
 			}

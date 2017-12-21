@@ -1,7 +1,6 @@
 package tech.relativelyobjective.easycharacter.races;
 
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
-import tech.relativelyobjective.easycharacter.characterelements.Feat;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
@@ -27,8 +26,6 @@ public class Redguard {
 		InformationManager.addRaceElement(new Language("Yoku"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.DEXTERITY,2));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,1));
-		Feat dualWielder = new Feat("Dual Wielder");
-		InformationManager.addRaceElement(dualWielder);
 		Feature adrenalineRush = new Feature(
 			"Adrenaline Rush",
 			"Once per long rest, you have advantage on a Strength, "+

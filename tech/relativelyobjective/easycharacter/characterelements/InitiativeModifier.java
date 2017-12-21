@@ -22,7 +22,7 @@ public class InitiativeModifier implements CharacterElement, Comparable {
 			-50,
 			50,
 			"Initiative Modifier",
-			5
+			1
 		);
 	}
 	@Override

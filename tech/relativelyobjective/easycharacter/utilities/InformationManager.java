@@ -5,8 +5,10 @@ import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
+import tech.relativelyobjective.easycharacter.characterelements.Feat;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Race;
 
@@ -214,5 +216,66 @@ public class InformationManager {
 			}
 		}
 		return unknownLangs.toArray(new String[unknownLangs.size()]);
+	}
+	public static boolean knowsLanguage(String l) {
+		for (String s : getKnownLanguages()) {
+			if (s.equals(l)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static Spell[] getKnownSpells() {
+		TreeSet<Spell> knownSpells = new TreeSet<>();
+		for (CharacterElement e : getAllElements()) {
+			if (e instanceof Spell) {
+				knownSpells.add((Spell) e);
+			}
+		}
+		return knownSpells.toArray(new Spell[knownSpells.size()]);
+	}
+	public static Spell[] getUnknownSpells() {
+		TreeSet<Spell> unknownSpells = new TreeSet<>();
+		for (SpellLists.SpellKey s : SpellLists.SpellKey.values()) {
+			Spell keysSpell = AllSpells.getSpell(s);
+			if (!knowsSpell(keysSpell)) {
+				unknownSpells.add(keysSpell);
+			}
+		}
+		return unknownSpells.toArray(new Spell[unknownSpells.size()]);
+	}
+	public static boolean knowsSpell(Spell s) {
+		for (Spell sp : getKnownSpells()) {
+			if (s.name.equals(sp.name)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static Feat[] getPossessedFeats() {
+		TreeSet<Feat> ownedFeats = new TreeSet<>();
+		for (CharacterElement e : getAllElements()) {
+			if (e instanceof Feat) {
+				ownedFeats.add((Feat) e);
+			}
+		}
+		return ownedFeats.toArray(new Feat[ownedFeats.size()]);
+	}
+	public static Feat[] getNonPossessedFeats() {
+		TreeSet<Feat> nonPossessedFeats = new TreeSet<>();
+		for (Feat f : AllFeats.ALL_FEATS) {
+			if (!hasFeat(f)) {
+				nonPossessedFeats.add(f);
+			}
+		}
+		return nonPossessedFeats.toArray(new Feat[nonPossessedFeats.size()]);
+	}
+	public static boolean hasFeat(Feat f) {
+		for (Feat ft : getPossessedFeats()) {
+			if (ft.name.equals(f.name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

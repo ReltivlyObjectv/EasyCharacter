@@ -1,7 +1,6 @@
 package tech.relativelyobjective.easycharacter.races;
 
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
-import tech.relativelyobjective.easycharacter.characterelements.Feat;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
 import tech.relativelyobjective.easycharacter.characterelements.Race;
@@ -27,8 +26,6 @@ public class Orsimer {
 		InformationManager.addRaceElement(new Language("Orcish"));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.STRENGTH,1));
 		InformationManager.addRaceElement(new AbilityModifier(Lists.Ability.CONSTITUTION,2));
-		Feat fellHanded = new Feat("Fell Handed");
-		InformationManager.addRaceElement(fellHanded);
 		Feature berserk = new Feature();
 		InformationManager.addRaceElement(new Feature(
 			"Berserk",

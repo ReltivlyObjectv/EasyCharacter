@@ -14,6 +14,7 @@ import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 public class FrameMain extends JFrame {
 	private final MenuBar menu;
 	private final JTabbedPane mainTabbedPane;
+	public final int baseStatsTab, raceTab, classTab, backgroundTab, miscTab;
 	public FrameMain() {
 		super("Easy Character");
 		menu = new MenuBar();
@@ -24,27 +25,41 @@ public class FrameMain extends JFrame {
 		super.setSize(super.getPreferredSize());
 		super.setLayout(new BorderLayout());
 		mainTabbedPane = new JTabbedPane();
+		int currentIndex = 0;
 		mainTabbedPane.addTab("Base Stats", new JScrollPane(WindowManager.getStatsTab()));
+		baseStatsTab = currentIndex;
+		currentIndex++;
 		mainTabbedPane.addTab("Race", new JScrollPane(WindowManager.getRaceTab()));
+		raceTab = currentIndex;
+		currentIndex++;
 		mainTabbedPane.addTab("Class", new JScrollPane(WindowManager.getClassTab()));
+		classTab = currentIndex;
+		currentIndex++;
 		mainTabbedPane.addTab("Background", new JScrollPane(WindowManager.getBackgroundTab()));
+		backgroundTab = currentIndex;
+		currentIndex++;
 		mainTabbedPane.addTab("Miscellaneous", new JScrollPane(WindowManager.getMiscTab()));
+		miscTab = currentIndex;
+		currentIndex++;
 		super.add(mainTabbedPane, BorderLayout.CENTER);
 	}
+	public void setActiveTab(int index) {
+		mainTabbedPane.setSelectedIndex(index);
+	}
 	public void setCompletedBaseStatsTab(boolean completed) {
-		setCompletedTab(0,completed,"Base Stats");
+		setCompletedTab(baseStatsTab,completed,"Base Stats");
 	}
 	public void setCompletedRaceTab(boolean completed) {
-		setCompletedTab(1,completed,"Race");
+		setCompletedTab(raceTab,completed,"Race");
 	}
 	public void setCompletedClassTab(boolean completed) {
-		setCompletedTab(2,completed,"Class");
+		setCompletedTab(classTab,completed,"Class");
 	}
 	public void setCompletedBackgroundTab(boolean completed) {
-		setCompletedTab(3,completed,"Background");
+		setCompletedTab(backgroundTab,completed,"Background");
 	}
 	public void setCompletedMiscellaneousTab(boolean completed) {
-		setCompletedTab(4,completed,"Miscellaneous");
+		setCompletedTab(miscTab,completed,"Miscellaneous");
 	}
 	private void setCompletedTab(int tabIndex, boolean completed, String title) {
 		if (completed) {

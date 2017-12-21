@@ -14,8 +14,8 @@ public class AbilityModifier implements CharacterElement, Comparable {
 	public Integer modifier;
 	
 	public AbilityModifier() {
-		ability = null;
-		modifier = null;
+		ability = Lists.Ability.CHARISMA;
+		modifier = 0;
 	}
 	public AbilityModifier(Lists.Ability ab, int mod) {
 		ability = ab;
