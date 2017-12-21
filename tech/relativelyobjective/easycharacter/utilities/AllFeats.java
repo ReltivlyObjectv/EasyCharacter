@@ -1,6 +1,8 @@
 package tech.relativelyobjective.easycharacter.utilities;
 
+import java.util.Arrays;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 import tech.relativelyobjective.easycharacter.characterelements.*;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Ability;
 import tech.relativelyobjective.easycharacter.utilities.SpellLists.SpellKey;
@@ -584,7 +586,37 @@ public class AllFeats {
 		"Skilled",
 		""
 	) {
-		//TODO
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			TreeSet<Lists.Skill> unproficientSkills = new TreeSet<>();
+			for (Lists.Skill s : Lists.Skill.values()) {
+				if (!InformationManager.isProficient(s)) {
+					unproficientSkills.add(s);
+				}
+			}
+			Object[] allProficiencyOptions = 
+				Stream.concat(
+					Arrays.stream(unproficientSkills.toArray(
+						new Object[unproficientSkills.size()]
+					)),
+					Arrays.stream(ItemLists.ARTISANS_TOOLS)
+				).toArray(Object[]::new);
+			Object[] chosenProficiencies = MiscPrompts.openMultipleObjectChooserPrompt(
+				allProficiencyOptions,
+				"Additional Proficiencies",
+				3,
+				Object.class
+			);
+			for (Object o : chosenProficiencies) {
+				if (o instanceof Lists.Skill) {
+					returnMe.addCharacterElement(new SkillProficiency((Lists.Skill) o));
+				} else {
+					returnMe.addCharacterElement(new OtherProficiency(o.toString()));
+				}
+			}
+			return returnMe.getCharacterElements();
+		}
 	};
 	public static final Feat SKULKER = new Feat(
 		"Skulker",
