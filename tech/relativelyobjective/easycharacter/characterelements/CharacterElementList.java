@@ -60,6 +60,10 @@ public class CharacterElementList {
 			addCharacterElement((Rages) e);
 		} else if (e instanceof SavingThrowProficiency) {
 			addCharacterElement((SavingThrowProficiency) e);
+		} else if (e instanceof SkillModifier) {
+			addCharacterElement((SkillModifier) e);
+		} else if (e instanceof SkillModifierPassive) {
+			addCharacterElement((SkillModifierPassive) e);
 		} else if (e instanceof SkillProficiency) {
 			addCharacterElement((SkillProficiency) e);
 		} else if (e instanceof Spell) {
@@ -387,6 +391,30 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newSize);
+	}
+	public void addCharacterElement(SkillModifier mod) {
+		for (CharacterElement c : characterElements) {
+			if (c instanceof SkillModifier) {
+				SkillModifier cMod = (SkillModifier) c;
+				if (cMod.skill.equals(mod.skill)) {
+					cMod.modifier += mod.modifier;
+					return;
+				}
+			}
+		}
+		characterElements.add(mod);
+	}
+	public void addCharacterElement(SkillModifierPassive mod) {
+		for (CharacterElement c : characterElements) {
+			if (c instanceof SkillModifierPassive) {
+				SkillModifierPassive cMod = (SkillModifierPassive) c;
+				if (cMod.skill.equals(mod.skill)) {
+					cMod.modifier += mod.modifier;
+					return;
+				}
+			}
+		}
+		characterElements.add(mod);
 	}
 	public void addCharacterElement(SkillProficiency newProficiency) {
 		for (CharacterElement e : characterElements) {

@@ -386,32 +386,97 @@ public class AllFeats {
 	};
 	public static final Feat MEDIUM_ARMOR_MASTER = new Feat(
 		"Medium Armor Master",
-		""
+		"Wearing medium armor doesn't impose disadvantage on "
+		+ "Dexterity (Stealth) checks.\n" +
+		"When wearing medium armor, the maximum Dexterity modifier to AC you "
+		+ "can apply increases to 3, instead of 2."
 	);
 	public static final Feat MOBILE = new Feat(
 		"Mobile",
-		""
-	);
+		"When you use the Dash action, difficult terrain doesn't cost extra "
+		+ "movement on that turn.\n" +
+		"When you make a melee attack against a creature, you don't provoke "
+		+ "opportunity attacks from that creature for the rest of the turn, "
+		+ "whether you hit or not."
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			int speed = InformationManager.getSpeed();
+			returnMe.addCharacterElement(new WalkSpeed(speed + 10));
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat MODERATELY_ARMORED = new Feat(
 		"Moderately Armored",
 		""
-	);
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Lists.Ability[] options = {Lists.Ability.STRENGTH, Lists.Ability.DEXTERITY};
+			for (CharacterElement e : MiscPrompts.openAbilityScoreImprovementPrompt(1, options)) {
+				returnMe.addCharacterElement(e);
+			}
+			returnMe.addCharacterElement(new OtherProficiency("Medium Armor"));
+			returnMe.addCharacterElement(new OtherProficiency("Shields"));
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat MOUNTED_COMBATANT = new Feat(
 		"Mounted Combatant",
-		""
+		"You have advantage on melee attack rolls against unmounted creatures "
+		+ "that are smaller than your mount.\n" +
+		"You can force an attack targeted at your mount to target you instead.\n" +
+		"If your mount is subjected to an effect that allows it to make a "
+		+ "Dexterity save to take only half damage, it takes no damage if it "
+		+ "succeeds and half damage if it fails."
 	);
 	public static final Feat OBSERVANT = new Feat(
 		"Observant",
-		""
-	);
+		"If you can see a creature's mouth while it is speaking a language you "
+		+ "understand, you can interpret their words by reading their lips."
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Lists.Ability[] options = {Lists.Ability.INTELLIGENCE, Lists.Ability.WISDOM};
+			for (CharacterElement e : MiscPrompts.openAbilityScoreImprovementPrompt(1, options)) {
+				returnMe.addCharacterElement(e);
+			}
+			returnMe.addCharacterElement(new SkillModifierPassive(Lists.Skill.INVESTIGATION, 5));
+			returnMe.addCharacterElement(new SkillModifierPassive(Lists.Skill.PERCEPTION, 5));
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat POLEARM_MASTER = new Feat(
 		"Polearm Master",
-		""
+		"When you take the attack action with a glaive, halberd, or quarterstaff, "
+		+ "you can use a bonus action to make a melee attack with the other end "
+		+ "of the weapon. The damage die is a d4 (add attribute modifiers as normal) "
+		+ "and deals bludgeoning damage. Otherwise, this attack functions just "
+		+ "as if you attacked with the weapon in question.\n" +
+		"While wielding a glaive, halberd, pike, or quarterstaff, other "
+		+ "creatures provoke an opportunity attack from you when they enter "
+		+ "your reach."
 	);
 	public static final Feat RESILIENT = new Feat(
 		"Resilient",
 		""
-	);
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Lists.Ability chosenAbility = MiscPrompts.openSingleObjectChooserPrompt(
+				Lists.Ability.values(),
+				Lists.Ability.STRENGTH,
+				"Ability Increase and Proficiency"
+			);
+			returnMe.addCharacterElement(new SavingThrowProficiency(chosenAbility));
+			returnMe.addCharacterElement(new AbilityModifier(chosenAbility, 1));
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat RITUAL_CASTER = new Feat(
 		"Ritual Caster",
 		""
