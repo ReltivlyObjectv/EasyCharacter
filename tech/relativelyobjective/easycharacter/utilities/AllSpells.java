@@ -942,390 +942,682 @@ public class AllSpells {
 		+ "11th level (3d4), and 17th level (4d4).";
   		return returnMe;
 	}
-	public static Spell getAlarm() {Spell returnMe = new Spell("Alarm",1);
+	public static Spell getAlarm() {
+		Spell returnMe = new Spell("Alarm",1);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a tiny bell and a piece of fine silver wire";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "8 hours";
+  		returnMe.description = "You set an alarm against unwanted intrusion. "
+		+ "Choose a door, a window, or an area within range that is no larger "
+		+ "than a 20-foot cube. Until the spell ends, an alarm alerts you "
+		+ "whenever a Tiny or larger creature touches or enters the warded area. "
+		+ "When you cast the spell, you can designate creatures that won’t set "
+		+ "off the alarm. You also choose whether the alarm is mental or audible. "
+		+ "A mental alarm alerts you with a ping in your mind if you are within "
+		+ "1 mile of the warded area. This ping awakens you if you are sleeping. "
+		+ "An audible alarm produces the sound of a hand bell for 10 seconds "
+		+ "within 60 feet.";
   		return returnMe;
 	}
-	public static Spell getAnimalFriendship() {Spell returnMe = new Spell("Animal Friendship",1);
+	public static Spell getAnimalFriendship() {
+		Spell returnMe = new Spell("Animal Friendship",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a morsel of food";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "24 hours";
+  		returnMe.description = "This spell lets you convince a beast that you "
+		+ "mean it no harm. Choose a beast that you can see within range. "
+		+ "It must see and hear you. If the beast’s Intelligence is 4 or higher, "
+		+ "the spell fails. Otherwise, the beast must succeed on a Wisdom saving "
+		+ "throw or be charmed by you for the spell’s duration. If you or one of "
+		+ "your companions harms the target, the spell ends.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you can affect one additional beast for each "
+		+ "slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getArmorofAgathys() {Spell returnMe = new Spell("Armor of Agathys",1);
+	public static Spell getArmorofAgathys() {
+		Spell returnMe = new Spell("Armor of Agathys",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a cup of water";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 hour";
+  		returnMe.description = "A protective magical force surrounds you, "
+		+ "manifesting as a spectral frost that covers you and your gear. "
+		+ "You gain 5 temporary hit points for the duration. If a creature hits "
+		+ "you with a melee attack while you have these hit points, the creature "
+		+ "takes 5 cold damage.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, both the temporary hit points and the cold damage "
+		+ "increase by 5 for each slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getArmsofHadar() {Spell returnMe = new Spell("Arms of Hadar",1);
+	public static Spell getArmsofHadar() {
+		Spell returnMe = new Spell("Arms of Hadar",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "You invoke the power of Hadar, the Dark Hunger.\n" +
+		"Tendrils of dark energy erupt from you and batter all creatures within "
+		+ "10 feet of you. Each creature in that area must make a Strength "
+		+ "saving throw. On a failed save, a target takes 2d6 necrotic damage "
+		+ "and can’t take reactions until its next turn. On a successful save, "
+		+ "the creature takes half damage, but suffers no other effect.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, the damage increases by 1d6 for each slot level "
+		+ "above 1st.";
   		return returnMe;
 	}
-	public static Spell getBane() {Spell returnMe = new Spell("Bane",1);
+	public static Spell getBane() {
+		Spell returnMe = new Spell("Bane",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a drop of blood";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "Up to three creatures of your choice that you "
+		+ "can see within range must make Charisma saving throws. Whenever a "
+		+ "target that fails this saving throw makes an attack roll or a "
+		+ "saving throw before the spell ends, the target must roll a d4 and "
+		+ "subtract the number rolled from the attack roll or saving throw.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you can target one additional creature for "
+		+ "each slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getBless() {Spell returnMe = new Spell("Bless",1);
+	public static Spell getBless() {
+		Spell returnMe = new Spell("Bless",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a sprinkling of holy water";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "You bless up to three creatures of your choice "
+		+ "within range. Whenever a target makes an attack roll or a saving throw "
+		+ "before the spell ends, the target can roll a d4 and add the number "
+		+ "rolled to the attack roll or saving throw.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you can target one additional creature for each "
+		+ "slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getBurningHands() {Spell returnMe = new Spell("Burning Hands",1);
+	public static Spell getBurningHands() {
+		Spell returnMe = new Spell("Burning Hands",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self (15-foot cone)";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "As you hold your hands with thumbs touching and "
+		+ "fingers spread, a thin sheet of flames shoots forth from your "
+		+ "outstretched fingertips. Each creature in a 15-foot cone must make a "
+		+ "Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, "
+		+ "or half as much damage on a successful one. \n" +
+		"The fire ignites any flammable objects in the area that aren’t being "
+		+ "worn or carried. \n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, the damage increases by 1d6 for each slot level "
+		+ "above 1st.";
   		return returnMe;
 	}
-	public static Spell getCharmPerson() {Spell returnMe = new Spell("Charm Person",1);
+	public static Spell getCharmPerson() {
+		Spell returnMe = new Spell("Charm Person",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 hour";
+  		returnMe.description = "You attempt to charm a humanoid you can see "
+		+ "within range. It must make a Wisdom saving throw, and does so with "
+		+ "advantage if you or your companions are fighting it. If it fails it "
+		+ "is charmed by you until the spell ends or until you or your companions "
+		+ "do something harmful to it. The charmed creature regards you as a "
+		+ "friendly acquaintance. When the spell ends it knows it has been charmed.\n" +
+		"At higher levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you can target one additional creature for each "
+		+ "slot level above 1st.They must be within 30ft of each other when you "
+		+ "target them.";
   		return returnMe;
 	}
-	public static Spell getChromaticOrb() {Spell returnMe = new Spell("Chromatic Orb",1);
+	public static Spell getChromaticOrb() {
+		Spell returnMe = new Spell("Chromatic Orb",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "90 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a diamond worth at least 50 gp";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "You hurl a 4-inch-diameter sphere of energy at "
+		+ "a creature that you can see within range. You choose acid, cold, fire, "
+		+ "lightning, poison, or thunder for the type of orb you create, and "
+		+ "then make a ranged spell attack against the target. If the attack hits, "
+		+ "the creature takes 3d8 damage of the type you chose.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, the damage increases by 1d8 for each slot level "
+		+ "above 1st.";
   		return returnMe;
 	}
-	public static Spell getColorSpray() {Spell returnMe = new Spell("Color Spray",1);
+	public static Spell getColorSpray() {
+		Spell returnMe = new Spell("Color Spray",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self (15-foot cone)";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a pinch of powder or sand that is colored red, yellow, and blue";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 Round";
+  		returnMe.description = "A dazzling array of flashing, colored light "
+		+ "springs from your hand. Roll 6d10; the total is how many hit points "
+		+ "of creatures this spell can affect. Creatures in a 15-foot cone "
+		+ "originating from you are affected in ascending order of their "
+		+ "current hit points (ignoring unconscious creatures and creatures "
+		+ "that can't see).\n" +
+		"Starting with the creature that has the lowest current hit points, "
+		+ "each creature affected by this spell is blinded until the spell ends. "
+		+ "Subtract each creature's hit points from the total before moving on "
+		+ "to the creature with the next lowest hit points. A creature's "
+		+ "hit points must be equal to or less than the remaining total for "
+		+ "that creature to be affected.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, roll an additional 2d10 for each slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getCommand() {Spell returnMe = new Spell("Command",1);
+	public static Spell getCommand() {
+		Spell returnMe = new Spell("Command",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "60 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 round";
+  		returnMe.description = "You speak a one-word command to a creature you "
+		+ "can see within range. The target must succeed on a Wisdom saving throw "
+		+ "or follow the command on its next turn. The spell has no effect if "
+		+ "the target is undead, if it doesn’t understand your language, or if "
+		+ "your command is directly harmful to it.\n" +
+		"Some typical commands and their effects follow. You might issue a "
+		+ "command other than one described here. If you do so, the DM determines "
+		+ "how the target behaves. If the target can’t follow your command, the "
+		+ "spell ends.\n" +
+		"<strong>Approach.</strong> The target moves toward you by the shortest "
+		+ "and most direct route, ending its turn if it moves within 5 feet of you.\n" +
+		"<strong>Drop.</strong> The target drops whatever it is holding and then "
+		+ "ends its turn.\n" +
+		"<strong>Flee.</strong> The target spends its turn moving away from you "
+		+ "by the fastest available means.\n" +
+		"<strong>Grovel.</strong> The target falls prone and then ends its turn.\n" +
+		"<strong>Halt.</strong> The target doesn’t move and takes no actions. "
+		+ "A flying creature stays aloft, provided that it is able to do so. "
+		+ "If it must move to stay aloft, it flies the minimum distance needed "
+		+ "to remain in the air.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you can affect one additional creature for each "
+		+ "slot level above 1st. The creatures must be within 30 feet of each "
+		+ "other when you target them.";
   		return returnMe;
 	}
-	public static Spell getCompelledDuel() {Spell returnMe = new Spell("Compelled Duel",1);
+	public static Spell getCompelledDuel() {
+		Spell returnMe = new Spell("Compelled Duel",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "You attempt to compel a creature into a duel. "
+		+ "One creature that you can see within range must make a Wisdom "
+		+ "saving throw. On a failed save, the creature is drawn to you, "
+		+ "compelled by your divine demand. For the duration, it has disadvantage "
+		+ "on attack rolls against creatures other than you, and must make a "
+		+ "Wisdom saving throw each time it attempts to move to a space that is "
+		+ "more than 30 feet away from you; if it succeeds on this saving throw, "
+		+ "this spell doesn't restrict the target's movement for that turn\n" +
+		"The spell ends if you attack any other creature, if you cast a spell "
+		+ "that targets a hostile creature other than the target, if a creature "
+		+ "friendly to you damages the target or casts a harmful spell on it, "
+		+ "or if you end your turn more than 30 feet away from the target.";
   		return returnMe;
 	}
-	public static Spell getComprehendLanguages() {Spell returnMe = new Spell("Comprehend Languages",1);
+	public static Spell getComprehendLanguages() {
+		Spell returnMe = new Spell("Comprehend Languages",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a pinch of soot and salt";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 hour";
+  		returnMe.description = "For the duration, you understand the literal "
+		+ "meaning of any spoken language that you hear. You also understand "
+		+ "any written language that you see, but you must be touching the "
+		+ "surface on which the words are written. It takes about 1 minute to "
+		+ "read one page of text.\n" +
+		"This spell doesn’t decode secret messages in a text or a glyph, such "
+		+ "as an arcane sigil, that isn’t part of a written language.";
   		return returnMe;
 	}
-	public static Spell getCreateorDestroyWater() {Spell returnMe = new Spell("Create or Destroy Water",1);
+	public static Spell getCreateorDestroyWater() {
+		Spell returnMe = new Spell("Create or Destroy Water",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "30 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a drop of water if creating water or a few grains of sand if destroying it";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "You either create or destroy water.\n" +
+		"<strong>Create Water.</strong> You create up to 10 gallons of clean water "
+		+ "within range in an open container. Alternatively, the water falls as rain in "
+		+ "a 30-foot cube within range, extinguishing exposed flames in the area.\n" +
+		"<strong>Destroy Water.</strong> You destroy up to 10 gallons of water "
+		+ "in an open container within range. Alternatively, you destroy fog in "
+		+ "a 30-foot cube within range.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you create or destroy 10 additional gallons of water, "
+		+ "or the size of the cube increases by 5 feet, for each slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getCureWounds() {Spell returnMe = new Spell("Cure Wounds",1);
+	public static Spell getCureWounds() {
+		Spell returnMe = new Spell("Cure Wounds",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Touch";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "A creature you touch regains a number of hit "
+		+ "points equal to 1d8 + your spellcasting ability modifier. This spell "
+		+ "has no effect on undead or constructs.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, the healing increases by 1d8 for each slot "
+		+ "level above 1st.";
   		return returnMe;
 	}
-	public static Spell getDetectEvilandGood() {Spell returnMe = new Spell("Detect Evil and Good",1);
+	public static Spell getDetectEvilandGood() {
+		Spell returnMe = new Spell("Detect Evil and Good",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "10 minutes";
+  		returnMe.description = "For the duration, you know if there is an aberration, "
+		+ "celestial, elemental, fey, fiend, or undead within 30 feet of you, "
+		+ "as well as where the creature is located. Similarly, you know if there "
+		+ "is a place or object within 30 feet of you that has been magically "
+		+ "consecrated or desecrated.\n" +
+		"The spell can penetrate most barriers, but it is blocked by 1 foot of "
+		+ "stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood "
+		+ "or dirt.";
   		return returnMe;
 	}
-	public static Spell getDetectMagic() {Spell returnMe = new Spell("Detect Magic",1);
+	public static Spell getDetectMagic() {
+		Spell returnMe = new Spell("Detect Magic",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = true;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "10 minutes";
+  		returnMe.description = "For the duration, you sense the presence of "
+		+ "magic within 30 feet of you. If you sense magic in this way, you can "
+		+ "use your action to see a faint aura around any visible creature or "
+		+ "object in the area that bears magic, and you learn its "
+		+ "school of magic, if any.\n" +
+		"The spell can penetrate most barriers, but it is blocked by 1 foot "
+		+ "of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet "
+		+ "of wood or dirt. ";
   		return returnMe;
 	}
-	public static Spell getDetectPoisonandDisease() {Spell returnMe = new Spell("Detect Poison and Disease",1);
+	public static Spell getDetectPoisonandDisease() {
+		Spell returnMe = new Spell("Detect Poison and Disease",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a yew leaf";
   		returnMe.ritual = true;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "10 minutes";
+  		returnMe.description = "For the duration, you can sense the presence "
+		+ "and location of poisons, poisonous creatures, and diseases within "
+		+ "30 feet of you. You also identify the kind of poison, poisonous "
+		+ "creature, or disease in each case.\n" +
+		"The spell can penetrate most barriers, but it is blocked by 1 foot "
+		+ "of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet "
+		+ "of wood or dirt.";
   		return returnMe;
 	}
-	public static Spell getDisguiseSelf() {Spell returnMe = new Spell("Disguise Self",1);
+	public static Spell getDisguiseSelf() {
+		Spell returnMe = new Spell("Disguise Self",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 hour";
+  		returnMe.description = "You make yourself—including your clothing, "
+		+ "armor, weapons, and other belongings on your person—look different "
+		+ "until the spell ends or until you use your action to dismiss it. "
+		+ "You can seem 1 foot shorter or taller and can appear thin, fat, or "
+		+ "in between. You can't change your body type, so you must adopt a form "
+		+ "that has the same basic arrangement of limbs. Otherwise, the extent "
+		+ "of the illusion is up to you.\n" +
+		"The changes wrought by this spell fail to hold up to physical inspection. "
+		+ "For example, if you use this spell to add a hat to your outfit, "
+		+ "objects pass through the hat, and anyone who touches it would feel "
+		+ "nothing or would feel your head and hair. If you use this spell to "
+		+ "appear thinner that you are, the hand of someone who reaches out to "
+		+ "touch you would bump into you while it was seemingly still in mid air.\n" +
+		"To discern that you are disguised, a creature can use its action to inspect "
+		+ "your appearance and must succeed on an Intelligence (Investigation) "
+		+ "check against your spell save DC.";
   		return returnMe;
 	}
-	public static Spell getDissonantWhispers() {Spell returnMe = new Spell("Dissonant Whispers",1);
+	public static Spell getDissonantWhispers() {
+		Spell returnMe = new Spell("Dissonant Whispers",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "60 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "You whisper a discordant melody that only one "
+		+ "creature of your choice within range can hear, wracking it with "
+		+ "terrible pain. The target must make a Wisdom saving throw. "
+		+ "On a failed save, it takes 3d6 psychic damage and must immediately "
+		+ "use its reaction, if available, to move as far as its speed allows "
+		+ "away from you. The creature doesn’t move into obviously dangerous "
+		+ "ground, such as a fire or a pit. On a successful save, the target "
+		+ "takes half as much damage and doesn’t have to move away. A deafened "
+		+ "creature automatically succeeds on the save.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, the damage increases by 1d6 for each slot level "
+		+ "above 1st.";
   		return returnMe;
 	}
-	public static Spell getDivineFavor() {Spell returnMe = new Spell("Divine Favor",1);
+	public static Spell getDivineFavor() {
+		Spell returnMe = new Spell("Divine Favor",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "Your prayer empowers you with divine radiance. "
+		+ "Until the spell ends, your weapon attacks deal an extra "
+		+ "1d4 radiant damage on a hit";
   		return returnMe;
 	}
-	public static Spell getEnsnaringStrike() {Spell returnMe = new Spell("Ensnaring Strike",1);
+	public static Spell getEnsnaringStrike() {
+		Spell returnMe = new Spell("Ensnaring Strike",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "The next time you hit a creature with a weapon "
+		+ "attack before this spell ends, a writhing mass of thorny vines appears "
+		+ "at the point of impact, and the target must succeed on a Strength "
+		+ "saving throw or be restrained by the magical vines until the spell ends. "
+		+ "A Large or larger creature has advantage on this saving throw. "
+		+ "If the target succeeds on the save, the vines shrivel away.\n" +
+		"While restrained by this spell, the target takes 1d6 piercing damage "
+		+ "at the start of each of its turns. A creature restrained by the vines "
+		+ "or one that can touch the creature can use its action to make a "
+		+ "Strength check against your spell save DC. On a success, "
+		+ "the target is freed.\n" +
+		"At Higher Levels. If you cast this spell using a spell slot of "
+		+ "2nd level or higher, the damage increases by 1d6 for each slot "
+		+ "level above 1st.";
   		return returnMe;
 	}
-	public static Spell getEntangle() {Spell returnMe = new Spell("Entangle",1);
+	public static Spell getEntangle() {
+		Spell returnMe = new Spell("Entangle",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "90 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "Grasping weeds and vines sprout from the ground "
+		+ "in a 20-foot square starting from a point within range. "
+		+ "For the duration, these plants turn the ground in the area into "
+		+ "difficult terrain.\n" +
+		"A creature in the area when you cast the spell must succeed on a "
+		+ "Strength saving throw or be restrained by the entangling plants "
+		+ "until the spell ends. A creature restrained by the plants can use "
+		+ "its action to make a Strength check against your spell save DC. "
+		+ "On a success, it frees itself.\n" +
+		"When the spell ends, the conjured plants wilt away.";
   		return returnMe;
 	}
-	public static Spell getExpeditiousRetreat() {Spell returnMe = new Spell("Expeditious Retreat",1);
+	public static Spell getExpeditiousRetreat() {
+		Spell returnMe = new Spell("Expeditious Retreat",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "10 minutes";
+  		returnMe.description = "This spell allows you to move at an incredible pace. "
+		+ "When you cast this spell, and then as a bonus action on each of your "
+		+ "turns until the spell ends, you can take the Dash action.";
   		return returnMe;
 	}
-	public static Spell getFaerieFire() {Spell returnMe = new Spell("Faerie Fire",1);
+	public static Spell getFaerieFire() {
+		Spell returnMe = new Spell("Faerie Fire",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "60 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "Each object in a 20-foot cube within range is "
+		+ "outlined by blue, green, or violet light (your choice). Any creature "
+		+ "in the area when the spell is cast is also outlined in light if it "
+		+ "fails a Dexterity saving throw. For the duration, objects and "
+		+ "affected creatures shed dim light in a 10-foot radius. Any attack "
+		+ "roll against an affected creature or object has advantage if the "
+		+ "attacker can see it, and the affected creature or object can't "
+		+ "benefit from being invisible.";
   		return returnMe;
 	}
-	public static Spell getFalseLife() {Spell returnMe = new Spell("False Life",1);
+	public static Spell getFalseLife() {
+		Spell returnMe = new Spell("False Life",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Self";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a small amount of alcohol or distilled spirits";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 hour";
+  		returnMe.description = "Bolstering your self with a necromantic "
+		+ "facsimile of life, you gain 1d4+4 temporary hitpoints for the duration.\n" +
+		"At Higher Levels: When you cast this spell using a spell slot of "
+		+ "2nd level or higher, you gain 5 additional temporary hit points for "
+		+ "each slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getFeatherFall() {Spell returnMe = new Spell("Feather Fall",1);
+	public static Spell getFeatherFall() {
+		Spell returnMe = new Spell("Feather Fall",1);
   		returnMe.castingTime = "1 reaction";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "60 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a small feather or piece of down";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 minute";
+  		returnMe.description = "Choose up to five falling creatures within range. "
+		+ "A falling creature's rate of descent slows to 60 feet per round until "
+		+ "the spell ends. If the creature lands before the spell ends, it takes "
+		+ "no falling damage and can land on its feet, and the spell ends for "
+		+ "that creature.";
   		return returnMe;
 	}
-	public static Spell getFindFamiliar() {Spell returnMe = new Spell("Find Familiar",1);
+	public static Spell getFindFamiliar() {
+		Spell returnMe = new Spell("Find Familiar",1);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "10 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "10 gp worth of charcoal, incense, and "
+		+ "herbs that must be consumed by fire in a brass brazier";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "Instantaneous";
+  		returnMe.description = "You gain the service of a familiar, a spirit "
+		+ "that takes an animal form you choose: bat, cat, crab, frog (toad), "
+		+ "hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, "
+		+ "raven, sea horse, spider, or weasel. Appearing in an unoccupied "
+		+ "space within range, the familiar has the statistics of the chosen "
+		+ "form, though it is a celestial, fey, or fiend (your choice) instead "
+		+ "of a beast.\n" +
+		"Your familiar acts independently of you, but it always obeys your "
+		+ "commands. In combat, it rolls its own initiative and acts on its own "
+		+ "turn. A familiar can’t attack, but it can take other actions as normal.\n" +
+		"When the familiar drops to 0 hit points, it disappears, leaving behind "
+		+ "no physical form. It reappears after you cast this spell again.\n" +
+		"While your familiar is within 100 feet of you, you can communicate with "
+		+ "it telepathically. Additionally, as an action, you can see through "
+		+ "your familiar’s eyes and hear what it hears until the start of your "
+		+ "next turn, gaining the benefits of any special senses that the "
+		+ "familiar has. During this time, you are deaf and blind with regard "
+		+ "to your own senses.\n" +
+		"As an action, you can temporarily dismiss your familiar. It disappears "
+		+ "into a pocket dimension where it awaits your summons. Alternatively, "
+		+ "you can dismiss it forever. As an action while it is temporarily "
+		+ "dismissed, you can cause it to reappear in any unoccupied space within "
+		+ "30 feet of you.\n" +
+		"You can’t have more than one familiar at a time. If you cast this "
+		+ "spell while you already have a familiar, you instead cause it to "
+		+ "adopt a new form. Choose one of the forms from the above list. "
+		+ "Your familiar transforms into the chosen creature.\n" +
+		"Finally, when you cast a spell with a range of touch, your familiar "
+		+ "can deliver the spell as if it had cast the spell. Your familiar "
+		+ "must be within 100 feet of you, and it must use its reaction to "
+		+ "deliver the spell when you cast it. If the spell requires an attack "
+		+ "roll, you use your attack modifier for the roll.";
   		return returnMe;
 	}
-	public static Spell getFogCloud() {Spell returnMe = new Spell("Fog Cloud",1);
+	public static Spell getFogCloud() {
+		Spell returnMe = new Spell("Fog Cloud",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "120 feet";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
-  		returnMe.duration = "TODO";
-  		returnMe.description = "TODO";
+  		returnMe.duration = "1 hour";
+  		returnMe.description = "You create a 20-foot-radius of fog centered on "
+		+ "a point within range. The sphere spreads around corners, and its "
+		+ "area is heavily obscured. It lasts for the duration or until a wind "
+		+ "of moderate or greater speed (at least 10 miles per hour) disperses it.\n" +
+		"At Higher Levels. When you cast this spell using a spell slot of "
+		+ "2nd level or higher, the radius of the fog increases by 20 feet for "
+		+ "each slot level above 1st.";
   		return returnMe;
 	}
-	public static Spell getGoodberry() {Spell returnMe = new Spell("Goodberry",1);
+	public static Spell getGoodberry() {
+		Spell returnMe = new Spell("Goodberry",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "Touch";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "a sprig of mistletoe";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1335,10 +1627,10 @@ public class AllSpells {
 	public static Spell getGrease() {Spell returnMe = new Spell("Grease",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1348,7 +1640,7 @@ public class AllSpells {
 	public static Spell getGuidingBolt() {Spell returnMe = new Spell("Guiding Bolt",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1361,7 +1653,7 @@ public class AllSpells {
 	public static Spell getHailofThorns() {Spell returnMe = new Spell("Hail of Thorns",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1374,7 +1666,7 @@ public class AllSpells {
 	public static Spell getHealingWord() {Spell returnMe = new Spell("Healing Word",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1387,7 +1679,7 @@ public class AllSpells {
 	public static Spell getHellishRebuke() {Spell returnMe = new Spell("Hellish Rebuke",1);
   		returnMe.castingTime = "1 reaction";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1400,7 +1692,7 @@ public class AllSpells {
 	public static Spell getHeroism() {Spell returnMe = new Spell("Heroism",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1413,10 +1705,10 @@ public class AllSpells {
 	public static Spell getHex() {Spell returnMe = new Spell("Hex",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1426,7 +1718,7 @@ public class AllSpells {
 	public static Spell getHuntersMark() {Spell returnMe = new Spell("Hunter's Mark",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1439,10 +1731,10 @@ public class AllSpells {
 	public static Spell getIdentify() {Spell returnMe = new Spell("Identify",1);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1452,10 +1744,10 @@ public class AllSpells {
 	public static Spell getIllusoryScript() {Spell returnMe = new Spell("Illusory Script",1);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = false;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1465,7 +1757,7 @@ public class AllSpells {
 	public static Spell getInflictWounds() {Spell returnMe = new Spell("Inflict Wounds",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1478,10 +1770,10 @@ public class AllSpells {
 	public static Spell getJump() {Spell returnMe = new Spell("Jump",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1491,10 +1783,10 @@ public class AllSpells {
 	public static Spell getLongstrider() {Spell returnMe = new Spell("Longstrider",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1504,10 +1796,10 @@ public class AllSpells {
 	public static Spell getMageArmor() {Spell returnMe = new Spell("Mage Armor",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1517,7 +1809,7 @@ public class AllSpells {
 	public static Spell getMagicMissile() {Spell returnMe = new Spell("Magic Missile",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1530,10 +1822,10 @@ public class AllSpells {
 	public static Spell getProtectionfromEvilandGood() {Spell returnMe = new Spell("Protection from Evil and Good",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1543,7 +1835,7 @@ public class AllSpells {
 	public static Spell getPurifyFoodandDrink() {Spell returnMe = new Spell("Purify Food and Drink",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1556,7 +1848,7 @@ public class AllSpells {
 	public static Spell getRayofSickness() {Spell returnMe = new Spell("Ray of Sickness",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1569,10 +1861,10 @@ public class AllSpells {
 	public static Spell getSanctuary() {Spell returnMe = new Spell("Sanctuary",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1582,7 +1874,7 @@ public class AllSpells {
 	public static Spell getSearingSmite() {Spell returnMe = new Spell("Searing Smite",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1595,7 +1887,7 @@ public class AllSpells {
 	public static Spell getShield() {Spell returnMe = new Spell("Shield",1);
   		returnMe.castingTime = "1 reaction";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1608,10 +1900,10 @@ public class AllSpells {
 	public static Spell getShieldofFaith() {Spell returnMe = new Spell("Shield of Faith",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1621,10 +1913,10 @@ public class AllSpells {
 	public static Spell getSilentImage() {Spell returnMe = new Spell("Silent Image",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1634,10 +1926,10 @@ public class AllSpells {
 	public static Spell getSleep() {Spell returnMe = new Spell("Sleep",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1647,7 +1939,7 @@ public class AllSpells {
 	public static Spell getSpeakwithAnimals() {Spell returnMe = new Spell("Speak with Animals",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1660,10 +1952,10 @@ public class AllSpells {
 	public static Spell getTashasHideousLaughter() {Spell returnMe = new Spell("Tasha's Hideous Laughter",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1673,10 +1965,10 @@ public class AllSpells {
 	public static Spell getTensersFloatingDisk() {Spell returnMe = new Spell("Tenser's Floating Disk",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1686,7 +1978,7 @@ public class AllSpells {
 	public static Spell getThunderousSmite() {Spell returnMe = new Spell("Thunderous Smite",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1699,7 +1991,7 @@ public class AllSpells {
 	public static Spell getThunderwave() {Spell returnMe = new Spell("Thunderwave",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1712,10 +2004,10 @@ public class AllSpells {
 	public static Spell getUnseenServant() {Spell returnMe = new Spell("Unseen Servant",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1725,10 +2017,10 @@ public class AllSpells {
 	public static Spell getWitchBolt() {Spell returnMe = new Spell("Witch Bolt",1);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1738,7 +2030,7 @@ public class AllSpells {
 	public static Spell getWrathfulSmite() {Spell returnMe = new Spell("Wrathful Smite",1);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1751,10 +2043,10 @@ public class AllSpells {
 	public static Spell getAid() {Spell returnMe = new Spell("Aid",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1764,7 +2056,7 @@ public class AllSpells {
 	public static Spell getAlterSelf() {Spell returnMe = new Spell("Alter Self",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1777,10 +2069,10 @@ public class AllSpells {
 	public static Spell getAnimalMessenger() {Spell returnMe = new Spell("Animal Messenger",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1790,10 +2082,10 @@ public class AllSpells {
 	public static Spell getArcaneLock() {Spell returnMe = new Spell("Arcane Lock",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1803,10 +2095,10 @@ public class AllSpells {
 	public static Spell getAugury() {Spell returnMe = new Spell("Augury",2);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1816,10 +2108,10 @@ public class AllSpells {
 	public static Spell getBarkskin() {Spell returnMe = new Spell("Barkskin",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1829,7 +2121,7 @@ public class AllSpells {
 	public static Spell getBeastSense() {Spell returnMe = new Spell("Beast Sense",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = false;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1842,7 +2134,7 @@ public class AllSpells {
 	public static Spell getBlindnessDeafness() {Spell returnMe = new Spell("Blindness/Deafness",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1855,7 +2147,7 @@ public class AllSpells {
 	public static Spell getBlur() {Spell returnMe = new Spell("Blur",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1868,7 +2160,7 @@ public class AllSpells {
 	public static Spell getBrandingSmite() {Spell returnMe = new Spell("Branding Smite",2);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -1881,7 +2173,7 @@ public class AllSpells {
 	public static Spell getCalmEmotions() {Spell returnMe = new Spell("Calm Emotions",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1894,10 +2186,10 @@ public class AllSpells {
 	public static Spell getCloudofDaggers() {Spell returnMe = new Spell("Cloud of Daggers",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1907,10 +2199,10 @@ public class AllSpells {
 	public static Spell getContinualFlame() {Spell returnMe = new Spell("Continual Flame",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1920,10 +2212,10 @@ public class AllSpells {
 	public static Spell getCordonofArrows() {Spell returnMe = new Spell("Cordon of Arrows",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1933,7 +2225,7 @@ public class AllSpells {
 	public static Spell getCrownofMadness() {Spell returnMe = new Spell("Crown of Madness",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -1946,10 +2238,10 @@ public class AllSpells {
 	public static Spell getDarkness() {Spell returnMe = new Spell("Darkness",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1959,10 +2251,10 @@ public class AllSpells {
 	public static Spell getDarkvision() {Spell returnMe = new Spell("Darkvision",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -1972,10 +2264,10 @@ public class AllSpells {
 	public static Spell getDetectThoughts() {Spell returnMe = new Spell("Detect Thoughts",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1985,10 +2277,10 @@ public class AllSpells {
 	public static Spell getEnhanceAbility() {Spell returnMe = new Spell("Enhance Ability",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -1998,10 +2290,10 @@ public class AllSpells {
 	public static Spell getEnlargeReduce() {Spell returnMe = new Spell("Enlarge/Reduce",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2011,7 +2303,7 @@ public class AllSpells {
 	public static Spell getEnthrall() {Spell returnMe = new Spell("Enthrall",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2024,7 +2316,7 @@ public class AllSpells {
 	public static Spell getFindSteed() {Spell returnMe = new Spell("Find Steed",2);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2037,7 +2329,7 @@ public class AllSpells {
 	public static Spell getFindTraps() {Spell returnMe = new Spell("Find Traps",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2050,10 +2342,10 @@ public class AllSpells {
 	public static Spell getFlameBlade() {Spell returnMe = new Spell("Flame Blade",2);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2063,10 +2355,10 @@ public class AllSpells {
 	public static Spell getFlamingSphere() {Spell returnMe = new Spell("Flaming Sphere",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2076,10 +2368,10 @@ public class AllSpells {
 	public static Spell getGentleRepose() {Spell returnMe = new Spell("Gentle Repose",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2089,10 +2381,10 @@ public class AllSpells {
 	public static Spell getGustofWind() {Spell returnMe = new Spell("Gust of Wind",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2102,10 +2394,10 @@ public class AllSpells {
 	public static Spell getHeatMetal() {Spell returnMe = new Spell("Heat Metal",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2115,10 +2407,10 @@ public class AllSpells {
 	public static Spell getHoldPerson() {Spell returnMe = new Spell("Hold Person",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2128,10 +2420,10 @@ public class AllSpells {
 	public static Spell getInvisibility() {Spell returnMe = new Spell("Invisibility",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2141,7 +2433,7 @@ public class AllSpells {
 	public static Spell getKnock() {Spell returnMe = new Spell("Knock",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2154,7 +2446,7 @@ public class AllSpells {
 	public static Spell getLesserRestoration() {Spell returnMe = new Spell("Lesser Restoration",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2167,10 +2459,10 @@ public class AllSpells {
 	public static Spell getLevitate() {Spell returnMe = new Spell("Levitate",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2180,10 +2472,10 @@ public class AllSpells {
 	public static Spell getLocateAnimalsorPlants() {Spell returnMe = new Spell("Locate Animals or Plants",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2193,10 +2485,10 @@ public class AllSpells {
 	public static Spell getLocateObject() {Spell returnMe = new Spell("Locate Object",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2206,10 +2498,10 @@ public class AllSpells {
 	public static Spell getMagicMouth() {Spell returnMe = new Spell("Magic Mouth",2);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2219,7 +2511,7 @@ public class AllSpells {
 	public static Spell getMagicWeapon() {Spell returnMe = new Spell("Magic Weapon",2);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2232,10 +2524,10 @@ public class AllSpells {
 	public static Spell getMelfsAcidArrow() {Spell returnMe = new Spell("Melf's Acid Arrow",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2245,7 +2537,7 @@ public class AllSpells {
 	public static Spell getMirrorImage() {Spell returnMe = new Spell("Mirror Image",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2258,7 +2550,7 @@ public class AllSpells {
 	public static Spell getMistyStep() {Spell returnMe = new Spell("Misty Step",2);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2271,10 +2563,10 @@ public class AllSpells {
 	public static Spell getMoonbeam() {Spell returnMe = new Spell("Moonbeam",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2284,10 +2576,10 @@ public class AllSpells {
 	public static Spell getNystulsMagicAura() {Spell returnMe = new Spell("Nystul's Magic Aura",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2297,10 +2589,10 @@ public class AllSpells {
 	public static Spell getPasswithoutTrace() {Spell returnMe = new Spell("Pass without Trace",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2310,10 +2602,10 @@ public class AllSpells {
 	public static Spell getPhantasmalForce() {Spell returnMe = new Spell("Phantasmal Force",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2323,7 +2615,7 @@ public class AllSpells {
 	public static Spell getPrayerofHealing() {Spell returnMe = new Spell("Prayer of Healing",2);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2336,7 +2628,7 @@ public class AllSpells {
 	public static Spell getProtectionfromPoison() {Spell returnMe = new Spell("Protection from Poison",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2349,7 +2641,7 @@ public class AllSpells {
 	public static Spell getRayofEnfeeblement() {Spell returnMe = new Spell("Ray of Enfeeblement",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2362,10 +2654,10 @@ public class AllSpells {
 	public static Spell getRopeTrick() {Spell returnMe = new Spell("Rope Trick",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2375,7 +2667,7 @@ public class AllSpells {
 	public static Spell getScorchingRay() {Spell returnMe = new Spell("Scorching Ray",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2388,10 +2680,10 @@ public class AllSpells {
 	public static Spell getSeeInvisibility() {Spell returnMe = new Spell("See Invisibility",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2401,10 +2693,10 @@ public class AllSpells {
 	public static Spell getShatter() {Spell returnMe = new Spell("Shatter",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2414,7 +2706,7 @@ public class AllSpells {
 	public static Spell getSilence() {Spell returnMe = new Spell("Silence",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2427,10 +2719,10 @@ public class AllSpells {
 	public static Spell getSpiderClimb() {Spell returnMe = new Spell("Spider Climb",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2440,10 +2732,10 @@ public class AllSpells {
 	public static Spell getSpikeGrowth() {Spell returnMe = new Spell("Spike Growth",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2453,7 +2745,7 @@ public class AllSpells {
 	public static Spell getSpiritualWeapon() {Spell returnMe = new Spell("Spiritual Weapon",2);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2466,10 +2758,10 @@ public class AllSpells {
 	public static Spell getSuggestion() {Spell returnMe = new Spell("Suggestion",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2479,10 +2771,10 @@ public class AllSpells {
 	public static Spell getWardingBond() {Spell returnMe = new Spell("Warding Bond",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2492,10 +2784,10 @@ public class AllSpells {
 	public static Spell getWeb() {Spell returnMe = new Spell("Web",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2505,7 +2797,7 @@ public class AllSpells {
 	public static Spell getZoneofTruth() {Spell returnMe = new Spell("Zone of Truth",2);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2518,10 +2810,10 @@ public class AllSpells {
 	public static Spell getAnimateDead() {Spell returnMe = new Spell("Animate Dead",3);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2531,7 +2823,7 @@ public class AllSpells {
 	public static Spell getAuraofVitality() {Spell returnMe = new Spell("Aura of Vitality",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2544,7 +2836,7 @@ public class AllSpells {
 	public static Spell getBeaconofHope() {Spell returnMe = new Spell("Beacon of Hope",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2557,7 +2849,7 @@ public class AllSpells {
 	public static Spell getBestowCurse() {Spell returnMe = new Spell("Bestow Curse",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2570,7 +2862,7 @@ public class AllSpells {
 	public static Spell getBlindingSmite() {Spell returnMe = new Spell("Blinding Smite",3);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2583,7 +2875,7 @@ public class AllSpells {
 	public static Spell getBlink() {Spell returnMe = new Spell("Blink",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2596,7 +2888,7 @@ public class AllSpells {
 	public static Spell getCallLightning() {Spell returnMe = new Spell("Call Lightning",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2609,10 +2901,10 @@ public class AllSpells {
 	public static Spell getClairvoyance() {Spell returnMe = new Spell("Clairvoyance",3);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2622,7 +2914,7 @@ public class AllSpells {
 	public static Spell getConjureAnimals() {Spell returnMe = new Spell("Conjure Animals",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2635,10 +2927,10 @@ public class AllSpells {
 	public static Spell getConjureBarrage() {Spell returnMe = new Spell("Conjure Barrage",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2648,7 +2940,7 @@ public class AllSpells {
 	public static Spell getCounterspell() {Spell returnMe = new Spell("Counterspell",3);
   		returnMe.castingTime = "1 reaction";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = false;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2661,7 +2953,7 @@ public class AllSpells {
 	public static Spell getCreateFoodandWater() {Spell returnMe = new Spell("Create Food and Water",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2674,7 +2966,7 @@ public class AllSpells {
 	public static Spell getCrusadersMantle() {Spell returnMe = new Spell("Crusader's Mantle",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2687,7 +2979,7 @@ public class AllSpells {
 	public static Spell getDaylight() {Spell returnMe = new Spell("Daylight",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2700,7 +2992,7 @@ public class AllSpells {
 	public static Spell getDispelMagic() {Spell returnMe = new Spell("Dispel Magic",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2713,7 +3005,7 @@ public class AllSpells {
 	public static Spell getElementalWeapon() {Spell returnMe = new Spell("Elemental Weapon",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2726,10 +3018,10 @@ public class AllSpells {
 	public static Spell getFear() {Spell returnMe = new Spell("Fear",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2739,10 +3031,10 @@ public class AllSpells {
 	public static Spell getFeignDeath() {Spell returnMe = new Spell("Feign Death",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2752,10 +3044,10 @@ public class AllSpells {
 	public static Spell getFireball() {Spell returnMe = new Spell("Fireball",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2765,10 +3057,10 @@ public class AllSpells {
 	public static Spell getFly() {Spell returnMe = new Spell("Fly",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2778,10 +3070,10 @@ public class AllSpells {
 	public static Spell getGaseousForm() {Spell returnMe = new Spell("Gaseous Form",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2791,10 +3083,10 @@ public class AllSpells {
 	public static Spell getGlyphofWarding() {Spell returnMe = new Spell("Glyph of Warding",3);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2804,10 +3096,10 @@ public class AllSpells {
 	public static Spell getHaste() {Spell returnMe = new Spell("Haste",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2817,10 +3109,10 @@ public class AllSpells {
 	public static Spell getHungerofHadar() {Spell returnMe = new Spell("Hunger of Hadar",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2830,10 +3122,10 @@ public class AllSpells {
 	public static Spell getHypnoticPattern() {Spell returnMe = new Spell("Hypnotic Pattern",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = false;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2843,10 +3135,10 @@ public class AllSpells {
 	public static Spell getLeomundsTinyHut() {Spell returnMe = new Spell("Leomund's Tiny Hut",3);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2856,7 +3148,7 @@ public class AllSpells {
 	public static Spell getLightningArrow() {Spell returnMe = new Spell("Lightning Arrow",3);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2869,10 +3161,10 @@ public class AllSpells {
 	public static Spell getLightningBolt() {Spell returnMe = new Spell("Lightning Bolt",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2882,10 +3174,10 @@ public class AllSpells {
 	public static Spell getMagicCircle() {Spell returnMe = new Spell("Magic Circle",3);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2895,10 +3187,10 @@ public class AllSpells {
 	public static Spell getMajorImage() {Spell returnMe = new Spell("Major Image",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -2908,7 +3200,7 @@ public class AllSpells {
 	public static Spell getMassHealingWord() {Spell returnMe = new Spell("Mass Healing Word",3);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -2921,7 +3213,7 @@ public class AllSpells {
 	public static Spell getMeldintoStone() {Spell returnMe = new Spell("Meld into Stone",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2934,10 +3226,10 @@ public class AllSpells {
 	public static Spell getNondetection() {Spell returnMe = new Spell("Nondetection",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -2947,7 +3239,7 @@ public class AllSpells {
 	public static Spell getPhantomSteed() {Spell returnMe = new Spell("Phantom Steed",3);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2960,7 +3252,7 @@ public class AllSpells {
 	public static Spell getPlantGrowth() {Spell returnMe = new Spell("Plant Growth",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2973,7 +3265,7 @@ public class AllSpells {
 	public static Spell getProtectionfromEnergy() {Spell returnMe = new Spell("Protection from Energy",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2986,7 +3278,7 @@ public class AllSpells {
 	public static Spell getRemoveCurse() {Spell returnMe = new Spell("Remove Curse",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -2999,10 +3291,10 @@ public class AllSpells {
 	public static Spell getRevivify() {Spell returnMe = new Spell("Revivify",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3012,10 +3304,10 @@ public class AllSpells {
 	public static Spell getSending() {Spell returnMe = new Spell("Sending",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3025,10 +3317,10 @@ public class AllSpells {
 	public static Spell getSleetStorm() {Spell returnMe = new Spell("Sleet Storm",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3038,10 +3330,10 @@ public class AllSpells {
 	public static Spell getSlow() {Spell returnMe = new Spell("Slow",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3051,10 +3343,10 @@ public class AllSpells {
 	public static Spell getSpeakwithDead() {Spell returnMe = new Spell("Speak with Dead",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3064,7 +3356,7 @@ public class AllSpells {
 	public static Spell getSpeakwithPlants() {Spell returnMe = new Spell("Speak with Plants",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3077,10 +3369,10 @@ public class AllSpells {
 	public static Spell getSpiritGuardians() {Spell returnMe = new Spell("Spirit Guardians",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3090,10 +3382,10 @@ public class AllSpells {
 	public static Spell getStinkingCloud() {Spell returnMe = new Spell("Stinking Cloud",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3103,10 +3395,10 @@ public class AllSpells {
 	public static Spell getTongues() {Spell returnMe = new Spell("Tongues",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3116,7 +3408,7 @@ public class AllSpells {
 	public static Spell getVampiricTouch() {Spell returnMe = new Spell("Vampiric Touch",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3129,10 +3421,10 @@ public class AllSpells {
 	public static Spell getWaterBreathing() {Spell returnMe = new Spell("Water Breathing",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3142,10 +3434,10 @@ public class AllSpells {
 	public static Spell getWaterWalk() {Spell returnMe = new Spell("Water Walk",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3155,10 +3447,10 @@ public class AllSpells {
 	public static Spell getWindWall() {Spell returnMe = new Spell("Wind Wall",3);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3168,10 +3460,10 @@ public class AllSpells {
 	public static Spell getArcaneEye() {Spell returnMe = new Spell("Arcane Eye",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3181,7 +3473,7 @@ public class AllSpells {
 	public static Spell getAuraofLife() {Spell returnMe = new Spell("Aura of Life",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3194,7 +3486,7 @@ public class AllSpells {
 	public static Spell getAuraofPurity() {Spell returnMe = new Spell("Aura of Purity",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3207,10 +3499,10 @@ public class AllSpells {
 	public static Spell getBanishment() {Spell returnMe = new Spell("Banishment",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3220,7 +3512,7 @@ public class AllSpells {
 	public static Spell getBlight() {Spell returnMe = new Spell("Blight",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3233,7 +3525,7 @@ public class AllSpells {
 	public static Spell getCompulsion() {Spell returnMe = new Spell("Compulsion",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3246,10 +3538,10 @@ public class AllSpells {
 	public static Spell getConfusion() {Spell returnMe = new Spell("Confusion",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3259,7 +3551,7 @@ public class AllSpells {
 	public static Spell getConjureMinorElementals() {Spell returnMe = new Spell("Conjure Minor Elementals",4);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3272,10 +3564,10 @@ public class AllSpells {
 	public static Spell getConjureWoodlandBeings() {Spell returnMe = new Spell("Conjure Woodland Beings",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3285,10 +3577,10 @@ public class AllSpells {
 	public static Spell getControlWater() {Spell returnMe = new Spell("Control Water",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3298,7 +3590,7 @@ public class AllSpells {
 	public static Spell getDeathWard() {Spell returnMe = new Spell("Death Ward",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3311,7 +3603,7 @@ public class AllSpells {
 	public static Spell getDimensionDoor() {Spell returnMe = new Spell("Dimension Door",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3324,10 +3616,10 @@ public class AllSpells {
 	public static Spell getDivination() {Spell returnMe = new Spell("Divination",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3337,7 +3629,7 @@ public class AllSpells {
 	public static Spell getDominateBeast() {Spell returnMe = new Spell("Dominate Beast",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3350,10 +3642,10 @@ public class AllSpells {
 	public static Spell getEvardsBlackTentacles() {Spell returnMe = new Spell("Evard's Black Tentacles",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3363,7 +3655,7 @@ public class AllSpells {
 	public static Spell getFabricate() {Spell returnMe = new Spell("Fabricate",4);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3376,10 +3668,10 @@ public class AllSpells {
 	public static Spell getFireShield() {Spell returnMe = new Spell("Fire Shield",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3389,10 +3681,10 @@ public class AllSpells {
 	public static Spell getFreedomofMovement() {Spell returnMe = new Spell("Freedom of Movement",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3402,7 +3694,7 @@ public class AllSpells {
 	public static Spell getGiantInsect() {Spell returnMe = new Spell("Giant Insect",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3415,7 +3707,7 @@ public class AllSpells {
 	public static Spell getGraspingVine() {Spell returnMe = new Spell("Grasping Vine",4);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3428,7 +3720,7 @@ public class AllSpells {
 	public static Spell getGreaterInvisibility() {Spell returnMe = new Spell("Greater Invisibility",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3441,7 +3733,7 @@ public class AllSpells {
 	public static Spell getGuardianofFaith() {Spell returnMe = new Spell("Guardian of Faith",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3454,10 +3746,10 @@ public class AllSpells {
 	public static Spell getHallucinatoryTerrain() {Spell returnMe = new Spell("Hallucinatory Terrain",4);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3467,10 +3759,10 @@ public class AllSpells {
 	public static Spell getIceStorm() {Spell returnMe = new Spell("Ice Storm",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3480,10 +3772,10 @@ public class AllSpells {
 	public static Spell getLeomundsSecretChest() {Spell returnMe = new Spell("Leomund's Secret Chest",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3493,10 +3785,10 @@ public class AllSpells {
 	public static Spell getLocateCreature() {Spell returnMe = new Spell("Locate Creature",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3506,10 +3798,10 @@ public class AllSpells {
 	public static Spell getMordenkainensFaithfulHound() {Spell returnMe = new Spell("Mordenkainen's Faithful Hound",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3519,10 +3811,10 @@ public class AllSpells {
 	public static Spell getMordenkainensPrivateSanctum() {Spell returnMe = new Spell("Mordenkainen's Private Sanctum",4);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3532,10 +3824,10 @@ public class AllSpells {
 	public static Spell getOtilukesResilientSphere() {Spell returnMe = new Spell("Otiluke's Resilient Sphere",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3545,7 +3837,7 @@ public class AllSpells {
 	public static Spell getPhantasmalKiller() {Spell returnMe = new Spell("Phantasmal Killer",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3558,10 +3850,10 @@ public class AllSpells {
 	public static Spell getPolymorph() {Spell returnMe = new Spell("Polymorph",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3571,7 +3863,7 @@ public class AllSpells {
 	public static Spell getStaggeringSmite() {Spell returnMe = new Spell("Staggering Smite",4);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3584,10 +3876,10 @@ public class AllSpells {
 	public static Spell getStoneShape() {Spell returnMe = new Spell("Stone Shape",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3597,10 +3889,10 @@ public class AllSpells {
 	public static Spell getStoneskin() {Spell returnMe = new Spell("Stoneskin",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3610,10 +3902,10 @@ public class AllSpells {
 	public static Spell getWallofFire() {Spell returnMe = new Spell("Wall of Fire",4);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3623,7 +3915,7 @@ public class AllSpells {
 	public static Spell getAnimateObjects() {Spell returnMe = new Spell("Animate Objects",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3636,7 +3928,7 @@ public class AllSpells {
 	public static Spell getAntilifeShell() {Spell returnMe = new Spell("Antilife Shell",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3649,10 +3941,10 @@ public class AllSpells {
 	public static Spell getAwaken() {Spell returnMe = new Spell("Awaken",5);
   		returnMe.castingTime = "8 hours";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3662,7 +3954,7 @@ public class AllSpells {
 	public static Spell getBanishingSmite() {Spell returnMe = new Spell("Banishing Smite",5);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3675,10 +3967,10 @@ public class AllSpells {
 	public static Spell getBigbysHand() {Spell returnMe = new Spell("Bigby's Hand",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3688,7 +3980,7 @@ public class AllSpells {
 	public static Spell getCircleofPower() {Spell returnMe = new Spell("Circle of Power",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3701,7 +3993,7 @@ public class AllSpells {
 	public static Spell getCloudkill() {Spell returnMe = new Spell("Cloudkill",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3714,10 +4006,10 @@ public class AllSpells {
 	public static Spell getCommune() {Spell returnMe = new Spell("Commune",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3727,7 +4019,7 @@ public class AllSpells {
 	public static Spell getCommunewithNature() {Spell returnMe = new Spell("Commune with Nature",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3740,10 +4032,10 @@ public class AllSpells {
 	public static Spell getConeofCold() {Spell returnMe = new Spell("Cone of Cold",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3753,10 +4045,10 @@ public class AllSpells {
 	public static Spell getConjureElemental() {Spell returnMe = new Spell("Conjure Elemental",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3766,10 +4058,10 @@ public class AllSpells {
 	public static Spell getConjureVolley() {Spell returnMe = new Spell("Conjure Volley",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3779,7 +4071,7 @@ public class AllSpells {
 	public static Spell getContactOtherPlane() {Spell returnMe = new Spell("Contact Other Plane",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3792,7 +4084,7 @@ public class AllSpells {
 	public static Spell getContagion() {Spell returnMe = new Spell("Contagion",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3805,10 +4097,10 @@ public class AllSpells {
 	public static Spell getCreation() {Spell returnMe = new Spell("Creation",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3818,7 +4110,7 @@ public class AllSpells {
 	public static Spell getDestructiveWave() {Spell returnMe = new Spell("Destructive Wave",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3831,10 +4123,10 @@ public class AllSpells {
 	public static Spell getDispelEvilandGood() {Spell returnMe = new Spell("Dispel Evil and Good",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3844,7 +4136,7 @@ public class AllSpells {
 	public static Spell getDominatePerson() {Spell returnMe = new Spell("Dominate Person",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3857,10 +4149,10 @@ public class AllSpells {
 	public static Spell getDream() {Spell returnMe = new Spell("Dream",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3870,10 +4162,10 @@ public class AllSpells {
 	public static Spell getFlameStrike() {Spell returnMe = new Spell("Flame Strike",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3883,7 +4175,7 @@ public class AllSpells {
 	public static Spell getGeas() {Spell returnMe = new Spell("Geas",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -3896,10 +4188,10 @@ public class AllSpells {
 	public static Spell getGreaterRestoration() {Spell returnMe = new Spell("Greater Restoration",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3909,10 +4201,10 @@ public class AllSpells {
 	public static Spell getHallow() {Spell returnMe = new Spell("Hallow",5);
   		returnMe.castingTime = "24 hours";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3922,10 +4214,10 @@ public class AllSpells {
 	public static Spell getHoldMonster() {Spell returnMe = new Spell("Hold Monster",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3935,10 +4227,10 @@ public class AllSpells {
 	public static Spell getInsectPlague() {Spell returnMe = new Spell("Insect Plague",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -3948,10 +4240,10 @@ public class AllSpells {
 	public static Spell getLegendLore() {Spell returnMe = new Spell("Legend Lore",5);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -3961,7 +4253,7 @@ public class AllSpells {
 	public static Spell getMassCureWounds() {Spell returnMe = new Spell("Mass Cure Wounds",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3974,7 +4266,7 @@ public class AllSpells {
 	public static Spell getMislead() {Spell returnMe = new Spell("Mislead",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = false;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -3987,7 +4279,7 @@ public class AllSpells {
 	public static Spell getModifyMemory() {Spell returnMe = new Spell("Modify Memory",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4000,10 +4292,10 @@ public class AllSpells {
 	public static Spell getPasswall() {Spell returnMe = new Spell("Passwall",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4013,10 +4305,10 @@ public class AllSpells {
 	public static Spell getPlanarBinding() {Spell returnMe = new Spell("Planar Binding",5);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4026,10 +4318,10 @@ public class AllSpells {
 	public static Spell getRaiseDead() {Spell returnMe = new Spell("Raise Dead",5);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4039,10 +4331,10 @@ public class AllSpells {
 	public static Spell getRarysTelepathicBond() {Spell returnMe = new Spell("Rary's Telepathic Bond",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4052,10 +4344,10 @@ public class AllSpells {
 	public static Spell getReincarnate() {Spell returnMe = new Spell("Reincarnate",5);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4065,10 +4357,10 @@ public class AllSpells {
 	public static Spell getScrying() {Spell returnMe = new Spell("Scrying",5);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4078,7 +4370,7 @@ public class AllSpells {
 	public static Spell getSeeming() {Spell returnMe = new Spell("Seeming",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4091,10 +4383,10 @@ public class AllSpells {
 	public static Spell getSwiftQuiver() {Spell returnMe = new Spell("Swift Quiver",5);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4104,7 +4396,7 @@ public class AllSpells {
 	public static Spell getTelekinesis() {Spell returnMe = new Spell("Telekinesis",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4117,10 +4409,10 @@ public class AllSpells {
 	public static Spell getTeleportationCircle() {Spell returnMe = new Spell("Teleportation Circle",5);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4130,7 +4422,7 @@ public class AllSpells {
 	public static Spell getTreeStride() {Spell returnMe = new Spell("Tree Stride",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4143,10 +4435,10 @@ public class AllSpells {
 	public static Spell getWallofForce() {Spell returnMe = new Spell("Wall of Force",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4156,10 +4448,10 @@ public class AllSpells {
 	public static Spell getWallofStone() {Spell returnMe = new Spell("Wall of Stone",5);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4169,7 +4461,7 @@ public class AllSpells {
 	public static Spell getArcaneGate() {Spell returnMe = new Spell("Arcane Gate",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4182,7 +4474,7 @@ public class AllSpells {
 	public static Spell getBladeBarrier() {Spell returnMe = new Spell("Blade Barrier",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4195,10 +4487,10 @@ public class AllSpells {
 	public static Spell getChainLightning() {Spell returnMe = new Spell("Chain Lightning",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4208,10 +4500,10 @@ public class AllSpells {
 	public static Spell getCircleofDeath() {Spell returnMe = new Spell("Circle of Death",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4221,7 +4513,7 @@ public class AllSpells {
 	public static Spell getConjureFey() {Spell returnMe = new Spell("Conjure Fey",6);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4234,10 +4526,10 @@ public class AllSpells {
 	public static Spell getContingency() {Spell returnMe = new Spell("Contingency",6);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4247,10 +4539,10 @@ public class AllSpells {
 	public static Spell getCreateUndead() {Spell returnMe = new Spell("Create Undead",6);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4260,10 +4552,10 @@ public class AllSpells {
 	public static Spell getDisintegrate() {Spell returnMe = new Spell("Disintegrate",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4273,10 +4565,10 @@ public class AllSpells {
 	public static Spell getDrawmijsInstantSummons() {Spell returnMe = new Spell("Drawmij's Instant Summons",6);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4286,7 +4578,7 @@ public class AllSpells {
 	public static Spell getEyebite() {Spell returnMe = new Spell("Eyebite",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4299,10 +4591,10 @@ public class AllSpells {
 	public static Spell getFindthePath() {Spell returnMe = new Spell("Find the Path",6);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4312,10 +4604,10 @@ public class AllSpells {
 	public static Spell getFleshtoStone() {Spell returnMe = new Spell("Flesh to Stone",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4325,10 +4617,10 @@ public class AllSpells {
 	public static Spell getForbiddance() {Spell returnMe = new Spell("Forbiddance",6);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = true;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4338,10 +4630,10 @@ public class AllSpells {
 	public static Spell getGlobeofInvulnerability() {Spell returnMe = new Spell("Globe of Invulnerability",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4351,10 +4643,10 @@ public class AllSpells {
 	public static Spell getGuardsandWards() {Spell returnMe = new Spell("Guards and Wards",6);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4364,7 +4656,7 @@ public class AllSpells {
 	public static Spell getHarm() {Spell returnMe = new Spell("Harm",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4377,7 +4669,7 @@ public class AllSpells {
 	public static Spell getHeal() {Spell returnMe = new Spell("Heal",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4390,10 +4682,10 @@ public class AllSpells {
 	public static Spell getHeroesFeast() {Spell returnMe = new Spell("Heroes' Feast",6);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4403,10 +4695,10 @@ public class AllSpells {
 	public static Spell getMagicJar() {Spell returnMe = new Spell("Magic Jar",6);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4416,10 +4708,10 @@ public class AllSpells {
 	public static Spell getMassSuggestion() {Spell returnMe = new Spell("Mass Suggestion",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4429,10 +4721,10 @@ public class AllSpells {
 	public static Spell getMoveEarth() {Spell returnMe = new Spell("Move Earth",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4442,10 +4734,10 @@ public class AllSpells {
 	public static Spell getOtilukesFreezingSphere() {Spell returnMe = new Spell("Otiluke's Freezing Sphere",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4455,7 +4747,7 @@ public class AllSpells {
 	public static Spell getOttosIrresistibleDance() {Spell returnMe = new Spell("Otto's Irresistible Dance",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -4468,7 +4760,7 @@ public class AllSpells {
 	public static Spell getPlanarAlly() {Spell returnMe = new Spell("Planar Ally",6);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4481,10 +4773,10 @@ public class AllSpells {
 	public static Spell getProgrammedIllusion() {Spell returnMe = new Spell("Programmed Illusion",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4494,10 +4786,10 @@ public class AllSpells {
 	public static Spell getSunbeam() {Spell returnMe = new Spell("Sunbeam",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4507,7 +4799,7 @@ public class AllSpells {
 	public static Spell getTransportviaPlants() {Spell returnMe = new Spell("Transport via Plants",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4520,10 +4812,10 @@ public class AllSpells {
 	public static Spell getTrueSeeing() {Spell returnMe = new Spell("True Seeing",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4533,10 +4825,10 @@ public class AllSpells {
 	public static Spell getWallofIce() {Spell returnMe = new Spell("Wall of Ice",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4546,10 +4838,10 @@ public class AllSpells {
 	public static Spell getWallofThorns() {Spell returnMe = new Spell("Wall of Thorns",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4559,10 +4851,10 @@ public class AllSpells {
 	public static Spell getWindWalk() {Spell returnMe = new Spell("Wind Walk",6);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4572,7 +4864,7 @@ public class AllSpells {
 	public static Spell getWordofRecall() {Spell returnMe = new Spell("Word of Recall",6);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -4585,7 +4877,7 @@ public class AllSpells {
 	public static Spell getConjureCelestial() {Spell returnMe = new Spell("Conjure Celestial",7);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4598,10 +4890,10 @@ public class AllSpells {
 	public static Spell getDelayedBlastFireball() {Spell returnMe = new Spell("Delayed Blast Fireball",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4611,7 +4903,7 @@ public class AllSpells {
 	public static Spell getDivineWord() {Spell returnMe = new Spell("Divine Word",7);
   		returnMe.castingTime = "1 bonus action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -4624,7 +4916,7 @@ public class AllSpells {
 	public static Spell getEtherealness() {Spell returnMe = new Spell("Etherealness",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4637,7 +4929,7 @@ public class AllSpells {
 	public static Spell getFingerofDeath() {Spell returnMe = new Spell("Finger of Death",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4650,7 +4942,7 @@ public class AllSpells {
 	public static Spell getFireStorm() {Spell returnMe = new Spell("Fire Storm",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4663,10 +4955,10 @@ public class AllSpells {
 	public static Spell getForcecage() {Spell returnMe = new Spell("Forcecage",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4676,7 +4968,7 @@ public class AllSpells {
 	public static Spell getMirageArcane() {Spell returnMe = new Spell("Mirage Arcane",7);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4689,10 +4981,10 @@ public class AllSpells {
 	public static Spell getMordenkainensMagnificentMansion() {Spell returnMe = new Spell("Mordenkainen's Magnificent Mansion",7);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4702,10 +4994,10 @@ public class AllSpells {
 	public static Spell getMordenkainensSword() {Spell returnMe = new Spell("Mordenkainen's Sword",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4715,10 +5007,10 @@ public class AllSpells {
 	public static Spell getPlaneShift() {Spell returnMe = new Spell("Plane Shift",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4728,7 +5020,7 @@ public class AllSpells {
 	public static Spell getPrismaticSpray() {Spell returnMe = new Spell("Prismatic Spray",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4741,10 +5033,10 @@ public class AllSpells {
 	public static Spell getProjectImage() {Spell returnMe = new Spell("Project Image",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4754,10 +5046,10 @@ public class AllSpells {
 	public static Spell getRegenerate() {Spell returnMe = new Spell("Regenerate",7);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4767,10 +5059,10 @@ public class AllSpells {
 	public static Spell getResurrection() {Spell returnMe = new Spell("Resurrection",7);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4780,10 +5072,10 @@ public class AllSpells {
 	public static Spell getReverseGravity() {Spell returnMe = new Spell("Reverse Gravity",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4793,10 +5085,10 @@ public class AllSpells {
 	public static Spell getSequester() {Spell returnMe = new Spell("Sequester",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4806,10 +5098,10 @@ public class AllSpells {
 	public static Spell getSimulacrum() {Spell returnMe = new Spell("Simulacrum",7);
   		returnMe.castingTime = "12 hours";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4819,10 +5111,10 @@ public class AllSpells {
 	public static Spell getSymbol() {Spell returnMe = new Spell("Symbol",7);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4832,7 +5124,7 @@ public class AllSpells {
 	public static Spell getTeleport() {Spell returnMe = new Spell("Teleport",7);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -4845,7 +5137,7 @@ public class AllSpells {
 	public static Spell getAnimalShapes() {Spell returnMe = new Spell("Animal Shapes",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4858,10 +5150,10 @@ public class AllSpells {
 	public static Spell getAntimagicField() {Spell returnMe = new Spell("Antimagic Field",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4871,10 +5163,10 @@ public class AllSpells {
 	public static Spell getAntipathySympathy() {Spell returnMe = new Spell("Antipathy/Sympathy",8);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4884,10 +5176,10 @@ public class AllSpells {
 	public static Spell getClone() {Spell returnMe = new Spell("Clone",8);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4897,10 +5189,10 @@ public class AllSpells {
 	public static Spell getControlWeather() {Spell returnMe = new Spell("Control Weather",8);
   		returnMe.castingTime = "10 minutes";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4910,7 +5202,7 @@ public class AllSpells {
 	public static Spell getDemiplane() {Spell returnMe = new Spell("Demiplane",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = false;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4923,7 +5215,7 @@ public class AllSpells {
 	public static Spell getDominateMonster() {Spell returnMe = new Spell("Dominate Monster",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -4936,10 +5228,10 @@ public class AllSpells {
 	public static Spell getEarthquake() {Spell returnMe = new Spell("Earthquake",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4949,10 +5241,10 @@ public class AllSpells {
 	public static Spell getFeeblemind() {Spell returnMe = new Spell("Feeblemind",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -4962,7 +5254,7 @@ public class AllSpells {
 	public static Spell getGlibness() {Spell returnMe = new Spell("Glibness",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -4975,10 +5267,10 @@ public class AllSpells {
 	public static Spell getHolyAura() {Spell returnMe = new Spell("Holy Aura",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -4988,7 +5280,7 @@ public class AllSpells {
 	public static Spell getIncendiaryCloud() {Spell returnMe = new Spell("Incendiary Cloud",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5001,7 +5293,7 @@ public class AllSpells {
 	public static Spell getMaze() {Spell returnMe = new Spell("Maze",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5014,7 +5306,7 @@ public class AllSpells {
 	public static Spell getMindBlank() {Spell returnMe = new Spell("Mind Blank",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5027,7 +5319,7 @@ public class AllSpells {
 	public static Spell getPowerWordStun() {Spell returnMe = new Spell("Power Word Stun",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -5040,10 +5332,10 @@ public class AllSpells {
 	public static Spell getSunburst() {Spell returnMe = new Spell("Sunburst",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -5053,10 +5345,10 @@ public class AllSpells {
 	public static Spell getTelepathy() {Spell returnMe = new Spell("Telepathy",8);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -5066,7 +5358,7 @@ public class AllSpells {
 	public static Spell getTsunami() {Spell returnMe = new Spell("Tsunami",8);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5079,10 +5371,10 @@ public class AllSpells {
 	public static Spell getAstralProjection() {Spell returnMe = new Spell("Astral Projection",9);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -5092,10 +5384,10 @@ public class AllSpells {
 	public static Spell getForesight() {Spell returnMe = new Spell("Foresight",9);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.DIVINATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -5105,10 +5397,10 @@ public class AllSpells {
 	public static Spell getGate() {Spell returnMe = new Spell("Gate",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -5118,10 +5410,10 @@ public class AllSpells {
 	public static Spell getImprisonment() {Spell returnMe = new Spell("Imprisonment",9);
   		returnMe.castingTime = "1 minute";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -5131,7 +5423,7 @@ public class AllSpells {
 	public static Spell getMassHeal() {Spell returnMe = new Spell("Mass Heal",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5144,7 +5436,7 @@ public class AllSpells {
 	public static Spell getMeteorSwarm() {Spell returnMe = new Spell("Meteor Swarm",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5157,7 +5449,7 @@ public class AllSpells {
 	public static Spell getPowerWordHeal() {Spell returnMe = new Spell("Power Word Heal",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.EVOCATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5170,7 +5462,7 @@ public class AllSpells {
 	public static Spell getPowerWordKill() {Spell returnMe = new Spell("Power Word Kill",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ENCHANTMENT;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -5183,7 +5475,7 @@ public class AllSpells {
 	public static Spell getPrismaticWall() {Spell returnMe = new Spell("Prismatic Wall",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ABJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5196,10 +5488,10 @@ public class AllSpells {
 	public static Spell getShapechange() {Spell returnMe = new Spell("Shapechange",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -5209,7 +5501,7 @@ public class AllSpells {
 	public static Spell getStormofVengeance() {Spell returnMe = new Spell("Storm of Vengeance",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5222,7 +5514,7 @@ public class AllSpells {
 	public static Spell getTimeStop() {Spell returnMe = new Spell("Time Stop",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
@@ -5235,10 +5527,10 @@ public class AllSpells {
 	public static Spell getTruePolymorph() {Spell returnMe = new Spell("True Polymorph",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.TRANSMUTATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = true;
   		returnMe.duration = "TODO";
@@ -5248,10 +5540,10 @@ public class AllSpells {
 	public static Spell getTrueResurrection() {Spell returnMe = new Spell("True Resurrection",9);
   		returnMe.castingTime = "1 hour";
   		returnMe.school = Lists.MagicSchool.NECROMANCY;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
-  		returnMe.materialsRequired = "//TODO";
+  		returnMe.materialsRequired = "TODO";
   		returnMe.ritual = false;
   		returnMe.concentration = false;
   		returnMe.duration = "TODO";
@@ -5261,7 +5553,7 @@ public class AllSpells {
 	public static Spell getWeird() {Spell returnMe = new Spell("Weird",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.ILLUSION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = true;
   		returnMe.materialsRequired = "";
@@ -5274,7 +5566,7 @@ public class AllSpells {
 	public static Spell getWish() {Spell returnMe = new Spell("Wish",9);
   		returnMe.castingTime = "1 action";
   		returnMe.school = Lists.MagicSchool.CONJURATION;
-  		returnMe.rangeArea = "//TODO";
+  		returnMe.rangeArea = "TODO";
   		returnMe.verbal = true;
   		returnMe.somatic = false;
   		returnMe.materialsRequired = "";
