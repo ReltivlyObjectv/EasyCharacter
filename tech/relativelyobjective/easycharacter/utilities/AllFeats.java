@@ -479,36 +479,174 @@ public class AllFeats {
 	};
 	public static final Feat RITUAL_CASTER = new Feat(
 		"Ritual Caster",
-		""
-	);
+		"You have learned a number of spells you can cast as rituals. "
+		+ "These spells are written in a ritual book, which you must have on "
+		+ "hand when casting one of them.\n" +
+		"When you gain this feat, choose one of the following classes: bard, "
+		+ "cleric, druid, sorcerer, warlock, or wizard. You acquire a ritual "
+		+ "book holding two 1st level spells with the ritual tag, which must "
+		+ "be on the list of the chosen class. Your casting ability for these "
+		+ "rituals are the same as the chosen class (Charisma for bard, "
+		+ "sorcerer, or warlock; Wisdom for cleric or druid; Intelligence "
+		+ "for wizard).\n" +
+		"If you come across a spell in written from, such as a magical scroll "
+		+ "or a wizard's spellbook, you might be able to add it to your ritual "
+		+ "book. The spell must be on the spell list for the class you chose, "
+		+ "the spell's level must not be higher than half your level "
+		+ "(rounded up), and it must have the ritual tag. "
+		+ "The proccess of copying the spell into your ritual books takes 2 "
+		+ "hours per level of the spells, and costs 50 gp per level of the spell. "
+		+ "This cost represents material components spent on practicing the spell, "
+		+ "as well as the fine inks you must use to record it."
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Lists.Class[] classOptions = {
+				Lists.Class.BARD,
+				Lists.Class.CLERIC,
+				Lists.Class.DRUID,
+				Lists.Class.SORCERER,
+				Lists.Class.WARLOCK,
+				Lists.Class.WIZARD
+			};
+			Lists.Class spellClass = MiscPrompts.openSingleObjectChooserPrompt(
+				classOptions,
+				Lists.Class.BARD,
+				"Choose a class to learn 2 ritual spells from."
+			);
+			TreeSet<Spell> unknownSpells = new TreeSet<>();
+			for (SpellKey s : SpellLists.getClassSpells(spellClass)) {
+				Spell spell = AllSpells.getSpell(s);
+				if (!InformationManager.knowsSpell(spell)) {
+					if (spell.ritual) {
+						unknownSpells.add(spell);
+					}
+				}
+			}
+			TreeSet<Spell> level1 = new TreeSet<>();
+			for (Spell spell : unknownSpells) {
+				if (spell.getLevel() == 1) {
+					level1.add(spell);
+				}
+			}
+			Spell[] level1Spell = MiscPrompts.openMultipleObjectChooserPrompt(
+				level1.toArray(new Spell[level1.size()]),
+				"Ritual Caster Level 1 Spells",
+				2,
+				Spell.class
+			);
+			for (Spell s :level1Spell) {
+				s.name = String.format("%s (Ritual)", s.name);
+				returnMe.addCharacterElement(s);
+			}
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat SAVAGE_ATTACKER = new Feat(
 		"Savage Attacker",
-		""
+		"Once per turn when you roll damage for a melee weapon attack, "
+		+ "you can reroll the weapon's damage dice and use either total."
 	);
 	public static final Feat SENTINEL = new Feat(
 		"Sentinel",
-		""
+		"Whenever you hit a creature with an opportunity attack, its speed "
+		+ "drops to 0 for the rest of the turn. This stops any movement they "
+		+ "may have been taking.\n" +
+		"Creatures within your reach provoke opportunity attacks even if they "
+		+ "took the Disengage action.\n" +
+		"When a creature within your reach makes an attack against a target "
+		+ "other than you (and that target doesn't have this feat), you can "
+		+ "use your reaction to make a melee weapon attack against the "
+		+ "attacking creature."
 	);
 	public static final Feat SHARPSHOOTER = new Feat(
 		"Sharpshooter",
-		""
+		"Attacking at long range doesn't impose disadvantage on your "
+		+ "ranged weapon attack rolls.\n" +
+		"Your ranged weapons ignore half cover and three-quarters cover.\n" +
+		"Before you make a ranged attack with a ranged weapon with which you "
+		+ "are proficient, you can choose to take a -5 penalty to the "
+		+ "attack roll. If you do so and the attack hits, it deals +10 damage."
 	);
 	public static final Feat SHIELD_MASTER = new Feat(
 		"Shield Master",
-		""
+		"You gain the following benefits while wielding a shield:\n" +
+		"-If you take the Attack action on your turn, you can use a bonus action "
+		+ "to try to shove a creature within 5 feet of you using your shield.\n" +
+		"-If you aren't incapacitated, you can add your shield's AC bonus to any "
+		+ "Dexterity save made against a spell or other effect that affects only you.\n" +
+		"-If you are subjected to an effect which allows you to make a "
+		+ "Dexterity save for half damage, you can use your reaction to take "
+		+ "no damage, interposing you shield between you and the effect."
 	);
 	public static final Feat SKILLED = new Feat(
 		"Skilled",
 		""
-	);
+	) {
+		//TODO
+	};
 	public static final Feat SKULKER = new Feat(
 		"Skulker",
-		""
+		"You can try to hide when you are only lightly obscured from the "
+		+ "creature from which you are hiding.\n" +
+		"When you are hidden from a creature and miss it with a ranged "
+		+ "weapon attack, making the attack doesn't reveal your position.\n" +
+		"Dim light doesn't impose disadvantage on Wisdom (Perception) "
+		+ "bonuses made with sight."
 	);
 	public static final Feat SPELL_SNIPER = new Feat(
 		"Spell Sniper",
-		""
-	);
+		"When you cast a spell that requires a ranged attack roll, the spell's "
+		+ "range is doubled.\n" +
+		"Your ranged spell attacks ignore half cover and three-quarters cover.\n" +
+		"You learn a single cantrip that requires an attack roll from a class "
+		+ "of your choice: bard, cleric, sorcerer, warlock, or wizard. "
+		+ "Your spellcasting modifier for these spells is the same as the "
+		+ "class you chose (Charisma for bard, sorcerer, or warlock; Wisdom "
+		+ "for cleric or druid; Intelligence for wizard)"
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Lists.Class[] classOptions = {
+				Lists.Class.BARD,
+				Lists.Class.CLERIC,
+				Lists.Class.DRUID,
+				Lists.Class.SORCERER,
+				Lists.Class.WARLOCK,
+				Lists.Class.WIZARD
+			};
+			Lists.Class spellClass = MiscPrompts.openSingleObjectChooserPrompt(
+				classOptions,
+				Lists.Class.BARD,
+				"Choose a class to learn 1 cantrip from."
+			);
+			TreeSet<Spell> unknownSpells = new TreeSet<>();
+			for (SpellKey s : SpellLists.getClassSpells(spellClass)) {
+				Spell spell = AllSpells.getSpell(s);
+				if (!InformationManager.knowsSpell(spell)) {
+					if (spell.ritual) {
+						unknownSpells.add(spell);
+					}
+				}
+			}
+			TreeSet<Spell> cantrips = new TreeSet<>();
+			for (Spell spell : unknownSpells) {
+				if (spell.getLevel() == 0) {
+					cantrips.add(spell);
+				}
+			}
+			Spell[] cantripsArray = new Spell[cantrips.size()];
+			Spell chosenCantrip = MiscPrompts.openSingleObjectChooserPrompt(
+				cantripsArray,
+				cantripsArray[0],
+				"Spell Sniper Cantrip"
+			);
+			returnMe.addCharacterElement(chosenCantrip);
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat TAVERN_BRAWLER = new Feat(
 		"Tavern Brawler",
 		""
