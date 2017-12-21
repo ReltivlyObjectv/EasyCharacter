@@ -48,6 +48,8 @@ public class CharacterElementList {
 			addCharacterElement((KiAction) e);
 		} else if (e instanceof Language) {
 			addCharacterElement((Language) e);
+		} else if (e instanceof Maneuver) {
+			addCharacterElement((Maneuver) e);
 		} else if (e instanceof OtherProficiency) {
 			addCharacterElement((OtherProficiency) e);
 		} else if (e instanceof ProficiencyBonus) {
@@ -64,6 +66,8 @@ public class CharacterElementList {
 			addCharacterElement((Spell) e);
 		} else if (e instanceof Size) {
 			addCharacterElement((Size) e);
+		} else if (e instanceof SuperiorityDice) {
+			addCharacterElement((SuperiorityDice) e);
 		} else if (e instanceof WalkSpeed) {
 			addCharacterElement((WalkSpeed) e);
 		} else {
@@ -295,6 +299,19 @@ public class CharacterElementList {
 		}
 		characterElements.add(newLanguage);
 	}
+	public void addCharacterElement(Maneuver newManeuver) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof Maneuver) {
+				Maneuver oldManeuver = (Maneuver) e;
+				if (oldManeuver.name.equals(newManeuver.name)) {
+					//Adjust description of same maneuver
+					oldManeuver.description = newManeuver.description;
+					return;
+				}
+			}
+		}
+		characterElements.add(newManeuver);
+	}
 	public void addCharacterElement(OtherProficiency newProficiency) {
 		if (newProficiency.getProficiencyMagnitude() <= 0) {
 			return;
@@ -388,12 +405,33 @@ public class CharacterElementList {
 	}
 	public void addCharacterElement(Spell newSpell) {
 		for (CharacterElement e : characterElements) {
-			if (e.equals(newSpell)) {
-				//Already present
-				return;
+			if (e instanceof Spell) {
+				Spell s = (Spell) e;
+				if (s.name.equals(newSpell.name)) {
+					//Already present
+					return;
+				}
 			}
 		}
 		characterElements.add(newSpell);
+	}
+	public void addCharacterElement(SuperiorityDice newDice) {
+		if (newDice.count < 1) {
+			return;
+		}
+		for (CharacterElement e : characterElements) {
+			if (e instanceof SuperiorityDice) {
+				SuperiorityDice d = (SuperiorityDice) e;
+				d.count += newDice.count;
+				d.sides = 
+					(d.sides == SuperiorityDice.DiceSides.D8 ||
+						newDice.sides == SuperiorityDice.DiceSides.D8)
+					? d.sides.D8
+					: d.sides.D6;
+				return;
+			}
+		}
+		characterElements.add(newDice);
 	}
 	public void addCharacterElement(WalkSpeed newSpeed) {
 		for (CharacterElement e : characterElements) {

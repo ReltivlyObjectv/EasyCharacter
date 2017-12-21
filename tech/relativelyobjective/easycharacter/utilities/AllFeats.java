@@ -358,8 +358,32 @@ public class AllFeats {
 	};
 	public static final Feat MARTIAL_ADEPT = new Feat(
 		"Martial Adept",
-		""
-	);
+		"You learn two maneuvers of your choice from the Battle Master "
+		+ "archetype. If the maneuver requires a saving throw, the DC is "
+		+ "equal to 8 + your proficiency bonus + your Strength or "
+		+ "Dexterity modifier (your choice)."+
+		"You also gain 1 superiority die "
+		+ "(if you don't already have superiority dice, it is a d6). "
+		+ "This die is used to fuel your maneuvers. "
+		+ "It is expended when you use it, "
+		+ "and is regained when you finish a short or long rest."
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Maneuver[] chosenManeuvers = MiscPrompts.openMultipleObjectChooserPrompt(
+				AllManeuvers.getUnknownManeuvers(),
+				"Martial Adept Maneuvers",
+				2,
+				Maneuver.class
+			);
+			for (Maneuver m : chosenManeuvers) {
+				returnMe.addCharacterElement(m);
+			}
+			returnMe.addCharacterElement(new SuperiorityDice(1, SuperiorityDice.DiceSides.D6));
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat MEDIUM_ARMOR_MASTER = new Feat(
 		"Medium Armor Master",
 		""
