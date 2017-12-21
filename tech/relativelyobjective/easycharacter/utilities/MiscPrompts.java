@@ -24,6 +24,8 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
+import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
+import tech.relativelyobjective.easycharacter.characterelements.Feat;
 
 /**
  *
@@ -349,14 +351,14 @@ public class MiscPrompts {
 		returnMe.value = (int) spinner.getValue();
 		return returnMe;
 	}
-	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt() {
+	public static TreeSet<CharacterElement> openAbilityScoreImprovementPrompt() {
 		return openAbilityScoreImprovementPrompt(2, Lists.Ability.values());
 	}
-	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt(int maxPoints) {
+	public static TreeSet<CharacterElement> openAbilityScoreImprovementPrompt(int maxPoints) {
 		return openAbilityScoreImprovementPrompt(maxPoints, Lists.Ability.values());
 	}
-	public static TreeSet<AbilityModifier> openAbilityScoreImprovementPrompt(int maxPoints, Lists.Ability[] options) {
-		TreeSet<AbilityModifier> returnMe = new TreeSet<>();
+	public static TreeSet<CharacterElement> openAbilityScoreImprovementPrompt(int maxPoints, Lists.Ability[] options) {
+		TreeSet<CharacterElement> returnMe = new TreeSet<>();
 		JDialog prompt = new JDialog(WindowManager.getMainFrame(), "Ability Score Improvement", true);
 		prompt.setPreferredSize(new Dimension(350, 400));
 		prompt.setSize(prompt.getPreferredSize());
@@ -425,6 +427,20 @@ public class MiscPrompts {
 			}
 		});
 		prompt.add(saveButton, constraints);
+		if (maxPoints == 2 && options.length == 6) { //A standard ability score improvement\
+			constraints.gridy++;
+			JButton featButton = new JButton("Receive a feat instead");
+			featButton.addActionListener((ActionEvent e)->{
+				prompt.dispose();
+				Feat chosenFeat = new Feat(MiscPrompts.openSingleObjectChooserPrompt(
+					InformationManager.getNonPossessedFeats(), 
+					null, 
+					"Add Feat"
+				));
+				returnMe.add(chosenFeat);
+			});
+			prompt.add(featButton, constraints);
+		}
 		prompt.setVisible(true);
 		return returnMe;
 	}

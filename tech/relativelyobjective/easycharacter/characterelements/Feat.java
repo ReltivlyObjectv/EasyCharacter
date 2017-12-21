@@ -36,6 +36,8 @@ public class Feat implements CharacterElement,Comparable {
 	}
 	public TreeSet<CharacterElement> getElements() {
 		//This will be overwritten by the anonymous final static Feats in the AllFeats class
+		//This function only works *once* -- this is done to prevent elements 
+		//	from being added to a master list again on revalidation
 		CharacterElementList returnMe = new CharacterElementList();
 		for (CharacterElement e : elements.getCharacterElements()) {
 			returnMe.addCharacterElement(e);

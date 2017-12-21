@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
+import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.ProficiencyBonus;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
@@ -118,10 +119,10 @@ public class ClassChoices {
 		}
 	}
 	public static void openSkillImprovement() {
-		TreeSet<AbilityModifier> mods = 
+		TreeSet<CharacterElement> mods = 
 			MiscPrompts.openAbilityScoreImprovementPrompt();
-		for (AbilityModifier m : mods) {
-			InformationManager.addClassElement(m);
+		for (CharacterElement e : mods) {
+			InformationManager.addClassElement(e);
 		}
 	}
 	public static LinkedList<Lists.Skill> openProficiencyPrompt(Lists.Skill[] allOptions, int count) {

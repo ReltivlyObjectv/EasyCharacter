@@ -3,6 +3,7 @@ package tech.relativelyobjective.easycharacter.utilities;
 import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.*;
 import tech.relativelyobjective.easycharacter.utilities.Lists.Ability;
+import tech.relativelyobjective.easycharacter.utilities.SpellLists.SpellKey;
 
 /**
  *
@@ -50,9 +51,9 @@ public class AllFeats {
 		public TreeSet<CharacterElement> getElements(){
 			CharacterElementList returnMe = new CharacterElementList();
 			Lists.Ability[] skillOptions = {Lists.Ability.STRENGTH, Lists.Ability.DEXTERITY};
-			TreeSet<AbilityModifier> improvement = MiscPrompts.openAbilityScoreImprovementPrompt(1, skillOptions);
-			for (AbilityModifier mod : improvement) {
-				returnMe.addCharacterElement(mod);
+			TreeSet<CharacterElement> improvement = MiscPrompts.openAbilityScoreImprovementPrompt(1, skillOptions);
+			for (CharacterElement e : improvement) {
+				returnMe.addCharacterElement(e);
 			}
 			return returnMe.getCharacterElements();
 		}
@@ -303,12 +304,55 @@ public class AllFeats {
 		@Override
 		public TreeSet<CharacterElement> getElements() {
 			CharacterElementList returnMe = new CharacterElementList();
-			String[] classOptions = {};
-			String spellClass = MiscPrompts.openSingleStringChooserPrompt(
+			Lists.Class[] classOptions = {
+				Lists.Class.BARD,
+				Lists.Class.CLERIC,
+				Lists.Class.DRUID,
+				Lists.Class.SORCERER,
+				Lists.Class.WARLOCK,
+				Lists.Class.WIZARD
+			};
+			Lists.Class spellClass = MiscPrompts.openSingleObjectChooserPrompt(
 				classOptions,
-				"Choose a class to learn a spell from",
-				false
+				Lists.Class.BARD,
+				"Choose a class to learn 2 cantrips and a spell from."
 			);
+			TreeSet<Spell> unknownSpells = new TreeSet<>();
+			for (SpellKey s : SpellLists.getClassSpells(spellClass)) {
+				Spell spell = AllSpells.getSpell(s);
+				if (!InformationManager.knowsSpell(spell)) {
+					unknownSpells.add(spell);
+				}
+			}
+			TreeSet<Spell> cantrips = new TreeSet<>();
+			TreeSet<Spell> level1 = new TreeSet<>();
+			for (Spell spell : unknownSpells) {
+				if (spell.getLevel() == 0) {
+					cantrips.add(spell);
+				} else if (spell.getLevel() == 1) {
+					level1.add(spell);
+				}
+			}
+			Spell[] chosenCantrips = MiscPrompts.openMultipleObjectChooserPrompt(
+				cantrips.toArray(new Spell[cantrips.size()]),
+				"Magic Initiate Cantrips",
+				2,
+				Spell.class
+			);
+			for (Spell s : chosenCantrips) {
+				returnMe.addCharacterElement(s);
+			}
+			Spell level1Spell =MiscPrompts.openSingleObjectChooserPrompt(
+				level1.toArray(new Spell[level1.size()]),
+				null,
+				"Magic Initiate Level 1 Spell"
+			);
+			level1Spell.description = String.format(
+				"%s This spell was given by the Magic Initiate Feat "
+				+ "and can only be cast at 1st level, once per long rest.",
+				level1Spell.description
+			);
+			returnMe.addCharacterElement(level1Spell);
 			return returnMe.getCharacterElements();
 		}
 	};

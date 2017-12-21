@@ -1229,4 +1229,26 @@ public class SpellLists {
 		SpellKey.WEIRD,
 		SpellKey.WISH
 	};
+	public static SpellKey[] getClassSpells(Lists.Class c) {
+		switch (c) {
+			case BARD:
+				return BARD_SPELLS;
+			case DRUID:
+				return DRUID_SPELLS;
+			case CLERIC:
+				return CLERIC_SPELLS;
+			case PALADIN:
+				return PALADIN_SPELLS;
+			case RANGER:
+				return RANGER_SPELLS;
+			case SORCERER:
+				return SORCERER_SPELLS;
+			case WARLOCK:
+				return WARLOCK_SPELLS;
+			case WIZARD:
+				return WIZARD_SPELLS;
+			default:
+				throw new IllegalArgumentException();
+		}
+	}
 }
