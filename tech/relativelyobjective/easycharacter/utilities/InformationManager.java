@@ -8,6 +8,7 @@ import tech.relativelyobjective.easycharacter.characterelements.CharacterElement
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
 import tech.relativelyobjective.easycharacter.characterelements.Feat;
 import tech.relativelyobjective.easycharacter.characterelements.Language;
+import tech.relativelyobjective.easycharacter.characterelements.MaxAbilityScore;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Spell;
 import tech.relativelyobjective.easycharacter.characterelements.WalkSpeed;
@@ -142,6 +143,42 @@ public class InformationManager {
 						break;
 					case CHARISMA:
 						cha += mod.modifier;
+						break;
+				}
+			}
+		}
+		HashMap<Lists.Ability, Integer> returnMe = new HashMap<>();
+		returnMe.put(Lists.Ability.STRENGTH, str);
+		returnMe.put(Lists.Ability.DEXTERITY, dex);
+		returnMe.put(Lists.Ability.CONSTITUTION, con);
+		returnMe.put(Lists.Ability.INTELLIGENCE, intel);
+		returnMe.put(Lists.Ability.WISDOM, wis);
+		returnMe.put(Lists.Ability.CHARISMA, cha);
+		return returnMe;
+	}
+	public static HashMap<Lists.Ability, Integer> getMaxAbilityScores() {
+		int str = 20, dex = 20, con = 20, intel = 20, wis = 20, cha = 20;
+		for (CharacterElement e : getAllElements()) {
+			if (e instanceof MaxAbilityScore) {
+				MaxAbilityScore mod = (MaxAbilityScore) e;
+				switch (mod.ability) {
+					case STRENGTH:
+						str = mod.maxScore;
+						break;
+					case DEXTERITY:
+						dex = mod.maxScore;
+						break;
+					case CONSTITUTION:
+						con = mod.maxScore;
+						break;
+					case INTELLIGENCE:
+						intel = mod.maxScore;
+						break;
+					case WISDOM:
+						wis = mod.maxScore;
+						break;
+					case CHARISMA:
+						cha = mod.maxScore;
 						break;
 				}
 			}

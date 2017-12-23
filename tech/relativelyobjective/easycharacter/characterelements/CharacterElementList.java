@@ -52,6 +52,8 @@ public class CharacterElementList {
 			addCharacterElement((Language) e);
 		} else if (e instanceof Maneuver) {
 			addCharacterElement((Maneuver) e);
+		} else if (e instanceof MaxAbilityScore) {
+			addCharacterElement((MaxAbilityScore) e);
 		} else if (e instanceof OtherProficiency) {
 			addCharacterElement((OtherProficiency) e);
 		} else if (e instanceof ProficiencyBonus) {
@@ -329,6 +331,19 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newManeuver);
+	}
+	public void addCharacterElement(MaxAbilityScore newMax) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof MaxAbilityScore) {
+				MaxAbilityScore m = (MaxAbilityScore) e;
+				if (m.ability.equals(newMax.ability)) {
+					m.maxScore = newMax.maxScore > m.maxScore 
+						? newMax.maxScore
+						: m.maxScore;
+				}
+			}
+		}
+		characterElements.add(newMax);
 	}
 	public void addCharacterElement(OtherProficiency newProficiency) {
 		if (newProficiency.getProficiencyMagnitude() <= 0) {

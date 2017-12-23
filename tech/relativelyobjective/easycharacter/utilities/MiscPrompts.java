@@ -372,24 +372,28 @@ public class MiscPrompts {
 		HashMap<Lists.Ability, Integer> skills = InformationManager.getAbilityScores();
 		HashMap<Lists.Ability, JSpinner> spinners = new HashMap<>();
 		HashMap<Lists.Ability, JLabel> labels = new HashMap<>();
+		HashMap<Lists.Ability, Integer> maxStats = InformationManager.getMaxAbilityScores();
 		for (Lists.Ability a : options) {
-			labels.put(a, new JLabel(skills.get(a).toString()));
+			Integer calcValue = skills.get(a);
+			Integer maxValue = maxStats.get(a);
+			labels.put(a, new JLabel(calcValue > maxValue ? maxValue.toString() : calcValue.toString()));
 		}
 		//TODO take into account if skills dont have enough room for improvement (e.g. all at 20)
 		for (Lists.Ability a : options) {
-			//TODO implement increasing max stat
 			int skillMax = maxPoints;
-			if (skills.get(a) + maxPoints > 20) {
-				if (skills.get(a) >= 20) {
+			if (skills.get(a) + maxPoints > maxStats.get(a)) {
+				if (skills.get(a) >= maxStats.get(a)) {
 					skillMax = 0;
 				} else {
-					skillMax = (skills.get(a) + maxPoints) - 20;
+					skillMax = (skills.get(a) + maxPoints) - maxStats.get(a);
 				}
 			}
-			JSpinner s = new JSpinner(new SpinnerNumberModel( //Starting Value
+			JSpinner s = new JSpinner(new SpinnerNumberModel(
+			0, //Starting Value
 			0, //Min
-			0, skillMax, //Step
-			1));
+			skillMax, 
+			1//Step
+			));
 			s.addChangeListener((ChangeEvent e) -> {
 				labels.get(a).setText(Integer.toString(skills.get(a) + (int) s.getValue()));
 				prompt.revalidate();

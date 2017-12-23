@@ -17,6 +17,7 @@ import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.BarbarianPath;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
+import tech.relativelyobjective.easycharacter.characterelements.MaxAbilityScore;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.Rages;
 import tech.relativelyobjective.easycharacter.characterelements.SavingThrowProficiency;
@@ -386,10 +387,11 @@ public class Barbarian {
 			ClassChoices.openSkillImprovement();
 		}
 		if (level >= 20) {
-			InformationManager.addClassElement(new Rages(Integer.MAX_VALUE));
-			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.STRENGTH,4));
-			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.CONSTITUTION,4));
-			//TODO implement increasing max stat in AbilityModifier class
+			InformationManager.addClassElement(new Rages(20));
+			InformationManager.addClassElement(new MaxAbilityScore(Lists.Ability.STRENGTH, 24));
+			InformationManager.addClassElement(new MaxAbilityScore(Lists.Ability.CONSTITUTION, 24));
+			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.STRENGTH, 4));
+			InformationManager.addClassElement(new AbilityModifier(Lists.Ability.CONSTITUTION, 4));
 			InformationManager.addClassElement(new Feature(
 				"Primal Champion",
 				"You embody the power of the wilds. "+
