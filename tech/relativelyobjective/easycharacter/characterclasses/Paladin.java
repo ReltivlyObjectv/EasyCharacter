@@ -1,5 +1,7 @@
 package tech.relativelyobjective.easycharacter.characterclasses;
 
+import tech.relativelyobjective.easycharacter.backgrounds.BackgroundChooser;
+
 /**
  *
  * @author ReltivlyObjectv
@@ -9,6 +11,7 @@ public class Paladin {
 		if (level >= 1) {
 		}
 		if (level >= 2) {
+			BackgroundChooser.openBackgroundPrompt();
 		}
 		if (level >= 3) {
 		}

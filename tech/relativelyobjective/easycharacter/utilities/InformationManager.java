@@ -3,6 +3,7 @@ package tech.relativelyobjective.easycharacter.utilities;
 import java.util.HashMap;
 import java.util.TreeSet;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
+import tech.relativelyobjective.easycharacter.characterelements.Background;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElement;
 import tech.relativelyobjective.easycharacter.characterelements.CharacterElementList;
 import tech.relativelyobjective.easycharacter.characterelements.Feat;
@@ -277,5 +278,15 @@ public class InformationManager {
 			}
 		}
 		return false;
+	}
+	public static Lists.Background getBackground() {
+		Lists.Background returnMe = null;
+		for (CharacterElement e : BACKGROUNDELEMENTS.getCharacterElements()) {
+			if (e instanceof Background) {
+				returnMe = ((Background) e).bg;
+				break;
+			}
+		}
+		return returnMe;
 	}
 }

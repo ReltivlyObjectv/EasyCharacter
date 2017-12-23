@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
+import tech.relativelyobjective.easycharacter.backgrounds.BackgroundChooser;
 import tech.relativelyobjective.easycharacter.characterelements.AbilityModifier;
 import tech.relativelyobjective.easycharacter.characterelements.BarbarianPath;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
@@ -95,6 +96,7 @@ public class Barbarian {
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 2) {
+			BackgroundChooser.openBackgroundPrompt();
 			InformationManager.addClassElement(new Feature(
 				"Reckless Attack",
 				"You can throw aside all concern for defense to attack with "+

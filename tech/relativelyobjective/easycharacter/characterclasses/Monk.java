@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.border.EmptyBorder;
+import tech.relativelyobjective.easycharacter.backgrounds.BackgroundChooser;
 import tech.relativelyobjective.easycharacter.characterelements.Feature;
 import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
 import tech.relativelyobjective.easycharacter.characterelements.Ki;
@@ -139,6 +140,7 @@ public class Monk {
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 2) {
+			BackgroundChooser.openBackgroundPrompt();
 			InformationManager.addClassElement(new Feature(
 				"Ki",
 				"Your training allows you to harness the mystic energy of ki. "+

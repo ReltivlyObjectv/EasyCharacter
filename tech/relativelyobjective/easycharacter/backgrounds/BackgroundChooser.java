@@ -494,4 +494,16 @@ public class BackgroundChooser {
 		}
 		WindowManager.getMainFrame().setCompletedBackgroundTab(true);
 	}
+	public static void openBackgroundPrompt() {
+		if (InformationManager.getBackground() != null) {
+			return;
+		}
+		setBackground(
+			MiscPrompts.openSingleObjectChooserPrompt(
+				Lists.Background.values(),
+				null,
+				"Select a Background"
+			)
+		);
+	}
 }
