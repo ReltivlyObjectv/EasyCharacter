@@ -22,7 +22,7 @@ public class BarbarianPath implements CharacterElement,Comparable {
 	public void edit() {
 		JOptionPane.showMessageDialog(
 			WindowManager.getMainFrame(),
-			"To change your Barbarian Path, reset your class on the background tab"
+			"To change your Barbarian Path, reset your class on the class tab"
 		);
 	}
 	@Override

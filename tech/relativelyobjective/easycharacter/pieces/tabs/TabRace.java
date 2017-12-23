@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -110,6 +112,22 @@ public class TabRace extends JPanel {
 						}
 					}
 				}
+			});
+			list.addKeyListener(new KeyListener() {
+				@Override
+				public void keyPressed(KeyEvent e) {}
+				@Override
+				public void keyReleased(KeyEvent e) {
+					if (e.getKeyCode() == KeyEvent.VK_DELETE || e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+						if (list.getSelectedValue() instanceof CharacterElement) {
+							CharacterElement el = (CharacterElement) list.getSelectedValue();
+							InformationManager.removeRaceElement(el);
+							updateList();
+						}
+					}
+				}
+				@Override
+				public void keyTyped(KeyEvent e) {}
 			});
 			JScrollPane scroller = new JScrollPane(list);
 			super.add(scroller, BorderLayout.CENTER);

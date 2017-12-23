@@ -72,6 +72,9 @@ public class InformationManager {
 	public static void addRaceElement(CharacterElement e) {
 		RACEELEMENTS.addCharacterElement(e);
 	}
+	public static void removeRaceElement(CharacterElement e) {
+		RACEELEMENTS.removeCharacterElement(e);
+	}
 	public static void resetRaceElements() {
 		RACEELEMENTS.resetCharacterElements();
 	}
@@ -84,6 +87,9 @@ public class InformationManager {
 	public static void addClassElement(CharacterElement e) {
 		CLASSELEMENTS.addCharacterElement(e);
 	}
+	public static void removeClassElement(CharacterElement e) {
+		CLASSELEMENTS.removeCharacterElement(e);
+	}
 	public static void resetClassElements() {
 		CLASSELEMENTS.resetCharacterElements();
 	}
@@ -95,6 +101,9 @@ public class InformationManager {
 	}
 	public static void addBackgroundElement(CharacterElement e) {
 		BACKGROUNDELEMENTS.addCharacterElement(e);
+	}
+	public static void removeBackgroundElement(CharacterElement e) {
+		BACKGROUNDELEMENTS.removeCharacterElement(e);
 	}
 	public static void resetBackgroundElements() {
 		BACKGROUNDELEMENTS.resetCharacterElements();

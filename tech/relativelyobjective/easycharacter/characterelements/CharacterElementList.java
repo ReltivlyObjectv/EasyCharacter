@@ -1,7 +1,9 @@
 package tech.relativelyobjective.easycharacter.characterelements;
 
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
 import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -18,6 +20,66 @@ public class CharacterElementList {
 	}
 	public TreeSet<CharacterElement> getCharacterElements() {
 		return new TreeSet<>(characterElements);
+	}
+	public void removeCharacterElement(CharacterElement e) {
+		String warning = null;
+		if (e instanceof Background) {
+			warning = "It is ill-advised to delete your background. "
+			+ "To change your background, change it in the radio buttons on the background tab";
+		} else if (e instanceof BarbarianPath) {
+			warning = "It is ill-advised to delete your Barbarian Path. "
+			+ "To change your Barbarian Path, reset your class on the class tab.";
+		} else if (e instanceof Class) {
+			warning = "It is ill-advised to delete your Class. "
+			+ "To change your class, change it in the radio buttons on the class tab";
+		} else if (e instanceof Feat) {
+			warning = "It is ill-advised to delete a Feat. "
+			+ "Any feat elements have already been unpacked. "
+			+ "To make sure you completely remove a Feat, reset this tab.";
+		} else if (e instanceof Ki) {
+			warning = "It is ill-advised to delete Ki. "
+			+ "It is an essential part of the Monk Class.";
+		} else if (e instanceof KiAction) {
+			warning = "It is ill-advised to delete Ki Actions. "
+			+ "They are an essential part of the Monk Class.";
+		} else if (e instanceof Maneuver) {
+			warning = "It is ill-advised to delete Maneuvers. "
+			+ "They are central to your subclass or a chosen Feat.";
+		} else if (e instanceof Race) {
+			warning = "It is ill-advised to delete your race. "
+			+ "Try changing it instead.";
+		} else if (e instanceof Rages) {
+			warning = "It is ill-advised to delete Rages. "
+			+ "They are an essential part of the Barbarian Class.";
+		} else if (e instanceof Size) {
+			warning = "It is ill-advised to delete your size. "
+			+ "Try changing it instead.";
+		} else if (e instanceof SuperiorityDice) {
+			warning = "It is ill-advised to delete Superiority Dice. "
+			+ "They are central to your subclass or a chosen Feat.";
+		} else if (e instanceof UnarmedStrikes) {
+			warning = "It is ill-advised to delete Unarmed Strikes. "
+			+ "They are central to your class, subclass, or a chosen Feat.";
+		} else if (e instanceof WalkSpeed) {
+			warning = "It is ill-advised to delete your walk speed. "
+			+ "Try changing it instead.";
+		}
+		boolean confirmed = true;
+		if (warning != null) {
+			warning = String.format("%s %s",
+				warning,
+				"Are you sure you wish to do this?"
+			);
+			confirmed = (0 == JOptionPane.showConfirmDialog(
+				WindowManager.getMainFrame(),
+				warning,
+				"Warning!",
+				JOptionPane.YES_NO_OPTION
+			));
+		}
+		if (confirmed) {
+			characterElements.remove(e);
+		}
 	}
 	public void addCharacterElement(CharacterElement e) {
 		if (e instanceof AbilityModifier) {
