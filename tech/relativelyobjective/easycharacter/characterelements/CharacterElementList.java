@@ -72,6 +72,8 @@ public class CharacterElementList {
 			addCharacterElement((Size) e);
 		} else if (e instanceof SuperiorityDice) {
 			addCharacterElement((SuperiorityDice) e);
+		} else if (e instanceof UnarmedStrikes) {
+			addCharacterElement((UnarmedStrikes) e);
 		} else if (e instanceof WalkSpeed) {
 			addCharacterElement((WalkSpeed) e);
 		} else {
@@ -451,11 +453,21 @@ public class CharacterElementList {
 			if (e instanceof SuperiorityDice) {
 				SuperiorityDice d = (SuperiorityDice) e;
 				d.count += newDice.count;
-				d.sides = 
-					(d.sides == SuperiorityDice.DiceSides.D8 ||
-						newDice.sides == SuperiorityDice.DiceSides.D8)
-					? d.sides.D8
-					: d.sides.D6;
+				if (newDice.sides.toString().compareTo(d.sides.toString()) > 0) {
+					d.sides = newDice.sides;
+				}
+				return;
+			}
+		}
+		characterElements.add(newDice);
+	}
+	public void addCharacterElement(UnarmedStrikes newDice) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof UnarmedStrikes) {
+				UnarmedStrikes d = (UnarmedStrikes) e;
+				if (newDice.sides.toString().compareTo(d.sides.toString()) > 0) {
+					d.sides = newDice.sides;
+				}
 				return;
 			}
 		}

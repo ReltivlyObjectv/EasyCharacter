@@ -24,6 +24,7 @@ import tech.relativelyobjective.easycharacter.characterelements.KiAction;
 import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SavingThrowProficiency;
 import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.UnarmedStrikes;
 import tech.relativelyobjective.easycharacter.utilities.AllSpells;
 import tech.relativelyobjective.easycharacter.utilities.InformationManager;
 import tech.relativelyobjective.easycharacter.utilities.ItemLists;
@@ -73,6 +74,7 @@ public class Monk {
 	
 	public static void setup(int level) {
 		if (level >= 1) {
+			InformationManager.addClassElement(new UnarmedStrikes(Lists.Die.D4));
 			InformationManager.addClassElement(new OtherProficiency("Simple Weapons",1));
 			InformationManager.addClassElement(new OtherProficiency("Shortswords",1));
 			InformationManager.addClassElement(
@@ -268,6 +270,7 @@ public class Monk {
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 5) {
+			InformationManager.addClassElement(new UnarmedStrikes(Lists.Die.D6));
 			InformationManager.addClassElement(new Feature(
 				"Extra Attack",
 				"You can attack twice, instead of once, whenver you take the "+
@@ -412,6 +415,7 @@ public class Monk {
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 11) {
+			InformationManager.addClassElement(new UnarmedStrikes(Lists.Die.D8));
 			switch (tradition) {
 				case OPEN_HAND:
 					InformationManager.addClassElement(new Feature(
@@ -511,6 +515,7 @@ public class Monk {
 			WindowManager.getClassTab().updateClassElementsList();
 		}
 		if (level >= 17) {
+			InformationManager.addClassElement(new UnarmedStrikes(Lists.Die.D10));
 			switch (tradition) {
 				case OPEN_HAND:
 					InformationManager.addClassElement(new KiAction(

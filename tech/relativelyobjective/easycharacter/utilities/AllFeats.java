@@ -382,7 +382,7 @@ public class AllFeats {
 			for (Maneuver m : chosenManeuvers) {
 				returnMe.addCharacterElement(m);
 			}
-			returnMe.addCharacterElement(new SuperiorityDice(1, SuperiorityDice.DiceSides.D6));
+			returnMe.addCharacterElement(new SuperiorityDice(1, Lists.Die.D6));
 			return returnMe.getCharacterElements();
 		}
 	};
@@ -658,9 +658,7 @@ public class AllFeats {
 			for (SpellKey s : SpellLists.getClassSpells(spellClass)) {
 				Spell spell = AllSpells.getSpell(s);
 				if (!InformationManager.knowsSpell(spell)) {
-					if (spell.ritual) {
-						unknownSpells.add(spell);
-					}
+					unknownSpells.add(spell);
 				}
 			}
 			TreeSet<Spell> cantrips = new TreeSet<>();
@@ -669,7 +667,7 @@ public class AllFeats {
 					cantrips.add(spell);
 				}
 			}
-			Spell[] cantripsArray = new Spell[cantrips.size()];
+			Spell[] cantripsArray = cantrips.toArray(new Spell[cantrips.size()]);
 			Spell chosenCantrip = MiscPrompts.openSingleObjectChooserPrompt(
 				cantripsArray,
 				cantripsArray[0],
@@ -681,8 +679,23 @@ public class AllFeats {
 	};
 	public static final Feat TAVERN_BRAWLER = new Feat(
 		"Tavern Brawler",
-		""
-	);
+		"When you hit a creature with an unarmed strike or an improvised "
+		+ "weapon on your turn, you can use a bonus action to attempt to "
+		+ "grapple the target."
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			returnMe.addCharacterElement(new OtherProficiency("Improvised Weapons"));
+			returnMe.addCharacterElement(new OtherProficiency("Unarmed Strikes"));
+			returnMe.addCharacterElement(new UnarmedStrikes(Lists.Die.D4));
+			Lists.Ability[] options = {Lists.Ability.STRENGTH, Lists.Ability.CONSTITUTION};
+			for (CharacterElement e : MiscPrompts.openAbilityScoreImprovementPrompt(1, options)) {
+				returnMe.addCharacterElement(e);
+			}
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat TOUGH = new Feat(
 		"Tough",
 		""

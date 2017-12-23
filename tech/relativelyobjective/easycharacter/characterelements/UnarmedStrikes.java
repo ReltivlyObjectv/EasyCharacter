@@ -2,46 +2,31 @@ package tech.relativelyobjective.easycharacter.characterelements;
 
 import tech.relativelyobjective.easycharacter.utilities.Lists.Die;
 import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
-import tech.relativelyobjective.easycharacter.utilities.ObjectIntegerPair;
 
 /**
  *
  * @author Christian Russell (me@relativelyobjective.tech)
  */
-public class SuperiorityDice implements CharacterElement,Comparable {
-	public int count;
+public class UnarmedStrikes implements CharacterElement,Comparable {
 	public Die sides;
 	
-	public SuperiorityDice() {
-		count = 4;
+	public UnarmedStrikes() {
 		sides = Die.D8;
 	}
-	public SuperiorityDice(int c) {
-		count = c;
-		sides = Die.D8;
-	}
-	public SuperiorityDice(int c, Die d) {
-		count = c;
+	public UnarmedStrikes(Die d) {
 		sides = d;
 	}
 	@Override
 	public void edit() {
-		ObjectIntegerPair<Die> newValues = MiscPrompts.openObjectChooserSpinner(
+		sides = MiscPrompts.openSingleObjectChooserPrompt(
 			Die.values(),
 			sides,
-			count,
-			0,
-			10,
-			"Superiority Dice",
-			1
+			"Unarmed Strikes Die"
 		);
-		sides = newValues.object;
-		count = newValues.value;
 	}
 	@Override
 	public String toString() {
-		return String.format("Superiority Dice: %d%s",
-			count,
+		return String.format("Unarmed Strikes Die: %s",
 			sides.toString().toLowerCase()
 		);
 	}

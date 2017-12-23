@@ -356,4 +356,17 @@ public class Lists {
 		"Touch",
 		"60 feet",
 	};
+	public enum Die {
+		D1,
+		D2,
+		D4,
+		D6,
+		D8,
+		D10,
+		D12,
+		D20,
+		D30,
+		D60,
+		D100
+	}
 }
