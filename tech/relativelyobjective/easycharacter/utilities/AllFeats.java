@@ -698,16 +698,45 @@ public class AllFeats {
 	};
 	public static final Feat TOUGH = new Feat(
 		"Tough",
-		""
-	);
+		"You gain an additional 2 Hit Points every time you level up."
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			returnMe.addCharacterElement(new HitPointModifierPerLevel(2));
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static final Feat WAR_CASTER = new Feat(
 		"War Caster",
-		""
+		"You have practiced casting spells in the midst of combat, learning "
+		+ "techniques that grant you the following benefits\n" +
+		"-You have advantage on Constitution saving throws that you make to "
+		+ "maintain your concentration on a spell when you take damage.\n" +
+		"-You can perform the somatic components of spells even when you have "
+		+ "weapons or a shield in one or both hands.\n" +
+		"-When a hostile creature’s movement provokes an opportunity attack "
+		+ "from you, you can use your reaction to cast a spell at the creature, "
+		+ "rather than making an opportunity attack. The spell must have a "
+		+ "casting time of 1 action and must target only that creature. "
 	);
 	public static final Feat WEAPON_MASTER = new Feat(
 		"Weapon Master",
 		""
-	);
+	) {
+		@Override
+		public TreeSet<CharacterElement> getElements() {
+			CharacterElementList returnMe = new CharacterElementList();
+			Lists.Ability[] options = {Lists.Ability.STRENGTH, Lists.Ability.DEXTERITY};
+			for (CharacterElement e : MiscPrompts.openAbilityScoreImprovementPrompt(1, options)) {
+				returnMe.addCharacterElement(e);
+			}
+			for (String s : MiscPrompts.openNStringChooserPrompt(Lists.WEAPONS, 4, "Four Weapon Proficiencies")) {
+				returnMe.addCharacterElement(new OtherProficiency(s));
+			}
+			return returnMe.getCharacterElements();
+		}
+	};
 	public static Feat[] ALL_FEATS = {
 		ALERT,
 		ATHLETE,

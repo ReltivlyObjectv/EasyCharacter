@@ -38,6 +38,8 @@ public class CharacterElementList {
 			addCharacterElement((Feat) e);
 		} else if (e instanceof Feature) {
 			addCharacterElement((Feature) e);
+		} else if (e instanceof HitPointModifierPerLevel) {
+			addCharacterElement((HitPointModifierPerLevel) e);
 		} else if (e instanceof InventoryItem) {
 			addCharacterElement((InventoryItem) e);
 		} else if (e instanceof InitiativeModifier) {
@@ -240,6 +242,16 @@ public class CharacterElementList {
 			}
 		}
 		characterElements.add(newFeature);
+	}
+	public void addCharacterElement(HitPointModifierPerLevel newMod) {
+		for (CharacterElement e : characterElements) {
+			if (e instanceof HitPointModifierPerLevel) {
+				HitPointModifierPerLevel oldMod = (HitPointModifierPerLevel) e;
+				oldMod.mod += newMod.mod;
+				return;
+			}
+		}
+		characterElements.add(newMod);
 	}
 	public void addCharacterElement(InitiativeModifier mod) {
 		for (CharacterElement c : characterElements) {

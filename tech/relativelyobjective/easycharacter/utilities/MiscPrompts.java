@@ -444,4 +444,44 @@ public class MiscPrompts {
 		prompt.setVisible(true);
 		return returnMe;
 	}
+	public static String[] openNStringChooserPrompt(String[] options, int count, String title) {
+		if (count < 1) {
+			throw new IndexOutOfBoundsException("Cannot choose less than one String");
+		}
+		JDialog prompt = new JDialog(WindowManager.getMainFrame(), title, true);
+		prompt.setLayout(new BorderLayout());
+		prompt.setPreferredSize(new Dimension(350, 400));
+		prompt.setSize(prompt.getPreferredSize());
+		prompt.setMaximumSize(prompt.getPreferredSize());
+		prompt.setMinimumSize(prompt.getPreferredSize());
+		JPanel content = new JPanel();
+		content.setLayout(new GridBagLayout());
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		constraints.ipady = 5;
+		constraints.fill = GridBagConstraints.BOTH;
+		JComboBox[] inputs = new JComboBox[count];
+		for (int i = 0; i < count; i++) {
+			inputs[i] = new JComboBox(options);
+			inputs[i].setEditable(true);
+			inputs[i].setPreferredSize(new Dimension(prompt.getPreferredSize().width - 30, 20));
+			content.add(inputs[i], constraints);
+			constraints.gridy++;
+		}
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener((ActionEvent e)->{
+			prompt.dispose();
+		});
+		content.add(saveButton, constraints);
+		JScrollPane scroller = new JScrollPane(content);
+		scroller.setPreferredSize(prompt.getPreferredSize());
+		prompt.add(scroller);
+		prompt.setVisible(true);
+		String[] returnMe = new String[count];
+		for (int i = 0; i < count; i++) {
+			returnMe[i] = (String) inputs[i].getSelectedItem();
+		}
+		return returnMe;
+	}
 }
