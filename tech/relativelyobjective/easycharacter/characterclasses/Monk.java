@@ -105,10 +105,10 @@ public class Monk {
 			InformationManager.addClassElement(new InventoryItem("Shortsword", 1));
 			InformationManager.addClassElement(new InventoryItem("Dart", 10));
 			WindowManager.getClassTab().updateClassElementsList();
-			for (InventoryItem i : ItemLists.openItemPackPrompt(new ItemPack[]{
-				ItemPack.DUNGEONEER, ItemPack.EXPLORER
-				})) {
-				InformationManager.addClassElement(i);
+			ItemPack[] packChoices = {ItemPack.DUNGEONEER, ItemPack.EXPLORER};
+			ItemPack pack = MiscPrompts.openSingleObjectChooserPrompt(packChoices, packChoices[0], "Starting Item Pack");
+			for (InventoryItem p : ItemLists.getItemPack(pack)) {
+				InformationManager.addClassElement(p);
 			}
 			InformationManager.addClassElement(new Feature(
 				"Unarmored Defense",

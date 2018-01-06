@@ -19,11 +19,7 @@ public class ItemLists {
 		PRIEST,
 		SCHOLAR
 	}
-	public static LinkedList<InventoryItem> openItemPackPrompt(ItemPack[] options) {
-		//TODO
-		return getItemPack(options[0]);
-	}
-	private static LinkedList<InventoryItem> getItemPack(ItemPack p) {
+	public static LinkedList<InventoryItem> getItemPack(ItemPack p) {
 		switch (p) {
 			case BURGLAR:
 				return getBurglarsPack();
