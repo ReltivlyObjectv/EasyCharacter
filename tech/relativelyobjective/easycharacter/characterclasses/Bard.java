@@ -1,6 +1,16 @@
 package tech.relativelyobjective.easycharacter.characterclasses;
 
 import tech.relativelyobjective.easycharacter.backgrounds.BackgroundChooser;
+import tech.relativelyobjective.easycharacter.characterelements.InventoryItem;
+import tech.relativelyobjective.easycharacter.characterelements.OtherProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.SavingThrowProficiency;
+import tech.relativelyobjective.easycharacter.characterelements.SkillProficiency;
+import tech.relativelyobjective.easycharacter.utilities.InformationManager;
+import tech.relativelyobjective.easycharacter.utilities.ItemLists;
+import tech.relativelyobjective.easycharacter.utilities.ItemLists.ItemPack;
+import tech.relativelyobjective.easycharacter.utilities.Lists;
+import tech.relativelyobjective.easycharacter.utilities.MiscPrompts;
+import tech.relativelyobjective.easycharacter.utilities.WindowManager;
 
 /**
  *
@@ -9,6 +19,45 @@ import tech.relativelyobjective.easycharacter.backgrounds.BackgroundChooser;
 public class Bard {
 	public static void setup(int level) {
 		if (level >= 1) {
+			InformationManager.addClassElement(new OtherProficiency("Light Armor",1));
+			InformationManager.addClassElement(new OtherProficiency("Simple Weapons",1));
+			InformationManager.addClassElement(new OtherProficiency("Crossbow, Hand",1));
+			InformationManager.addClassElement(new OtherProficiency("Longsword",1));
+			InformationManager.addClassElement(new OtherProficiency("Rapier",1));
+			InformationManager.addClassElement(new OtherProficiency("Shortsword",1));
+			InformationManager.addClassElement(
+				new SavingThrowProficiency(Lists.Ability.DEXTERITY)
+			);
+			InformationManager.addClassElement(
+				new SavingThrowProficiency(Lists.Ability.CHARISMA)
+			);
+			WindowManager.getClassTab().updateClassElementsList();
+			for (Lists.Skill s : ClassChoices.openProficiencyPrompt(Lists.Skill.values(), 3)) {
+				InformationManager.addClassElement(new SkillProficiency(s, 1));
+			}
+			WindowManager.getClassTab().updateClassElementsList();
+			String[] instruments = MiscPrompts.openNStringChooserPrompt(
+				ItemLists.INSTRUMENTS,
+				3,
+				"Instrument Proficiency"
+			);
+			for (String s : instruments) {
+				InformationManager.addClassElement(new OtherProficiency(s));
+			}
+			WindowManager.getClassTab().updateClassElementsList();
+			InformationManager.addClassElement(new InventoryItem(
+				MiscPrompts.openSingleStringChooserPrompt(
+					ItemLists.INSTRUMENTS,
+					"Starting Instrument",
+					true
+				)
+			));
+			WindowManager.getClassTab().updateClassElementsList();
+			ItemPack[] packChoices = {ItemPack.DIPLOMAT, ItemPack.ENTERTAINER};
+			ItemPack pack = MiscPrompts.openSingleObjectChooserPrompt(packChoices, packChoices[0], "Starting Item Pack");
+			for (InventoryItem p : ItemLists.getItemPack(pack)) {
+				InformationManager.addClassElement(p);
+			}
 		}
 		if (level >= 2) {
 			BackgroundChooser.openBackgroundPrompt();
